@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 使用python+blender绘制原子结构示意图 --以黑磷为例 也可以代入其他原子结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用python+blender绘制原子结构示意图--以黑磷为例">
+<meta property="og:url" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 使用python+blender绘制原子结构示意图 --以黑磷为例 也可以代入其他原子结构">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/BP.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/json.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/cs.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/yxh.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/zhuhe.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/zl.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/zh.png">
+<meta property="article:published_time" content="2022-05-09T09:04:29.000Z">
+<meta property="article:modified_time" content="2022-06-05T10:22:43.339Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="blender">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/BP.png">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/","path":"2022/05/09/2022-5/使用python+blender绘制原子结构示意图/","title":"使用python+blender绘制原子结构示意图--以黑磷为例"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用python+blender绘制原子结构示意图--以黑磷为例 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E6%A0%B7%E5%BC%8F"><span class="nav-text">1.结果样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blender%E5%92%8Cbpy"><span class="nav-text">2.blender和bpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%98%E5%9B%BE%E6%AD%A5%E9%AA%A4"><span class="nav-text">3.绘图步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-text">3.1 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85blender"><span class="nav-text">3.1.1 安装blender</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%8F%82%E6%95%B0"><span class="nav-text">3.1.2 计算参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E5%9B%BE%E5%83%8F"><span class="nav-text">3.2 绘制图像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC"><span class="nav-text">3.2.1 执行脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%95%B4%E5%88%97"><span class="nav-text">3.2.2 扩展整列</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用python+blender绘制原子结构示意图--以黑磷为例 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用python+blender绘制原子结构示意图--以黑磷为例
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-09 17:04:29" itemprop="dateCreated datePublished" datetime="2022-05-09T17:04:29+08:00">2022-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-05 18:22:43" itemprop="dateModified" datetime="2022-06-05T18:22:43+08:00">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">科研项目</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE/%E9%BB%91%E7%A3%B7%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1/" itemprop="url" rel="index"><span itemprop="name">黑磷的拉曼光谱</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>使用python+blender绘制原子结构示意图 --以黑磷为例</p>
+<p>也可以代入其他原子结构 <span id="more"></span></p>
+<h2 id="结果样式">1.结果样式</h2>
+<figure>
+<img src="BP.png" alt="黑磷原子结构示意图" />
+<figcaption aria-hidden="true">黑磷原子结构示意图</figcaption>
+</figure>
+<h2 id="blender和bpy">2.blender和bpy</h2>
+<p>Blender是一款免费开源三维图形图像软件，支持python脚本创作。其中bpy库就是用来对其进行操作的。</p>
+<h2 id="绘图步骤">3.绘图步骤</h2>
+<h3 id="准备工作">3.1 准备工作</h3>
+<h4 id="安装blender">3.1.1 安装blender</h4>
+<p>官网： <a
+target="_blank" rel="noopener" href="https://www.blender.org/">https://www.blender.org/</a></p>
+<h4 id="计算参数">3.1.2 计算参数</h4>
+<p>将需要绘制的atoms和bonds写成json文件</p>
+<p>atom有4个元素：原子种类，颜色，半径，位置
+bond有一个列表元素，列表中包含了bond的起始坐标和结束坐标。</p>
+<p>其中前面的名字可以随意写。</p>
+<figure>
+<img src="json.png" alt="输入文件" />
+<figcaption aria-hidden="true">输入文件</figcaption>
+</figure>
+<p>注：这里的数据不是黑磷的真实数据。</p>
+<h3 id="绘制图像">3.2 绘制图像</h3>
+<h4 id="执行脚本">3.2.1 执行脚本</h4>
+<p>打开blender选择常规,可以看见下图画面。</p>
+<figure>
+<img src="cs.png" alt="blender初始界面" />
+<figcaption aria-hidden="true">blender初始界面</figcaption>
+</figure>
+<p>按a，再按del，删除所有元素。</p>
+<p>在编辑-偏好设置里可以改成中文。</p>
+<p>选择上面菜单栏中的Scripting进入脚本编辑工作区</p>
+<p>在右边的区域新建文档将下面的代码复制粘贴进去 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">import bpy</span><br><span class="line">import math</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def cylinder_between(x1, y1, z1, x2, y2, z2, r = 0.1):</span><br><span class="line"></span><br><span class="line">    dx = x2 - x1</span><br><span class="line">    dy = y2 - y1</span><br><span class="line">    dz = z2 - z1    </span><br><span class="line">    dist = math.sqrt(dx**2 + dy**2 + dz**2)</span><br><span class="line"> </span><br><span class="line">    bpy.ops.mesh.primitive_cylinder_add(</span><br><span class="line">        radius = r, </span><br><span class="line">        depth = dist,</span><br><span class="line">        location = (dx/2 + x1, dy/2 + y1, dz/2 + z1)   </span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    phi = math.atan2(dy, dx) </span><br><span class="line">    theta = math.acos(dz/dist) </span><br><span class="line"></span><br><span class="line">    bpy.context.object.rotation_euler[1] = theta </span><br><span class="line">    bpy.context.object.rotation_euler[2] = phi</span><br><span class="line">    </span><br><span class="line">    try:</span><br><span class="line">        bpy.context.object.active_material = bpy.data.materials[&#x27;bond&#x27;]</span><br><span class="line">    except:</span><br><span class="line">        bpy.data.materials.new(name=&#x27;bond&#x27;)</span><br><span class="line">        bpy.data.materials[&#x27;bond&#x27;].diffuse_color = [0.5,0.5,0.5,1]</span><br><span class="line">        bpy.data.materials[&#x27;bond&#x27;].specular_intensity = 0.2</span><br><span class="line">        bpy.context.object.active_material = bpy.data.materials[&#x27;bond&#x27;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def draw_molecule(molecule, center=(0, 0, 0), show_bonds=True, join=False,</span><br><span class="line">                  name=&#x27;molecule&#x27;):</span><br><span class="line"></span><br><span class="line">    collection = bpy.data.collections.new(&#x27;atom&#x27;)</span><br><span class="line">    bpy.context.scene.collection.children.link(collection)</span><br><span class="line">    # add atom primitive</span><br><span class="line">    bpy.ops.object.select_all(action=&#x27;DESELECT&#x27;)</span><br><span class="line">    bpy.ops.mesh.primitive_uv_sphere_add()</span><br><span class="line">    sphere = bpy.context.object</span><br><span class="line">    for key,atom in molecule[&#x27;atoms&#x27;].items():</span><br><span class="line">        if atom[&#x27;element&#x27;] not in bpy.data.materials:</span><br><span class="line">            key = atom[&#x27;element&#x27;]</span><br><span class="line">            bpy.data.materials.new(name=key)</span><br><span class="line">            bpy.data.materials[key].diffuse_color = atom[&#x27;color&#x27;] + [1]</span><br><span class="line">            bpy.data.materials[key].specular_intensity = 0.2</span><br><span class="line">            </span><br><span class="line">        loc = atom[&#x27;location&#x27;]</span><br><span class="line">        atom_sphere = sphere.copy()</span><br><span class="line">        atom_sphere.data = sphere.data.copy()</span><br><span class="line">        atom_sphere.location = [loc[0],loc[1],loc[2]]</span><br><span class="line">        atom_sphere.dimensions = [atom[&#x27;radius&#x27;]*2]*3</span><br><span class="line">        atom_sphere.active_material = bpy.data.materials[atom[&#x27;element&#x27;]]</span><br><span class="line">        collection.objects.link(atom_sphere)</span><br><span class="line">        </span><br><span class="line">    bpy.ops.object.select_all(action=&#x27;DESELECT&#x27;)</span><br><span class="line">    sphere.select_set(True)</span><br><span class="line">    bpy.ops.object.delete()</span><br><span class="line">    </span><br><span class="line">    for key,bond in molecule[&#x27;bonds&#x27;].items():</span><br><span class="line">        s = bond[0]</span><br><span class="line">        e = bond[1]</span><br><span class="line"></span><br><span class="line">        cylinder_between(s[0],s[1],s[2],e[0],e[1],e[2])</span><br><span class="line"></span><br><span class="line">               </span><br><span class="line">    if join:</span><br><span class="line">        bpy.ops.object.select_all(action=&#x27;SELECT&#x27;)</span><br><span class="line">        bpy.ops.object.join()</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    r = 0.3 # radius</span><br><span class="line">    with open(r&#x27;E:\blenderproject\bl3\BP.json&#x27;) as in_file:</span><br><span class="line">        molecule = json.load(in_file)</span><br><span class="line"></span><br><span class="line">    draw_molecule(molecule)</span><br></pre></td></tr></table></figure>
+代码参考参考资料[1,2]中的内容。</p>
+<p>将BP.json的文件路径改为先前创建好的文件的路径。
+一些其他需要修改的地方（bond的半径，颜色等）也可以自行修改。</p>
+<p>点击运行或按alt+P执行程序。可以得到下图：</p>
+<figure>
+<img src="yxh.png" alt="执行后界面" />
+<figcaption aria-hidden="true">执行后界面</figcaption>
+</figure>
+<h4 id="扩展整列">3.2.2 扩展整列</h4>
+<p>切换到layout，选择处于原点的原子。</p>
+<p>按a全选，再按ctrl+j讲所有元素组合</p>
+<figure>
+<img src="zhuhe.png" alt="组合后界面" />
+<figcaption aria-hidden="true">组合后界面</figcaption>
+</figure>
+<p>点击修改器属性，添加阵列修改器，数量选择20，相对位移x改为0.886，其他为0。再添加一个，这个相对偏移上y改为0.886。</p>
+<figure>
+<img src="zl.png" alt="修改阵列" />
+<figcaption aria-hidden="true">修改阵列</figcaption>
+</figure>
+<p>最后shift+a添加面光、平面、相机。选取合适的角度进行渲染拍摄吧。参考资料[3]</p>
+<figure>
+<img src="zh.png" alt="准备拍摄" />
+<figcaption aria-hidden="true">准备拍摄</figcaption>
+</figure>
+<h2 id="参考资料">参考资料</h2>
+<p>[1] github 代码 <a
+target="_blank" rel="noopener" href="https://github.com/patrickfuller/blender-chemicals">blender-chemicals</a></p>
+<p>[2] <a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/dalanjing/p/13090708.html">Blender &amp;
+Python 两点坐标建立圆柱</a></p>
+<p>[3]【Blender科研绘图】<a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ZO2sTGvdaFZVVtLHBd9J2A">案例2-石墨烯</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E7%A0%94/" rel="tag"><i class="fa fa-tag"></i> 科研</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/blender/" rel="tag"><i class="fa fa-tag"></i> blender</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/28/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96%E8%A1%A8%E7%A4%BA/" rel="prev" title="能带理论-紧束缚近似与二次量子化表示">
+                  <i class="fa fa-chevron-left"></i> 能带理论-紧束缚近似与二次量子化表示
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/10/2022-5/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/" rel="next" title="第二次分类整理">
+                  第二次分类整理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">106k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:37</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"3e76fe80731f1b488526f333ea3a0005"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

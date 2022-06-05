@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 紧束缚近似的二次量子化哈密顿量表示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="能带理论-紧束缚近似与二次量子化表示">
+<meta property="og:url" content="https://splendidwave.github.io/2022/04/28/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96%E8%A1%A8%E7%A4%BA/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 紧束缚近似的二次量子化哈密顿量表示">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2022/04/28/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96%E8%A1%A8%E7%A4%BA/twoband1D.png">
+<meta property="article:published_time" content="2022-04-28T03:38:56.000Z">
+<meta property="article:modified_time" content="2022-06-05T10:13:34.808Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="固体物理">
+<meta property="article:tag" content="能带">
+<meta property="article:tag" content="量子力学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2022/04/28/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96%E8%A1%A8%E7%A4%BA/twoband1D.png">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/04/28/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96%E8%A1%A8%E7%A4%BA/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/04/28/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96%E8%A1%A8%E7%A4%BA/","path":"2022/04/28/2022-4/能带理论-紧束缚近似与二次量子化表示/","title":"能带理论-紧束缚近似与二次量子化表示"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>能带理论-紧束缚近似与二次量子化表示 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%91%E8%87%AA%E7%94%B1%E7%94%B5%E5%AD%90%E8%BF%91%E4%BC%BC%E5%92%8C%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC"><span class="nav-text">1.近自由电子近似和紧束缚近似</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96"><span class="nav-text">2.二次量子化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E4%B8%8B%E7%9A%84%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96%E6%96%B9%E6%B3%95%E8%A1%A8%E7%A4%BA%E6%99%B6%E4%BD%93%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F"><span class="nav-text">3.紧束缚近似下的二次量子化方法表示晶体哈密顿量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">4.参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/04/28/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96%E8%A1%A8%E7%A4%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="能带理论-紧束缚近似与二次量子化表示 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          能带理论-紧束缚近似与二次量子化表示
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-28 11:38:56" itemprop="dateCreated datePublished" datetime="2022-04-28T11:38:56+08:00">2022-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-05 18:13:34" itemprop="dateModified" datetime="2022-06-05T18:13:34+08:00">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%A9%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">物理</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>紧束缚近似的二次量子化哈密顿量表示</p>
+<span id="more"></span>
+<h2 id="近自由电子近似和紧束缚近似">1.近自由电子近似和紧束缚近似</h2>
+<p>对于固体这样的多粒子体系，严格求解每个粒子的运动在目前的算力下是不可能的。</p>
+<p>为此物理学家必须通过近似来简化问题，如近自由电子近似，它忽略了电子和电子、电子和晶格离子之间的相互作用，并认为电子是独立和自由的。这样周期性势场的起伏就会比较小，进而先计算零级近似的稳定场，再将周期起伏当作微扰来处理。</p>
+<p>这种近似方法对金属来说效果不错，因为金属本身最外层电子的运动就比较自由，但对于其他固体，甚至是对金属内部的电子，来说近自由电子近似不是很合理。</p>
+<p>而紧束缚近似的出发点是晶体中的原子间距较大，电子受到原子实的紧紧束缚，电子的运动不受到其他势场的影响。所以电子的行为会和孤立原子中电子的行为相似，这也是紧束缚近似也被称为原子轨道线性组合(LCAO)法的原因。</p>
+<p><strong>近自由电子近似和紧束缚近似其实就是考虑了两种极端的近似。</strong></p>
+<p>近自由电子近似有着原子核扰动(perturbation)，紧束缚近似有着原子间的跃迁(hopping).所以都会产生禁带和导带。近自由电子近似使用的是布洛赫表象，紧束缚近似使用的是瓦尼尔表象。</p>
+<p>定量计算绝缘体、化合物、半导体等能带方面，紧束缚近似使用会较多。</p>
+<h2 id="二次量子化">2.二次量子化</h2>
+<p>一次量子化是将物理量变为了算符。</p>
+<p>但对于全同粒子体系，使用坐标表象来表达和计算还是相当繁琐。因为数量比较多了，要给例子编号。</p>
+<p>实际上我们并不关心每一个粒子的状态，要计算的是体系的状态，所以只需要标记出一单粒子态上有多少粒子数就足够了。</p>
+<p>所以物理学家给量子力学打了个补丁叫二次量子化，引入了产生算符和湮灭算符。</p>
+<p><span class="math display">\[
+产生算符: c^{\dagger}\\
+湮灭算符: c
+\]</span></p>
+<p>对于产生和湮灭算符，他们也可在实空间和倒空间进行傅里叶级数展开：</p>
+<p><span class="math display">\[
+\begin{aligned}
+c_{r} &amp;=\frac{1}{\sqrt{N}} \sum_{k} c_{k} e^{i k r} \\
+c_{k} &amp;=\frac{1}{\sqrt{N}} \sum_{r} c_{i} e^{-i k r}
+\end{aligned} \tag{1}
+\]</span></p>
+<p>根据傅里叶级数基底的正交性，又有</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{1}{N} \sum_{k} e^{i k r} e^{-i k r^{\prime}}=\delta_{r r^{\prime}}
+\\
+\frac{1}{N} \sum_{r} e^{i k r} e^{-i k^{\prime} r}=\delta_{k k^{\prime}}
+\end{aligned} \tag{2}
+\]</span></p>
+<h2
+id="紧束缚近似下的二次量子化方法表示晶体哈密顿量">3.紧束缚近似下的二次量子化方法表示晶体哈密顿量</h2>
+<p>晶体的哈密顿量通常由动能势能和晶格间的相互作用能表示，在紧束缚近似下，晶格间相互作用和动能统一考虑为运动项，即跳跃能（hopping），而势能项（在位能
+on site
+energy）没有太大意义，单纯只是增加一个常数。所以可以将哈密顿量写成如下形式。</p>
+<p><span class="math display">\[
+H=\sum_{\langle i, j\rangle} t_{i j} c_{i}^{\dagger} c_{j} \tag{3}
+\]</span></p>
+<p>其中i和j表示不同的晶格，t是跳变参数，&lt;&gt;表示近邻项,虽然远距离跃迁是可以的，但概率比较低，可以选择忽略。两个原子间的相互跃迁在数值上是共轭对，实际上写出一半即可。</p>
+<p>下面用紧束缚模型下的二次量子化的方法来计算一下：</p>
+<p>先写出哈密顿量的表达式</p>
+<p><span class="math display">\[
+H=-t \sum_{n}\left(a_{n}^\dagger b_{n} + b_{n}^\dagger a_{n+1} + h . c
+.\right)+V_{a} \sum_{n} a_{n}^\dagger a_{n}+V_{b} \sum_{n} b_{n}^\dagger
+b_{n}\tag{4}
+\]</span></p>
+<p>第一项是动能项，电子在a，b位置间的跳跃，其中t是常数。后两项是在a或b点的势能，也是常数。h.c.是厄米共轭项。</p>
+<p>现计算第一项：</p>
+<p><span class="math display">\[
+\begin{aligned}
+-t \sum_{n} a_{n}^\dagger b_{n} &amp;=-t \frac{1}{N}
+\sum_{n}\left(\sum_{k} a_{k}^\dagger e^{-i k
+r_{a}}\right)\left(\sum_{k^{\prime}} b_{k^{\prime}} e^{i k^{\prime}
+r_{b}}\right) \\
+&amp;=-t \frac{1}{N} \sum_{n} \sum_{k} \sum_{k^{\prime}} a_{k}^\dagger
+b_{k^{\prime}} e^{-i k r_{a}} e^{i k^{\prime} r_a }e^{i
+k^{\prime}(r_b-r_a)}\\
+&amp;=-t \sum_{k} \sum_{k^{\prime}} a_{k}^\dagger b_{k^{\prime}}
+e^{ik^{\prime} (r_{b}-r_{a})} \delta_{k k^{\prime}} \\
+&amp;=-t \sum_{k} a_{k}^\dagger b_{k} e^{i k\left(r_{b}-r_{a}\right)}
+\end{aligned}\tag{5}
+\]</span></p>
+<p>同理可得 <span class="math display">\[
+-t \sum_{n} b_{n}^\dagger a_{n+1} = -t \sum_{k} b_{k}^\dagger a_{k} e^{i
+k\left(r_{a}-r_{b}\right)}\tag{6}
+\]</span></p>
+<p>假设晶格常数为a，则其中<span class="math inline">\(r_b-r_a =
+\frac{a}{2}\)</span></p>
+<p>对势能项有：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n} a_{n}^\dagger a_{n} &amp;=\frac{1}{N}\sum_{n}\left(\sum_{k}
+a_{k}^\dagger e^{-i k r_{a}}\right)\left(\sum_{k^{\prime}}
+a_{k^{\prime}} e^{i k^{\prime} r_{a}}\right) \\
+&amp;=\frac{1}{N}\sum_{n} \sum_{k} \sum_{k^{\prime}} a_{k}^\dagger
+a_{k^{\prime}} e^{i r_{a}\left(k^{\prime}-k\right)} \\
+&amp;=\sum_{k} a_{k}^\dagger a_{k}
+\end{aligned}\tag{7}
+\]</span></p>
+<p>将所有项代入式(4)</p>
+<p><span class="math display">\[
+\begin{aligned}
+H &amp;=-t \sum_{n}\left(a_{n}^\dagger b_{n}+b_{n}^\dagger a_{n+1}+h . c
+.\right)+V_{a} \sum_{n} a_{n}^\dagger a_{n}+V_{b} \sum_{n} b_{n}^\dagger
+b_{n} \\
+&amp;=\sum_{k}\left(\left(-2 t \cos \left(\frac{k a}{2}\right)\right)
+a_{k}^\dagger b_{k}+\left(-2 t \cos \left(\frac{k a}{2}\right)\right)
+b_{k}^\dagger a_{k}+V_{a} a_{k}^\dagger a_{k}+V_{b} b_{k}^\dagger
+b_{k}\right) \\
+&amp;=\sum_{k}\left[a_{k}^\dagger
+b_{k}^\dagger\right]\left[\begin{array}{cc}
+V_{a} &amp; -2 t \cos \left(\frac{k a}{2}\right) \\
+-2 t \cos \left(\frac{k a}{2}\right) &amp; V_{b}
+\end{array}\right]\left[\begin{array}{l}
+a_{k} \\
+b_{k}
+\end{array}\right]
+\end{aligned}\tag{8}
+\]</span></p>
+<p>其中 <span class="math display">\[
+\left[\begin{array}{cc}
+V_{a} &amp; -2 t \cos \left(\frac{k a}{2}\right) \\
+-2 t \cos \left(\frac{k a}{2}\right) &amp; V_{b}
+\end{array}\right]\tag{9}
+\]</span></p>
+<p>即为一维双原子链的哈密顿量的核，该矩阵的大小由选取的量子态数量决定，该矩阵的特征值求出该矩阵的特征值就可以得到一维双原子链的色散关系。</p>
+<p>使用python求出矩阵的特征值并绘制色散曲线如下： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def h(k):</span><br><span class="line">    h0 = np.zeros((2, 2), dtype=complex)</span><br><span class="line"></span><br><span class="line">    h0[0,0] = 1</span><br><span class="line">    h0[1,1] = 2</span><br><span class="line">   </span><br><span class="line">    h0[0,1] = -2*t*np.cos(k/2)</span><br><span class="line">    h0[1,0] = h0[0,1]</span><br><span class="line"></span><br><span class="line">    return h0</span><br><span class="line"></span><br><span class="line">t = 1.5</span><br><span class="line">la = 1</span><br><span class="line">n_step = 100</span><br><span class="line">k = np.linspace(-np.pi/la, np.pi/la, n_step)</span><br><span class="line">eig = np.zeros((n_step, 2))</span><br><span class="line">for x in range(n_step):</span><br><span class="line">    kx = k[x]</span><br><span class="line">    ham = h(kx)</span><br><span class="line">    eig[x,:], vet = np.linalg.eigh(ham)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.plot(k, eig[:,0], &#x27;-b&#x27;)</span><br><span class="line">plt.plot(k, eig[:,1], &#x27;-r&#x27;)</span><br><span class="line">plt.xlim([-np.pi/la, np.pi/la])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
+<figure>
+<img src="twoband1D.png" alt="一维双原子链色散关系" />
+<figcaption aria-hidden="true">一维双原子链色散关系</figcaption>
+</figure>
+<h2 id="参考资料">4.参考资料</h2>
+<p>[1] 知乎问题 <a
+target="_blank" rel="noopener" href="https://www.zhihu.com/question/65367733">固体物理中，紧束缚近似与近自由近似的区别是什么？</a></p>
+<p>[2] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/115039117">利用傅里叶变换求解能带</a></p>
+<p>[3] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/115039117">固体物理相关的小计算</a></p>
+<p>[3] 固体物理学 黄昆</p>
+<p>[4] 固体理论 第二版 李正中</p>
+<p>[5] 量子力学 曾谨言</p>
+<p>[6] <a
+href="/static/img/能带理论-紧束缚近似与二次量子化表示/chapter5.pdf">Phys620
+Topological insulators Part III: tight-binding models</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BA%E4%BD%93%E7%89%A9%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 固体物理</a>
+              <a href="/tags/%E8%83%BD%E5%B8%A6/" rel="tag"><i class="fa fa-tag"></i> 能带</a>
+              <a href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 量子力学</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/28/2022-4/%E4%BD%BF%E7%94%A8hexo%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E5%92%8C%E6%8E%92%E7%89%88%E9%97%AE%E9%A2%98/" rel="prev" title="使用hexo写博客的公式渲染和排版问题">
+                  <i class="fa fa-chevron-left"></i> 使用hexo写博客的公式渲染和排版问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/" rel="next" title="使用python+blender绘制原子结构示意图--以黑磷为例">
+                  使用python+blender绘制原子结构示意图--以黑磷为例 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">106k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:37</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"75917c6d062254ad3742aa1cf9bf0757"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
