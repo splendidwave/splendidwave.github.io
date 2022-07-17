@@ -160,7 +160,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -171,7 +171,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -215,6 +215,232 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/03/30/2022-3/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/30/2022-3/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B01/" class="post-title-link" itemprop="url">基于python的拉曼光谱多峰拟合程序开发笔记1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-30 10:34:29" itemprop="dateCreated datePublished" datetime="2022-03-30T10:34:29+08:00">2022-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-05 18:04:12" itemprop="dateModified" datetime="2022-06-05T18:04:12+08:00">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%96%87%E5%8C%96%E5%A8%B1%E4%B9%90/" itemprop="url" rel="index"><span itemprop="name">文化娱乐</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%96%87%E5%8C%96%E5%A8%B1%E4%B9%90/%E6%97%A5%E8%AE%B0%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">日记随笔</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="摘要">摘要</h2>
+<p>因为感觉origin在拟合拉曼光谱方面不太好用，而且更喜欢python的绘图风格。</p>
+<p>于是自己写的一个python程序，本文是随着程序开发一同写的，记录一下编程框架和难点，不代表最终版本。</p>
+<p><strong>注意：本文是类似于草稿和日记的笔记，不用作解释代码和介绍程序功能。使用说明会另开文章。</strong>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/30/2022-3/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B01/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/03/26/2022-3/%E9%9B%85%E6%80%9D%E8%80%83%E8%AF%95%E5%B0%8F%E4%BD%9C%E6%96%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/26/2022-3/%E9%9B%85%E6%80%9D%E8%80%83%E8%AF%95%E5%B0%8F%E4%BD%9C%E6%96%87/" class="post-title-link" itemprop="url">雅思考试小作文</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-26 09:31:19" itemprop="dateCreated datePublished" datetime="2022-03-26T09:31:19+08:00">2022-03-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-05 18:07:02" itemprop="dateModified" datetime="2022-06-05T18:07:02+08:00">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%8B%B1%E8%AF%AD/" itemprop="url" rel="index"><span itemprop="name">英语</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="摘要">摘要</h2>
+<p>学习笔记</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/26/2022-3/%E9%9B%85%E6%80%9D%E8%80%83%E8%AF%95%E5%B0%8F%E4%BD%9C%E6%96%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -376,7 +602,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-10 16:32:48" itemprop="dateModified" datetime="2022-05-10T16:32:48+08:00">2022-05-10</time>
+      <time title="修改时间：2022-07-09 19:58:48" itemprop="dateModified" datetime="2022-07-09T19:58:48+08:00">2022-07-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -399,7 +625,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>372</span>
+      <span>366</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1135,230 +1361,6 @@ are less than four digits).
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/01/07/2022-1/C-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-3-set%E5%92%8Cmap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="splendidwave">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SplendidWave'Blog">
-      <meta itemprop="description" content="知者不言 言者不知">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | SplendidWave'Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/07/2022-1/C-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-3-set%E5%92%8Cmap/" class="post-title-link" itemprop="url">C++类型的增删改查(3)--set和map</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-07 10:21:22" itemprop="dateCreated datePublished" datetime="2022-01-07T10:21:22+08:00">2022-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-10 16:31:03" itemprop="dateModified" datetime="2022-05-10T16:31:03+08:00">2022-05-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="摘要">摘要</h2>
-<p>C++入门 结构体 set类型的增删改查 map类型的增删改查
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/07/2022-1/C-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-3-set%E5%92%8Cmap/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/01/06/2022-1/C-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-2-string/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="splendidwave">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SplendidWave'Blog">
-      <meta itemprop="description" content="知者不言 言者不知">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | SplendidWave'Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/06/2022-1/C-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-2-string/" class="post-title-link" itemprop="url">C++类型的增删改查(2)--string</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-06 11:02:14" itemprop="dateCreated datePublished" datetime="2022-01-06T11:02:14+08:00">2022-01-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-10 16:30:57" itemprop="dateModified" datetime="2022-05-10T16:30:57+08:00">2022-05-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="摘要">摘要</h2>
-<p>C++入门 bool、引用 string类的增删改查
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/06/2022-1/C-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-2-string/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1383,13 +1385,13 @@ are less than four digits).
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">115k</span>
+    <span title="站点总字数">121k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:45</span>
+    <span title="站点阅读时长">1:50</span>
   </span>
 </div>
 

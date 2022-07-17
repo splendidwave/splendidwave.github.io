@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言 VASP一共有4个输入文件，分别为：POSCAR、INCAR、KPOINTS和POTCAR。其中POSCAR为结构文件，KPOINTS为K点文件，POTCAR是赝势文件。而INCAR决定了做什么计算以及如何做此次计算。  查询参数功能, 输入网站 + 参数名 https:&#x2F;&#x2F;www.vasp.at&#x2F;wiki&#x2F;index.php&#x2F; + 参数名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VASP输入文件INCAR速查">
+<meta property="og:url" content="https://splendidwave.github.io/2022/07/17/2022-7/VASP%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6INCAR%E9%80%9F%E6%9F%A5/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="前言 VASP一共有4个输入文件，分别为：POSCAR、INCAR、KPOINTS和POTCAR。其中POSCAR为结构文件，KPOINTS为K点文件，POTCAR是赝势文件。而INCAR决定了做什么计算以及如何做此次计算。  查询参数功能, 输入网站 + 参数名 https:&#x2F;&#x2F;www.vasp.at&#x2F;wiki&#x2F;index.php&#x2F; + 参数名">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-17T02:12:10.000Z">
+<meta property="article:modified_time" content="2022-07-17T12:13:07.404Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="VASP">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/07/17/2022-7/VASP%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6INCAR%E9%80%9F%E6%9F%A5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/07/17/2022-7/VASP%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6INCAR%E9%80%9F%E6%9F%A5/","path":"2022/07/17/2022-7/VASP输入文件INCAR速查/","title":"VASP输入文件INCAR速查"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>VASP输入文件INCAR速查 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96-opt"><span class="nav-text">结构优化 OPT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="nav-text">基础设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E8%AE%BE%E7%BD%AE"><span class="nav-text">计算精度设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E8%A7%82%E8%AE%BE%E7%BD%AE"><span class="nav-text">宏观设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E5%AD%90%E5%BC%9B%E8%B1%AB%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE"><span class="nav-text">离子弛豫相关设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E6%B1%87%E6%80%BB"><span class="nav-text">参数汇总</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E6%B4%BD-scf"><span class="nav-text">自洽 SCF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E6%B1%87%E6%80%BB-1"><span class="nav-text">参数汇总</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%9E%E8%87%AA%E6%81%B0%E8%BF%90%E7%AE%97-nscf"><span class="nav-text">非自恰运算 NSCF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%BD%E5%B8%A6%E7%BB%93%E6%9E%84%E8%BF%90%E7%AE%97"><span class="nav-text">能带结构运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/07/17/2022-7/VASP%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6INCAR%E9%80%9F%E6%9F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="VASP输入文件INCAR速查 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VASP输入文件INCAR速查
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-07-17 10:12:10 / 修改时间：20:13:07" itemprop="dateCreated datePublished" datetime="2022-07-17T10:12:10+08:00">2022-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%A9%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">物理</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言">前言</h1>
+<p>VASP一共有4个输入文件，分别为：POSCAR、INCAR、KPOINTS和POTCAR。其中POSCAR为结构文件，KPOINTS为K点文件，POTCAR是赝势文件。<strong>而INCAR决定了做什么计算以及如何做此次计算。</strong></p>
+<blockquote>
+<p>查询参数功能, 输入网站 + <em>参数名</em>
+https://www.vasp.at/wiki/index.php/ + <em>参数名</em></p>
+</blockquote>
+<span id="more"></span>
+<p>下面按第一性原理计算的一般步骤（结构优化、自洽计算、非自洽计算）展示INCAR参数应该如何设置。等于号(=)后面为在该步骤的推荐设置。</p>
+<h1 id="结构优化-opt">结构优化 OPT</h1>
+<p>主要用来计算体系结构，原子位置。</p>
+<h2 id="基础设置">基础设置</h2>
+<p><strong>1、ISTART</strong></p>
+<p><strong>控制如何生成初始波函数</strong> * 0：随机生成波函数 * 1 :
+从WAVECAR中读取波函数，当读取失败时，会随机生成</p>
+<p>= 0</p>
+<p><strong>2、ISPIN</strong></p>
+<p><strong>是否打开自旋</strong> * 1: 非自旋极化计算 * 2:
+打开自旋极化计算</p>
+<p>=2</p>
+<p><strong>3、 ICHAGE</strong></p>
+<p><strong>控制如何生成初始电荷密度</strong> *
+0：读取WAVECAR生成电荷密度，当读取失败时，通过原子电荷密度叠加生成初始电荷密度
+* 1：从CHGCAR中的设定读取电荷密度 *
+2：通过原子电荷密度的叠加方法，生成初始的猜测电荷密度 *
+11：从CHGCAR读取电荷密度，且在自洽循环中保持不变，适用于非自洽循环计算，如电子态密度的计算</p>
+<p>=2</p>
+<p><strong>4、 LWAVE/LCHARG</strong></p>
+<p><strong>控制是否输出波函数(WAVECAR)和电荷密度(CHGCAR)</strong> * .T.:
+写波函数和电荷密度 * .F.: 不写波函数和电荷密度</p>
+<p>=.F.</p>
+<h2 id="计算精度设置">计算精度设置</h2>
+<p><strong>1、ENCUT</strong></p>
+<p><strong>平面波截断能，控制用多少平面波展开波函数</strong>
+推荐设置为POTCAR（赝势文件）中参数ENMAX值的1.0-1.3倍，从而兼顾计算的精度与效率。</p>
+<p>=500</p>
+<p><strong>2、PREC</strong></p>
+<p><strong>总体计算精度控制</strong></p>
+<ul>
+<li>Accurate: 准确</li>
+<li>Normal: 一般</li>
+</ul>
+<p>默认为Normal</p>
+<p>= Accurate</p>
+<p><strong>3、ADDGRID</strong></p>
+<p><strong>是否开启网格</strong> * .TRUE. : 开启 * .FALSE. : 关闭</p>
+<p>=.TRUE.</p>
+<p><strong>4、NPAR</strong></p>
+<p><strong>核数</strong></p>
+<p>别写,用默认的就行</p>
+<p><strong>3、LORBIT</strong></p>
+<p><strong>总态密度投影</strong></p>
+<p>11: 每一个原子对应的轨道的贡献输出到OUTCAR里</p>
+<p>=11</p>
+<h2 id="宏观设置">宏观设置</h2>
+<p><strong>1、ISMEAR</strong></p>
+<p><strong>设置展宽方法，决定如何进行电子轨道分数占据</strong> * 0:
+Gaussian smearing * −1: Fermi smearing</p>
+<p>金属可以设置为1</p>
+<p>=0</p>
+<p><strong>2、SIGMA</strong></p>
+<p><strong>展宽的宽度，与ISMEAR联用</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">半导体 设置为 0.05</span><br><span class="line">金属 设置为 0.02</span><br><span class="line"></span><br><span class="line">小 -&gt; 大</span><br><span class="line">态密度平滑 -&gt; 态密度尖锐</span><br></pre></td></tr></table></figure>
+<p>单位为eV，默认值为0.2</p>
+<p>=0.05</p>
+<p><strong>3、NELM</strong></p>
+<p><strong>自洽迭代循环的最大次数</strong></p>
+<p>一般在150-300</p>
+<p>=300</p>
+<p><strong>4、NELMIN</strong></p>
+<p><strong>自洽迭代循环的最小次数</strong></p>
+<p>一般在4-6</p>
+<p>=6</p>
+<p><strong>5、EDIFF</strong></p>
+<p><strong>自洽迭代循环收敛标准，单位为eV</strong></p>
+<p>一般在1E-05 - 1E-06</p>
+<p>= 1E-06</p>
+<h2 id="离子弛豫相关设置">离子弛豫相关设置</h2>
+<p><strong>1、NSW</strong></p>
+<p><strong>最大步数</strong></p>
+<p>=100</p>
+<p><strong>2、IBRION</strong></p>
+<p><strong>离子步弛豫（离子位置优化）算法</strong> * 0：分子动力学模拟 *
+1：准牛顿法 * 2：共轭梯度法 * 5：振动频率计算 * 6：弹性常数计算</p>
+<p>=2</p>
+<p><strong>3、ISIF</strong></p>
+<p><strong>离子步弛豫控制</strong></p>
+<ul>
+<li>2： 晶胞大小不变，原子位置动</li>
+<li>3： 晶胞大小改变，原子位置动，晶胞体积变</li>
+<li>4： 晶胞大小改变，原子位置动，晶胞体积不变（多用于一二维体系）</li>
+</ul>
+<p>=4</p>
+<p><strong>4、EDIFFG</strong></p>
+<p><strong>离子弛豫中断</strong></p>
+<p>=-1E-03</p>
+<p><strong>5、ISYM</strong></p>
+<p><strong>对称</strong></p>
+<ul>
+<li>0: 不打开对称</li>
+<li>2: 打开对称</li>
+</ul>
+<p>=0</p>
+<p><strong>6、MAGMOM</strong></p>
+<p><strong>对于磁性材料，设置初始原子磁矩</strong>
+默认值是每个原子的磁矩均为1
+对于含有d、f轨道的原子，需根据原子核外电子排布情况设置相应的数值
+可以设置每个原子初始磁矩方向，正值为自旋向上，负值为自旋向下。</p>
+<p>根据POSCAR修改</p>
+<p><strong>7、IVDW</strong></p>
+<p><strong>范德华力计算方法，在DFT能量计算基础上增加范德华力修正</strong>
+* 10：DFT-D2方法 * 11：DFT-D3方法</p>
+<p>=11</p>
+<h2 id="参数汇总">参数汇总</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">ISTART = 0 </span><br><span class="line">ISPIN =  2 </span><br><span class="line">ICHARG = 2 </span><br><span class="line">LWAVE  = .F.</span><br><span class="line">LCHARG = .F.</span><br><span class="line">ENCUT = 500</span><br><span class="line"># PREC =  Accurate        (Precision level)   Normal / Accurate</span><br><span class="line"># ADDGRID = .TRUE.        (Increase grid; helps GGA convergence) </span><br><span class="line"># NPAR = 4 	</span><br><span class="line">LORBIT = 11</span><br><span class="line"></span><br><span class="line">ISMEAR =  0</span><br><span class="line">SIGMA  =  0.05</span><br><span class="line">NELM =  300</span><br><span class="line">NELMIN =  6</span><br><span class="line">EDIFF = 1E-06</span><br><span class="line"></span><br><span class="line">NSW =  100</span><br><span class="line">IBRION	=  2</span><br><span class="line">ISIF =  4</span><br><span class="line">EDIFFG = -1E-03</span><br><span class="line">ISYM =  0</span><br><span class="line">POTIM = 0.2</span><br><span class="line">IVDW = 11</span><br></pre></td></tr></table></figure>
+<h1 id="自洽-scf">自洽 SCF</h1>
+<p>电荷密度 波函数</p>
+<p>参数基本与上一步骤相同</p>
+<p><strong>1、NEDOS</strong></p>
+<p><strong>态密度数据点个数</strong> 通常设置1000-3000</p>
+<p>=3001</p>
+<p><strong>2、NSW</strong></p>
+<p>cp CONTCAR POSCAR</p>
+<p>不做结构优化</p>
+<p>= 0</p>
+<h2 id="参数汇总-1">参数汇总</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Global Parameters</span><br><span class="line">ISTART = 0</span><br><span class="line">ISPIN =  2</span><br><span class="line">ICHARG = 2</span><br><span class="line">ENCUT  =  500</span><br><span class="line">PREC =  Accurate</span><br><span class="line">EDIFF  = 1E-08 </span><br><span class="line">ADDGRID = .TRUE. </span><br><span class="line">LWAVE  = .T.        </span><br><span class="line">LCHARG = .T.</span><br><span class="line"># NPAR = 4</span><br><span class="line">LORBIT = 11</span><br><span class="line">NEDOS = 3001</span><br><span class="line"> </span><br><span class="line">ISMEAR =  0 </span><br><span class="line">SIGMA  =  0.05</span><br><span class="line">NELM =  300</span><br><span class="line">NELMIN =  6</span><br><span class="line"> </span><br><span class="line">NSW =  0</span><br><span class="line">IBRION =  -1</span><br><span class="line"># ISIF   =  3</span><br><span class="line"># EDIFFG = -1E-03</span><br><span class="line">ISYM =  0</span><br><span class="line">POTIM = 0.2</span><br><span class="line"> </span><br><span class="line"># LSORBIT = .TRUE.    (Activate SOC)</span><br><span class="line"># GGA_COMPAT = .FALSE.   (Apply spherical cutoff on gradient field)</span><br><span class="line"># LMAXMIX =  4        (For d elements increase LMAXMIX to 4, f: LMAXMIX = 6)</span><br><span class="line"># SAXIS =  0 0 1    (Direction of the magnetic field)</span><br><span class="line"> </span><br><span class="line">IVDW = 11</span><br></pre></td></tr></table></figure>
+<h1 id="非自恰运算-nscf">非自恰运算 NSCF</h1>
+<p>band dos 磁矩</p>
+<h2 id="能带结构运算">能带结构运算</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">ISTART = 1</span><br><span class="line">ISPIN =  2</span><br><span class="line">ICHARG = 11</span><br><span class="line">ENCUT  =  500</span><br><span class="line">PREC = Accurate</span><br><span class="line">EDIFF  = 1E-08</span><br><span class="line">ADDGRID= .TRUE.</span><br><span class="line">LWAVE  = .F.</span><br><span class="line">LCHARG = .F.</span><br><span class="line">LORBIT = 11</span><br><span class="line"> </span><br><span class="line">ISMEAR =  0</span><br><span class="line">SIGMA  =  0.02</span><br><span class="line">NELM   =  300</span><br><span class="line">NELMIN =  6</span><br><span class="line"> </span><br><span class="line">NSW    =  0</span><br><span class="line">IBRION =  -1</span><br><span class="line"># ISIF   =  3</span><br><span class="line"># EDIFFG = -1E-03        (Ionic convergence; eV/AA)</span><br><span class="line">ISYM =  0</span><br><span class="line">POTIM = 0.2</span><br><span class="line"></span><br><span class="line">IVDW = 11   ##vdw forces</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料">参考资料</h1>
+<p>[1] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/151725218">VASP软件
+INCAR文件参数含义速查表</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/07/17/2022-7/VASP%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6INCAR%E9%80%9F%E6%9F%A5/" title="VASP输入文件INCAR速查">https://splendidwave.github.io/2022/07/17/2022-7/VASP输入文件INCAR速查/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/VASP/" rel="tag"><i class="fa fa-tag"></i> VASP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/13/2022-6/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_Hatree_Fock%E6%96%B9%E6%B3%95/" rel="prev" title="密度泛函理论-Hatree-Fock方法">
+                  <i class="fa fa-chevron-left"></i> 密度泛函理论-Hatree-Fock方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/17/2022-7/VASP%E8%AE%A1%E7%AE%97%E5%8D%95%E5%B1%82%E9%BB%91%E7%A3%B7%E8%83%BD%E5%B8%A6(PBE)/" rel="next" title="VASP计算单层黑磷能带(PBE)">
+                  VASP计算单层黑磷能带(PBE) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">121k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:50</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"e7c6cbe0c3b8809082e629843ac56d41"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
