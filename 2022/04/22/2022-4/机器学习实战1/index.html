@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 《机器学习实战：基于Scikit-Learn和TensorFlow》学习笔记 加州房价">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习实战1">
+<meta property="og:url" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 《机器学习实战：基于Scikit-Learn和TensorFlow》学习笔记 加州房价">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/jqxxgl.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/head.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/sandian.png">
+<meta property="article:published_time" content="2022-04-22T03:06:20.000Z">
+<meta property="article:modified_time" content="2022-06-05T10:10:14.000Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/jqxxgl.png">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/","path":"2022/04/22/2022-4/机器学习实战1/","title":"机器学习实战1"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>机器学习实战1 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%A7%88"><span class="nav-text">1.机器学习概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE--%E5%8A%A0%E5%B7%9E%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B"><span class="nav-text">2.机器学习项目--加州房价预测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%82%E5%AF%9F%E5%A4%A7%E5%B1%80"><span class="nav-text">2.1 观察大局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-text">2.2 获取数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">快速查看数据的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%AD%E8%8E%B7%E5%BE%97%E6%B4%9E%E8%A7%81"><span class="nav-text">2.3
+从数据探索和可视化中获得洞见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="nav-text">2.4 机器学习算法的数据准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E5%A4%84%E7%90%86"><span class="nav-text">2.4.1 数值处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86"><span class="nav-text">2.4.2 文本处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E7%BC%A9%E6%94%BE"><span class="nav-text">2.4.3 特征缩放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text">2.4.4 转换流水线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%92%8C%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.5 选择和训练模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.5.1 建立模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="nav-text">2.5.2 交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.5.2 保存模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E8%B0%83%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.6 微调模型</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="机器学习实战1 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习实战1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-22 11:06:20" itemprop="dateCreated datePublished" datetime="2022-04-22T11:06:20+08:00">2022-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-05 18:10:14" itemprop="dateModified" datetime="2022-06-05T18:10:14+08:00">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>《机器学习实战：基于Scikit-Learn和TensorFlow》学习笔记</p>
+<p>加州房价 <span id="more"></span></p>
+<h2 id="机器学习概览">1.机器学习概览</h2>
+<figure>
+<img src="jqxxgl.png" alt="机器学习概览" />
+<figcaption aria-hidden="true">机器学习概览</figcaption>
+</figure>
+<h2 id="机器学习项目--加州房价预测">2.机器学习项目--加州房价预测</h2>
+<p>假设你是一个房地产公司最近新雇佣的数据科学家，你需要根据加州房价数据集建立一个房价模型，使其能预测任意区域的房价中位数。</p>
+<p>以下是你可能需要经历的步骤流程</p>
+<ol type="1">
+<li>观察大局</li>
+<li>获得数据</li>
+<li>从数据探索和可视化中获得洞见</li>
+<li>机器学习算法的数据准备</li>
+<li>选择和训练模型</li>
+<li>微调模型</li>
+<li>展示解决方案</li>
+<li>启动、监控和维护系统</li>
+</ol>
+<h3 id="观察大局">2.1 观察大局</h3>
+<p>首先我们需要明确目标，输入和输出是什么？数据是否包含结果？数据是否会更新？</p>
+<p>这些问题会决定你的机器学习模型应该是什么样的。输入是人口收入中位数等信息，显然这应该设定为监督式学习，房价数据肯定会更新，但变化不快，批量学习也能接受。</p>
+<p>对于房价预测问题，有接触过机器学习的应该都能看出这就是一个典型的多元回归任务。</p>
+<p>接下来应该选取一个合适的性能指标，回归问题的典型衡量指标是均方根误差（RMSE），计算公式如下</p>
+<p><span class="math display">\[
+RMSE(\mathbf{X},h) =
+\sqrt[]{\frac{1}{m}\sum_{i=1}^{m}(h(\mathbf{x}^{\left ( i \right )
+})-y^{(i)} )^2  }  
+\]</span></p>
+<p>其中h()是预测函数，<span
+class="math inline">\(\mathbf{x}^{(i)}\)</span>是指数据集中第i个实例的所有特征值向量。<span
+class="math inline">\(y^{(i)}\)</span>是标签值。</p>
+<p>所以<span class="math inline">\(h(\mathbf{x}^{\left ( i \right )
+})\)</span>是预测值，它和标签值的差的平方可以被当作偏离误差。也是机器学习中常用的标准。如果不开根号就叫做均方根误差（MSE）</p>
+<p>另一个常用的是平均绝对误差（MAE）公式如下：</p>
+<p><span class="math display">\[
+MAE(\mathbf{X},h) = \frac{1}{m}\sum_{i=1}^{m}\left |
+(h(\mathbf{x}^{\left ( i \right ) })-y^{(i)} )   \right |
+\]</span></p>
+<h3 id="获取数据">2.2 获取数据</h3>
+<p>数据文件<a href="housing.csv">点击下载</a></p>
+<p>我这里直接用的jupyter</p>
+<p>使用pandas库加载数据，使用head()方法快速参看前5行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">def loading_housing_data():</span><br><span class="line">    csv_data = pd.read_csv(r&#x27;datasets\housing\housing.csv&#x27;)</span><br><span class="line">    return csv_data</span><br><span class="line"></span><br><span class="line">housing = loading_housing_data()</span><br><span class="line">housing.head()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="head.png" alt="查看数据" />
+<figcaption aria-hidden="true">查看数据</figcaption>
+</figure>
+<p>可以看出数据共有10个属性，使用info()方法可以查看属性类型及数量,describe()方法可以显示属性值摘要。</p>
+<p>使用value_counts()方法可以查看该列又多少种分类。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;housing[&#x27;ocean_proximity&#x27;].value_counts()</span><br><span class="line">output:</span><br><span class="line">&lt;1H OCEAN     9136</span><br><span class="line">INLAND        6551</span><br><span class="line">NEAR OCEAN    2658</span><br><span class="line">NEAR BAY      2290</span><br><span class="line">ISLAND           5</span><br><span class="line">Name: ocean_proximity, dtype: int64</span><br></pre></td></tr></table></figure></p>
+<p>使用matplotlib库可以快速绘制直方图 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">housing.hist(bins = 50,figsize=(20,15))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+bin是指每张图的柱子个数，figsize是图片大小。</p>
+<h4 id="快速查看数据的方法">快速查看数据的方法</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">housing.head() # 前5行</span><br><span class="line">housing.info() # 查看属性类型及数量</span><br><span class="line">housing.describe() # 显示属性值摘要</span><br><span class="line">housing[&#x27;ocean_proximity&#x27;].value_counts() # 查看分类</span><br><span class="line">housing.hist(bins = 50,figsize=(20,15)) # 绘制直方图</span><br></pre></td></tr></table></figure>
+<hr />
+<p>在浏览完数据后，就需要划分训练集和测试集。在数量庞大的情况下可以选择随机划分，为保证每次运行的训练集和测试集相同，最好是分完就保存或者设定一个随机数种子。</p>
+<p>另一个方法是更具标识符来划分，这样新增的数据可以通过打标识来解决，而前面的不需要变化。常用的标识符是哈希值。</p>
+<p>以上讨论的都是随机划分，但有时候这样做选出来的数据不够典型。以房价为例，房价和人居收入必然是紧密联系的，我们应当在各个收入阶层都选出按照原数据比例选出。</p>
+<p>为此我们不妨新增一个属性，起名叫“income_cat”，将人群按收入高低划分为5类
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">housing[&quot;income_cat&quot;] = np.ceil(housing[&quot;median_income&quot;]/1.5)</span><br><span class="line">housing[&quot;income_cat&quot;].where(housing[&quot;income_cat&quot;]&lt;5,5.0,inplace=True)</span><br></pre></td></tr></table></figure> 现在使用Scikit-learn的StratifiedShuffle
+Split类进行分层抽样。 #### 使用Split类进行分层抽样 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import StratifiedShuffleSplit</span><br><span class="line"></span><br><span class="line">split = StratifiedShuffleSplit(n_splits=1,test_size=0.2,random_state=42)</span><br><span class="line">for train_index,test_index in split.split(housing,housing[&quot;income_cat&quot;]):</span><br><span class="line">    strat_train_set = housing.loc[train_index]</span><br><span class="line">    strat_test_set = housing.loc[test_index]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+参数n_splits 是将训练数据分成train/test对的组数。</p>
+<p>参数test_size和train_size是用来设置train/test对中train和test所占的比例。</p>
+<p>参数random_state控制随机。</p>
+<p>使用下面命令查看是否根据收入比例分配 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">housing[&quot;income_cat&quot;].value_counts()/len(housing)</span><br><span class="line">strat_train_set[&quot;income_cat&quot;].value_counts()/len(strat_train_set)</span><br></pre></td></tr></table></figure>
+完成后删去"income_cat"恢复原始数据 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for set in (strat_train_set,strat_test_set):</span><br><span class="line">    set.drop([&quot;income_cat&quot;],axis=1,inplace=True)</span><br></pre></td></tr></table></figure></p>
+<h3 id="从数据探索和可视化中获得洞见">2.3
+从数据探索和可视化中获得洞见</h3>
+<p>分配好训练集和测试集后，我们需要对数据有更深入的洞察，先创建一个训练集副本
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">housing = strat_train_set.copy()</span><br></pre></td></tr></table></figure> 在房价问题中，不妨先用热力图看下地图信息 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">housing.plot(kind=&quot;scatter&quot;,x=&quot;longitude&quot;,y=&quot;latitude&quot;,alpha=0.4,</span><br><span class="line">            s=housing[&quot;population&quot;]/100,label=&quot;population&quot;,</span><br><span class="line">            c=&quot;median_house_value&quot;,cmap=plt.get_cmap(&quot;jet&quot;),colorbar=True,</span><br><span class="line">            )</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure>
+上面参数s指size，c指color，cmap是配色方案。</p>
+<figure>
+<img src="sandian.png" alt="高密度区域可视化" />
+<figcaption aria-hidden="true">高密度区域可视化</figcaption>
+</figure>
+<p>可以看出，靠近西海岸的房价会比较高。</p>
+<p>由于数据集不大，可以使用corr()方法计算出属性间的相关性 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">corr_matrix = housing.corr()</span><br><span class="line">corr_matrix[&quot;median_house_value&quot;].sort_values(ascending=False)</span><br><span class="line">coutput:</span><br><span class="line">median_house_value    1.000000</span><br><span class="line">median_income         0.687151</span><br><span class="line">total_rooms           0.135140</span><br><span class="line">housing_median_age    0.114146</span><br><span class="line">households            0.064590</span><br><span class="line">total_bedrooms        0.047781</span><br><span class="line">population           -0.026882</span><br><span class="line">longitude            -0.047466</span><br><span class="line">latitude             -0.142673</span><br><span class="line">Name: median_house_value, dtype: float64</span><br></pre></td></tr></table></figure>
+相关系数是-1到1之间的值，越接近1说明有越强的正相关性；越接近-1有越强的负相关性；越接近0说明越不相关。</p>
+<p>试验不同属性的组合。在获得数据的相关性后，我们也可以自行构建数据，比如“房间总数”没什么用，但它除以“家庭户数”就可以得到平均一家有多少房间，同样“卧室总数”也可以这么处理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">housing[&quot;rooms_per_household&quot;] = housing[&quot;total_rooms&quot;]/housing[&quot;households&quot;]</span><br><span class="line">housing[&quot;bedrooms_per_room&quot;] = housing[&quot;total_bedrooms&quot;]/housing[&quot;total_rooms&quot;]</span><br><span class="line">housing[&quot;population_per_household&quot;] = housing[&quot;population&quot;]/housing[&quot;households&quot;]</span><br></pre></td></tr></table></figure>
+<p>再处理完后可以再参看一次相关性 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">output:</span><br><span class="line">median_house_value          1.000000</span><br><span class="line">median_income               0.687151</span><br><span class="line">rooms_per_household         0.146255</span><br><span class="line">total_rooms                 0.135140</span><br><span class="line">housing_median_age          0.114146</span><br><span class="line">households                  0.064590</span><br><span class="line">total_bedrooms              0.047781</span><br><span class="line">population_per_household   -0.021991</span><br><span class="line">population                 -0.026882</span><br><span class="line">longitude                  -0.047466</span><br><span class="line">latitude                   -0.142673</span><br><span class="line">bedrooms_per_room          -0.259952</span><br><span class="line">Name: median_house_value, dtype: float64</span><br></pre></td></tr></table></figure></p>
+<p>看起来结果还可以，到了这一步我希望能将我的工作保存一下，当后面对数据进行一些处理后，我还能把这个自己组合出来的数据算出来。为此我应该建立一个函数或者是类。恰好scikit-learn已经提供了一些基础类型，只需要调用TransformerMixin和BaseEstimator作为基类，然后创建fit和transform方法。就可以将这一过程变为自定义转换器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.base import BaseEstimator,TransformerMixin</span><br><span class="line">rooms_ix,bedrooms_ix,population_ix,household_ix = 3,4,5,6</span><br><span class="line">class CombinedAttributesAdder(BaseEstimator,TransformerMixin):</span><br><span class="line">    def __init__(self, add_bedrooms_per_room = True):#no *args or **kargs</span><br><span class="line">        self.add_bedrooms_per_room = add_bedrooms_per_room</span><br><span class="line">    def fit(self, X, y=None):</span><br><span class="line">        return self  # nothing else to do</span><br><span class="line">    def transform(self, X, y=None):</span><br><span class="line">        rooms_per_household = X[:, rooms_ix] / X[:, household_ix]</span><br><span class="line">        population_per_household = X[:, population_ix] / X[:, household_ix]</span><br><span class="line">        if self.add_bedrooms_per_room:</span><br><span class="line">            bedrooms_per_room = X[:, bedrooms_ix] / X[:, rooms_ix]</span><br><span class="line">            return np.c_[X, rooms_per_household, population_per_household,</span><br><span class="line">                         bedrooms_per_room]</span><br><span class="line">        else:</span><br><span class="line">            return np.c_[X, rooms_per_household, population_per_household]</span><br></pre></td></tr></table></figure>
+<p>其中np.c_是按列合并array</p>
+<h3 id="机器学习算法的数据准备">2.4 机器学习算法的数据准备</h3>
+<p>这一步需要我们对数据开始正式处理，前面的都只是在观察，先回到一个干净的数据集,drop()方法会创建一个副本，不会影响到训练集。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">housing = strat_train_set.drop(&quot;median_house_value&quot;,axis=1)</span><br><span class="line">housing_labels = strat_train_set[&quot;median_house_value&quot;].copy()</span><br></pre></td></tr></table></figure></p>
+<h4 id="数值处理">2.4.1 数值处理</h4>
+<p>下一步就是数据清理，因为有限属性存在部分数据缺失，解决方法有三种 1.
+放弃该行数据 2. 放弃该列数据 3. 补全该数据</p>
+<p>放弃改行可以使用<code>housing.dropna(subset=["total_bedrooms"])</code></p>
+<p>放弃该列可以使用<code>housing.drop("toatl_bedrooms",axis=1)</code></p>
+<p>补全可以使用中位数、平均值、或直接用0进行补全
+<code>housing["total_bedrooms"].fillna(median)</code></p>
+<p>对于补全scikit-learn还提供了imputer类来辅助处理。
+这里版本问题，代码和书上略有不同 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.impute import SimpleImputer</span><br><span class="line">imputer = SimpleImputer(strategy=&quot;median&quot;)</span><br><span class="line">housing_num = housing.drop(&quot;ocean_proximity&quot;,axis=1) # 把文本属性的先去除</span><br><span class="line">imputer.fit(housing_num) # 计算出所有拟补全数据</span><br></pre></td></tr></table></figure>
+可以使用<code>imputer.statistics_</code>参看各列的拟补全数据。</p>
+<p>现在可以补全数据并加回文本属性数据 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X = imputer.transform(housing_num)</span><br><span class="line">housing_tr = pd.DataFrame(X,columns=housing_num.columns)</span><br></pre></td></tr></table></figure></p>
+<h4 id="文本处理">2.4.2 文本处理</h4>
+<p>现在完成了数据的补全，但对于文本信息我们还没进行处理，计算机对于数字更敏感，所以我们最好把文本信息转换为数字。</p>
+<p>scikit-learn中的LabelEncoder刚好可以处理这个问题： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.preprocessing import LabelEncoder</span><br><span class="line">encoder = LabelEncoder()</span><br><span class="line">housing_cat = housing[&quot;ocean_proximity&quot;]</span><br><span class="line">housing_cat_encoded = encoder.fit_transform(housing_cat)</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>encoder.classes_</code>查看映射</p>
+<p>但这种直接的编码方法不是很好，比如海岛和近海的属性比较像，但数值却一个为0一个为4，为解决这个方法，我们可以使用OneHotEncoder进行独热编码，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.preprocessing import OneHotEncoder</span><br><span class="line">encoder = OneHotEncoder()</span><br><span class="line">housing_cat_1hot = encoder.fit_transform(housing_cat_encoded.reshape(-1,1))</span><br><span class="line">housing_cat_1hot</span><br></pre></td></tr></table></figure>
+<p>reshape(-1,1)中的-1指未设定行数，程序自动分配。</p>
+<p>使用LabelBinarizer可以直接一步到位 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.preprocessing import LabelBinarizer</span><br><span class="line">encoder = LabelBinarizer(sparse_output=True)</span><br><span class="line">housing_cat_1hot= encoder.fit_transform(housing_cat)</span><br><span class="line">housing_cat_1hot</span><br></pre></td></tr></table></figure></p>
+<p>清洗好数据之后，我们可以利用之前编写的类将自定义的属性添加进来。</p>
+<h4 id="特征缩放">2.4.3 特征缩放</h4>
+<p>特征缩放也是数据处理中的重要一环，如果有部分数据数值过大，很有可能会影响到结果，最好是参数范围差不多。</p>
+<p>常用缩放方法有两种： 1. 最小-最大放缩</p>
+<pre><code>这种方法又称为归一化，是将数据映射为0-1之间。实现方法是（目标值-最小值）/（最大值-最小值）</code></pre>
+<ol start="2" type="1">
+<li><p>标准化</p>
+<p>标准化的均值总是为0，计算方法是（m-mean）/方差，它受异常值的影响会笔记小。</p></li>
+</ol>
+<h4 id="转换流水线">2.4.4 转换流水线</h4>
+<p>在数据清洗和处理的过程都是按照一个顺序进行的，很像工厂里的流水线，scikit-learn正好提供了Pipeline来支持这样的处理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.pipeline import Pipeline</span><br><span class="line">from sklearn.preprocessing import StandardScaler</span><br><span class="line"> </span><br><span class="line">num_pipeline = Pipeline([</span><br><span class="line">        (&#x27;imputer&#x27;, SimpleImputer(strategy=&quot;median&quot;)),</span><br><span class="line">        (&#x27;attribs_adder&#x27;, CombinedAttributesAdder()),</span><br><span class="line">        (&#x27;std_scaler&#x27;, StandardScaler()),#标准化转换器</span><br><span class="line">    ])</span><br><span class="line"> </span><br><span class="line">housing_num_tr = num_pipeline.fit_transform(housing_num)</span><br></pre></td></tr></table></figure>
+<p>这时候不妨回头看一下这些过程，第一个是补全，使用的SimpleImputer类，第二个是自定义的CombinedAttributesAdder类，第三个是标准化缩放类StandardScaler</p>
+<p>它们都被要求有fit_transform()方法。考虑到scikit-learn不支持DataFrame，为此我们可能会需要用到一个df转ndarray的类。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.base import BaseEstimator, TransformerMixin</span><br><span class="line"></span><br><span class="line">class DataFrameSelector(BaseEstimator, TransformerMixin):</span><br><span class="line">    def __init__(self, attribute_names):</span><br><span class="line">        self.attribute_names=attribute_names</span><br><span class="line">    def fit(self, X, y=None):</span><br><span class="line">        return self</span><br><span class="line">    def transform(self, X):</span><br><span class="line">        return X[self.attribute_names].values</span><br></pre></td></tr></table></figure>
+<p>然后把处理文本的流水线也加进来，额外的使用一个ColumnTransformer类来并行处理这些数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.compose import ColumnTransformer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">num_attribs = list(housing_num)</span><br><span class="line">cat_attribs = [&quot;ocean_proximity&quot;]</span><br><span class="line"></span><br><span class="line">num_pipeline = Pipeline([</span><br><span class="line">    (&#x27;selector&#x27;,DataFrameSelector(num_attribs)),</span><br><span class="line">    (&#x27;imputer&#x27;, SimpleImputer(strategy=&quot;median&quot;)),</span><br><span class="line">    (&#x27;attribs_adder&#x27;, CombinedAttributesAdder()),</span><br><span class="line">    (&#x27;std_scaler&#x27;, StandardScaler()),#标准化转换器</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">cat_pipeline = Pipeline([</span><br><span class="line">    (&#x27;selector&#x27;,DataFrameSelector(cat_attribs)),</span><br><span class="line">    (&#x27;label_binarizer&#x27;,LabelBinarizer()),</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">full_pipeline = ColumnTransformer([</span><br><span class="line">        (&quot;num&quot;, num_pipeline, num_attribs),</span><br><span class="line">        (&quot;cat&quot;, OneHotEncoder(), cat_attribs),</span><br><span class="line">    ])</span><br><span class="line"> </span><br><span class="line">housing_prepared = full_pipeline.fit_transform(housing)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="选择和训练模型">2.5 选择和训练模型</h3>
+<h4 id="建立模型">2.5.1 建立模型</h4>
+<p>目前我们已经可以自动化洗数据了，接下来我们应该整一个回归模型！</p>
+<p>先来个线性回归看看 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.linear_model import LinearRegression</span><br><span class="line"></span><br><span class="line">lin_reg = LinearRegression()</span><br><span class="line">lin_reg.fit(housing_prepared, housing_labels)</span><br></pre></td></tr></table></figure>
+训练好了，使用均方根误差看看效果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.metrics import mean_squared_error</span><br><span class="line">housing_predictions = lin_reg.predict(housing_prepared)</span><br><span class="line">lin_mse = mean_squared_error(housing_labels, housing_predictions)</span><br><span class="line">lin_rmse=np.sqrt(lin_mse)</span><br><span class="line">lin_rmse</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">68627.87390018745</span><br></pre></td></tr></table></figure>
+<p>emmm,貌似效果不太行，要不换成决策树？ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.tree import DecisionTreeRegressor</span><br><span class="line">tree_reg = DecisionTreeRegressor()</span><br><span class="line">tree_reg.fit(housing_prepared, housing_labels)</span><br><span class="line">housing_predictions = tree_reg.predict(housing_prepared)</span><br><span class="line">tree_mse = mean_squared_error(housing_labels, housing_predictions)</span><br><span class="line">tree_rmse = np.sqrt(tree_mse)</span><br><span class="line">tree_rmse</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">0.0</span><br></pre></td></tr></table></figure>
+emmm,没有误差也太假了，看来是过拟合了。</p>
+<h4 id="交叉验证">2.5.2 交叉验证</h4>
+<p>注意，这时候我们还没有动测试集，我们也不应该动。评估决策树模型还可以使用交叉验证，以下是k-折交叉验证的方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import cross_val_score</span><br><span class="line">scores = cross_val_score(tree_reg, housing_prepared, housing_labels, scoring = &#x27;neg_mean_squared_error&#x27;,cv=10)</span><br><span class="line">tree_rmse_scores = np.sqrt(-scores)</span><br><span class="line"></span><br><span class="line">def display_scrores(scores):</span><br><span class="line">    print(&quot;scores:&quot;,scores)</span><br><span class="line">    print(&quot;Mean:&quot;,scores.mean())</span><br><span class="line">    print(&quot;standard dviation:&quot;,scores.std())</span><br><span class="line"></span><br><span class="line">display_scrores(tree_rmse_scores)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">scores: [73138.67517572 71506.36370902 68525.17513869 71289.0410928</span><br><span class="line"> 68730.16014932 78124.19174839 70826.82238157 75178.21352962</span><br><span class="line"> 68631.28499359 70483.13744005]</span><br><span class="line">Mean: 71643.30653587906</span><br><span class="line">standard dviation: 2935.505119383448</span><br></pre></td></tr></table></figure>
+<p>和线性回归做个对比</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">lin_scores = cross_val_score(lin_reg,housing_prepared,housing_labels,scoring=&#x27;neg_mean_squared_error&#x27;,cv=10)</span><br><span class="line">lin_rmse_scores = np.sqrt(-lin_scores)</span><br><span class="line"></span><br><span class="line">display_scrores(lin_rmse_scores)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">scores: [71762.76364394 64114.99166359 67771.17124356 68635.19072082</span><br><span class="line"> 66846.14089488 72528.03725385 73997.08050233 68802.33629334</span><br><span class="line"> 66443.28836884 70139.79923956]</span><br><span class="line">Mean: 69104.07998247063</span><br><span class="line">standard dviation: 2880.3282098180666</span><br></pre></td></tr></table></figure>
+<p>两者半斤八两。</p>
+<p>再来试试随机森林 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.ensemble import RandomForestRegressor</span><br><span class="line">forest_reg = RandomForestRegressor()</span><br><span class="line"></span><br><span class="line">forest_reg.fit(housing_prepared, housing_labels)</span><br><span class="line">housing_predictions = forest_reg.predict(housing_prepared)</span><br><span class="line">forest_rmse = np.sqrt(mean_squared_error(housing_labels, housing_predictions))</span><br><span class="line">forest_rmse</span><br><span class="line"></span><br><span class="line">forest_rmse_scores = cross_val_score(forest_reg,housing_prepared,housing_labels,scoring=&#x27;neg_mean_squared_error&#x27;,cv=10)</span><br><span class="line">forest_rmse_scores = np.sqrt(-forest_rmse_scores)</span><br><span class="line">display_scrores(forest_rmse_scores)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">scores: [51437.73602527 49070.23768941 46719.25099192 52092.63291424</span><br><span class="line"> 47390.46029858 51348.37861955 52067.85418266 49650.99947482</span><br><span class="line"> 48476.17361121 54240.18337563]</span><br><span class="line">Mean: 50249.39071832983</span><br><span class="line">standard dviation: 2253.416487488719</span><br></pre></td></tr></table></figure></p>
+<p>略好一筹。</p>
+<h4 id="保存模型">2.5.2 保存模型</h4>
+<p>尝试过的模型应该好好保存，因为你永远不知道哪个模型是最好的。记得还得保存一下训练参数，joblib就用来是保存的库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import joblib</span><br><span class="line"></span><br><span class="line">joblib.dump(forest_reg,&quot;随机森林.pkl&quot;) # 保存</span><br><span class="line"></span><br><span class="line">my_model_loaded = joblib.load(&quot;随机森林.pkl&quot;) # 读取</span><br></pre></td></tr></table></figure>
+<h3 id="微调模型">2.6 微调模型</h3>
+<p>微调的一种方法是网格搜索，它会尝试多个超参数的值来找到最佳的组合，这里简单看一下即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import GridSearchCV</span><br><span class="line">param_grid = [</span><br><span class="line">    &#123;&#x27;n_estimators&#x27;:[3,10,30], &#x27;max_features&#x27;:[2,4,6,8]&#125;,</span><br><span class="line">    &#123;&#x27;bootstrap&#x27;:[False],&#x27;n_estimators&#x27;:[3,10],&#x27;max_features&#x27;:[2,3,4]&#125;,</span><br><span class="line">]</span><br><span class="line">forest_reg = RandomForestRegressor()</span><br><span class="line">grid_search = GridSearchCV(forest_reg, param_grid, cv=5,scoring=&#x27;neg_mean_squared_error&#x27;)</span><br><span class="line">grid_search.fit(housing_prepared, housing_labels)</span><br></pre></td></tr></table></figure>
+<p>neg_mean_squared_error 是负均方根</p>
+<hr />
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/" title="机器学习实战1">https://splendidwave.github.io/2022/04/22/2022-4/机器学习实战1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/22/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E5%B8%83%E6%B4%9B%E8%B5%AB%E5%92%8C%E7%93%A6%E5%B0%BC%E5%B0%94/" rel="prev" title="能带理论-布洛赫和瓦尼尔">
+                  <i class="fa fa-chevron-left"></i> 能带理论-布洛赫和瓦尼尔
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/28/2022-4/%E4%BD%BF%E7%94%A8hexo%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E5%92%8C%E6%8E%92%E7%89%88%E9%97%AE%E9%A2%98/" rel="next" title="使用hexo写博客的公式渲染和排版问题">
+                  使用hexo写博客的公式渲染和排版问题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"07bb27fbe4f90f0f3d2768b95fc91f7b"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

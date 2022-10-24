@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 泛函简介，从费马原理出发利用泛函介绍了光为什么沿直线传播，光的折射定律。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="密度泛函理论-泛函">
+<meta property="og:url" content="https://splendidwave.github.io/2022/05/27/2022-5/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_%E6%B3%9B%E5%87%BD/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 泛函简介，从费马原理出发利用泛函介绍了光为什么沿直线传播，光的折射定律。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/27/2022-5/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_%E6%B3%9B%E5%87%BD/sujiang.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/05/27/2022-5/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_%E6%B3%9B%E5%87%BD/zheshe.png">
+<meta property="article:published_time" content="2022-05-27T03:42:50.000Z">
+<meta property="article:modified_time" content="2022-06-05T10:15:02.000Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="光学">
+<meta property="article:tag" content="能带">
+<meta property="article:tag" content="密度泛函理论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2022/05/27/2022-5/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_%E6%B3%9B%E5%87%BD/sujiang.png">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/05/27/2022-5/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_%E6%B3%9B%E5%87%BD/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/05/27/2022-5/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_%E6%B3%9B%E5%87%BD/","path":"2022/05/27/2022-5/密度泛函理论_泛函/","title":"密度泛函理论-泛函"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>密度泛函理论-泛函 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B3%9B%E5%87%BD"><span class="nav-text">1.什么是泛函？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%87%BD%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-text">2.泛函有什么用？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%89%E5%9C%A8%E5%9D%87%E5%8C%80%E4%BB%8B%E8%B4%A8%E4%B8%AD%E8%B5%B0%E7%9A%84%E6%98%AF%E7%9B%B4%E7%BA%BF"><span class="nav-text">2.1 光在均匀介质中走的是直线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%89%E7%9A%84%E6%8A%98%E5%B0%84%E5%AE%9A%E5%BE%8B"><span class="nav-text">2.2 光的折射定律</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/05/27/2022-5/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_%E6%B3%9B%E5%87%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="密度泛函理论-泛函 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          密度泛函理论-泛函
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-27 11:42:50" itemprop="dateCreated datePublished" datetime="2022-05-27T11:42:50+08:00">2022-05-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-05 18:15:02" itemprop="dateModified" datetime="2022-06-05T18:15:02+08:00">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%A9%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">物理</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>泛函简介，从费马原理出发利用泛函介绍了光为什么沿直线传播，光的折射定律。</p>
+<span id="more"></span>
+<h2 id="什么是泛函">1.什么是泛函？</h2>
+<p>如果一个函数的变量也是一个函数，则称为泛函。</p>
+<p>泛函就是函数的函数。</p>
+<h2 id="泛函有什么用">2.泛函有什么用？</h2>
+<p>我们都知道微分是指函数(f(x))在某一点处（dx<span
+class="math inline">\(\approx\)</span>无穷小）的变化量。</p>
+<p>泛函的微分那就不能叫这么土的名字了，得换个有b格的名字，叫做<strong>变分</strong>，泛函的自变量也得换个名字叫<strong>宗量</strong></p>
+<p>提到变分，肯定绕不开大名鼎鼎的<strong>变分法</strong>，变分法讲的最多的是最速降线的问题，但实际上伯努利的解法参考了光学中的费马原理。</p>
+<p>费马原理说的是：过两个定点的光总走光程的一阶变分为零的路径。[2]</p>
+<figure>
+<img src="sujiang.png" alt="最速降线问题" />
+<figcaption aria-hidden="true">最速降线问题</figcaption>
+</figure>
+<p>图来自参考资料[3]</p>
+<p>假设在xy平面存在折射率为n(y)的介质（这里可以理解为有很多层不同的介质）光线从原点出发，会选择走那条路径？</p>
+<p>我们都知道光程是折射率乘光线在介质中走过的路程，所以有光程S为： <span
+class="math display">\[
+\begin{aligned}
+S &amp;=\int n(y) \sqrt{(d x)^{2}+(d y)^{2}} \\
+&amp;=\int n(y) \sqrt{1+\left(\frac{d y}{d x}\right)^{2}} d x \\
+&amp;=\int n(y) \sqrt{1+\left(y^{\prime}\right)^{2}} d x
+\end{aligned}\tag{1}
+\]</span></p>
+<p>我们令 <span class="math display">\[
+L\left(y, y^{\prime}\right) = n(y)
+\sqrt{1+\left(y^{\prime}\right)^{2}}\tag{2}
+\]</span></p>
+<p>又因为是从A点积分到B点，光程可以表达为下述简洁的模式： <span
+class="math display">\[
+S = \int_{A}^{B} d x L\left(y, y^{\prime}\right)\tag{3}
+\]</span></p>
+<p>光经过的路线可以写作<span
+class="math inline">\(y=f(x)\)</span>这样一个函数，可以看出光程S是以y为宗量的泛函，所以只要将光程的一阶变分写出来，根据费马原理它等于0，求解出<span
+class="math inline">\(f(x)\)</span>就解完了。</p>
+<p>所以一阶变分怎么写呢？我们知道变分是泛函的微分。微分是函数的微小变化，先看宗量如果发生了微小变化<span
+class="math inline">\(\delta y(x)\)</span></p>
+<p>那么 <span class="math display">\[
+\delta L\left(y, y^{\prime}\right) = \frac{\partial L}{\partial y}
+\delta y+\frac{\partial L}{\partial y^{\prime}} \delta y^{\prime}\tag{4}
+\]</span></p>
+<p>光程的变分为 <span class="math display">\[
+\begin{aligned}
+\delta S[y(x)] &amp;=\int_{A}^{B} d x \delta L\left(y, y^{\prime}\right)
+\\
+&amp;=\int_{A}^{B} d x\left[\frac{\partial L}{\partial y} \delta
+y+\frac{\partial L}{\partial y^{\prime}}(\delta y)^{\prime}\right] \\
+\end{aligned}\tag{5}
+\]</span></p>
+<p>上式第二项中可以写作<span class="math inline">\(\frac{\partial
+L}{\partial y^\prime} \frac{\mathrm{d}(\delta y)}{\mathrm{d}
+x}\)</span>对该项使用分部积分得</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{A}^{B} \frac{\partial L}{\partial y^{\prime}} \delta y^{\prime}
+\mathrm{d} x &amp;=\int_{A}^{B} \frac{\partial L}{\partial y^{\prime}}
+\mathrm{d}(\delta y) \\
+&amp;=\left.\frac{\partial L}{\partial y^{\prime}} \delta y\right|_{A}
+^{B}-\int_{A}^{B} \delta y \frac{\mathrm{d}}{\mathrm{d}
+x}\left(\frac{\partial L}{\partial y^{\prime}}\right) \mathrm{d} x
+\end{aligned}\tag{6}
+\]</span></p>
+<p>又因为断点固定所以有两段变分为零。即 <span class="math display">\[
+\delta y(A)=\delta y(B)=0\tag{7}
+\]</span></p>
+<p>代入回式(5)有 <span class="math display">\[
+\delta S[y(x)]=\int_{a}^{b} d x\left[\frac{\partial L}{\partial
+y}-\frac{d}{d x}\left(\frac{\partial L}{\partial
+y^{\prime}}\right)\right] \delta y \tag{8}
+\]</span></p>
+<p>要想让光程的变分为0，则有 <span class="math display">\[
+\frac{\partial L}{\partial y}-\frac{d}{d x}\left(\frac{\partial
+L}{\partial y^{\prime}}\right) = 0\tag{9}
+\]</span></p>
+<p>注意，我这里始终没有把L的具体函数代入，也就是说这个方程是一个通用的方程。实际上这就是著名的<strong>欧拉-拉格朗日方程</strong>。费马原理其实是物理中的最小作用量原理。利用变分法我们就可以在物理学世界嘎嘎乱杀。比如说</p>
+<h3 id="光在均匀介质中走的是直线">2.1 光在均匀介质中走的是直线</h3>
+<p>我们有<span class="math inline">\(n(y)=n\)</span>，<span
+class="math inline">\(L=n\sqrt{1+\left(y^{\prime}\right)^{2}}\)</span>可得</p>
+<p><span class="math display">\[
+\frac{\partial L}{\partial y}=0, \quad \frac{\partial L}{\partial
+y^{\prime}}=\frac{ny^{\prime}}{\sqrt{1+y^{\prime 2}}}\tag{10}
+\]</span></p>
+<p>代回公式(9)</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}
+x}\left(\frac{ny^{\prime}}{\sqrt{1+y^{\prime 2}}}\right)=0\tag{11}
+\]</span></p>
+<p>显而易见解为<span class="math inline">\(y(x) = k
+x+c\)</span>是一条直线，</p>
+<h3 id="光的折射定律">2.2 光的折射定律</h3>
+<p>光为什么会发生折射，我们现在知道了光在均匀介质中沿直线传播，假设光平行于xy平面入射介质在<span
+class="math inline">\(y=0\)</span>处交接，设光线在x轴的交点为<span
+class="math inline">\((x,0)\)</span>，则点AB间的光程可以写作。</p>
+<p><span class="math display">\[
+\begin{aligned}
+S &amp; = n_{1} \sqrt{y_{1}^{2}+(x-x_1)^{2}}\\
+&amp; + n_{2} \sqrt{y_{2}^{2}+(x_2-x)^{2}}
+\end{aligned}\tag{12}
+\]</span></p>
+<figure>
+<img src="zheshe.png" alt="折射" />
+<figcaption aria-hidden="true">折射</figcaption>
+</figure>
+<p>光程的变分为零即为<span class="math inline">\(\frac{dS}{dx} =
+0\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d S}{d x} &amp; = n_{1}
+\frac{x-x_{1}}{\sqrt{y_{1}^{2}+\left(x-x_{1}\right)^{2}}}\\
+&amp;- n_{2} \frac{x_{2}-x}{\sqrt{y_{2}^{2}+\left(x_{2}-x\right)^{2}}}
+\\
+&amp; = 0
+\end{aligned}\tag{13}
+\]</span></p>
+<p>所以有 <span class="math display">\[
+n_{1} \sin i_{1}-n_{2} \sin i_{2}=0\tag{14}
+\]</span></p>
+<h2 id="参考资料">参考资料</h2>
+<p>[1] 密度泛函理论 胡英 刘洪来</p>
+<p>[2] <a
+target="_blank" rel="noopener" href="https://www.guokr.com/article/59377/">献给业余数学之王：澄清对费马原理的误解</a></p>
+<p>[3] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/102780316">1、开篇——最速降线经典问题</a></p>
+<p>[4] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139018146">浅谈变分原理</a></p>
+<p>[5] 陈童老师的<a
+target="_blank" rel="noopener" href="https://newquanta.com/%e3%80%8a%e7%90%86%e8%ae%ba%e5%8a%9b%e5%ad%a6%e6%96%b0%e8%ae%b2%e3%80%8b%e4%b8%8b%e8%bd%bd/">理论力学新讲</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/05/27/2022-5/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_%E6%B3%9B%E5%87%BD/" title="密度泛函理论-泛函">https://splendidwave.github.io/2022/05/27/2022-5/密度泛函理论_泛函/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%85%89%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 光学</a>
+              <a href="/tags/%E8%83%BD%E5%B8%A6/" rel="tag"><i class="fa fa-tag"></i> 能带</a>
+              <a href="/tags/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i> 密度泛函理论</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/24/2022-5/%E8%AE%B0%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%B4%A9%E6%BA%83/" rel="prev" title="记博客第一次崩溃">
+                  <i class="fa fa-chevron-left"></i> 记博客第一次崩溃
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/28/2022-5/%E4%BD%BF%E7%94%A8git%E7%AE%A1%E7%90%86GitHub%E5%A4%87%E5%BF%98%E5%BD%95/" rel="next" title="使用git管理GitHub（备忘录）">
+                  使用git管理GitHub（备忘录） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"8121b3de2d593e9a5ed588e18bd1cc4d"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

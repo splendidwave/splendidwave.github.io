@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 能带理论是研究固体中电子运动的主要理论基础，本文主要介绍了能带论中的布洛赫函数和瓦尼尔函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="能带理论-布洛赫和瓦尼尔">
+<meta property="og:url" content="https://splendidwave.github.io/2022/04/22/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E5%B8%83%E6%B4%9B%E8%B5%AB%E5%92%8C%E7%93%A6%E5%B0%BC%E5%B0%94/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 能带理论是研究固体中电子运动的主要理论基础，本文主要介绍了能带论中的布洛赫函数和瓦尼尔函数。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-22T01:07:56.000Z">
+<meta property="article:modified_time" content="2022-05-10T08:33:34.000Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="固体物理">
+<meta property="article:tag" content="能带">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/04/22/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E5%B8%83%E6%B4%9B%E8%B5%AB%E5%92%8C%E7%93%A6%E5%B0%BC%E5%B0%94/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/04/22/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E5%B8%83%E6%B4%9B%E8%B5%AB%E5%92%8C%E7%93%A6%E5%B0%BC%E5%B0%94/","path":"2022/04/22/2022-4/能带理论-布洛赫和瓦尼尔/","title":"能带理论-布洛赫和瓦尼尔"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>能带理论-布洛赫和瓦尼尔 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%A0%BC%E7%9F%A2%E5%92%8C%E5%80%92%E6%A0%BC%E7%9F%A2"><span class="nav-text">1.正格矢和倒格矢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E6%B4%9B%E8%B5%AB%E5%87%BD%E6%95%B0"><span class="nav-text">2.布洛赫函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%93%A6%E5%B0%BC%E5%B0%94%E5%87%BD%E6%95%B0"><span class="nav-text">3.瓦尼尔函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">4.参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/04/22/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E5%B8%83%E6%B4%9B%E8%B5%AB%E5%92%8C%E7%93%A6%E5%B0%BC%E5%B0%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="能带理论-布洛赫和瓦尼尔 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          能带理论-布洛赫和瓦尼尔
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-22 09:07:56" itemprop="dateCreated datePublished" datetime="2022-04-22T09:07:56+08:00">2022-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-10 16:33:34" itemprop="dateModified" datetime="2022-05-10T16:33:34+08:00">2022-05-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%A9%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">物理</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>能带理论是研究固体中电子运动的主要理论基础，本文主要介绍了能带论中的布洛赫函数和瓦尼尔函数。</p>
+<span id="more"></span>
+<h2 id="正格矢和倒格矢">1.正格矢和倒格矢</h2>
+<p>在三维晶体中，任一格点可以用正格矢来表示</p>
+<p><span class="math display">\[
+\mathbf{R}_l=l_1 \mathbf{a}_1+l_2 \mathbf{a}_2+l_3
+\mathbf{a}_3=\sum_{i=1}^{3} l_i \mathbf{a}_i \tag{1.1}
+\]</span></p>
+<p>其中<span class="math inline">\(l_1\)</span>、<span
+class="math inline">\(l_2\)</span>、<span
+class="math inline">\(l_3\)</span>取所有整数，<span
+class="math inline">\(\mathbf{a}_1\)</span>、<span
+class="math inline">\(\mathbf{a}_2\)</span>、<span
+class="math inline">\(\mathbf{a}_3\)</span>为点阵的基矢，题目构成的平行六面体叫元胞。</p>
+<p>在实空间正格矢固然足以表示晶体的性质，但未免有些效率低下。因为晶体呈现出的是一个周期性结构，假设实空间中某点的势场可以用<span
+class="math inline">\(f(r)\)</span>来描述，那我们有 <span
+class="math display">\[
+f(r) = f(r+R_l)\tag{1.2}
+\]</span></p>
+<p>当晶体中周期性结构数以万万计的时候，这种表示方法就太啰嗦了，物理学家总是喜欢偷懒的，能少写绝不多写，处理周期性函数的方法第一个想到的肯定是傅里叶变换，但时域的傅里叶变换是频域，空域的傅里叶变换是什么？答案是波矢k，时间t变到频域f实际上是取了个倒数，而空间(长度)的倒数就是波数k，因为<span
+class="math inline">\(k=\frac{2\pi}{\lambda}\)</span></p>
+<p>用波矢k来表示那可真是太好不过了，因为晶体中的电子、声子等元激发都是用波矢量来描述的，既然是倒数，那我们不妨称这个空间为倒空间。</p>
+<p>物理学上是这样定义倒格矢的 <span class="math display">\[
+\begin{aligned}
+\mathbf{b}_{1} &amp;=2 \pi \frac{\mathbf{a_{2}} \times
+\mathbf{a_{3}}}{\mathbf{a_{1}}\cdot \left[\mathbf{a_{2}}\times
+\mathbf{a_{3}}\right]} \\
+\mathbf{b}_{2} &amp;=2 \pi \frac{\mathbf{a_{3}} \times
+\mathbf{a_{1}}}{\mathbf{a_{1}} \cdot \left[\mathbf{a_{2}} \times
+\mathbf{a_{3}}\right]} \\
+\mathbf{b}_{3} &amp;=2 \pi \frac{\mathbf{a_{1}}
+\times\mathbf{a_{2}}}{\mathbf{a_{1}} \cdot \left[\mathbf{a_{2}} \times
+\mathbf{a_{3}}\right]}
+\end{aligned}\tag{1.3}
+\]</span></p>
+<p><span class="math inline">\(\Omega = a_1 \bullet [a_2 \times
+a_3]\)</span>是元胞的体积， <span class="math inline">\(a_2 \times
+a_3\)</span>是面积，相除刚好是长度的倒数。
+于是倒空间的任一格点可以表示为</p>
+<p><span class="math display">\[
+\mathbf{G}=m_{1} \mathbf{b}_{1}+m_{2} \mathbf{b}_{2}+m_{3}
+\mathbf{b}_{3}=\sum_{i=1}^{3} l_{i} \mathbf{b}_{i} \tag{1.4}
+\]</span></p>
+<p>另外正反格矢之间的关系为 <span class="math display">\[
+\mathbf{a_{i}} \cdot \mathbf{b_{i}}=2 \pi \delta_{i
+j}\left\{\begin{array}{l}
+=2 \pi, i=j \\
+=0, i \neq j
+\end{array}, \quad(i, j=1,2,3)\right.\tag{1.5}
+\]</span></p>
+<h2 id="布洛赫函数">2.布洛赫函数</h2>
+<p>布洛赫定理指出，当势场具有晶格周期性结构时，波动方程的解具有如下形势：
+<span class="math display">\[
+\psi\left(r+R_{n}\right)=e^{i \bar{k} \cdot R_{n}} \psi(r)\tag{2.1}
+\]</span></p>
+<p>其中<span class="math inline">\(\bar{k}\)</span>是简约波矢。</p>
+<p><strong>下面给出证明：</strong></p>
+<p>对于一个任意的函数<span
+class="math inline">\(f(r)\)</span>,我们可以对其进行平移操作，平移算符为<span
+class="math inline">\(T_\alpha\)</span> <span class="math display">\[
+T_\alpha f(r) = f(r+\mathbf{a}_{\alpha}),\alpha = 1,2,3. \tag{2.2}
+\]</span></p>
+<p>显然对于三个正格矢方向的平移算符是相互对易的。现证明单电子的哈密顿量<span
+class="math inline">\(H=
+-\frac{\hbar^2}{2m}\nabla^2+V(r)\)</span>与平移算符对易</p>
+<p><span class="math display">\[
+\begin{align}
+T_\alpha H f &amp;=
+[-\frac{\hbar^2}{2m}\nabla^2_{r+\alpha_\alpha}+V(r+\alpha_\alpha)]f(r+\alpha_\alpha)\nonumber
+\\
+&amp;= [-\frac{\hbar^2}{2m}\nabla^2_r+V(r)]f(r+\alpha_\alpha)\nonumber
+\\
+&amp;= HT_\alpha f(r)\nonumber
+\end{align}\tag{2.3}
+\]</span></p>
+<p>由量子力学的对易关系可知，哈密顿量和平移算符有着相同的本征态<span
+class="math inline">\(\psi\)</span>。</p>
+<p>又可根据波恩-卡曼条件有<span class="math inline">\(\psi\left(r+N_i
+a_i\right)=\psi(r),(i=1,2,3)\)</span>.这里原胞总数<span
+class="math inline">\(N= N_1N_2N_3\)</span>，<span
+class="math inline">\(N_i\)</span>即沿基矢<span
+class="math inline">\(a_i\)</span>方向数得的晶体中原胞个数。</p>
+<p>假设<span class="math inline">\(T_1\)</span>算符的本征值为<span
+class="math inline">\(\lambda_1\)</span>,那么<span
+class="math inline">\(\lambda_1\)</span>需要满足 <span
+class="math display">\[
+\psi\left(r+N_{1} a_{1}\right)=T_{1}^{N_{1}} \psi(r)=\lambda_{1}^{N_{1}}
+\psi(r)=\psi(r)\tag{2.4}
+\]</span></p>
+<p>即 <span class="math display">\[
+\lambda _1^{N_1}=1
+\]</span> 可得 <span class="math display">\[
+\lambda_1=e^{2 i \pi \frac{l_1}{N_1}}
+\]</span> 同理 <span class="math display">\[
+\lambda_2=e^{2 i \pi \frac{l_2}{N_2}}
+\]</span> <span class="math display">\[
+\lambda_3=e^{2 i \pi \frac{l_3}{N_3} }
+\]</span></p>
+<p>记矢量<span class="math inline">\(\bar{k}\)</span>为 <span
+class="math display">\[
+\bar{k}=\frac{l_1}{N_1} \mathbf{b_1}+\frac{l_2}{N_2}
+\mathbf{b_2}+\frac{l_3}{N_3} \mathbf{b_3}\tag{2.5}
+\]</span> 其中<span
+class="math inline">\(\mathbf{b_1}、\mathbf{b_2}、\mathbf{b_3}\)</span>为倒格矢，根据式（1.5）可以更加简洁得写出平移算符的本征值
+<span class="math display">\[
+\begin{align}
+\lambda_1 = e^{i\mathbf{k}\cdot \mathbf{a_1}}\nonumber \\
+\lambda_2 = e^{i\mathbf{k}\cdot \mathbf{a_2}}\nonumber \\
+\lambda_3 = e^{i\mathbf{k}\cdot \mathbf{a_3}}\nonumber
+\end{align} \tag{2.7}
+\]</span>
+因为H和T是对易的，所以式（2.7）也是哈密顿量的本征值，对于任意的晶格矢量<span
+class="math inline">\(\mathbf{R}_m=m_1\mathbf{a_1}+m_2\mathbf{A_2}+m_3\mathbf{a_3}\)</span>有
+<span class="math display">\[
+\begin{align}
+\psi\left(r+R_{m}\right) &amp; = T_1^{m_1} T_2^{m_2} T_3^{m_3}
+\psi\left(r\right)\nonumber \\
+&amp; =
+\lambda_1^{m_1}\lambda_2^{m_2}\lambda_3^{m_3}\psi\left(r\right)\nonumber
+\\
+&amp; = e^{i \bar{k} \cdot R_{m}} \psi(r)\nonumber
+\end{align}\tag{2.8}
+\]</span> Q.E.D</p>
+<p>我们现在定义一个新的函数<span class="math inline">\(u(r)\)</span>
+<span class="math display">\[
+u(r) = e^{-i \bar{k} \cdot r} \psi (r)\tag{2.9}
+\]</span></p>
+<p>对其进行任意的晶格平移操作有 <span class="math display">\[
+\begin{align}
+u\left(r+R_{m}\right) &amp; = e^{-i \bar{k} \cdot\left(r+R_{m}\right)}
+\psi\left(r+R_{m}\right) \nonumber\\
+&amp; = e^{-i \bar{k} \cdot\left(r+R_{m}\right)} e^{i \bar{k} \cdot
+R_{m}} \psi(r)\nonumber \\
+&amp; = e^{-i \bar{k} \cdot r} \psi(r) \nonumber\\
+&amp; = u(r)\nonumber
+\end{align}\tag{2.10}
+\]</span></p>
+<p>可见u(r)也是周期函数，周期与晶格周期一致。根据式（2.10）最后两行的等式，晶体中波函数应具有<span
+class="math inline">\(\psi(r) =u(r)e^{i \bar{k} \cdot
+r}\)</span>的形式。</p>
+<p>该函数被称作布洛赫函数，它是平面波和周期函数的乘积。以布洛赫函数作为基函数来表示波函数称为布洛赫表象。</p>
+<h2 id="瓦尼尔函数">3.瓦尼尔函数</h2>
+<p>布洛赫函数在倒空间中具有周期性 <span class="math display">\[
+\psi _k(\mathbf{r})=\psi _{ k+K }(\mathbf{r})\tag{3.1}
+\]</span></p>
+<p>瓦尼尔函数<span
+class="math inline">\(a_n(\mathbf{r},\mathbf{l})\)</span>和布洛赫函数为实倒空间的傅里叶变换对：
+<span class="math display">\[
+a_n(\mathbf{r},\mathbf{l}) = N^{-1 / 2} \sum_{k \in B Z} e^{-i k \cdot
+l} \psi_{n k}(\mathbf{r})\tag{3.2}
+\]</span> <span class="math display">\[
+\psi_{n k}(\mathbf{r})=N^{-1 / 2} \sum_{l} e^{i k \cdot l}
+a_n(\mathbf{r},\mathbf{l})\tag{3.3}
+\]</span> 其中l是正格矢。</p>
+<p>对式（3.1）利用布洛赫定理有</p>
+<p><span class="math display">\[
+e^{-i k \cdot l} \psi_{n k}(\mathbf{r}) = \psi_{n
+k}(\mathbf{r}-\mathbf{l})\tag{3.4}
+\]</span> 又因为 <span class="math display">\[
+a_{n}(r-l) \equiv N^{-1 / 2} \sum_{k \in B Z} \psi_{k}(r-l)\tag{3.5}
+\]</span> 所以有 <span class="math display">\[
+a_n(\mathbf{r},\mathbf{l}) = a_{n}(\mathbf{r}-\mathbf{l})
+\]</span>
+即瓦尼尔函数是一个矢量差(r-l)的函数。利用瓦尼尔函数作基函数表示波函数就构成了瓦尼尔表象。</p>
+<h2 id="参考资料">4.参考资料</h2>
+<p>[1] 李国旺. 傅里叶分析与正,倒格子的互易性[J]. 大学物理, 1993,
+12(9):3.</p>
+<p>[2] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/157273292">布洛赫定理和平面波展开</a></p>
+<p>[3] 固体物理学 黄昆</p>
+<p>[4] 固体理论 第二版 李正中</p>
+<p>[5] 量子力学 曾谨言</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/04/22/2022-4/%E8%83%BD%E5%B8%A6%E7%90%86%E8%AE%BA-%E5%B8%83%E6%B4%9B%E8%B5%AB%E5%92%8C%E7%93%A6%E5%B0%BC%E5%B0%94/" title="能带理论-布洛赫和瓦尼尔">https://splendidwave.github.io/2022/04/22/2022-4/能带理论-布洛赫和瓦尼尔/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BA%E4%BD%93%E7%89%A9%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 固体物理</a>
+              <a href="/tags/%E8%83%BD%E5%B8%A6/" rel="tag"><i class="fa fa-tag"></i> 能带</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/21/2022-4/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/" rel="prev" title="第一次分类整理">
+                  <i class="fa fa-chevron-left"></i> 第一次分类整理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/" rel="next" title="机器学习实战1">
+                  机器学习实战1 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"f6fb26856c35359f7a82c5563d2e9387"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

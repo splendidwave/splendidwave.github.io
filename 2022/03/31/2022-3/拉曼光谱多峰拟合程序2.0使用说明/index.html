@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 基于python的拉曼光谱多峰拟合程序2.0版本使用说明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拉曼光谱多峰拟合程序2.0使用说明">
+<meta property="og:url" content="https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 基于python的拉曼光谱多峰拟合程序2.0版本使用说明">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/jm20.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/bc.png">
+<meta property="og:image" content="https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/sub1.png">
+<meta property="article:published_time" content="2022-03-31T08:34:25.000Z">
+<meta property="article:modified_time" content="2022-07-09T11:54:38.000Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="光谱">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/jm20.png">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/","path":"2022/03/31/2022-3/拉曼光谱多峰拟合程序2.0使用说明/","title":"拉曼光谱多峰拟合程序2.0使用说明"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>拉曼光谱多峰拟合程序2.0使用说明 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D"><span class="nav-text">0.主界面介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E4%B8%AA%E5%8F%AF%E8%B0%83%E8%8A%82%E5%8F%82%E6%95%B0"><span class="nav-text">1.六个可调节参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D"><span class="nav-text">1.1 文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E5%B3%B0%E6%95%B0%E9%87%8F"><span class="nav-text">1.2 三个峰数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A2%E6%95%B0%E6%89%80%E5%9C%A8%E5%88%97"><span class="nav-text">1.3 波数所在列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%85%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E5%88%97"><span class="nav-text">1.4 待处理数据列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E4%B8%AA%E6%8C%89%E9%92%AE"><span class="nav-text">2.八个按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%BD%E5%85%A5%E5%8F%82%E6%95%B0%E6%8C%89%E9%92%AE"><span class="nav-text">2.1 “载入参数”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%9F%E5%90%88%E5%B3%B0%E5%8F%82%E6%95%B0%E6%8C%89%E9%92%AE"><span class="nav-text">2.2 “拟合峰参数”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%9B%BE%E5%8F%82%E6%95%B0%E6%8C%89%E9%92%AE"><span class="nav-text">2.3 “绘图参数”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E5%8F%82%E6%95%B0%E6%8C%89%E9%92%AE"><span class="nav-text">2.4 “保存参数”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E6%8C%89%E9%92%AE"><span class="nav-text">2.5 “查看数据”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%9F%E5%90%88%E6%8C%89%E9%92%AE"><span class="nav-text">2.6 “拟合”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E6%8C%89%E9%92%AE"><span class="nav-text">2.7 “记录”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E6%80%BB%E8%A7%88%E6%8C%89%E9%92%AE"><span class="nav-text">2.8 “绘制总览”按钮</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E5%85%B6%E4%BB%96%E6%8C%89%E9%92%AE"><span class="nav-text">3.两个其他按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%AE%E5%8A%A9"><span class="nav-text">3.1 帮助</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%80%E5%87%BA"><span class="nav-text">3.2 退出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E4%BB%B6"><span class="nav-text">4.附件</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="拉曼光谱多峰拟合程序2.0使用说明 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          拉曼光谱多峰拟合程序2.0使用说明
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-31 16:34:25" itemprop="dateCreated datePublished" datetime="2022-03-31T16:34:25+08:00">2022-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-09 19:54:38" itemprop="dateModified" datetime="2022-07-09T19:54:38+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">科研项目</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE/%E5%B7%A5%E5%85%B7%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">工具项目</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="摘要">摘要</h1>
+<p>基于python的拉曼光谱多峰拟合程序2.0版本使用说明</p>
+<span id="more"></span>
+<h2 id="主界面介绍">0.主界面介绍</h2>
+<figure>
+<img src="jm20.png" alt="界面" />
+<figcaption aria-hidden="true">界面</figcaption>
+</figure>
+<p>主界面一共有6个可调节参数： 1. 文件名 2. gauss峰数量 3. lorentz峰数量
+4. voigt峰数量 5. 波数所在列 6. 待处理数据列</p>
+<p>8个功能按钮： 1. 载入参数 2. 拟合峰参数 3. 绘图参数 4. 保存参数 5.
+查看数据 6. 拟合 7. 记录 8. 绘制总览</p>
+<p>2个其他按钮 1. 帮助 2. 退出</p>
+<h2 id="六个可调节参数">1.六个可调节参数</h2>
+<h3 id="文件名">1.1 文件名</h3>
+<p>文件要求utf-8格式保存的csv文件，内容样式可以参加下图。</p>
+<p>使用excel另存为一下就可以满足条件。</p>
+<figure>
+<img src="bc.png" alt="输入文件样式" />
+<figcaption aria-hidden="true">输入文件样式</figcaption>
+</figure>
+<p>输入的名称不需要加后缀，同路径下文件只需输入名称，非同路径下文件需要输入绝对路径。</p>
+<h3 id="三个峰数量">1.2 三个峰数量</h3>
+<p>多峰拟合程序可以拟合多个峰，光谱的峰一般为这三种更多内容可见<a
+href="https://splendidwave.github.io/2022/01/26/2022-1/%E8%B0%B1%E7%BA%BF%E5%B1%95%E5%AE%BD%E5%92%8C%E7%BA%BF%E5%9E%8B%E5%87%BD%E6%95%B0/">谱线展宽和线型函数</a></p>
+<p>通过滑块可以分别选择这三个峰的数量，最终拟合函数为这些峰的和。</p>
+<h3 id="波数所在列">1.3 波数所在列</h3>
+<p>即横坐标所在列，拉曼光谱图像横坐标为拉曼频移，单位为波数</p>
+<h3 id="待处理数据列">1.4 待处理数据列</h3>
+<p>即纵坐标所在列，拉曼光谱图像纵坐标为强度，通常无单位，绘制散点图和单幅拟合时，需要选中待处理数据。</p>
+<h2 id="八个按钮">2.八个按钮</h2>
+<h3 id="载入参数按钮">2.1 “载入参数”按钮</h3>
+<p>点击该按钮会弹出当前路径的窗口。</p>
+<p>所有参数保存为.npz格式。</p>
+<p>在该窗口中可以选择.npz后缀的文件进行参数读取。</p>
+<h3 id="拟合峰参数按钮">2.2 “拟合峰参数”按钮</h3>
+<p>点击该按钮会弹出一个子窗口，如下</p>
+<figure>
+<img src="sub1.png" alt="拟合参数设置窗口" />
+<figcaption aria-hidden="true">拟合参数设置窗口</figcaption>
+</figure>
+<p>该窗口左侧显示3个峰的数量。注意参数不要超出该数目。</p>
+<p>每个峰会有4个参数（偏置，幅值，中心位置，半高宽）
+在该窗口可以设置每个峰的拟合范围（最大值和最小值）</p>
+<p>可以先通过点击“绘制散点图”按钮大致观察峰存在的范围然后依次输入。</p>
+<p>如果拟合曲线有多个相同峰，如4个高斯峰，则在Gauss输入框中按顺序写下4个峰的参数，中间用英文逗号分割。</p>
+<p>点击帮助会在控制台输出上述文字。</p>
+<p>点击确认会记录输入的参数。</p>
+<h3 id="绘图参数按钮">2.3 “绘图参数”按钮</h3>
+<p>尚未完成开发</p>
+<h3 id="保存参数按钮">2.4 “保存参数”按钮</h3>
+<p>点击该按钮会弹出当前路径的窗口。您可以保存您当前设定的参数包括主界面参数和拟合峰参数，自定义名字，可以是中文，不需要加后缀。</p>
+<h3 id="查看数据按钮">2.5 “查看数据”按钮</h3>
+<p>点击该按钮会尝试读取文件。输出共有多少列，并输出前5行，可以用于检测是否读取到了正确的数据文件。</p>
+<p>最后会根据参数5、6绘制散点图。</p>
+<h3 id="拟合按钮">2.6 “拟合”按钮</h3>
+<p>点击该按钮会根据所有参数进行数据拟合并显示图片。</p>
+<h3 id="记录按钮">2.7 “记录”按钮</h3>
+<p>点击该按钮会临时记录本次拟合的结果参数，并有相关提示。</p>
+<p>关闭程序数据会清空。</p>
+<h3 id="绘制总览按钮">2.8 “绘制总览”按钮</h3>
+<p>点击该按钮会将临时记录的数据绘制在一张图中。</p>
+<h2 id="两个其他按钮">3.两个其他按钮</h2>
+<h3 id="帮助">3.1 帮助</h3>
+<p>点击该按钮会给出一些帮助，可能也没啥用。</p>
+<h3 id="退出">3.2 退出</h3>
+<p>点击该按钮会退出程序，在这之前会先询问一下你是否需要保存参数。选择是在你下次打开该程序后还是会显示当前设置过的参数。</p>
+<h2 id="附件">4.附件</h2>
+<p>程序下载地址：https://github.com/splendidwave/Raman_fit</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/03/31/2022-3/%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F2.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" title="拉曼光谱多峰拟合程序2.0使用说明">https://splendidwave.github.io/2022/03/31/2022-3/拉曼光谱多峰拟合程序2.0使用说明/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/%E7%A7%91%E7%A0%94/" rel="tag"><i class="fa fa-tag"></i> 科研</a>
+              <a href="/tags/%E5%85%89%E8%B0%B1/" rel="tag"><i class="fa fa-tag"></i> 光谱</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/31/2022-3/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B02/" rel="prev" title="基于python的拉曼光谱多峰拟合程序开发笔记2">
+                  <i class="fa fa-chevron-left"></i> 基于python的拉曼光谱多峰拟合程序开发笔记2
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/11/2022-4/%E9%9B%85%E6%80%9D%E8%80%83%E8%AF%95%E5%A4%A7%E4%BD%9C%E6%96%87/" rel="next" title="雅思考试大作文">
+                  雅思考试大作文 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"a24bd0e10562c5cdbc747a7f2f18e710"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

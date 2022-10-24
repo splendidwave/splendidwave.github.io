@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 opencv的python图像处理学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="opencv-python学习(3)--加噪与空间滤波">
+<meta property="og:url" content="https://splendidwave.github.io/2022/10/19/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(3)--%E5%8A%A0%E5%99%AA%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 opencv的python图像处理学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2022/10/19/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(3)--%E5%8A%A0%E5%99%AA%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/ss.png">
+<meta property="article:published_time" content="2022-10-19T08:57:32.000Z">
+<meta property="article:modified_time" content="2022-10-21T07:52:20.316Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="opencv">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2022/10/19/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(3)--%E5%8A%A0%E5%99%AA%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/ss.png">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/10/19/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(3)--%E5%8A%A0%E5%99%AA%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/10/19/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(3)--%E5%8A%A0%E5%99%AA%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/","path":"2022/10/19/2022-10/opencv-python学习(3)--加噪与空间滤波/","title":"opencv-python学习(3)--加噪与空间滤波"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>opencv-python学习(3)--加噪与空间滤波 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%99%AA%E5%A3%B0"><span class="nav-text">1.图像噪声</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A4%92%E7%9B%90%E5%99%AA%E5%A3%B0"><span class="nav-text">1.1 椒盐噪声</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E5%99%AA%E5%A3%B0"><span class="nav-text">1.2 高斯噪声</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%8A%E6%9D%BE%E5%99%AA%E5%A3%B0"><span class="nav-text">1.3 泊松噪声</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E6%96%91%E5%99%AA%E5%A3%B0"><span class="nav-text">1.4 散斑噪声</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E6%BB%91%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="nav-text">2.平滑空间滤波器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-text">2.1 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%87%E5%80%BC%E6%BB%A4%E6%B3%A2"><span class="nav-text">2.2 均值滤波</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%BB%A4%E6%B3%A2"><span class="nav-text">2.3 高斯滤波</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E5%80%BC%E6%BB%A4%E6%B3%A2"><span class="nav-text">2.4 中值滤波</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%90%E5%8C%96%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="nav-text">3.锐化空间滤波器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%90%86-1"><span class="nav-text">3.1 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sobel"><span class="nav-text">3.2 sobel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scharr"><span class="nav-text">3.3 scharr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#laplace"><span class="nav-text">3.4 laplace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canny"><span class="nav-text">3.5 canny</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/10/19/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(3)--%E5%8A%A0%E5%99%AA%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="opencv-python学习(3)--加噪与空间滤波 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          opencv-python学习(3)--加噪与空间滤波
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-19 16:57:32" itemprop="dateCreated datePublished" datetime="2022-10-19T16:57:32+08:00">2022-10-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-21 15:52:20" itemprop="dateModified" datetime="2022-10-21T15:52:20+08:00">2022-10-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>opencv的python图像处理学习笔记</p>
+<span id="more"></span>
+<h2 id="图像噪声">1.图像噪声</h2>
+<p>图像噪声是指存在于图像数据中的不必要的或多余的干扰信息。有些噪声严重影响了图片的质量，因此在图片预处理的过程中需要先将图片的噪声去除。</p>
+<p>噪声通常是随机过程，需要具备一定的概率论相关知识才能更好的理解。</p>
+<p>常见的噪声有如下几种：椒盐/高斯/泊松/散斑，下面给出使用python对图片加噪的方法。部分代码参考<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_29957455/article/details/123977298">csdn文章
+python使用opencv对图像添加(高斯/椒盐/泊松/斑点)噪声</a></p>
+<h3 id="椒盐噪声">1.1 椒盐噪声</h3>
+<p>这个名字起的色香味俱全，椒盐噪声实际上指的是两种颜色的噪声，黑点为椒，白点为盐。在图片上的分布通常是随机的，就像是撒了胡椒和盐在图片上，由此得名。</p>
+<p><strong>产生的原因</strong>通常是<strong>脉冲干扰</strong>或者<strong>传感器内部错误</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 加椒盐噪声</span><br><span class="line">def add_pepper_and_salt(self):</span><br><span class="line">    # 获取数量和椒盐比</span><br><span class="line">    amount = float(self.config.get(&quot;Noisy&quot;,&quot;noise_ratio&quot;))</span><br><span class="line">    p_vs_s = float(self.config.get(&quot;Noisy&quot;,&quot;pepper_vs_salt&quot;))</span><br><span class="line">    noisy_img = np.copy(self.image)</span><br><span class="line">    num_pepper = np.ceil(amount * noisy_img.size * p_vs_s)</span><br><span class="line">    num_salt = np.ceil(amount * noisy_img.size * (1. - p_vs_s))</span><br><span class="line">    #设置添加pepper噪声</span><br><span class="line">    coords = [np.random.randint(0, i - 1, int(num_pepper)) for i in self.image.shape]</span><br><span class="line">    noisy_img[tuple(coords)] = 0</span><br><span class="line">    #设置添加salt噪声</span><br><span class="line">    coords = [np.random.randint(0, i - 1, int(num_salt)) for i in self.image.shape]</span><br><span class="line">    noisy_img[tuple(coords)] = 255</span><br><span class="line">    # 展示</span><br><span class="line">    win_name = &quot;pepper&amp;salt&quot;</span><br><span class="line">    UIFunctions.wait_key(self,noisy_img,win_name)</span><br></pre></td></tr></table></figure>
+<h3 id="高斯噪声">1.2 高斯噪声</h3>
+<p>高斯噪声是一种非常常见的噪声，很多噪声都是服从正态分布的，他们被统一称为高斯噪声。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 加高斯噪声</span><br><span class="line">def add_gauss_noisy(self):</span><br><span class="line">    img = self.image</span><br><span class="line">    #获取均值和标准差</span><br><span class="line">    mean = float(self.config.get(&quot;Noisy&quot;,&quot;guass_mean&quot;))</span><br><span class="line">    sigma = float(self.config.get(&quot;Noisy&quot;,&quot;guass_sigma&quot;))</span><br><span class="line">    #生成高斯分布的噪声</span><br><span class="line">    gauss = np.random.normal(mean,sigma,img.shape)</span><br><span class="line">    #给图片添加高斯噪声</span><br><span class="line">    noisy_img = img + gauss</span><br><span class="line">    #设置图片添加高斯噪声之后的像素值的范围</span><br><span class="line">    noisy_img = np.uint8(np.clip(noisy_img,a_min=0,a_max=255))</span><br><span class="line">    # 展示</span><br><span class="line">    win_name = &quot;gauss_noisy&quot;</span><br><span class="line">    UIFunctions.wait_key(self,noisy_img,win_name)</span><br></pre></td></tr></table></figure>
+<h3 id="泊松噪声">1.3 泊松噪声</h3>
+<p>泊松噪声又称散粒噪声，适合于描述单位时间内随机事件发生的次数的概率分布。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 加泊松噪声</span><br><span class="line">def add_poisson_noisy(self):</span><br><span class="line">    img = self.image</span><br><span class="line">    lam = float(self.config.get(&quot;Noisy&quot;,&quot;poisson_lambda&quot;))</span><br><span class="line">    # 生成泊松分布的噪声</span><br><span class="line">    poisson = np.random.poisson(lam=lam,size=img.shape).astype(dtype=&#x27;uint8&#x27;)</span><br><span class="line">    noisy_img = img + poisson</span><br><span class="line">    noisy_img = np.uint8(np.clip(noisy_img,a_min=0,a_max=255))</span><br><span class="line">    # 展示</span><br><span class="line">    win_name = &quot;poisson_noisy&quot;</span><br><span class="line">    UIFunctions.wait_key(self,noisy_img,win_name)</span><br></pre></td></tr></table></figure>
+<h3 id="散斑噪声">1.4 散斑噪声</h3>
+<p>散斑的英文是Speckle，产生的原因通常是干涉。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 加散斑噪声</span><br><span class="line">def add_speckle_noisy(self):</span><br><span class="line">    img = self.image</span><br><span class="line">    speckle = np.random.randn(*img.shape)</span><br><span class="line">    #给图片添加speckle噪声</span><br><span class="line">    noisy_img = img + img * speckle</span><br><span class="line">    #归一化图像的像素值</span><br><span class="line">    noisy_img = np.uint8(np.clip(noisy_img,a_min=0,a_max=255))</span><br><span class="line">    # 展示</span><br><span class="line">    win_name = &quot;speckle_noisy&quot;</span><br><span class="line">    UIFunctions.wait_key(self,noisy_img,win_name)</span><br></pre></td></tr></table></figure>
+<h2 id="平滑空间滤波器">2.平滑空间滤波器</h2>
+<h3 id="原理">2.1 原理</h3>
+<p>滤波一词源于频域，指筛选掉一部分频率的波。但因为空域和频域是可以通过傅里叶变换相互转换的，所以在空间中对图像进行一些操作在频域上看起来就是滤波(如平滑操作对应于频域的低通滤波)。而且二者各有优劣，所以在空域上对图片进行处理统一称为空间滤波。</p>
+<p>平滑滤波器的主要原理是针对每一个像素点对一个核内的数据进行对应处理实现平滑效果。有点类似与卷积但不完全是。</p>
+<h3 id="均值滤波">2.2 均值滤波</h3>
+<p>对核取平均值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.GaussianBlur(img,size)</span><br></pre></td></tr></table></figure>
+<p>img 原图像</p>
+<p>size 核大小，通常为奇数，如(3，3)</p>
+<h3 id="高斯滤波">2.3 高斯滤波</h3>
+<p>对核高斯加权</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cv2.GaussianBlur(src,ksize,sigmaX,sigmaY)</span><br><span class="line">cv2.GaussianBlur(img,(5,5),0,0)</span><br></pre></td></tr></table></figure>
+<p>sigmaX,sigmaY分别表示X,Y方向的标准偏差。
+如果两者都为零，则根据内核大小计算它们。</p>
+<h3 id="中值滤波">2.4 中值滤波</h3>
+<p>取核内的中位数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cv2.medianBlur(img, k)</span><br><span class="line">cv2.medianBlur(img,3)</span><br></pre></td></tr></table></figure>
+<p>k 为方框的尺寸</p>
+<h2 id="锐化空间滤波器">3.锐化空间滤波器</h2>
+<h3 id="原理-1">3.1 原理</h3>
+<p>通过找到灰度变换明显的区域，强化该范围像素。</p>
+<p>这里涉及到寻找一个跳变（边缘）的过程，所以可以采用求导的方法。一阶导或者二阶导（拉普拉斯算子）</p>
+<p>因为是寻找边缘，所以还可以用来进行腐蚀，膨胀，边缘检测等操作。</p>
+<h3 id="sobel">3.2 sobel</h3>
+<p>索贝尔算子方法简单、处理速度快，被广泛应用于边缘提取。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=5)</span><br></pre></td></tr></table></figure>
+<p>其中第二个参数是数据类型，第3、4个参数是dx,dy
+表示水平方向/竖直方向，要求两者只能有一个为1，另一个为0,第5个值表示核的大小</p>
+<h3 id="scharr">3.3 scharr</h3>
+<p>当索贝尔算子的第五个参数为-1时，就变成了夏尔算子,scharr是sobel的一个增强，如下图</p>
+<figure>
+<img src="ss.png" alt="scharr 和 sobel" />
+<figcaption aria-hidden="true">scharr 和 sobel</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.Scharr(img, cv2.CV_64F, 0, 1)</span><br></pre></td></tr></table></figure>
+<h3 id="laplace">3.4 laplace</h3>
+<p>拉普拉斯算子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.Laplacian(self.image, cv2.CV_64F)</span><br></pre></td></tr></table></figure>
+<h3 id="canny">3.5 canny</h3>
+<p>Canny算法年代久远，但可以说它是边缘检测的一种标准算法，而且仍在广泛使用。</p>
+<p>Canny边缘检测算法可以分为以下5个步骤： 1. 高斯滤波来平滑图像去除噪声
+2. 找寻图像的强度梯度 3. 应用非最大抑制（non-maximum
+suppression）技术来消除边误检 4.
+应用双阈值的方法来决定可能的（潜在的）边界 5. 利用滞后技术来跟踪边界</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.Canny(img, lowThreshold, highThreshold)</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料">参考资料</h2>
+<p>[1]
+https://blog.csdn.net/weixin_40922285/article/details/102801633</p>
+<p>[2] https://baike.baidu.com/item/canny%E7%AE%97%E6%B3%95/8439208</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/10/19/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(3)--%E5%8A%A0%E5%99%AA%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="opencv-python学习(3)--加噪与空间滤波">https://splendidwave.github.io/2022/10/19/2022-10/opencv-python学习(3)--加噪与空间滤波/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/opencv/" rel="tag"><i class="fa fa-tag"></i> opencv</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/19/2022-10/numpy%E5%BA%93%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E6%95%B0%E7%BB%84%E7%9A%84%E7%9C%9F%E5%80%BC%E4%B8%8D%E6%98%8E%E7%A1%AE%E9%97%AE%E9%A2%98/" rel="prev" title="numpy库使用多个元素的数组的真值不明确问题">
+                  <i class="fa fa-chevron-left"></i> numpy库使用多个元素的数组的真值不明确问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"009a3304057932ba6dfd3f3d9dfcd3ee"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

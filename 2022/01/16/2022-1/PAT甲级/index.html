@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言 记录一下自己写的代码，可能有些比较粗糙，部分会参考一下网上的思路。 不定期更新，闲的时候会刷一题。 代码用python或者C++编写，python占大部分。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT甲级">
+<meta property="og:url" content="https://splendidwave.github.io/2022/01/16/2022-1/PAT%E7%94%B2%E7%BA%A7/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="前言 记录一下自己写的代码，可能有些比较粗糙，部分会参考一下网上的思路。 不定期更新，闲的时候会刷一题。 代码用python或者C++编写，python占大部分。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-16T08:09:02.000Z">
+<meta property="article:modified_time" content="2022-08-17T03:54:52.000Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="PAT甲级">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/01/16/2022-1/PAT%E7%94%B2%E7%BA%A7/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/01/16/2022-1/PAT%E7%94%B2%E7%BA%A7/","path":"2022/01/16/2022-1/PAT甲级/","title":"PAT甲级"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PAT甲级 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ab-format-20%E5%88%86"><span class="nav-text">1001 A+B Format (20分)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ab-for-polynomials-25%E5%88%86"><span class="nav-text">1002 A+B for Polynomials (25分)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emergency-25%E5%88%86"><span class="nav-text">1003 Emergency (25分)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#counting-leaves-30%E5%88%86"><span class="nav-text">1004 Counting Leaves (30分)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spell-it-right-20%E5%88%86"><span class="nav-text">1005 Spell It Right (20分)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sign-in-and-sign-out-25%E5%88%86"><span class="nav-text">1006 Sign In and Sign Out (25分)</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/01/16/2022-1/PAT%E7%94%B2%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PAT甲级 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PAT甲级
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-16 16:09:02" itemprop="dateCreated datePublished" datetime="2022-01-16T16:09:02+08:00">2022-01-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-17 11:54:52" itemprop="dateModified" datetime="2022-08-17T11:54:52+08:00">2022-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前言">前言</h2>
+<p>记录一下自己写的代码，可能有些比较粗糙，部分会参考一下网上的思路。</p>
+<p>不定期更新，闲的时候会刷一题。</p>
+<p>代码用python或者C++编写，python占大部分。 <span id="more"></span></p>
+<h2 id="ab-format-20分">1001 A+B Format (20分)</h2>
+<p>大概意思是标准化输出两数之和，每三位加一个逗号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a,b = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">he = <span class="built_in">str</span>(a + b)</span><br><span class="line"><span class="keyword">if</span> he[<span class="number">0</span>]==<span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;-&#x27;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    he = he[<span class="number">1</span>:]</span><br><span class="line">y = <span class="built_in">len</span>(he)%<span class="number">3</span></span><br><span class="line"><span class="keyword">if</span> y:</span><br><span class="line">    <span class="built_in">print</span>(he[:y],end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(he[:<span class="number">3</span>],end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    y=<span class="number">3</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>((<span class="built_in">len</span>(he)-y)/<span class="number">3</span>)):</span><br><span class="line">    l = i*<span class="number">3</span>+y</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;,&#x27;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(he[l:l+<span class="number">3</span>],end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="ab-for-polynomials-25分">1002 A+B for Polynomials (25分)</h2>
+<p>题目大意是输出多项式A+B的和</p>
+<p>思路是用一个大数组来存所有系数，对应相加输出非零系数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,m,t;</span><br><span class="line">    <span class="type">float</span> f;</span><br><span class="line">    <span class="type">float</span> c[<span class="number">1001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%f&quot;</span>,&amp;t,&amp;f);</span><br><span class="line">        c[t] += f;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; m;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%f&quot;</span>,&amp;t,&amp;f);</span><br><span class="line">        c[t] += f;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cot=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i&lt;<span class="number">1001</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">            cot++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,cot);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1000</span>; i&gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i]!=<span class="number">0.0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot; %d %.1f&quot;</span>,i,c[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="emergency-25分">1003 Emergency (25分)</h2>
+<p>题目大意是你作为医疗队队长需要在任务中选取最短路径方案，并尽可能多的人手。</p>
+<p>这题可以使用<a
+href="https://splendidwave.github.io/2022/01/31/2022-1/Dijkstra%E7%AE%97%E6%B3%95-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/">迪杰斯特拉算法(Dijkstra)</a>来解决</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># N number of cities</span></span><br><span class="line"><span class="comment"># M number of roads</span></span><br><span class="line"><span class="comment"># C1 strart</span></span><br><span class="line"><span class="comment"># C2 end</span></span><br><span class="line"><span class="comment"># team_num number of rescue teams </span></span><br><span class="line"><span class="comment"># adjacent 连接矩阵</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Dijkstra</span>(<span class="params">C1,C2</span>):</span><br><span class="line">    dist = [Max <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]                              <span class="comment"># 标记距离长度</span></span><br><span class="line">    dist[C1] = <span class="number">0</span></span><br><span class="line">    flag_node = [-<span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]                          <span class="comment"># 标记已经确定最短路径的列表</span></span><br><span class="line">    flag_node[C1] = <span class="number">1</span></span><br><span class="line">    res = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]                                <span class="comment"># 记录需要的答案</span></span><br><span class="line">    res[C1] = [<span class="number">1</span>,team_num[C1]]</span><br><span class="line">    p = C1                                                 <span class="comment"># 指针节点</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):                                          <span class="comment"># 循环直到所有节点都被标记</span></span><br><span class="line">        <span class="keyword">if</span> flag_node[C2] == <span class="number">1</span>:                                   <span class="comment"># 如果C2已经被确定，退出循环</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment"># 如果C2未被确定，从当前路径开始寻找下一节点</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">            temp_dist = adjacent[p][i]</span><br><span class="line">            <span class="keyword">if</span> (flag_node[i] == -<span class="number">1</span>) <span class="keyword">and</span> (temp_dist != Max):  <span class="comment"># 查询该节点未确定的通路</span></span><br><span class="line">                <span class="keyword">if</span> dist[i] &gt; (dist[p] + temp_dist): <span class="comment"># 判断是否需要更新</span></span><br><span class="line">                    dist[i] = dist[p] + temp_dist</span><br><span class="line">                    res[i] = [res[p][<span class="number">0</span>],res[p][<span class="number">1</span>]+team_num[i]]</span><br><span class="line">                <span class="keyword">elif</span> dist[i] == (dist[p] + temp_dist):</span><br><span class="line">                    res[i][<span class="number">0</span>] += res[p][<span class="number">0</span>]</span><br><span class="line">                    <span class="keyword">if</span> res[i][<span class="number">1</span>] &lt; (res[p][<span class="number">1</span>]+team_num[i]):</span><br><span class="line">                        res[i][<span class="number">1</span>] = res[p][<span class="number">1</span>]+team_num[i]</span><br><span class="line">        <span class="comment">#寻找最小值进行标记</span></span><br><span class="line">        mini = Max</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">            <span class="keyword">if</span> flag_node[i] == -<span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> dist[i] &lt; mini:</span><br><span class="line">                    mini = dist[i]</span><br><span class="line">                    p = i</span><br><span class="line">        flag_node[p] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res[C2]</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">Max = <span class="number">1000000</span></span><br><span class="line"><span class="comment">#接收数据</span></span><br><span class="line">N,M,C1,C2 = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">team_num = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line"><span class="comment"># 建立连接矩阵</span></span><br><span class="line">adjacent = [ [Max <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N) ]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    a,b,l = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">    adjacent[a][b] = l</span><br><span class="line">    adjacent[b][a] = l</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Dijkstra算法</span></span><br><span class="line"><span class="comment"># num 总共医疗数量</span></span><br><span class="line"><span class="comment"># long 总路程</span></span><br><span class="line">answer = Dijkstra(C1,C2) <span class="comment"># 如有多个结果res会返回多个列表</span></span><br><span class="line"><span class="built_in">print</span>(answer[<span class="number">0</span>],answer[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="counting-leaves-30分">1004 Counting Leaves (30分)</h2>
+<p>题目是根据家族树找每一代的无后代人数。先将家族谱按树状结构存储，然后使用
+深度优先搜索遍历。当然广度优先算法也应是可以的。两者的复杂度相同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 深度优先遍历搜索</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">ID, depth</span>):</span><br><span class="line">    <span class="keyword">global</span> max_depth</span><br><span class="line">    max_depth = <span class="built_in">max</span>(max_depth,depth)    <span class="comment"># 判断最大深度</span></span><br><span class="line">    visited[ID] = <span class="literal">True</span>                  <span class="comment"># 标记节点</span></span><br><span class="line">    <span class="keyword">if</span> ID <span class="keyword">not</span> <span class="keyword">in</span> tree:</span><br><span class="line">        res[depth] += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> child <span class="keyword">in</span> tree[ID]:</span><br><span class="line">            <span class="keyword">if</span> child <span class="keyword">not</span> <span class="keyword">in</span> visited:</span><br><span class="line">                dfs(child, depth + <span class="number">1</span>)   <span class="comment"># 递归</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">N,M = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">tree = &#123;&#125;                   <span class="comment"># 树</span></span><br><span class="line">res = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)] <span class="comment"># 记录答案列表</span></span><br><span class="line">visited = &#123;&#125;                <span class="comment"># 标记访问过的节点</span></span><br><span class="line">max_depth = <span class="number">0</span>               <span class="comment"># 最大树深度</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建树结构</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    node_id , k, *child_id = <span class="built_in">list</span>(<span class="built_in">input</span>().split())</span><br><span class="line">    tree[node_id] = child_id</span><br><span class="line">    </span><br><span class="line">dfs(<span class="string">&#x27;01&#x27;</span>, <span class="number">0</span>) <span class="comment"># 输入初始节点</span></span><br><span class="line"><span class="comment"># 按格式输出</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(max_depth):</span><br><span class="line">    <span class="built_in">print</span>(res[i],end = <span class="string">&#x27; &#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(res[max_depth])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 广度优先搜索</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">treenode</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;定义节点类&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, depth, child_number=<span class="number">0</span>, child_id=[]</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化类</span></span><br><span class="line"><span class="string">            depth 深度</span></span><br><span class="line"><span class="string">            child_number 子节点数量</span></span><br><span class="line"><span class="string">            child_id 字节点id</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self.depth = <span class="built_in">int</span>(depth)</span><br><span class="line">        self.child_number = <span class="built_in">int</span>(child_number)</span><br><span class="line">        self.child_id = child_id</span><br><span class="line">        </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">queqe</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;定义队列类&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化队列&quot;&quot;&quot;</span></span><br><span class="line">        self._ls = []</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add_item</span>(<span class="params">self,treenode</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;添加元素&quot;&quot;&quot;</span></span><br><span class="line">        self._ls.append(treenode)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_item</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;弹出第一个值&quot;&quot;&quot;</span></span><br><span class="line">        r, self._ls = self._ls[<span class="number">0</span>],self._ls[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">return</span> r</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">empty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;判断是否为空&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self._ls) == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bfs</span>(<span class="params">ID</span>):</span><br><span class="line">    <span class="keyword">global</span> max_depth</span><br><span class="line">    visited[ID] = <span class="literal">True</span></span><br><span class="line">    queqe.add_item(treenode(<span class="number">0</span>,tree[ID][<span class="number">0</span>],tree[ID][<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> queqe.empty():</span><br><span class="line">        v = queqe.get_item()</span><br><span class="line">        nowdepth = v.depth</span><br><span class="line">        max_depth = <span class="built_in">max</span>(nowdepth,max_depth)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> v.child_id:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> visited:</span><br><span class="line">                visited[i] = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> tree:</span><br><span class="line">                    res[nowdepth+<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    queqe.add_item(treenode(nowdepth+<span class="number">1</span>,tree[i][<span class="number">0</span>],tree[i][<span class="number">1</span>]))</span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">N,M = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> N == <span class="number">1</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    tree = &#123;&#125;       <span class="comment"># 树字典</span></span><br><span class="line">    res = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)] <span class="comment"># 记录答案列表</span></span><br><span class="line">    visited = &#123;&#125; <span class="comment"># 标记访问过的节点</span></span><br><span class="line">    max_depth = <span class="number">0</span> <span class="comment"># 最大树深度</span></span><br><span class="line">    <span class="comment"># 构建树结构</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">        node_id , k, *child_id = <span class="built_in">list</span>(<span class="built_in">input</span>().split())</span><br><span class="line">        tree[node_id] = [k,child_id]</span><br><span class="line">        </span><br><span class="line">    queqe = queqe()</span><br><span class="line">    bfs(<span class="string">&#x27;01&#x27;</span>)</span><br><span class="line">    max_depth += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(max_depth):</span><br><span class="line">        <span class="built_in">print</span>(res[i],end = <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(res[max_depth])</span><br></pre></td></tr></table></figure>
+<h2 id="spell-it-right-20分">1005 Spell It Right (20分)</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="built_in">input</span>()</span><br><span class="line">s = <span class="number">0</span></span><br><span class="line">dic = [<span class="string">&quot;zero&quot;</span>,<span class="string">&quot;one&quot;</span>,<span class="string">&quot;two&quot;</span>,<span class="string">&quot;three&quot;</span>,<span class="string">&quot;four&quot;</span>,\</span><br><span class="line">	<span class="string">&quot;five&quot;</span>,<span class="string">&quot;six&quot;</span>,<span class="string">&quot;seven&quot;</span>,<span class="string">&quot;eight&quot;</span>,<span class="string">&quot;nine&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> N:</span><br><span class="line">    s += <span class="built_in">int</span>(i)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">str</span>(s)[:-<span class="number">1</span>]:</span><br><span class="line">    <span class="built_in">print</span>(dic[<span class="built_in">int</span>(i)],end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(dic[<span class="built_in">int</span>(<span class="built_in">str</span>(s)[-<span class="number">1</span>])])</span><br></pre></td></tr></table></figure>
+<h2 id="sign-in-and-sign-out-25分">1006 Sign In and Sign Out (25分)</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">M = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">ID, intime, outtime = <span class="built_in">input</span>().split()</span><br><span class="line">unl_id = ID</span><br><span class="line">unl_time = intime</span><br><span class="line">l_id = ID</span><br><span class="line">l_time = outtime</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M-<span class="number">1</span>):</span><br><span class="line">    ID, intime, outtime = <span class="built_in">input</span>().split()</span><br><span class="line">    <span class="keyword">if</span> intime &lt; unl_time:</span><br><span class="line">        unl_id = ID</span><br><span class="line">        unl_time = intime</span><br><span class="line">    <span class="keyword">if</span> outtime &gt; l_time:</span><br><span class="line">        l_id = ID</span><br><span class="line">        l_time = outtime</span><br><span class="line"><span class="built_in">print</span>(unl_id, l_id)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/01/16/2022-1/PAT%E7%94%B2%E7%BA%A7/" title="PAT甲级">https://splendidwave.github.io/2022/01/16/2022-1/PAT甲级/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/PAT%E7%94%B2%E7%BA%A7/" rel="tag"><i class="fa fa-tag"></i> PAT甲级</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/07/2022-1/C-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-3-set%E5%92%8Cmap/" rel="prev" title="C++类型的增删改查(3)--set和map">
+                  <i class="fa fa-chevron-left"></i> C++类型的增删改查(3)--set和map
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/26/2022-1/%E8%B0%B1%E7%BA%BF%E5%B1%95%E5%AE%BD%E5%92%8C%E7%BA%BF%E5%9E%8B%E5%87%BD%E6%95%B0/" rel="next" title="谱线展宽和线型函数">
+                  谱线展宽和线型函数 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"27461716bce08e62d8bbe9f1557002d7"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

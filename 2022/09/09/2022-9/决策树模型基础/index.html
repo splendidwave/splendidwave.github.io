@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 决策树是一种基本的分类和回归方法，其具有可读性好，分类快等优点。在西瓜书中，决策树就作为例子引入了机器学习，说明了树模型是适合于新手入门学习的内容。本文会从基本概念逐一展开介绍几种决策树的基本算法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="决策树模型基础">
+<meta property="og:url" content="https://splendidwave.github.io/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 决策树是一种基本的分类和回归方法，其具有可读性好，分类快等优点。在西瓜书中，决策树就作为例子引入了机器学习，说明了树模型是适合于新手入门学习的内容。本文会从基本概念逐一展开介绍几种决策树的基本算法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/2.jpg">
+<meta property="og:image" content="https://splendidwave.github.io/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/gini.jpg">
+<meta property="article:published_time" content="2022-09-09T13:56:32.000Z">
+<meta property="article:modified_time" content="2022-09-09T13:56:18.000Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/2.jpg">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/","path":"2022/09/09/2022-9/决策树模型基础/","title":"决策树模型基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>决策树模型基础 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="nav-text">1.信息熵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E5%88%AB%E6%9D%A1%E4%BB%B6"><span class="nav-text">2.判别条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E6%95%B0%E5%86%B3%E7%AD%96-y_1"><span class="nav-text">2.1 使用点数决策 \(Y_1\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%8A%B1%E8%89%B2%E5%86%B3%E7%AD%96-y_2"><span class="nav-text">2.2 使用花色决策 \(Y_2\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%B1%E8%89%B2%E5%86%B3%E7%AD%962.0-y_3"><span class="nav-text">2.3 花色决策2.0 \(Y_3\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id3%E7%AE%97%E6%B3%95"><span class="nav-text">3.ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#id3%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-text">3.1 ID3的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id3%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-text">3.2 ID3的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c4.5%E7%AE%97%E6%B3%95"><span class="nav-text">4.C4.5算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cart3%E7%AE%97%E6%B3%95"><span class="nav-text">5.CART3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%A6%82%E6%8D%A2%E4%B8%AA%E5%88%A4%E5%88%AB%E6%9D%A1%E4%BB%B6"><span class="nav-text">5.1 不如换个判别条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%81%E8%AF%B4%E6%A0%91%E5%8F%AA%E8%83%BD%E5%88%86%E7%B1%BB"><span class="nav-text">5.2 谁说树只能分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="nav-text">6.随机森林</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boosting%E7%AE%97%E6%B3%95"><span class="nav-text">7.Boosting算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="决策树模型基础 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          决策树模型基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-09-09 21:56:32 / 修改时间：21:56:18" itemprop="dateCreated datePublished" datetime="2022-09-09T21:56:32+08:00">2022-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>决策树是一种基本的分类和回归方法，其具有可读性好，分类快等优点。在西瓜书中，决策树就作为例子引入了机器学习，说明了树模型是适合于新手入门学习的内容。本文会从基本概念逐一展开介绍几种决策树的基本算法。</p>
+<span id="more"></span>
+<h2 id="信息熵">1.信息熵</h2>
+<p>信息熵是用来衡量一个体系的不确定度的物理量，熵这个词也是借用的热力学，信息熵越大，不确定性越强。计算公式如下</p>
+<p><span class="math display">\[
+H(X)=-\sum_{i=1}^{M} P\left(x_{i}\right) \log _{2} P\left(x_{i}\right)
+\tag{1.1}
+\]</span></p>
+<p>如果不太清楚这个概念可以通过该链接去了解一下<a
+href="https://splendidwave.github.io/2022/08/20/2022-8/%E4%BF%A1%E6%81%AF%E9%87%8F%E5%92%8C%E4%BF%A1%E6%81%AF%E7%86%B5/">信息量和信息熵</a></p>
+<p>在理解信息熵这个概念后，这里再补充一个<strong>条件熵</strong>，它指的是在某一条件Y下体系具有的信息熵。公式如下</p>
+<p><span class="math display">\[
+H(X \mid Y)=-\sum_{i=1}^{M} P(x_i \mid Y) \log _{2} P(x_i \mid Y)
+\tag{1.2}
+\]</span></p>
+<p>显然系统的条件熵要比信息熵要小一些，因为条件Y的发生让系统更加确定了一些，它们差值不妨就叫做<strong>信息增益</strong>。公式如下</p>
+<p><span class="math display">\[
+I(X, Y)=H(X)-H(X \mid Y)\tag{1.3}
+\]</span></p>
+<h2 id="判别条件">2.判别条件</h2>
+<p>有了以上几个量化概念，我们就可以用来量化决策树。如果你还不知道什么是决策树，下面给个5分钟的小视频，相信不难理解。<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ar4y137GD?spm_id_from=333.337.search-card.all.click&amp;vd_source=3fd1e5e8ca82ebd09d9c888f49c210cf">[5分钟学算法]
+#03 决策树 小明毕业当行长</a></p>
+<p>那么信息熵具体是如何量化决策树模型的好坏的呢？</p>
+<p>让我们来看一个具体的例子。加入有一副去掉大小王的扑克牌(52张)，我从中随机抽取一张，想让机器狗旺财来帮我判别它是<strong>红色还是黑色</strong>。旺财无法直接识别颜色，它只能看见点数和花色,所以它需要用决策树的方法来处理这个问题。</p>
+<p>旺财计算了一下该问题的信息熵</p>
+<p><span class="math display">\[
+\begin{align}
+H(X) &amp; = -\sum_{i=1}^{M} P\left(x_{i}\right) \log _{2}
+P\left(x_{i}\right)\nonumber\\
+&amp; = \frac{1}{2} + \frac{1}{2} \nonumber \\
+&amp; = 1 \nonumber
+\end{align}
+\]</span></p>
+<h3 id="使用点数决策-y_1">2.1 使用点数决策 <span
+class="math inline">\(Y_1\)</span></h3>
+<p>它决定先试试点数，<strong>决策条件为点数大于等于10的都是红色</strong>。</p>
+<p>那么条件熵为</p>
+<p><span class="math display">\[
+H(X \mid Y_1) = (\frac{4}{13}+\frac{9}{13})\cdot
+(\frac{1}{4}\log_{2}{4}-\frac{3}{4}\log_{2}\frac{3}{4}) \approx 0.811
+\]</span></p>
+<p>好像这个条件并没有起到任何帮助，信息增益为<span
+class="math inline">\(I(X, Y_1)=0.189\)</span></p>
+<h3 id="使用花色决策-y_2">2.2 使用花色决策 <span
+class="math inline">\(Y_2\)</span></h3>
+<p>旺财改变了策略，<strong>红桃的牌都是红色</strong>。</p>
+<p>红桃牌的概率是1/4且全是红色 那么条件熵为</p>
+<figure>
+<img src="2.jpg" alt="决策2" />
+<figcaption aria-hidden="true">决策2</figcaption>
+</figure>
+<p><span class="math display">\[
+H(X \mid Y_2) = \frac{1}{4} \cdot 0 + \frac{3}{4} \cdot 0.91829 \approx
+0.689
+\]</span></p>
+<p>信息增益为<span class="math inline">\(I(X,
+Y_2)=0.311\)</span>，看起来好了一些。</p>
+<h3 id="花色决策2.0-y_3">2.3 花色决策2.0 <span
+class="math inline">\(Y_3\)</span></h3>
+<p>旺财注意到上述决策中左节点的信息熵已经是0了，可以停止优化，而右节点的信息熵接近父节点的信息熵，说明优化空间很大，于是它对右节点再采策略认为<strong>方片也是红的</strong>。</p>
+<p>毫无疑问信息信息增益达到了最大，旺财完美地完成了任务。</p>
+<h2 id="id3算法">3.ID3算法</h2>
+<p>ID 是 Iterative
+Dichotomiser的缩写，迭代二分器/二叉树，虽然决策树不一定是二叉树，但通常情况下是二分的，3大概是第三代的意思吧。</p>
+<p>上述这种以<strong>信息增益作为特征选择的度量</strong>，使用自顶向下的贪心算法遍历决策树空间的算法即为ID3算法。</p>
+<p>通俗的讲该算法就是每一步都选择可以实现信息增益最大的特征作为该节点的分类条件直到特征用完或者分类结束。</p>
+<p>程序流程图就放在后面给，现在来看看ID3算法优缺点。</p>
+<h3 id="id3的优点">3.1 ID3的优点</h3>
+<ol type="1">
+<li>简单，只需要算信息熵就完了。</li>
+<li>鲁棒性强，不容易受到噪声的影响</li>
+<li>搜索空间完整，基本上会遍历所有特征</li>
+</ol>
+<h3 id="id3的缺点">3.2 ID3的缺点</h3>
+<ol type="1">
+<li>ID3算法会去选择可取值类别多的特征，这是信息熵的计算方法导致的，分得越细，确定性就会越高。</li>
+<li>只能计算离散值</li>
+<li>无法处理信息缺失</li>
+<li>容易过拟合，因为它会遍历所有特征</li>
+</ol>
+<h2 id="c4.5算法">4.C4.5算法</h2>
+<p>ID3 算法的发明人Ross
+Quinlan也意识到了这些缺点，有问题就解决呗，ID3会对多分类有个偏好，这是因为信息增益的计算方式导致的，为了解决这一问题，必须将判别条件改变。</p>
+<p>为此分裂信息的定义被提出，计算公式如下：</p>
+<p><span class="math display">\[
+SplitInfo_A(D)=-\sum_{i=1}^{n} \frac{\left|D_{i}\right|}{|D|} \log _{2}
+\frac{\left|D_{i}\right|}{|D|}\tag{4.1}
+\]</span></p>
+<p>其中D是数据集，<span
+class="math inline">\(D_i\)</span>是D在特征A下的第i个分类子集。可以看出分裂信息也特征的类别越多值就会越大。</p>
+<p>所以只要将信息增益除以分裂信息就可以得到一个消除倾向的判别条件，我们称为<strong>信息增益率</strong>，计算公式如下：</p>
+<p><span class="math display">\[
+\operatorname{GainRatio}(D,A)=\frac{I(D,
+A)}{\operatorname{SplitInfo_A}(D)} \tag{4.2}
+\]</span></p>
+<p>对于连续的特征值，可以选择遍历这些值找到信息增益最大的分界点来实现对值的二分离散化。</p>
+<p>信息缺失可以选择补上期望值，过拟合就采用剪枝的方法来完成。</p>
+<p>这样问题就解决了不少，但这类算法还是存在硬伤。一是算法只能用于分类，二是构造过程需要反复遍历，比较大小，还是对数运算，算法效率低。</p>
+<h2 id="cart3算法">5.CART3算法</h2>
+<h3 id="不如换个判别条件">5.1 不如换个判别条件</h3>
+<p>既然对数运算费时，不如直接抛开熵这个数值条件，重新找一个判别依据，公式如下</p>
+<p><span class="math display">\[
+\operatorname{Gini}(D)=\sum_{k=1}^{K}
+\frac{\left|C_{k}\right|}{|D|}\left(1-\frac{\left|C_{k}\right|}{|D|}\right)=1-\sum_{k=1}^{K}
+p_{k}^{2} \tag{5.1}
+\]</span></p>
+<p>我们称它为基尼系数，其中k为类别，<span
+class="math inline">\(p_k\)</span>是k类别的概率，它可以识别当前集合的纯度。来看一个具体例子，当k只能取两个值时，如红色牌的概率为<span
+class="math inline">\(p_1\)</span> 黑色牌概率为<span
+class="math inline">\(p_2\)</span>，而且有<span
+class="math inline">\(p_1=1-p_2\)</span>，代入式(5.1)可得基尼系数是一个关于<span
+class="math inline">\(p_1\)</span>的二次函数，关系如下图</p>
+<figure>
+<img src="gini.jpg" alt="基尼系数" />
+<figcaption aria-hidden="true">基尼系数</figcaption>
+</figure>
+<p>当集合中只有红色时，即概率<span
+class="math inline">\(p=1\)</span>，这时基尼系数为0，当红黑参半时，基尼系数会达到最大。由此可见，基尼系数越小，代表集合纯度越高。</p>
+<p>我们可以以此为参考依据，遍历特征，选出加权基尼系数最小的分类方法作为策略。同时CART3永远对数据二分，离散连续一视同仁，二叉树的便捷性也是显而易见的。</p>
+<h3 id="谁说树只能分类">5.2 谁说树只能分类</h3>
+<p>CART树全名是Classification and Regression
+Tree，这说明它既能分类也能回归，回归树的构建本质上是用<strong>平方误差最小化准则</strong>进行特征选择，去生成二叉树。</p>
+<p>其判别的条件又不是基尼系数了，而是最小均方差值，公式如下</p>
+<p><span class="math display">\[
+\min_{j, s}\left[\min_{c_{1}} \sum_{x_{i} \in R_{1}(j,
+s)}\left(y_{i}-c_{1}\right)^{2}+\min_{c_2} \sum_{x_{i} \in R_{2}(j,
+s)}\left(y_{i}-c_{2}\right)^{2}\right] \tag{5.2}
+\]</span></p>
+<p>其中因为特征是连续值，该公式的意思是选择第j个特征的s为切分点，这样集合就分为了<span
+class="math inline">\(R_1\)</span>和<span
+class="math inline">\(R_2\)</span>，使得两个区域的label值和该划分区域的值c平方和最小。得到j和s作为划分的依据，其中<span
+class="math inline">\(c_1\)</span>、<span
+class="math inline">\(c_2\)</span>取集合的均值： <span
+class="math display">\[
+c_{1}=\frac{1}{N_{1}} \sum_{x_{i} \in R_{1}} y_{i}, \quad
+c_{2}=\frac{1}{N_{2}} \sum_{x_{i} \in R_{2}} y_{i}
+\]</span></p>
+<p>回归树但看公式可能有些困难，最好找道例题或者自己敲遍代码加强理解。另外cart算法也容易过拟合，需要配合减枝。</p>
+<h2 id="随机森林">6.随机森林</h2>
+<p>树看起来内容差不多了，但有很多树的时候，就形成了森林。为什么需要很多树？这是因为我们在处理问题时可能会不知道那些特征是有用的，那些特征是没有用的，为此不妨多训练几颗树，让每个树的特征随机选取。最后通过统计所有树的输出结果少数服从多数得到答案。</p>
+<p>随机森林的结构简单而高效，当不知道用什么算法时不妨试试随机森林。而且这类集成学习的方法也不单单适用于决策树，同时也可以集成神经网络。</p>
+<h2 id="boosting算法">7.Boosting算法</h2>
+<p>Boosting是提升的意思，Boosting算法是通过把弱学习器加强成强学习器。一个典型的例子是GBDT算法</p>
+<p>GBDT全称是Gradient Boosting Decision
+Tree，它利用CART的回归树作为弱学习器。这里只给出实现思路，具体公式暂不呈现。</p>
+<p>我们引入一个残差的概念，它指的是模型的预测值和真实值的差距。当我们训练了一个树，它的输出结果会与真实值存在残差，我们可以再训练一个树来预测残差，当然这个预测残差的树也必然会与真实残差存在一个残差。不过没关系，我们可以套娃，套到结果可以接受的样子，大概的思路类似梯度下降法，同时公式也是用的一阶导数（负梯度）来近似残差。</p>
+<p>另外还有XGBoost算法，XG是Extreme
+Gradient的意思，XGBoost在GBDT的基础上又做了改进，使用了二阶导数的信息，同时又加了一个正则项来防止过拟合。</p>
+<h2 id="参考资料">参考资料</h2>
+<p>[1] 《统计学习方法》 李航</p>
+<p>[2] 《机器学习》 周志华</p>
+<p>[3] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/399549773">零基础一文读懂树模型：从决策树到LightGBM</a></p>
+<p>[4] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/158633779">【预估排序】Xgboost、GBDT、CART等树模型联系和区别（超级详细）</a></p>
+<p>[5] CSDN文章 <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45834080/article/details/103036401">对ID3算法的理解及其优缺点</a></p>
+<p>[6] b站视频 <a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VA411A7AQ?spm_id_from=333.337.search-card.all.click&amp;vd_source=3fd1e5e8ca82ebd09d9c888f49c210cf">决策树算法例题</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/" title="决策树模型基础">https://splendidwave.github.io/2022/09/09/2022-9/决策树模型基础/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/01/2022-9/CentOS7%E6%90%AD%E5%BB%BAmc%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="CentOS7搭建mc服务器">
+                  <i class="fa fa-chevron-left"></i> CentOS7搭建mc服务器
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/06/2022-10/CentOS7%E9%85%8D%E7%BD%AEAnaconda3%E7%AE%A1%E7%90%86%E4%B8%8B%E7%9A%84python/" rel="next" title="CentOS7配置Anaconda3管理下的python">
+                  CentOS7配置Anaconda3管理下的python <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"f187013cdc0fcd60c832a60fa6f3a301"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 本篇用来记录hexo的常用命令和markdown的基础语法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用hexo+markdown开启博客写作">
+<meta property="og:url" content="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 本篇用来记录hexo的常用命令和markdown的基础语法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/md.png">
+<meta property="og:image" content="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/yf1.png">
+<meta property="og:image" content="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/yf2.png">
+<meta property="og:image" content="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/1.png">
+<meta property="article:published_time" content="2021-12-28T06:47:16.000Z">
+<meta property="article:modified_time" content="2022-10-17T05:06:03.277Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/md.png">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/","path":"2021/12/28/2021-12/使用hexo-markdown开启博客写作/","title":"使用hexo+markdown开启博客写作"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用hexo+markdown开启博客写作 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE"><span class="nav-text">1.前置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8hexo%E5%91%BD%E4%BB%A4%E6%96%B0%E5%BB%BApost"><span class="nav-text">2.使用hexo命令新建post</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8markdown%E5%86%99post"><span class="nav-text">3.使用markdown写post</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-text">3.1 markdown编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown%E8%AF%AD%E6%B3%95"><span class="nav-text">3.2 markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-text">(1) 标题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="nav-text">(2) 行内代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">(3) 代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-text">(4) 字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-text">(5) 列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">(6) 引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%A1%86"><span class="nav-text">(7) 选择框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="nav-text">(8) 分割线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-text">(9) 表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-text">(10) 公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5"><span class="nav-text">(11) 网页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-text">(12) 图片</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E5%8D%9A%E5%AE%A2%E4%B8%8A%E4%BC%A0"><span class="nav-text">4.将博客上传</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用hexo+markdown开启博客写作 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用hexo+markdown开启博客写作
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-28 14:47:16" itemprop="dateCreated datePublished" datetime="2021-12-28T14:47:16+08:00">2021-12-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-17 13:06:03" itemprop="dateModified" datetime="2022-10-17T13:06:03+08:00">2022-10-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%96%87%E5%8C%96%E5%A8%B1%E4%B9%90/" itemprop="url" rel="index"><span itemprop="name">文化娱乐</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%96%87%E5%8C%96%E5%A8%B1%E4%B9%90/%E9%9A%8F%E7%AC%94%E4%B8%8E%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">随笔与记录</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>本篇用来记录hexo的常用命令和markdown的基础语法。</p>
+<span id="more"></span>
+<h2 id="前置">1.前置</h2>
+<p>先建议在<strong>站点配置文件</strong>中将<code>post_asset_folder</code>改为<code>true</code>，方便管理图片。<img
+src="kq.png" /></p>
+<h2 id="使用hexo命令新建post">2.使用hexo命令新建post</h2>
+<p>在站点目录打开Gitbash，输入下列代码 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;your post name&quot;</span><br></pre></td></tr></table></figure>
+会发现在<code>\source\_posts</code>路径下，新建了一个同名md文件和一个同名空文件夹。</p>
+<p>在md文件的抬头可以进行日期、标签、分类等管理，同时该文件使用markdown语法编辑。</p>
+<h2 id="使用markdown写post">3.使用markdown写post</h2>
+<h3 id="markdown编辑器">3.1 markdown编辑器</h3>
+<p>你可以选择用记事本打开直接用markdown语法写，也可以其他编辑器打开。本文使用vscode编辑，在拓展中搜索markdown，安装第一个即可。</p>
+<p><img src="md.png" /></p>
+<p>安装完成后使用vscode打开md文件后点击图标<img
+src="bq.png" />即可实时预览。</p>
+<p>如果有移动端使用需求，ios(iPad)推荐使用Blockquote</p>
+<h3 id="markdown语法">3.2 markdown语法</h3>
+<p>注意语法间的空格</p>
+<h4 id="标题">(1) 标题</h4>
+<p>使用<code>#</code>的个数来表示标题级别</p>
+<h4 id="行内代码">(2) 行内代码</h4>
+<p><img src="yf1.png" /></p>
+<h4 id="代码块">(3) 代码块</h4>
+<p><img src="yf2.png" /></p>
+<h4 id="字体">(4) 字体</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">**加粗**</span><br><span class="line">*这是倾斜的文字*</span><br><span class="line">_这也是倾斜_</span><br><span class="line">**_斜体加粗_**</span><br><span class="line">***这也是斜体加粗***</span><br><span class="line">~~加删除线~~</span><br><span class="line">&amp;emsp;&amp;emsp;这是中文空格</span><br></pre></td></tr></table></figure>
+<p><strong>加粗</strong> <em>这是倾斜的文字</em> <em>这也是倾斜</em>
+<strong><em>斜体加粗</em></strong>
+<strong><em>这也是斜体加粗</em></strong> <del>加删除线</del>
+  这是中文空格</p>
+<h4 id="列表">(5) 列表</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. First</span><br><span class="line">   1. 数字+点+空格变成有序列表</span><br><span class="line">2. Second</span><br><span class="line">   1. Tab键建立多级列表 </span><br><span class="line">3. Third</span><br><span class="line">   1. 无序列表使用`-`</span><br><span class="line">   - 事件1</span><br><span class="line">   - 事件2</span><br><span class="line">   - 事件3</span><br></pre></td></tr></table></figure>
+<h4 id="引用">(6) 引用</h4>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;引用</span><br></pre></td></tr></table></figure> &gt;引用</p>
+<h4 id="选择框">(7) 选择框</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- [x] 已完成</span><br><span class="line">- [ ] 未完成</span><br></pre></td></tr></table></figure>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+已完成</li>
+<li><input type="checkbox" disabled="" />
+未完成</li>
+</ul>
+<h4 id="分割线">(8) 分割线</h4>
+<p>超过三个短线 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<h4 id="表格">(9) 表格</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">| Key               | Command                       |</span><br><span class="line">| :------:          | :------:                      |</span><br><span class="line">|Ctrl + B           |   粗体                        |</span><br><span class="line">|Ctrl + I           |   斜体                        |</span><br><span class="line">|Alt + S            |   删除线                      |</span><br><span class="line">|Ctrl + Shift + ]   | 标题(uplevel)                 |</span><br><span class="line">|Ctrl + Shift + [   |  标题(downlevel)              |</span><br><span class="line">|Ctrl + M           | Toggle math environment       |</span><br><span class="line">|Alt + C            |Check/Uncheck task list item   |</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Key</th>
+<th style="text-align: center;">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Ctrl + B</td>
+<td style="text-align: center;">粗体</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ctrl + I</td>
+<td style="text-align: center;">斜体</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Alt + S</td>
+<td style="text-align: center;">删除线</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ctrl + Shift + ]</td>
+<td style="text-align: center;">标题(uplevel)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Ctrl + Shift + [</td>
+<td style="text-align: center;">标题(downlevel)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ctrl + M</td>
+<td style="text-align: center;">Toggle math environment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Alt + C</td>
+<td style="text-align: center;">Check/Uncheck task list item</td>
+</tr>
+</tbody>
+</table>
+<h4 id="公式">(10) 公式</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">编辑latex公式 </span><br><span class="line">行内 $ \sum_&#123;i=1&#125;^n a_i $</span><br><span class="line"></span><br><span class="line">单独一行</span><br><span class="line">$$</span><br><span class="line">i\hbar \frac&#123;\partial &#125;&#123;\partial t&#125; \psi =-\frac&#123;\hbar^2&#125;&#123;2m&#125;\nabla^2\psi  + V\psi</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>编辑latex公式 行内 $ _{i=1}^n a_i $</p>
+<p>单独一行 <span class="math display">\[
+i\hbar \frac{\partial }{\partial t} \psi
+=-\frac{\hbar^2}{2m}\nabla^2\psi  + V\psi
+\]</span> 有代码需求建议开启mathjax</p>
+<h4 id="网页">(11) 网页</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我的博客[splendidwave&#x27;s blog](https://splendidwave.github.io).</span><br></pre></td></tr></table></figure>
+<p>我的博客<a href="https://splendidwave.github.io">splendidwave's
+blog</a>.</p>
+<h4 id="图片">(12) 图片</h4>
+<p>引用需要给出路径，一般写博客放在同名文件夹里就可以直接引用图片名，当然也可以使用图床的方法引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">![](1.png)</span><br><span class="line"></span><br><span class="line">图片居中和改大小</span><br><span class="line">&lt;div align=&quot;center&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;1.png&quot; width = &quot;300&quot; height = &quot;300&quot; alt=&quot;不学了&quot;&gt;&lt;/img&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="1.png" /></p>
+<div data-align="center">
+<pre><code>&lt;img src=&quot;1.png&quot; width = &quot;300&quot; height = &quot;300&quot; alt=&quot;不学了&quot;&gt;&lt;/img&gt;</code></pre>
+</div>
+<h2 id="将博客上传">4.将博客上传</h2>
+<p>在站点目录打开Gitbash ### 4.1 简单粗暴法 输入三板斧 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+### 4.2 深思熟虑法 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure> 清理文件 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure> 生成静态文件
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure> 登陆http://localhost:4000/ 查看修改样式，确认无误后使用
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure> 上传后基本上等一会就能看见更新。 ### 4.3 可能出现的问题
+####
+(1)如果出现本地更新完成，github上也更新完成，可以使用<code>shift + F5</code>强刷博客页面。
+#### (2)执行<code>hexo d</code>发生<code>error：spawn failed</code>错误
+1. 删除<code>.deploy_git</code>文件夹 2.
+输入<code>git config --global core.autocrlf false</code> 3. 重新输入
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/" title="使用hexo+markdown开启博客写作">https://splendidwave.github.io/2021/12/28/2021-12/使用hexo-markdown开启博客写作/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+              <a href="/tags/markdown/" rel="tag"><i class="fa fa-tag"></i> markdown</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/27/2021-12/Hexo-Next-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%83%8C%E6%99%AF/" rel="prev" title="Hexo Next 自定义背景">
+                  <i class="fa fa-chevron-left"></i> Hexo Next 自定义背景
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/31/2021-12/%E5%85%89%E5%AD%A6%E5%8D%95%E4%BD%8D/" rel="next" title="光学单位">
+                  光学单位 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"ebdccdd931fbd27a0968188fc9fa820a"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

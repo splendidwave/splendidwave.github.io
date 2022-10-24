@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 Hatree-Fock方法的导出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="密度泛函理论-Hatree-Fock方法">
+<meta property="og:url" content="https://splendidwave.github.io/2022/06/13/2022-6/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_Hatree_Fock%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 Hatree-Fock方法的导出">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-13T11:42:50.000Z">
+<meta property="article:modified_time" content="2022-06-14T05:38:30.000Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="能带">
+<meta property="article:tag" content="密度泛函理论">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/06/13/2022-6/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_Hatree_Fock%E6%96%B9%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/06/13/2022-6/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_Hatree_Fock%E6%96%B9%E6%B3%95/","path":"2022/06/13/2022-6/密度泛函理论_Hatree_Fock方法/","title":"密度泛函理论-Hatree-Fock方法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>密度泛函理论-Hatree-Fock方法 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B"><span class="nav-text">1. 薛定谔方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%B2%92%E5%AD%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%AE%80%E5%8C%96"><span class="nav-text">2. 多粒子系统的简化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%BB%E6%81%A9-%E5%A5%A5%E6%9C%AC%E6%B5%B7%E9%BB%98%E8%BF%91%E4%BC%BCbo%E8%BF%91%E4%BC%BC"><span class="nav-text">2.1 玻恩-奥本海默近似（BO近似）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hatree%E8%BF%91%E4%BC%BC"><span class="nav-text">2.2 Hatree近似</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%AF%E8%8E%B1%E7%89%B9%E8%A1%8C%E5%88%97%E5%BC%8Fslater%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-text">2.3 斯莱特行列式（Slater行列式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hatree-fork%E6%96%B9%E6%B3%95"><span class="nav-text">2.4 Hatree-Fork方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/06/13/2022-6/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_Hatree_Fock%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="密度泛函理论-Hatree-Fock方法 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          密度泛函理论-Hatree-Fock方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-13 19:42:50" itemprop="dateCreated datePublished" datetime="2022-06-13T19:42:50+08:00">2022-06-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-14 13:38:30" itemprop="dateModified" datetime="2022-06-14T13:38:30+08:00">2022-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%A9%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">物理</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>Hatree-Fock方法的导出</p>
+<span id="more"></span>
+<h2 id="薛定谔方程">1. 薛定谔方程</h2>
+<p>量子力学这门课其实就干了一件事情--解薛定谔方程。</p>
+<p>通过求解薛定谔方程我们就可以知道微观粒子的运动，起码是运动概率。就相当于我们求解牛顿方程就可以在经典世界得到物体的运动规律。</p>
+<p>下面简单复习下薛定谔方程的推导。</p>
+<p>按照德布罗意物质波理论，粒子可以写成波函数的形式，简化起见，先来看一个能量为E动量为p自由粒子，按照德布罗意关系，角频率<span
+class="math inline">\(\omega\)</span>和波矢<span
+class="math inline">\(\boldsymbol{k}\)</span>由下式给出</p>
+<p><span class="math display">\[
+\omega=E / \hbar, \quad \boldsymbol{k}=\boldsymbol{p} / \hbar
+\]</span></p>
+<p>我们先看一个简单的平面单色波，因为复杂的波函数也是许多平面波的叠加,作为一个线性系统其结果应该满足和单色波结果一致。</p>
+<p><span class="math display">\[
+\begin{align}
+\psi (\mathbf{r},t ) &amp; = exp[i(\mathbf{k\cdot r} -\omega
+t)]\nonumber\\
+&amp;= exp[i(\mathbf{p \cdot r}-Et )/\hbar ]\nonumber
+\end{align}\tag{1}
+\]</span></p>
+<p>将上式分别对时间和空间求导有</p>
+<p><span class="math display">\[
+i\hbar \frac{\partial }{\partial t} \psi = E \psi  \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+-i\hbar \nabla  \psi = \mathbf{p}  \psi \tag{3}
+\]</span></p>
+<p><span class="math display">\[
+-\hbar ^2 \nabla ^2 \psi = \mathbf{p}^2  \psi \tag{4}
+\]</span></p>
+<p>对自由粒子来说<span
+class="math inline">\(E=\frac{1}{2}mc^2=\mathbf{p}^2/2m\)</span>
+再结合式(2)(3)所以有 <span class="math display">\[
+i\hbar \frac{\partial }{\partial t} \psi = -\frac{\hbar ^2 \nabla
+^2}{2m} \psi \tag{5}
+\]</span></p>
+<p>如果加上势场，能量为<span
+class="math inline">\(E=\mathbf{p}^2/2m+V\)</span>就可以得到薛定谔提出的薛定谔方程
+<span class="math display">\[
+i \hbar \frac{\partial }{\partial t}\psi(\mathbf{r},t
+)=\left[-\frac{\hbar^{2}}{2 m} \nabla^{2}+V\right] \psi(\mathbf{r},t
+)\tag{6}
+\]</span></p>
+<h2 id="多粒子系统的简化">2. 多粒子系统的简化</h2>
+<p>薛定谔方程确实很好用，但人类是有极限的。只有少数体系能求解出解析解，就算是数值解，目前计算机也无法实现计算。</p>
+<p>究其原因，作为一个多粒子体系，电子和电子之间，电子和原子核之间，原子核和原子核之间都存在相互作用，又两者又分别有动能和势能。哈密顿量写出来就是老长一串。看着就头大，根本不好计算。</p>
+<p>为此物理学家得先进行<del>偷懒</del>化简。</p>
+<h3 id="玻恩-奥本海默近似bo近似">2.1 玻恩-奥本海默近似（BO近似）</h3>
+<p>由于原子核比电子重得多，电子运动速度比核快得多，因此我们可以假设电子运动时，原子核是固定的，从而将核与电子的运动分开考虑。多粒子系统的哈密顿量可以写为
+<span class="math display">\[
+\hat{H} = \hat{T} + \hat{V}_{ne}+\hat{V}_{ee}  \tag{7}
+\]</span>
+第一项为电子的动能，下标ne和ee分别表示核-电子核电子-电子相互作用。这样波函数就简化了不少。</p>
+<h3 id="hatree近似">2.2 Hatree近似</h3>
+<p>上面的多粒子体系的哈密顿量最复杂的项是第三项，电子间的相互作用。正是因为有了这一项，我们不能把方程分离成一系列独立的单粒子方程。</p>
+<p>起初哈特里将电子对某一电子i的库伦作用用平均场方法来处理，即用平均场代替电子与电子间的相互作用。这样式(7)第三项可以和第二项合并其薛定谔方程和单粒子薛定谔方程一致，大大简化了计算。</p>
+<p>同时Hatree提出电子系统的波函数可以看作多个单电子波函数的连续乘积。并且其中涉及到单电子波函数全用迭代自洽的方法解决，所以被叫做自洽场方法(SCF)。</p>
+<p>该方法在概率论方面也容易理解，相当于把电子的出现概率看作是独立的事件。</p>
+<h3 id="斯莱特行列式slater行列式">2.3 斯莱特行列式（Slater行列式）</h3>
+<p>哈特里的方法简单但是缺乏准确性。多电子体系是全同的费米子体系，量子力学要求其波函数具有交换反对称性，即如果两电子交换坐标，波函数应该反号。下面以氦原子为例给出推导证明。</p>
+<p>氦原子是双电子体系，其哈密顿量为</p>
+<p><span class="math display">\[
+H = \mathbf{p}_1^2/2m +  \mathbf{p}_2^2/2m-\frac{2e^2}{r_1}
+-\frac{2e^2}{r_2} +\frac{e^2}{\left | \mathbf{r_1} -\mathbf{r_2}  \right
+| } \tag{8}
+\]</span></p>
+<p>易得当两个电子交换时，哈密顿量不变，可见哈密顿量算符和交换算符具有对易关系：</p>
+<p><span class="math display">\[
+[H,P_{12}] = 0 \tag{9}
+\]</span></p>
+<p>所以将交换算符作用在电子波函数<span
+class="math inline">\(\psi\)</span>上有</p>
+<p><span class="math display">\[
+P_{12} \psi = \lambda \psi \tag{10}
+\]</span></p>
+<p>再作用一次有</p>
+<p><span class="math display">\[
+P^2_{12} \psi = \lambda^2 \psi \tag{11}
+\]</span></p>
+<p>对易算符作用两次等于本身，所以有<span
+class="math inline">\(\lambda=\pm 1\)</span></p>
+<p>这表明两个粒子进行交换，波函数必须是对称或者是反对称的。恰巧实验证明，交换对称的粒子符合Bose统计，所以称为玻色子，反对称的粒子符合fermi统计，所以称为费米子。</p>
+<p>对于费米子（如电子，质子，中子，这里是氦的两个电子）归一化对称波函数可以构建如下</p>
+<p><span class="math display">\[
+\begin{align}
+\psi ^A_{k_1k_2}(q_1,q_2) &amp; =
+\frac{1}{\sqrt[]{2}}(1-P_{12})\varphi_{k_1}(q_1)\varphi_{k_2}(q_2)\nonumber\\
+&amp;=
+\frac{1}{\sqrt[]{2}}[\varphi_{k_1}(q_1)\varphi_{k_2}(q_2)-\varphi_{k_1}(q_2)\varphi_{k_2}(q_1)]\nonumber\\
+&amp;= \frac{1}{\sqrt{2}} \begin{vmatrix}
+\varphi_{k_1}(q_1) &amp; \varphi_{k_2}(q_1)\\
+\varphi_{k_1}(q_2) &amp; \varphi_{k_2}(q_2)
+\end{vmatrix}\nonumber
+\end{align}\tag{12}
+\]</span></p>
+<p>可以看出利用行列式的方法很好的处理了反对称问题，一旦两个电子交换坐标，相当于行列式的交换了两行，行列式的值取个负号。如果有两个电子坐标相同，行列式值为0，表明状态不存在，这就是泡利不相容原理。（不能有两个全同费米子处于同一个单粒子态）</p>
+<p>将这个行列式推广到N个粒子就是斯莱特行列式</p>
+<p><span class="math display">\[
+\psi=\frac{1}{\sqrt{N !}}\left|\begin{array}{cccc}
+\varphi_{1}\left(q_{1}\right) &amp; \varphi_{2}\left(q_{1}\right) &amp;
+\ldots &amp; \varphi_{N}\left(q_{1}\right) \\
+\varphi_{1}\left(q_{2}\right) &amp; \varphi_{2}\left(q_{2}\right) &amp;
+\ldots &amp; \varphi_{N}\left(q_{2}\right) \\
+\ldots &amp; \ldots &amp; \ldots &amp; \ldots \\
+\varphi_{1}\left(q_{N}\right) &amp; \varphi_{2}\left(q_{N}\right) &amp;
+\ldots &amp; \varphi_{N}\left(q_{N}\right)
+\end{array}\right|\tag{13}
+\]</span></p>
+<h3 id="hatree-fork方法">2.4 Hatree-Fork方法</h3>
+<p>针对Hatree近似的不准确性，福克就采用了斯莱特行列式来表示整个电子体系的波函数。这和Hatree近似一样，将多粒子体系变成了单电子系统。</p>
+<p>下面给出哈特里-福克方程的推导。</p>
+<p>首先能量E的平均值<span class="math inline">\(\left \langle E \right
+\rangle\)</span>计算公式如下 <span class="math display">\[
+E = \left \langle E \right \rangle =\int \psi  ^* \hat{H} \psi d \tau
+=   \left \langle \psi \left | \hat{H} \right | \psi  \right \rangle
+\tag{14}
+\]</span></p>
+<p>其中波函数<span
+class="math inline">\(\psi\)</span>可以用斯莱特行列式表示，哈密顿量与式(7)相同，对于有N个电子和M个核的系统展开为</p>
+<p><span class="math display">\[
+\hat{H} = -\sum_{i=1}^{N}  \frac{1}{2} \nabla ^2_i - \sum_{i=1}^{N}
+\sum_{A=1}^{M} \frac{Z_A}{ r_{iA} }+\sum_{i=1}^{N} \sum_{j&gt;i}^{N}
+\frac{1}{ r_{ij} } \tag{15}
+\]</span></p>
+<p>其中<span
+class="math inline">\(\nabla\)</span>是拉普拉斯算符，r为粒子间的距离。</p>
+<p>将式(13)(15)代入(14)就可以得到N电子系统的能量<span
+class="math inline">\(E_{HF}\)</span></p>
+<p>为了有更直观的体验，我们还是以二电子系统为例推导一下。</p>
+<p><span class="math display">\[
+E=\left\langle\psi\left|H_{1}\right|
+\psi\right\rangle+\left\langle\psi\left|H_{2}\right|
+\psi\right\rangle+\left\langle\psi\left|H_{12}\right| \psi\right\rangle
+\tag{16}
+\]</span></p>
+<p>前两项分别是单电子的哈密顿量，即包含单电子的动能和势能的哈密顿量。最后一项代表了两个电子相互作用项，展开如下：</p>
+<p><span class="math display">\[
+\begin{align}
+\left\langle\psi\left|H_{12}\right| \psi\right\rangle &amp; = \iint d
+r_{1} d r _{2} \frac{1}{\sqrt{2}}\left[\varphi_{1}^{*}\left(q_{1}\right)
+\varphi_{2}^{*}\left(q_{2}\right)-\varphi_{1}^{*}\left(q_{2}\right)
+\varphi_{2}^{*}\left(q_{1}\right)\right]\nonumber\\
+&amp;\frac{1}{r_{12}}
+\frac{1}{\sqrt{2}}\left[\varphi_{1}\left(q_{1}\right)
+\varphi_{2}\left(q_{2}\right)-\varphi_{1}\left(q_{2}\right)
+\varphi_{2}\left(q_{1}\right)\right] \nonumber\\
+&amp; = \iint d r_{1} d r _{2} \frac{1}{2}[ \frac{\left |
+\varphi_{1}(q_1) \right |^2
+\left|\varphi_{2}\left(q_{2}\right)\right|^{2}+\left|\varphi_{2}\left(q_{1}\right)\right|^{2}\left|\varphi_{1}\left(q_{2}\right)\right|^{2}
+}{r_{12}}\nonumber\\
+&amp; - \frac{\varphi_{1}^{*}\left(q_{1}\right)
+\varphi_{2}^{*}\left(q_{2}\right)
+\varphi_{1}\left(q_{2}\right)\varphi_{2}\left(q_{1}\right) +
+\varphi_{1}^{*}\left(q_{2}\right)
+\varphi_{2}^{*}\left(q_{1}\right)\varphi_{1}\left(q_{1}\right)  \varphi_{2}\left(q_{2}\right)  }{r_{12}}
+]\nonumber
+\end{align} \tag{17}
+\]</span></p>
+<p>推广到N电子系统</p>
+<p><span class="math display">\[
+H_{HF} = \left \langle \psi \left | \hat{H}  \right | \psi  \right
+\rangle = \sum _{i=1}^{N} H_i + \frac{1}{2}
+\sum_{i,j=1}^{N}(J_{ij}-K_{ij}) \tag{18}
+\]</span> 其中</p>
+<p><span class="math display">\[
+\begin{array}{c}
+H_{i}=\int \varphi_{i}^{*}\left(q_{i}\right)\left(-\frac{1}{2}
+\nabla_{i}^{2}- \sum _{A=1}^{M} Z_{A} / r_{i A}\right)
+\varphi_{i}\left(q_{i}\right) \mathrm{d} r_{i} \\
+J_{i j}=\iint \varphi_{i}\left(q_{1}\right)
+\varphi_{i}^{*}\left(q_{1}\right)\left(1 / r_{12}\right)
+\varphi_{j}^{*}\left(q_{2}\right) \varphi_{j}\left(q_{2}\right)
+\mathrm{d} r_{1} \mathrm{~d} r_{2} \\
+K_{i j}=\iint \varphi_{i}^{*}\left(q_{1}\right)
+\varphi_{j}^{*}\left(q_{2}\right)\left(1 / r_{12}\right)
+\varphi_{i}\left(q_{2}\right) \varphi_{j}\left(q_{1}\right) \mathrm{d}
+r_{1} \mathrm{~d} r_{2}
+\end{array}
+\]</span></p>
+<p>当i，j相同时，J和K也相同。我们将J称为<strong>库伦积分</strong>，将K称为<strong>交换积分</strong>，它们都属于电子-电子间相互作用。</p>
+<p>波函数有正交归一条件限制，所以需要利用拉格朗日未定乘数法构建泛函如下：</p>
+<p><span class="math display">\[
+W = E +\sum_{i} \varepsilon _i \left ( \int d r \varphi_{i}^{*}
+\varphi_{i} - 1 \right )\tag{19}
+\]</span></p>
+<p>还是以双电子系统为例，对其取变分有：</p>
+<p><span class="math display">\[
+\begin{align}
+\delta E &amp; = \sum _{i} \int \delta
+\varphi_{i}^{*}\left(r\right)\left(-\frac{1}{2} \nabla_{i}^{2}- \sum _{A
+= 1}^{M} Z_{A} / r_{i A}\right) \varphi_{i}\left(r\right) \mathrm{d}
+r_{i}\nonumber \\
+&amp; +\sum_{ij} \iint \delta \varphi_{i}^{*}\left(r\right)
+\varphi_{i}\left(r\right) \left(1 / r_{12}\right)
+\varphi_{j}^{*}\left(r^{\prime}\right)
+\varphi_{j}\left(r^{\prime}\right) \mathrm{d} r_{1} \mathrm{~d} r_{2}
+\nonumber \\
+&amp; - \sum_{ij} \iint \delta \varphi_{i}^{*}\left(r\right)
+\varphi_{j}^{*}\left(r^{\prime}\right)\left(1 / r_{12}\right)
+\varphi_{i}\left(r^{\prime}\right) \varphi_{j}\left(r\right) \mathrm{d}
+r_{1} \mathrm{~d} r_{2} \nonumber
+\end{align} \tag{20}
+\]</span></p>
+<p>后面一项</p>
+<p><span class="math display">\[
+\delta \sum_{i} \varepsilon _i \left ( \int d r \varphi_{i}^{*}
+\varphi_{i} - 1 \right ) = \sum_{i} \int dr \delta \varphi_{i}^{*}
+\varepsilon _i \varphi_{i} \tag{21}
+\]</span></p>
+<p>两式相加后提取公因式。</p>
+<p><span class="math display">\[
+\begin{align}
+\sum_{i} \int d r \delta \varphi_{i}^{*} [H_{i}
+\varphi_{i}(r)+\sum_{j(\neq i)} \int d r^{\prime}
+\frac{\left|\varphi_{j}\left(r^{\prime}\right)\right|^{2}}{\left|r-r^{\prime}\right|}
+\varphi_{i}(r)\nonumber\\
+-\sum_{j(\neq i)} \int d r^{\prime}
+\frac{\varphi_{j}^{*}\left(r^{\prime}\right)
+\varphi_{i}\left(r^{\prime}\right)}{\left|r-r^{\prime}\right|}
+\varphi_{j}(r)-\varepsilon_{i} \varphi_{i}(r)] = 0\nonumber
+\end{align}\tag{22}
+\]</span></p>
+<p>变分为零即要求括号内的部分为零 <span class="math display">\[
+H_{i} \varphi_{i}+\sum_{j(\neq i)} \int d r^{\prime}
+\frac{\left|\varphi_{j}\left(r^{\prime}\right)\right|^{2}}{\left|r-r^{\prime}\right|}
+\varphi_{i}-\sum_{j(\neq i)} \int d r^{\prime}
+\frac{\varphi_{j}^{*}\left(r^{\prime}\right)
+\varphi_{i}\left(r^{\prime}\right)}{\left|r-r^{\prime}\right|}
+\varphi_{j}=\varepsilon_{i} \varphi_{i} \tag{23}
+\]</span></p>
+<p>该式即为单电子波函数<span
+class="math inline">\(\psi\)</span>的Hatree-Fork方程，简记为</p>
+<p><span class="math display">\[
+\hat{F}_i \psi(q_i) = \varepsilon _i \psi(q_i)\tag{24}
+\]</span></p>
+<p>其中<span
+class="math inline">\(\hat{F}_i\)</span>被称为福克算符，表示单电子的哈密顿量算符。</p>
+<h2 id="参考资料">参考资料</h2>
+<p>[1] 量子力学 曾谨言</p>
+<p>[2] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/40527652">密度泛函理论简介：A brief
+summary</a></p>
+<p>[3] 知乎文章 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/487866148">固体物理：4.0 能带论
+波恩奥本海默近似 Hatree-Fock近似 单电子近似</a></p>
+<p>[4] 密度泛函理论 胡英 刘洪来</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/06/13/2022-6/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA_Hatree_Fock%E6%96%B9%E6%B3%95/" title="密度泛函理论-Hatree-Fock方法">https://splendidwave.github.io/2022/06/13/2022-6/密度泛函理论_Hatree_Fock方法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%83%BD%E5%B8%A6/" rel="tag"><i class="fa fa-tag"></i> 能带</a>
+              <a href="/tags/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i> 密度泛函理论</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/13/2022-6/Linux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4(%E5%A4%87%E5%BF%98%E5%BD%95)/" rel="prev" title="Linux系统命令(备忘录)">
+                  <i class="fa fa-chevron-left"></i> Linux系统命令(备忘录)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/17/2022-7/VASP%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6INCAR%E9%80%9F%E6%9F%A5/" rel="next" title="VASP输入文件INCAR速查">
+                  VASP输入文件INCAR速查 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"0164c5208202e524dffdb812f86032b7"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
