@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 opencv的python图像处理学习笔记 从空间基的角度介绍小波变换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="opencv-python学习(5)--傅里叶变换与小波变换">
+<meta property="og:url" content="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 opencv的python图像处理学习笔记 从空间基的角度介绍小波变换">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/jy.jpg">
+<meta property="og:image" content="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/fft.jpg">
+<meta property="og:image" content="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/stft.jpg">
+<meta property="og:image" content="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/wave.png">
+<meta property="article:published_time" content="2022-10-25T04:51:22.000Z">
+<meta property="article:modified_time" content="2022-10-30T07:42:49.463Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="opencv">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/jy.jpg">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/","path":"2022/10/25/2022-10/opencv-python学习(5)--傅里叶变换与小波变换/","title":"opencv-python学习(5)--傅里叶变换与小波变换"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>opencv-python学习(5)--傅里叶变换与小波变换 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A1%A8%E7%A4%BA"><span class="nav-text">1. 信号的数学表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%BA%A6%E9%87%8F%E7%A9%BA%E9%97%B4"><span class="nav-text">2.距离与度量空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E6%95%B0%E4%B8%8E%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4"><span class="nav-text">3.范数与赋范空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4%E4%B8%8E%E6%AD%A3%E4%BA%A4%E6%80%A7"><span class="nav-text">4.线性空间、内积空间与正交性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%8C%E5%B0%94%E4%BC%AF%E7%89%B9%E7%A9%BA%E9%97%B4"><span class="nav-text">5.希尔伯特空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%9F%AD%E6%97%B6%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="nav-text">6.傅里叶变换与短时傅里叶变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2"><span class="nav-text">7.小波变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="opencv-python学习(5)--傅里叶变换与小波变换 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          opencv-python学习(5)--傅里叶变换与小波变换
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-25 12:51:22" itemprop="dateCreated datePublished" datetime="2022-10-25T12:51:22+08:00">2022-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-30 15:42:49" itemprop="dateModified" datetime="2022-10-30T15:42:49+08:00">2022-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>opencv的python图像处理学习笔记</p>
+<p>从空间基的角度介绍小波变换</p>
+<span id="more"></span>
+<h2 id="信号的数学表示">1. 信号的数学表示</h2>
+<p>人类探索自然的工具是数学，为此探索的第一步就是将现实中的事物映射到数学上。</p>
+<p>函数就是很好的工具，甚至可以将抽象的数学用图像的方法在坐标系中表示出来。比如一个阶跃信号，被表示为了一个幅值随时间变化的函数。它可以在平面直角坐标系中表示出来，其中横坐标代表时间，纵坐标是幅值。</p>
+<figure>
+<img src="jy.jpg" alt="阶跃信号" />
+<figcaption aria-hidden="true">阶跃信号</figcaption>
+</figure>
+<h2 id="距离与度量空间">2.距离与度量空间</h2>
+<p>上面这图是使用Matlab绘制的，看着是连续的线，但实际上只是先绘制了一些离散的点，然后连接成线的。</p>
+<p>平面上的点<span
+class="math inline">\(p_1\)</span>由两个坐标构成，一个是时间<span
+class="math inline">\(x_1\)</span>，一个是幅值<span
+class="math inline">\(y_1\)</span></p>
+<p>平面集合中的两个元素<span
+class="math inline">\(p_1,p_2\)</span>，在数学上可以引入<strong>距离</strong>的概念，定义为<span
+class="math inline">\(d(p_1,p_2)\)</span>,该距离函数被称为空间集合上的度量，<strong>有距离函数的空间集合就称为度量空间。</strong></p>
+<p>这里为便于理解就不给出严格的数学定义，下同。</p>
+<h2 id="范数与赋范空间">3.范数与赋范空间</h2>
+<p>有了度量函数就可以度量距离了，但是对于单个点的距离或者说是向量还没有办法度量。</p>
+<p>如果你认为和零点的距离不就是向量的距离吗，那非常好，这个空间的范数就已经被定义了，<strong>拥有范数函数的空间集合就称为赋范空间。</strong></p>
+<p>显而易见赋范空间应该包含于度量空间。</p>
+<h2 id="线性空间内积空间与正交性">4.线性空间、内积空间与正交性</h2>
+<p>线性空间的概念就非常熟悉了，满足加法的交换律结合律，乘法的分配律等就是线性空间，线性空间的好处在于任何一个元素都可以使用一组基来线性表示。</p>
+<p>对于一个线性赋范空间，如果赋予它内积的运算，它就被称为内积空间，这个运算的数学上的意义是为了能将矢量转换为标量，显而易见内积空间应该包含于线性赋范空间。</p>
+<p>当两个向量的内积为0时，这两个向量相互正交，如果一组基两两正交，则称这组基是正交基。</p>
+<h2 id="希尔伯特空间">5.希尔伯特空间</h2>
+<p>对于上图信号所处的空间来说，是一个简单的二维线性内积空间，其中维度就是指需要多少个值来描述空间中的一个元素。</p>
+<p>因为它的坐标集合是实数集，所以这个空间又是完备的，有限维度的完备内积空间被数学家称为欧几里德空间。（完备性要求度量空间中的所有柯西序列都收敛于该空间的一点）</p>
+<p>一个有限维度的空间只能表达低于该维度的函数，比如在平面直角坐标系中只能表示一维函数，曲面就需要在三维欧几里德空间中才能画出来。</p>
+<p>维度是一方面的局限，另一个可以简化问题的决策在于基的选择。同样是二维的欧几里德空间，表示一个半径为1的圆，使用
+<span class="math inline">\(x\)</span>,<span
+class="math inline">\(y\)</span>方向的单位向量作为基底，可以写作<span
+class="math inline">\(x^2+y^2=1\)</span>，而在极坐标下只需要写<span
+class="math inline">\(r=1\)</span></p>
+<p>假如有一个空间是无限维的，同时有很多基底供你选择，这样一个空间是不是很棒呢？实际上这也是科学家一直在努力的方向。一个维度不受限的欧几里德空间被称为希尔伯特空间。</p>
+<h2 id="傅里叶变换与短时傅里叶变换">6.傅里叶变换与短时傅里叶变换</h2>
+<p>希尔伯特空间维度是任意的n维，坐标轴的取值也可以从实数拓展到虚数，人类无法想象这个空间，但数学可以将它抽象出来。为方便理解，我们还是以欧几里德空间来想象它。</p>
+<p>有了希尔伯特空间算是解决的第一个问题，无限维的好处是特征有无限多，任何的低维信号在希尔伯特空间都可以映射成向量。现在需要选取一些合适的基，最好的最容易理解和接受的基仍然是沿着假想中的坐标轴的单位向量。</p>
+<p>其次是傅里叶提出的三角函数正交基，三角函数的正交性证明感兴趣的可以见参考资料<a
+href="#refer-anchor-1"><sup>[4]</sup></a></p>
+<p>傅里叶变换的本质就是在希尔伯特空间换了一组基来表示一个信号。为了区分，把以时间方向为基的表示称为时域表示，三角函数基称为频域表示。这一对表示有着非常有意思的性质，他们互为倒空间，在时域上极短的信号体现在频域上就是无限长，反过来也一样。</p>
+<p>傅里叶变换很好用，但同时也有它的局限性，因为过多关注了频域，对于时域的信息反而获取不到。对于特定的情况，傅里叶变换后的信号可能没这么容易获取信息。</p>
+<p>比如对于一个频率随时间变换的信号，出来的图像如图，上图表示时域信号，下图为频域信号</p>
+<figure>
+<img src="fft.jpg" alt="傅里叶变换的局限" />
+<figcaption aria-hidden="true">傅里叶变换的局限</figcaption>
+</figure>
+<p>可以看出频谱除了有4个比较明显的峰外还有许多振荡，而且没法体现出在时域信号中频率随时间变化这一显著的特点。</p>
+<p>所以为了解决这一问题，短时傅里叶变换被提了出来。既然时间信息丢失了，那就补上，短时傅里叶变换和傅里叶变换唯一的区别在于多了一个窗口函数，用一个窗函数去框选时域信号，然后对这一部分再做傅里叶变换，这体现在空间中就是多了一个维度，用热力图来表示如下。</p>
+<figure>
+<img src="stft.jpg" alt="短时傅里叶变换" />
+<figcaption aria-hidden="true">短时傅里叶变换</figcaption>
+</figure>
+<p>短时傅里叶变换就很明显的表现出了时间上的频率变换，但问题在于要怎么知道这个窗口选多大才是合理的，选大了就会出现和傅里叶变换一样的问题出现时域信息丢失，选小了会让频域上的分辨率降低，这里倒是有点测不准原理的感觉了。</p>
+<h2 id="小波变换">7.小波变换</h2>
+<p>不知道该多大的窗口那不如把窗口也变为可变的，不过这样一来，维度又会多了一维，在三维空间里就显得失去了直观性。再往深了考虑的解决方法是使用自适应短时傅里叶变换，使用算法来让窗口自适应信号。</p>
+<p>不过也可以换个角度思考，现在陷入瓶颈的原因还是在于使用了两个互为倒空间的基，出现了测不准的问题，如果重新在希尔伯特空间选择一个基，是否就能够解决这个问题。</p>
+<p>首先波这个概念很好，有了波才引出了频域，我们希望保留它。其次加窗的想法也很好，它保留了时域的信息，这两者都是有物理意义的。这样我们是否能够使用一个小范围的波来作为基呢？起个名字就叫小波，用<span
+class="math inline">\(\psi(t)\)</span>来表示。，样子大概如下。</p>
+<figure>
+<img src="wave.png" alt="小波" />
+<figcaption aria-hidden="true">小波</figcaption>
+</figure>
+<p>当然这只是一个概念图，光有一个波可构不成希尔伯特空间的基。</p>
+<p>好在我们是在线性空间里讨论的，只要一个集合能被一组已知的基完全线性表示，那这个集合也是一组基。这里完全线性表示的意思是用上了所有的元素才能表示全。</p>
+<p>所以只要加上尺度变换<span
+class="math inline">\(\frac{1}{\sqrt{a}}\psi(\frac{t}{a})\)</span>,这样随着a的变换，在时域上看是变胖变瘦，在频域上看是遍历所有频率。前面的系数是为了归一化，同样为了方便处理，我们人为将小波在时域上的积分设置为0，这样就和三角函数相统一了。</p>
+<p>解决了基的问题，好像顺带也把频域的特性提取问题解决了，因为小波基底的选择就是借用的波的概念，下一步是让波在时域上动起来，这个也很好处理，只要用初中学的函数平移就行。以小波为基底的变换就叫小波变换。下面直接给出函数<span
+class="math inline">\(f(t)\)</span>小波变换的完整公式。</p>
+<p><span class="math display">\[
+W T(a, \tau)=\frac{1}{\sqrt{a}} \int_{-\infty}^{\infty} f(t) *
+\psi\left(\frac{t-\tau}{a}\right) d t
+\]</span></p>
+<p>实际上小波不一定长得和上图一样，尺度变换也可以用其他方法表示，记作<span
+class="math inline">\(\phi(t)\)</span></p>
+<p>小波的函数<span
+class="math inline">\(\psi(t)\)</span>被称为母小波，尺度函数<span
+class="math inline">\(\phi(t)\)</span>被称为父小波。确定了两者就可以愉快地进行小波变换了！</p>
+<h2 id="参考资料">参考资料</h2>
+<p>[1] <a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ce4y1p7jF/?spm_id_from=333.880.my_history.page.click&amp;vd_source=3fd1e5e8ca82ebd09d9c888f49c210cf">卷积神经网络的底层是傅里叶变换，傅里叶变换的底层是希尔伯特空间坐标</a></p>
+<p>[2] <a
+target="_blank" rel="noopener" href="https://www.zhihu.com/question/332144499/answer/731866608">希尔伯特空间、内积空间的定义有什么关系和区别？</a></p>
+<p>[3] <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36811328/article/details/81207753">欧几里得空间与希尔伯特空间</a></p>
+<div id="refer-anchor-1">
+
+</div>
+<p>[4] <a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Et411R78v/?from=search&amp;seid=7859464741790869886&amp;spm_id_from=333.337.0.0&amp;vd_source=3fd1e5e8ca82ebd09d9c888f49c210cf">纯干货数学推导_傅里叶级数与傅里叶变换_Part1_三角函数的正交性</a></p>
+<p>[5] <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143510464">Matlab中短时傅里叶变换
+spectrogram和stft的用法</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/10/25/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(5)--%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" title="opencv-python学习(5)--傅里叶变换与小波变换">https://splendidwave.github.io/2022/10/25/2022-10/opencv-python学习(5)--傅里叶变换与小波变换/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/opencv/" rel="tag"><i class="fa fa-tag"></i> opencv</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/23/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(4)--%E5%BD%A2%E6%80%81%E5%AD%A6%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" rel="prev" title="opencv-python学习(4)--形态学与图像分割">
+                  <i class="fa fa-chevron-left"></i> opencv-python学习(4)--形态学与图像分割
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="next" title="opencv-python学习(6)--六个图像处理小项目">
+                  opencv-python学习(6)--六个图像处理小项目 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">168k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:33</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"47712e118549dd284c1bf316d49019e7"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
