@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/head.png">
 <meta property="og:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/sandian.png">
 <meta property="article:published_time" content="2022-04-22T03:06:20.000Z">
-<meta property="article:modified_time" content="2022-06-05T10:10:14.000Z">
+<meta property="article:modified_time" content="2022-11-01T07:54:42.504Z">
 <meta property="article:author" content="splendidwave">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -154,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%A7%88"><span class="nav-text">1.机器学习概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE--%E5%8A%A0%E5%B7%9E%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B"><span class="nav-text">2.机器学习项目--加州房价预测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%82%E5%AF%9F%E5%A4%A7%E5%B1%80"><span class="nav-text">2.1 观察大局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-text">2.2 获取数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">快速查看数据的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%AD%E8%8E%B7%E5%BE%97%E6%B4%9E%E8%A7%81"><span class="nav-text">2.3
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%A7%88"><span class="nav-text">1.机器学习概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE--%E5%8A%A0%E5%B7%9E%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B"><span class="nav-text">2.机器学习项目--加州房价预测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%82%E5%AF%9F%E5%A4%A7%E5%B1%80"><span class="nav-text">2.1 观察大局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-text">2.2 获取数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">快速查看数据的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8split%E7%B1%BB%E8%BF%9B%E8%A1%8C%E5%88%86%E5%B1%82%E6%8A%BD%E6%A0%B7"><span class="nav-text">使用Split类进行分层抽样</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%AD%E8%8E%B7%E5%BE%97%E6%B4%9E%E8%A7%81"><span class="nav-text">2.3
 从数据探索和可视化中获得洞见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="nav-text">2.4 机器学习算法的数据准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E5%A4%84%E7%90%86"><span class="nav-text">2.4.1 数值处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86"><span class="nav-text">2.4.2 文本处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E7%BC%A9%E6%94%BE"><span class="nav-text">2.4.3 特征缩放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text">2.4.4 转换流水线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%92%8C%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.5 选择和训练模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.5.1 建立模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="nav-text">2.5.2 交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.5.2 保存模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E8%B0%83%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.6 微调模型</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
@@ -170,7 +170,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -181,7 +181,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -271,7 +271,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-05 18:10:14" itemprop="dateModified" datetime="2022-06-05T18:10:14+08:00">2022-06-05</time>
+      <time title="修改时间：2022-11-01 15:54:42" itemprop="dateModified" datetime="2022-11-01T15:54:42+08:00">2022-11-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,8 +374,10 @@ bin是指每张图的柱子个数，figsize是图片大小。</p>
 <p>以上讨论的都是随机划分，但有时候这样做选出来的数据不够典型。以房价为例，房价和人居收入必然是紧密联系的，我们应当在各个收入阶层都选出按照原数据比例选出。</p>
 <p>为此我们不妨新增一个属性，起名叫“income_cat”，将人群按收入高低划分为5类
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">housing[&quot;income_cat&quot;] = np.ceil(housing[&quot;median_income&quot;]/1.5)</span><br><span class="line">housing[&quot;income_cat&quot;].where(housing[&quot;income_cat&quot;]&lt;5,5.0,inplace=True)</span><br></pre></td></tr></table></figure> 现在使用Scikit-learn的StratifiedShuffle
-Split类进行分层抽样。 #### 使用Split类进行分层抽样 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import StratifiedShuffleSplit</span><br><span class="line"></span><br><span class="line">split = StratifiedShuffleSplit(n_splits=1,test_size=0.2,random_state=42)</span><br><span class="line">for train_index,test_index in split.split(housing,housing[&quot;income_cat&quot;]):</span><br><span class="line">    strat_train_set = housing.loc[train_index]</span><br><span class="line">    strat_test_set = housing.loc[test_index]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-参数n_splits 是将训练数据分成train/test对的组数。</p>
+Split类进行分层抽样。</p>
+<h4 id="使用split类进行分层抽样">使用Split类进行分层抽样</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import StratifiedShuffleSplit</span><br><span class="line"></span><br><span class="line">split = StratifiedShuffleSplit(n_splits=1,test_size=0.2,random_state=42)</span><br><span class="line">for train_index,test_index in split.split(housing,housing[&quot;income_cat&quot;]):</span><br><span class="line">    strat_train_set = housing.loc[train_index]</span><br><span class="line">    strat_test_set = housing.loc[test_index]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>参数n_splits 是将训练数据分成train/test对的组数。</p>
 <p>参数test_size和train_size是用来设置train/test对中train和test所占的比例。</p>
 <p>参数random_state控制随机。</p>
 <p>使用下面命令查看是否根据收入比例分配 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">housing[&quot;income_cat&quot;].value_counts()/len(housing)</span><br><span class="line">strat_train_set[&quot;income_cat&quot;].value_counts()/len(strat_train_set)</span><br></pre></td></tr></table></figure>
@@ -570,13 +572,13 @@ emmm,没有误差也太假了，看来是过拟合了。</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">168k</span>
+    <span title="站点总字数">174k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:33</span>
+    <span title="站点阅读时长">2:38</span>
   </span>
 </div>
 
