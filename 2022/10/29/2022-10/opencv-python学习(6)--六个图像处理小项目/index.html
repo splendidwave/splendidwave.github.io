@@ -31,19 +31,12 @@
 <meta property="og:site_name" content="SplendidWave&#39;Blog">
 <meta property="og:description" content="摘要 opencv的python图像处理学习笔记 转像素画、转字符画、图片九宫格、图片蒙太奇、幻影坦克、证件照裁剪。 部分代码参考互联网。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://splendidwave.github.io/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/kl.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/zfh.jpg">
-<meta property="og:image" content="https://splendidwave.github.io/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/nine.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/mtg.jpg">
-<meta property="og:image" content="https://splendidwave.github.io/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/tank.jpg">
-<meta property="og:image" content="https://splendidwave.github.io/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/zjz.jpg">
 <meta property="article:published_time" content="2022-10-29T07:47:32.000Z">
-<meta property="article:modified_time" content="2022-10-30T09:02:40.756Z">
+<meta property="article:modified_time" content="2022-12-10T12:06:50.733Z">
 <meta property="article:author" content="splendidwave">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="opencv">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://splendidwave.github.io/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/kl.png">
 
 
 <link rel="canonical" href="https://splendidwave.github.io/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/">
@@ -273,7 +266,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-30 17:02:40" itemprop="dateModified" datetime="2022-10-30T17:02:40+08:00">2022-10-30</time>
+      <time title="修改时间：2022-12-10 20:06:50" itemprop="dateModified" datetime="2022-12-10T20:06:50+08:00">2022-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,7 +314,9 @@
 <h2 id="图像转像素画">1.图像转像素画</h2>
 <p>效果如下</p>
 <figure>
-<img src="kl.png" alt="可莉像素" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200353.png"
+alt="可莉像素" />
 <figcaption aria-hidden="true">可莉像素</figcaption>
 </figure>
 <p>实现原理是通过将图片缩小10倍，然后用最邻近插值放大回原来的尺寸。</p>
@@ -330,7 +325,9 @@
 <h2 id="图片转字符画">2.图片转字符画</h2>
 <p>效果图</p>
 <figure>
-<img src="zfh.jpg" alt="字符画" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200413.jpg"
+alt="字符画" />
 <figcaption aria-hidden="true">字符画</figcaption>
 </figure>
 <p>原理是把图片转为灰度，然后根据灰度值将像素替换为对应字重的字符最后保存为txt</p>
@@ -342,7 +339,9 @@
 <p>图片九宫格是发朋友圈常用的一种格式，该项目可以辅助将一张图片切割成9张。</p>
 <p>效果</p>
 <figure>
-<img src="nine.png" alt="图片九宫格" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200430.png"
+alt="图片九宫格" />
 <figcaption aria-hidden="true">图片九宫格</figcaption>
 </figure>
 <p>这个没啥说的就是切一下图片,因为懒得pip没用PIL库就直接对数组操作了。</p>
@@ -351,7 +350,9 @@
 <p>图片蒙太奇是指用一组图片去组合成一张大图的艺术效果。</p>
 <p>图片有点大，放本地打开后再截图的图。</p>
 <figure>
-<img src="mtg.jpg" alt="蒙太奇" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200548.jpg"
+alt="蒙太奇" />
 <figcaption aria-hidden="true">蒙太奇</figcaption>
 </figure>
 <p>代码主要参考CSDN<a
@@ -362,7 +363,9 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/Galen_xia/article/det
 <p>幻影坦克是现代互联网图片表示的艺术，缩略图上看是一张图，但实际点开就变成了另一张，常见于贴吧。</p>
 <p>效果图</p>
 <figure>
-<img src="tank.jpg" alt="幻影坦克" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200449.jpg"
+alt="幻影坦克" />
 <figcaption aria-hidden="true">幻影坦克</figcaption>
 </figure>
 <p>原理参考b站小迷糊老师的视频《<a
@@ -375,7 +378,9 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/WinkySpeed/article/de
 <p>如果你对证件照态度比较随便的话，可以直接用手机背靠墙拍一张，然后用这个方法处理，直接用打印机打印出来。</p>
 <p>效果图</p>
 <figure>
-<img src="zjz.jpg" alt="证件照" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200512.jpg"
+alt="证件照" />
 <figcaption aria-hidden="true">证件照</figcaption>
 </figure>
 <p>原理是建立对应大小的画布，然后把图片处理成1或2寸的，贴到对应位置。</p>
@@ -454,8 +459,8 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/WinkySpeed/article/de
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/11/23/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(2)--%E6%84%9F%E7%9F%A5%E6%9C%BA/" rel="next" title="统计学习(1)--感知机">
-                  统计学习(1)--感知机 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/11/23/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(2)--%E6%84%9F%E7%9F%A5%E6%9C%BA/" rel="next" title="统计学习(2)--感知机">
+                  统计学习(2)--感知机 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

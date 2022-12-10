@@ -31,19 +31,14 @@
 <meta property="og:site_name" content="SplendidWave&#39;Blog">
 <meta property="og:description" content="摘要 紧束缚近似下使用二次量子化表示黑磷哈密顿量并利用 python编写代码绘制黑磷能带图。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/08/2022-5/%E4%BD%BF%E7%94%A8%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E7%BB%98%E5%88%B6%E5%8D%95%E5%B1%82%E9%BB%91%E7%A3%B7%E8%83%BD%E5%B8%A6%E5%9B%BE/h黑磷.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/08/2022-5/%E4%BD%BF%E7%94%A8%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E7%BB%98%E5%88%B6%E5%8D%95%E5%B1%82%E9%BB%91%E7%A3%B7%E8%83%BD%E5%B8%A6%E5%9B%BE/BPf.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/08/2022-5/%E4%BD%BF%E7%94%A8%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E7%BB%98%E5%88%B6%E5%8D%95%E5%B1%82%E9%BB%91%E7%A3%B7%E8%83%BD%E5%B8%A6%E5%9B%BE/cosbeta.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/08/2022-5/%E4%BD%BF%E7%94%A8%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E7%BB%98%E5%88%B6%E5%8D%95%E5%B1%82%E9%BB%91%E7%A3%B7%E8%83%BD%E5%B8%A6%E5%9B%BE/danceng.png">
 <meta property="article:published_time" content="2022-05-08T02:26:56.000Z">
-<meta property="article:modified_time" content="2022-07-20T09:32:18.000Z">
+<meta property="article:modified_time" content="2022-12-10T12:18:11.715Z">
 <meta property="article:author" content="splendidwave">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="固体物理">
 <meta property="article:tag" content="能带">
 <meta property="article:tag" content="黑磷">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://splendidwave.github.io/2022/05/08/2022-5/%E4%BD%BF%E7%94%A8%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E7%BB%98%E5%88%B6%E5%8D%95%E5%B1%82%E9%BB%91%E7%A3%B7%E8%83%BD%E5%B8%A6%E5%9B%BE/h黑磷.png">
 
 
 <link rel="canonical" href="https://splendidwave.github.io/2022/05/08/2022-5/%E4%BD%BF%E7%94%A8%E7%B4%A7%E6%9D%9F%E7%BC%9A%E8%BF%91%E4%BC%BC%E7%BB%98%E5%88%B6%E5%8D%95%E5%B1%82%E9%BB%91%E7%A3%B7%E8%83%BD%E5%B8%A6%E5%9B%BE/">
@@ -273,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-20 17:32:18" itemprop="dateModified" datetime="2022-07-20T17:32:18+08:00">2022-07-20</time>
+      <time title="修改时间：2022-12-10 20:18:11" itemprop="dateModified" datetime="2022-12-10T20:18:11+08:00">2022-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -322,8 +317,10 @@ python编写代码绘制黑磷能带图。</p>
 <p>黑磷作为一种新型的二维材料，不同于石墨烯的零带隙和过渡金属硫化物的低载流子迁移率。黑磷具备可以控制的直接带隙、高开关比及高载流子迁移率。因此黑磷烯也被广泛应用于光电、化学、生物等多个领域。</p>
 <p>其具有与石墨烯类似的蜂窝型层状结构，不同之处在于黑磷的片层结构有着褶皱形态。黑磷原子结构见图1.</p>
 <figure>
-<img src="h黑磷.png" alt="图1黑磷原子结构示意图" />
-<figcaption aria-hidden="true">图1黑磷原子结构示意图</figcaption>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201650.png"
+alt="黑磷原子结构示意图" />
+<figcaption aria-hidden="true">黑磷原子结构示意图</figcaption>
 </figure>
 <p>图片使用blender绘制，方法参考<a
 href="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/#more">使用python+blender绘制原子结构示意图--以黑磷为例</a></p>
@@ -333,8 +330,10 @@ class="math inline">\(a_1=2.22 \mathring{A}\)</span>
 \mathring{A}\)</span></p>
 <p>俯视图为六边形结构，如图2,图中另外标明了</p>
 <figure>
-<img src="BPf.png" alt="图2单层黑磷俯视图" />
-<figcaption aria-hidden="true">图2单层黑磷俯视图</figcaption>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201712.png"
+alt="单层黑磷俯视图" />
+<figcaption aria-hidden="true">单层黑磷俯视图</figcaption>
 </figure>
 <p>其中键角<span class="math inline">\(\alpha_2=101.9^{\circ}\)</span>,
 <span class="math inline">\(\alpha_1=96.5^{\circ}\)</span>, <span
@@ -343,8 +342,10 @@ class="math inline">\(\cos \beta=-\cos \alpha_2 / \cos
 <p>数据来源参考资料[2]（参考资料中的<span class="math inline">\(\cos
 \beta\)</span>这一项应为上文表达式，给个潦草的推导。）</p>
 <figure>
-<img src="cosbeta.png" alt="由α Pav提供的推导" />
-<figcaption aria-hidden="true">由α Pav提供的推导</figcaption>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201732.png"
+alt="由α Pav提供的推导草稿" />
+<figcaption aria-hidden="true">由α Pav提供的推导草稿</figcaption>
 </figure>
 <h2 id="单层黑磷的哈密顿量">2.单层黑磷的哈密顿量</h2>
 <p>黑磷的哈密顿量可以写作 <span class="math display">\[
@@ -450,7 +451,9 @@ t_{C B}^{*}(k) &amp; t_{D B}(k)
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">from para import *</span><br><span class="line">import cmath</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def ham(kx,ky):</span><br><span class="line">    tab = 2*t1*np.cos(ky*a1*np.sin(alpha1/2))*cmath.exp(1j*kx*a1*np.cos(alpha1/2))+\</span><br><span class="line">        2*t3*np.cos(ky*a1*np.sin(alpha1/2))*cmath.exp(-1j*kx*(a1*np.cos(alpha1/2)+2*a2*cos_beta))</span><br><span class="line">    tcb = t2*cmath.exp(-1j*kx*a2*cos_beta) + t5*cmath.exp(1j*kx*(2*a1*np.cos(alpha1/2)+a2*cos_beta))</span><br><span class="line">    tdb = 4*t4*np.cos(ky*a1*np.sin(alpha1/2))*np.cos(kx*(a1*np.cos(alpha1/2)+a2*cos_beta))</span><br><span class="line"></span><br><span class="line">    h0 = np.zeros((2, 2), dtype=complex)</span><br><span class="line">    h1 = np.zeros((2, 2), dtype=complex)</span><br><span class="line">    hm = np.zeros((4, 4), dtype=complex)</span><br><span class="line"></span><br><span class="line">    h0[0,0] = 0</span><br><span class="line">    h0[1,1] = 0</span><br><span class="line">    h0[0,1] = tab</span><br><span class="line">    h0[1,0] = h0[0,1].conj()</span><br><span class="line"></span><br><span class="line">    h1[0,0] = tdb</span><br><span class="line">    h1[1,1] = tdb</span><br><span class="line">    h1[0,1] = tcb</span><br><span class="line">    h1[1,0] = h1[0,1].conj()</span><br><span class="line"></span><br><span class="line">    hm[:2,:2] = h0</span><br><span class="line">    hm[2:,2:] = h0</span><br><span class="line">    hm[:2,2:] = h1</span><br><span class="line">    hm[2:,:2] = h1</span><br><span class="line"></span><br><span class="line">    return hm </span><br><span class="line"></span><br><span class="line">def Draw_1d(kx, ky, eig, n_step):</span><br><span class="line">    &quot;&quot;&quot;画图函数&quot;&quot;&quot;</span><br><span class="line">    # 计算带隙</span><br><span class="line">    Conduction_bottom = np.min(np.where(eig &gt; 0, eig, np.inf))</span><br><span class="line">    Valence_top = np.max(np.where(eig &lt; 0, eig, -np.inf))</span><br><span class="line">    print(&quot;带隙为&quot;,Conduction_bottom-Valence_top)</span><br><span class="line">    dim = eig.shape[-1]</span><br><span class="line">    for i in range(dim):</span><br><span class="line">        plt.plot(kx, eig[0,:,i],&#x27;b-&#x27;)</span><br><span class="line">        plt.plot(ky, eig[1,:,i],&#x27;b-&#x27;)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">def Draw_2d(kx, ky, eig, n_step):</span><br><span class="line">    &quot;&quot;&quot;画图函数&quot;&quot;&quot;</span><br><span class="line">    fig = plt.axes(projection=&#x27;3d&#x27;)</span><br><span class="line">    x, y = np.meshgrid(kx, ky)</span><br><span class="line">    zero_plane = np.zeros((n_step, n_step))</span><br><span class="line">    # 画能带图</span><br><span class="line">    dim = eig.shape[-1]</span><br><span class="line">    for i in range(dim):</span><br><span class="line">        fig.plot_surface(x, y, eig[:, :, i], cmap=&#x27;spring&#x27;)</span><br><span class="line">    fig.plot_surface(x, y, zero_plane, cmap=&#x27;gray&#x27;)</span><br><span class="line">    plt.xlabel(&quot;Kx&quot;)</span><br><span class="line">    plt.ylabel(&quot;Ky&quot;)</span><br><span class="line">    fig.view_init(elev=2, azim=140)</span><br><span class="line">    # 计算带隙</span><br><span class="line">    Conduction_bottom = np.min(np.where(eig &gt; 0, eig, np.inf))</span><br><span class="line">    Valence_top = np.max(np.where(eig &lt; 0, eig, -np.inf))</span><br><span class="line">    print(&quot;带隙为&quot;,Conduction_bottom-Valence_top)</span><br><span class="line">    #plt.savefig(&quot;single_BP_2D_Band.jpg&quot;, dpi=600)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main2():</span><br><span class="line">    n_step = 100</span><br><span class="line">    kx_list = np.linspace(-np.pi, np.pi, n_step)</span><br><span class="line">    ky_list = np.linspace(-np.pi, np.pi, n_step)</span><br><span class="line">    two_dim_eig = np.zeros((n_step, n_step, 4))</span><br><span class="line"></span><br><span class="line">    for x in range(n_step):</span><br><span class="line">        kx = kx_list[x]</span><br><span class="line">        for y in range(n_step):</span><br><span class="line">            ky = ky_list[y]</span><br><span class="line">            h = ham(kx, ky)</span><br><span class="line">            eigenvalue, eigenvector = np.linalg.eigh(h)</span><br><span class="line">            two_dim_eig[x, y, :] = eigenvalue</span><br><span class="line">    Draw_2d(kx_list, ky_list, two_dim_eig, n_step)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main1():</span><br><span class="line">    n_step = 1000</span><br><span class="line">    kx_list = np.linspace(0, np.pi, n_step)</span><br><span class="line">    ky_list = np.linspace(-np.pi, 0, n_step)</span><br><span class="line">    two_eig = np.zeros((2 , n_step, 4))</span><br><span class="line"></span><br><span class="line">    ky = 0 </span><br><span class="line">    for x in range(n_step):</span><br><span class="line">        kx = kx_list[x]</span><br><span class="line">        h = ham(kx, ky)</span><br><span class="line">        eigenvalue, eigenvector = np.linalg.eigh(h)</span><br><span class="line">        two_eig[0, x, :] = eigenvalue</span><br><span class="line">    kx = 0</span><br><span class="line">    for y in range(n_step):</span><br><span class="line">        ky = ky_list[y]</span><br><span class="line">        h = ham(kx,ky)</span><br><span class="line">        eigenvalue, eigenvector = np.linalg.eigh(h)</span><br><span class="line">        two_eig[1, y, :] = eigenvalue</span><br><span class="line">    Draw_1d(kx_list, ky_list, two_eig, n_step)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    main2()</span><br></pre></td></tr></table></figure>
 <p>main1()是用来画一维的能带，main2()是画立体的。单层黑磷的能带结构图如下：</p>
 <figure>
-<img src="danceng.png" alt="单层黑磷能带图" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201803.png"
+alt="单层黑磷能带图" />
 <figcaption aria-hidden="true">单层黑磷能带图</figcaption>
 </figure>
 <p>同时会输出带隙，在1.52左右，是符合之前的工作结果的。</p>

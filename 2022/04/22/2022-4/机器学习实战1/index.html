@@ -31,16 +31,12 @@
 <meta property="og:site_name" content="SplendidWave&#39;Blog">
 <meta property="og:description" content="摘要 《机器学习实战：基于Scikit-Learn和TensorFlow》学习笔记 加州房价">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/jqxxgl.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/head.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/sandian.png">
 <meta property="article:published_time" content="2022-04-22T03:06:20.000Z">
-<meta property="article:modified_time" content="2022-11-01T07:54:42.504Z">
+<meta property="article:modified_time" content="2022-12-10T12:32:43.120Z">
 <meta property="article:author" content="splendidwave">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/jqxxgl.png">
 
 
 <link rel="canonical" href="https://splendidwave.github.io/2022/04/22/2022-4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%981/">
@@ -271,7 +267,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-11-01 15:54:42" itemprop="dateModified" datetime="2022-11-01T15:54:42+08:00">2022-11-01</time>
+      <time title="修改时间：2022-12-10 20:32:43" itemprop="dateModified" datetime="2022-12-10T20:32:43+08:00">2022-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -317,7 +313,9 @@
 <p>加州房价 <span id="more"></span></p>
 <h2 id="机器学习概览">1.机器学习概览</h2>
 <figure>
-<img src="jqxxgl.png" alt="机器学习概览" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210202119.png"
+alt="机器学习概览" />
 <figcaption aria-hidden="true">机器学习概览</figcaption>
 </figure>
 <h2 id="机器学习项目--加州房价预测">2.机器学习项目--加州房价预测</h2>
@@ -354,12 +352,15 @@ MAE(\mathbf{X},h) = \frac{1}{m}\sum_{i=1}^{m}\left |
 (h(\mathbf{x}^{\left ( i \right ) })-y^{(i)} )   \right |
 \]</span></p>
 <h3 id="获取数据">2.2 获取数据</h3>
-<p>数据文件<a href="housing.csv">点击下载</a></p>
+<p>数据文件<a
+target="_blank" rel="noopener" href="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/non-image/housing.csv">点击下载</a></p>
 <p>我这里直接用的jupyter</p>
 <p>使用pandas库加载数据，使用head()方法快速参看前5行。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">def loading_housing_data():</span><br><span class="line">    csv_data = pd.read_csv(r&#x27;datasets\housing\housing.csv&#x27;)</span><br><span class="line">    return csv_data</span><br><span class="line"></span><br><span class="line">housing = loading_housing_data()</span><br><span class="line">housing.head()</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="head.png" alt="查看数据" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210202326.png"
+alt="查看数据" />
 <figcaption aria-hidden="true">查看数据</figcaption>
 </figure>
 <p>可以看出数据共有10个属性，使用info()方法可以查看属性类型及数量,describe()方法可以显示属性值摘要。</p>
@@ -388,7 +389,9 @@ Split类进行分层抽样。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">housing = strat_train_set.copy()</span><br></pre></td></tr></table></figure> 在房价问题中，不妨先用热力图看下地图信息 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">housing.plot(kind=&quot;scatter&quot;,x=&quot;longitude&quot;,y=&quot;latitude&quot;,alpha=0.4,</span><br><span class="line">            s=housing[&quot;population&quot;]/100,label=&quot;population&quot;,</span><br><span class="line">            c=&quot;median_house_value&quot;,cmap=plt.get_cmap(&quot;jet&quot;),colorbar=True,</span><br><span class="line">            )</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure>
 上面参数s指size，c指color，cmap是配色方案。</p>
 <figure>
-<img src="sandian.png" alt="高密度区域可视化" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210202343.png"
+alt="高密度区域可视化" />
 <figcaption aria-hidden="true">高密度区域可视化</figcaption>
 </figure>
 <p>可以看出，靠近西海岸的房价会比较高。</p>

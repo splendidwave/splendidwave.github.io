@@ -31,15 +31,12 @@
 <meta property="og:site_name" content="SplendidWave&#39;Blog">
 <meta property="og:description" content="摘要 因为感觉origin在拟合拉曼光谱方面不太好用，而且更喜欢python的绘图风格。 于是自己写的一个python程序，本文是随着程序开发一同写的，记录一下编程框架和难点，不代表最终版本。 注意：本文是类似于草稿和日记的笔记，不用作解释代码和介绍程序功能。使用说明会另开文章。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://splendidwave.github.io/2022/03/30/2022-3/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B01/bc.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/03/30/2022-3/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B01/jm.png">
 <meta property="article:published_time" content="2022-03-30T02:34:29.000Z">
-<meta property="article:modified_time" content="2022-08-22T11:48:44.000Z">
+<meta property="article:modified_time" content="2022-12-10T12:36:56.081Z">
 <meta property="article:author" content="splendidwave">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="科研">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://splendidwave.github.io/2022/03/30/2022-3/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B01/bc.png">
 
 
 <link rel="canonical" href="https://splendidwave.github.io/2022/03/30/2022-3/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E6%8B%89%E6%9B%BC%E5%85%89%E8%B0%B1%E5%A4%9A%E5%B3%B0%E6%8B%9F%E5%90%88%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B01/">
@@ -269,7 +266,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-22 19:48:44" itemprop="dateModified" datetime="2022-08-22T19:48:44+08:00">2022-08-22</time>
+      <time title="修改时间：2022-12-10 20:36:56" itemprop="dateModified" datetime="2022-12-10T20:36:56+08:00">2022-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -327,13 +324,17 @@ scipy.special中的wofz tkinter</p>
 <p>自建 fitcures plotpic setting subfunction ## 1.输入格式</p>
 <p>utf-8格式保存的csv文件。部分展示如下</p>
 <figure>
-<img src="bc.png" alt="输入文件样式" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210203636.png"
+alt="输入文件样式" />
 <figcaption aria-hidden="true">输入文件样式</figcaption>
 </figure>
 <h2 id="代码架构">2.代码架构</h2>
 <h3 id="界面">2.1 界面</h3>
 <figure>
-<img src="jm.png" alt="界面" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210203647.png"
+alt="界面" />
 <figcaption aria-hidden="true">界面</figcaption>
 </figure>
 <p>界面使用的是tkinter库，用类方法调用，初始化函数如下：</p>

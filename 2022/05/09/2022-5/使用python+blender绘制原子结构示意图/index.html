@@ -31,21 +31,13 @@
 <meta property="og:site_name" content="SplendidWave&#39;Blog">
 <meta property="og:description" content="摘要 使用python+blender绘制原子结构示意图 --以黑磷为例 也可以代入其他原子结构">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/BP.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/json.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/cs.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/yxh.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/zhuhe.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/zl.png">
-<meta property="og:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/zh.png">
 <meta property="article:published_time" content="2022-05-09T09:04:29.000Z">
-<meta property="article:modified_time" content="2022-08-25T04:09:32.000Z">
+<meta property="article:modified_time" content="2022-12-10T12:16:12.379Z">
 <meta property="article:author" content="splendidwave">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="科研">
 <meta property="article:tag" content="blender">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/BP.png">
 
 
 <link rel="canonical" href="https://splendidwave.github.io/2022/05/09/2022-5/%E4%BD%BF%E7%94%A8python+blender%E7%BB%98%E5%88%B6%E5%8E%9F%E5%AD%90%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE/">
@@ -275,7 +267,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-25 12:09:32" itemprop="dateModified" datetime="2022-08-25T12:09:32+08:00">2022-08-25</time>
+      <time title="修改时间：2022-12-10 20:16:12" itemprop="dateModified" datetime="2022-12-10T20:16:12+08:00">2022-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,7 +313,9 @@
 <p>也可以代入其他原子结构 <span id="more"></span></p>
 <h2 id="结果样式">1.结果样式</h2>
 <figure>
-<img src="BP.png" alt="黑磷原子结构示意图" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201410.png"
+alt="黑磷原子结构示意图" />
 <figcaption aria-hidden="true">黑磷原子结构示意图</figcaption>
 </figure>
 <h2 id="blender和bpy">2.blender和bpy</h2>
@@ -337,7 +331,9 @@ target="_blank" rel="noopener" href="https://www.blender.org/">https://www.blend
 bond有一个列表元素，列表中包含了bond的起始坐标和结束坐标。</p>
 <p>其中前面的名字可以随意写。</p>
 <figure>
-<img src="json.png" alt="输入文件" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201429.png"
+alt="输入文件" />
 <figcaption aria-hidden="true">输入文件</figcaption>
 </figure>
 <p>注：这里的数据不是黑磷的真实数据。</p>
@@ -345,7 +341,9 @@ bond有一个列表元素，列表中包含了bond的起始坐标和结束坐标
 <h4 id="执行脚本">3.2.1 执行脚本</h4>
 <p>打开blender选择常规,可以看见下图画面。</p>
 <figure>
-<img src="cs.png" alt="blender初始界面" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201443.png"
+alt="blender初始界面" />
 <figcaption aria-hidden="true">blender初始界面</figcaption>
 </figure>
 <p>按a，再按del，删除所有元素。</p>
@@ -357,24 +355,32 @@ bond有一个列表元素，列表中包含了bond的起始坐标和结束坐标
 一些其他需要修改的地方（bond的半径，颜色等）也可以自行修改。</p>
 <p>点击运行或按alt+P执行程序。可以得到下图：</p>
 <figure>
-<img src="yxh.png" alt="执行后界面" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201501.png"
+alt="执行后界面" />
 <figcaption aria-hidden="true">执行后界面</figcaption>
 </figure>
 <h4 id="扩展整列">3.2.2 扩展整列</h4>
 <p>切换到layout，选择处于原点的原子。</p>
 <p>按a全选，再按ctrl+j结合所有元素组合</p>
 <figure>
-<img src="zhuhe.png" alt="组合后界面" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201533.png"
+alt="组合后界面" />
 <figcaption aria-hidden="true">组合后界面</figcaption>
 </figure>
 <p>点击修改器属性，添加阵列修改器，数量选择20，相对位移x改为0.886，其他为0。再添加一个，这个相对偏移上y改为0.886。</p>
 <figure>
-<img src="zl.png" alt="修改阵列" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201519.png"
+alt="修改阵列" />
 <figcaption aria-hidden="true">修改阵列</figcaption>
 </figure>
 <p>最后shift+a添加面光、平面、相机。选取合适的角度进行渲染拍摄吧。参考资料[3]</p>
 <figure>
-<img src="zh.png" alt="准备拍摄" />
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210201600.png"
+alt="准备拍摄" />
 <figcaption aria-hidden="true">准备拍摄</figcaption>
 </figure>
 <h2 id="参考资料">参考资料</h2>
