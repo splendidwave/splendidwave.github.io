@@ -24,29 +24,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="摘要 在centos7下安装anaconda3并管理python">
+    <meta name="description" content="摘要 python绘图技巧备忘录 使用Matplotlib，以代码呈现为主 字体修改，公用x轴坐标">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS7配置Anaconda3管理下的python">
-<meta property="og:url" content="https://splendidwave.github.io/2022/10/06/2022-10/CentOS7%E9%85%8D%E7%BD%AEAnaconda3%E7%AE%A1%E7%90%86%E4%B8%8B%E7%9A%84python/index.html">
+<meta property="og:title" content="使用python进行科研绘图入门--共用坐标、全局字体">
+<meta property="og:url" content="https://splendidwave.github.io/2022/12/14/2022-12/%E4%BD%BF%E7%94%A8python%E8%BF%9B%E8%A1%8C%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%85%A5%E9%97%A8--%E5%85%B1%E7%94%A8%E5%9D%90%E6%A0%87%E3%80%81%E5%85%A8%E5%B1%80%E5%AD%97%E4%BD%93/index.html">
 <meta property="og:site_name" content="SplendidWave&#39;Blog">
-<meta property="og:description" content="摘要 在centos7下安装anaconda3并管理python">
+<meta property="og:description" content="摘要 python绘图技巧备忘录 使用Matplotlib，以代码呈现为主 字体修改，公用x轴坐标">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-06T07:58:32.000Z">
-<meta property="article:modified_time" content="2022-10-06T10:32:27.088Z">
+<meta property="article:published_time" content="2022-12-14T06:11:33.000Z">
+<meta property="article:modified_time" content="2022-12-14T06:22:13.660Z">
 <meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="科研">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://splendidwave.github.io/2022/10/06/2022-10/CentOS7%E9%85%8D%E7%BD%AEAnaconda3%E7%AE%A1%E7%90%86%E4%B8%8B%E7%9A%84python/">
+<link rel="canonical" href="https://splendidwave.github.io/2022/12/14/2022-12/%E4%BD%BF%E7%94%A8python%E8%BF%9B%E8%A1%8C%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%85%A5%E9%97%A8--%E5%85%B1%E7%94%A8%E5%9D%90%E6%A0%87%E3%80%81%E5%85%A8%E5%B1%80%E5%AD%97%E4%BD%93/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/10/06/2022-10/CentOS7%E9%85%8D%E7%BD%AEAnaconda3%E7%AE%A1%E7%90%86%E4%B8%8B%E7%9A%84python/","path":"2022/10/06/2022-10/CentOS7配置Anaconda3管理下的python/","title":"CentOS7配置Anaconda3管理下的python"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/12/14/2022-12/%E4%BD%BF%E7%94%A8python%E8%BF%9B%E8%A1%8C%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%85%A5%E9%97%A8--%E5%85%B1%E7%94%A8%E5%9D%90%E6%A0%87%E3%80%81%E5%85%A8%E5%B1%80%E5%AD%97%E4%BD%93/","path":"2022/12/14/2022-12/使用python进行科研绘图入门--共用坐标、全局字体/","title":"使用python进行科研绘图入门--共用坐标、全局字体"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>CentOS7配置Anaconda3管理下的python | SplendidWave'Blog</title>
+<title>使用python进行科研绘图入门--共用坐标、全局字体 | SplendidWave'Blog</title>
   
 
 
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85anaconda3"><span class="nav-text">1.安装Anaconda3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="nav-text">2.创建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%BF%90%E8%A1%8Cpython"><span class="nav-text">3.编写运行python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%AD%97%E4%BD%93%E4%BF%AE%E6%94%B9"><span class="nav-text">1. 全局字体修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%AD%97%E4%BD%93"><span class="nav-text">2.局部字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B1%E7%94%A8x%E5%9D%90%E6%A0%87"><span class="nav-text">3.共用x坐标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -230,7 +230,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/10/06/2022-10/CentOS7%E9%85%8D%E7%BD%AEAnaconda3%E7%AE%A1%E7%90%86%E4%B8%8B%E7%9A%84python/">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/12/14/2022-12/%E4%BD%BF%E7%94%A8python%E8%BF%9B%E8%A1%8C%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%85%A5%E9%97%A8--%E5%85%B1%E7%94%A8%E5%9D%90%E6%A0%87%E3%80%81%E5%85%A8%E5%B1%80%E5%AD%97%E4%BD%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -243,12 +243,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="CentOS7配置Anaconda3管理下的python | SplendidWave'Blog">
+      <meta itemprop="name" content="使用python进行科研绘图入门--共用坐标、全局字体 | SplendidWave'Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CentOS7配置Anaconda3管理下的python
+          使用python进行科研绘图入门--共用坐标、全局字体
         </h1>
 
         <div class="post-meta-container">
@@ -260,7 +260,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-10-06 15:58:32 / 修改时间：18:32:27" itemprop="dateCreated datePublished" datetime="2022-10-06T15:58:32+08:00">2022-10-06</time>
+      <time title="创建时间：2022-12-14 14:11:33 / 修改时间：14:22:13" itemprop="dateCreated datePublished" datetime="2022-12-14T14:11:33+08:00">2022-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,7 +283,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -302,31 +302,26 @@
     
     <div class="post-body" itemprop="articleBody">
         <h2 id="摘要">摘要</h2>
-<p>在centos7下安装anaconda3并管理python</p>
-<span id="more"></span>
-<h2 id="安装anaconda3">1.安装Anaconda3</h2>
-<p>在<a
-target="_blank" rel="noopener" href="https://www.anaconda.com/products/distribution#linux">官网</a>下载最新版或者使用
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.2.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure> 在镜像源上下载。</p>
-<p>下载完成后使用<code>sh Anaconda3-5.2.0-Linux-x86_64.sh</code>进行安装</p>
-<p>一路回车然后yes，然后会让你选择安装路径，默认为<code>当前用户/anaconda3</code></p>
-<p>随后会问是否添加环境变量（yes），是否安装vscode（no）</p>
-<p>最后使用<code>conda info</code>来查看是否安装成功，如果出现<code>bash: conda: command not found</code>是没加入环境变量，或者添加了没重新生效，需要到用户目录下输入<code>source .bashrc</code></p>
-<p>成功后可以使用下面语句换源 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge </span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</span><br><span class="line"></span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-<h2 id="创建环境">2.创建环境</h2>
-<p><code>conda create -n envname python=3.9</code></p>
-<p>其中envname是环境名，3.9是版本号，都可以替换</p>
-<p>如果出现创建新环境有出现<code>CondaHTTPError: HTTP 000 CONNECTION FAILED for url</code>可能是防火墙等因素的问题，建议使用<code>conda config --remove-key channels</code>命令去除换源。</p>
-<p>使用<code>source activate</code>进入base环境，这是基础环境，不建议在这里安装库，在base环境中可以使用一些命令见<a
-href="https://splendidwave.github.io/2022/06/13/2022-6/anacodna3%E4%BD%BF%E7%94%A8%E5%A4%87%E5%BF%98%E5%BD%95/">anacodna3命令备忘录</a></p>
-<h2 id="编写运行python">3.编写运行python</h2>
-<p>使用<code>touch</code>或<code>vi</code>命令创建<code>.py</code>文件</p>
-<p>在终端使用<code>python xxx.py</code>运行</p>
+<p>python绘图技巧备忘录</p>
+<p>使用Matplotlib，以代码呈现为主</p>
+<p>字体修改，公用x轴坐标 <span id="more"></span></p>
+<h2 id="全局字体修改">1. 全局字体修改</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from matplotlib import rcParams</span><br><span class="line"></span><br><span class="line">config = &#123;</span><br><span class="line">    &quot;font.family&quot;:&#x27;serif&#x27;,</span><br><span class="line">    &quot;font.size&quot;: 35,</span><br><span class="line">    &quot;mathtext.fontset&quot;:&#x27;stix&#x27;,</span><br><span class="line">    &quot;font.serif&quot;: [&#x27;SimSun&#x27;],</span><br><span class="line">&#125;</span><br><span class="line">rcParams.update(config)</span><br></pre></td></tr></table></figure>
+<h2 id="局部字体">2.局部字体</h2>
+<p>label <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.ylabel(r&#x27;Wavenumber $\left (  cm^&#123;-1&#125; \right )$&#x27;, fontdict=&#123;&#x27;family&#x27; : &#x27;Times New Roman&#x27;, &#x27;size&#x27;   : 35&#125;)</span><br></pre></td></tr></table></figure> plt自带latex语法</p>
+<p>text <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax2.text(12,12,r&#x27;$A_g^3$&#x27;,ha = &#x27;center&#x27;,va = &#x27;bottom&#x27;,fontsize=35)</span><br></pre></td></tr></table></figure></p>
+<h2 id="共用x坐标">3.共用x坐标</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 开启画布</span><br><span class="line">plt.figure(1)</span><br><span class="line">x_major_locator=MultipleLocator(2)#准备刻度</span><br><span class="line"># 绘制第一幅图像</span><br><span class="line">ax1=plt.gca()</span><br><span class="line">ax1.xaxis.set_major_locator(x_major_locator)</span><br><span class="line">ax1.set_yticks(np.linspace(50, 100, 11)) </span><br><span class="line">plt.plot(x2,nih,linewidth=3.0,color=&#x27;#2878b5&#x27;)</span><br><span class="line">plt.tick_params(axis=&#x27;y&#x27;,colors=&#x27;#2878b5&#x27;)</span><br><span class="line"></span><br><span class="line"># 共用坐标</span><br><span class="line">ax2 = ax1.twinx()</span><br><span class="line">ax2.set_yticks(np.linspace(0, 50, 11))</span><br><span class="line">plt.plot(x1,nil,linewidth=3.0,color=&#x27;#c82423&#x27;)</span><br><span class="line">plt.tick_params(axis=&#x27;y&#x27;,colors=&#x27;#c82423&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>效果图如下</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221214142028.png"
+alt="共用x坐标" />
+<figcaption aria-hidden="true">共用x坐标</figcaption>
+</figure>
 <h2 id="参考资料">参考资料</h2>
-<p>[1] https://blog.csdn.net/u013898698/article/details/117958663</p>
-<p>[2] https://blog.csdn.net/Arno_An/article/details/105229780</p>
-<p>[3] https://www.cnblogs.com/tianlang25/p/12433025.html</p>
+<p>[1] <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42710615/article/details/124297710">Matplotlib文字处理</a></p>
 
     </div>
 
@@ -362,7 +357,7 @@ href="https://splendidwave.github.io/2022/06/13/2022-6/anacodna3%E4%BD%BF%E7%94%
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://splendidwave.github.io/2022/10/06/2022-10/CentOS7%E9%85%8D%E7%BD%AEAnaconda3%E7%AE%A1%E7%90%86%E4%B8%8B%E7%9A%84python/" title="CentOS7配置Anaconda3管理下的python">https://splendidwave.github.io/2022/10/06/2022-10/CentOS7配置Anaconda3管理下的python/</a>
+      <a href="https://splendidwave.github.io/2022/12/14/2022-12/%E4%BD%BF%E7%94%A8python%E8%BF%9B%E8%A1%8C%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%85%A5%E9%97%A8--%E5%85%B1%E7%94%A8%E5%9D%90%E6%A0%87%E3%80%81%E5%85%A8%E5%B1%80%E5%AD%97%E4%BD%93/" title="使用python进行科研绘图入门--共用坐标、全局字体">https://splendidwave.github.io/2022/12/14/2022-12/使用python进行科研绘图入门--共用坐标、全局字体/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -388,22 +383,19 @@ href="https://splendidwave.github.io/2022/06/13/2022-6/anacodna3%E4%BD%BF%E7%94%
 </div>
 
           <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E7%A0%94/" rel="tag"><i class="fa fa-tag"></i> 科研</a>
               <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
-              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/09/2022-9/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/" rel="prev" title="决策树模型基础">
-                  <i class="fa fa-chevron-left"></i> 决策树模型基础
+                <a href="/2022/12/10/2022-12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(4)--%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/" rel="prev" title="统计学习(4)--朴素贝叶斯法">
+                  <i class="fa fa-chevron-left"></i> 统计学习(4)--朴素贝叶斯法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/10/11/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(1)--%E8%AF%BB%E5%86%99%E4%B8%8E%E7%BC%A9%E6%94%BE/" rel="next" title="opencv-python学习(1)--读写与缩放">
-                  opencv-python学习(1)--读写与缩放 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -436,13 +428,13 @@ href="https://splendidwave.github.io/2022/06/13/2022-6/anacodna3%E4%BD%BF%E7%94%
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">174k</span>
+    <span title="站点总字数">177k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:38</span>
+    <span title="站点阅读时长">2:41</span>
   </span>
 </div>
 
@@ -498,7 +490,7 @@ darkmode.showWidget();
 </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"95ab38d0fc8814e61480d0a2ec4b6ce8"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"9c16e3a26ada055bee150dae193f5943"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
