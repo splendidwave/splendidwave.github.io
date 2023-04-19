@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 统计学习&#x2F;机器学习基本名词解释">
+<meta property="og:type" content="article">
+<meta property="og:title" content="统计学习(1)--定义速查">
+<meta property="og:url" content="https://splendidwave.github.io/2022/11/18/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(1)--%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 统计学习&#x2F;机器学习基本名词解释">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-18T07:01:02.000Z">
+<meta property="article:modified_time" content="2023-04-19T07:48:52.221Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="统计学习">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2022/11/18/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(1)--%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2022/11/18/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(1)--%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/","path":"2022/11/18/2022-11/统计学习(1)--基础概念/","title":"统计学习(1)--定义速查"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>统计学习(1)--定义速查 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BDartificial-intelligence-ai"><span class="nav-text">人工智能(Artificial
+Intelligence, AI)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0statistical-learning"><span class="nav-text">统计学习(Statistical
+Learning)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E7%B1%BB"><span class="nav-text">机器学习分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%81%E7%A8%8B"><span class="nav-text">机器学习流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%A9%BA%E9%97%B4%E8%BE%93%E5%87%BA%E7%A9%BA%E9%97%B4%E7%89%B9%E5%BE%81%E7%A9%BA%E9%97%B4"><span class="nav-text">输入空间、输出空间、特征空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E8%A1%A8%E7%A4%BA"><span class="nav-text">符号表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-text">统计学习三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-text">模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%96%E7%95%A5"><span class="nav-text">策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96empirical-risk-minimizationerm"><span class="nav-text">经验风险最小化(empirical
+risk minimization，ERM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96structural-risk-minimizationsrm"><span class="nav-text">结构风险最小化(structural
+risk minimization，SRM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83%E4%B8%8E%E8%AF%84%E4%BC%B0"><span class="nav-text">模型的训练与评估</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE%E4%B8%8E%E6%B5%8B%E8%AF%95%E8%AF%AF%E5%B7%AE"><span class="nav-text">训练误差与测试误差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="nav-text">交叉验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%88%A4%E5%88%AB%E6%A8%A1%E5%9E%8B"><span class="nav-text">生成模型与判别模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E7%B1%BB"><span class="nav-text">问题分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-text">分类问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98"><span class="nav-text">标注问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98"><span class="nav-text">回归问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="nav-text">感知机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="nav-text">支持向量机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95"><span class="nav-text">k近邻算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-mean"><span class="nav-text">k-mean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF"><span class="nav-text">朴素贝叶斯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-text">决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E6%96%AF%E8%B0%9B%E5%9B%9E%E5%BD%92"><span class="nav-text">逻辑斯谛回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E7%86%B5"><span class="nav-text">最大熵</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2022/11/18/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(1)--%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="统计学习(1)--定义速查 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          统计学习(1)--定义速查
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-18 15:01:02" itemprop="dateCreated datePublished" datetime="2022-11-18T15:01:02+08:00">2022-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-19 15:48:52" itemprop="dateModified" datetime="2023-04-19T15:48:52+08:00">2023-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>统计学习/机器学习基本名词解释</p>
+<span id="more"></span>
+<h2 id="人工智能artificial-intelligence-ai">人工智能(Artificial
+Intelligence, AI)</h2>
+<p>人工智能指拥有类似与人类的自主思考甚至学习的计算机程序或系统。可分为弱人工智能和强人工智能。</p>
+<h2 id="统计学习statistical-learning">统计学习(Statistical
+Learning)</h2>
+<p>统计学习是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。也被称为统计机器学习(statistical
+machine learning)。</p>
+<p>统计学习是机器学习的数学基础。</p>
+<h2 id="机器学习分类">机器学习分类</h2>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192601.png"
+alt="思维导图" />
+<figcaption aria-hidden="true">思维导图</figcaption>
+</figure>
+<h2 id="机器学习流程">机器学习流程</h2>
+<ol type="1">
+<li>获取数据</li>
+<li>数据洞见与可视化</li>
+<li>数据清洗与预处理</li>
+<li>模型选择与训练</li>
+<li>调整模型</li>
+<li>启动监控与维护系统</li>
+</ol>
+<h2 id="输入空间输出空间特征空间">输入空间、输出空间、特征空间</h2>
+<p>输入与输出所有可能取值的集合分别称为输入空间（input
+space）与输出空间（output space）。这里的空间通常属于欧式空间。</p>
+<p>输入空间的具体输入是一个实例(instance)，通常使用特征向量(feature
+vector)表示。特征向量所在的空间称为特征空间(feature space)。</p>
+<p>输入变量与输出变量均为连续变量的预测问题称为回归问题；输出变量为有限个离散变量的预测问题称为分类问题；输入变量与输出变量均为变量序列的预测问题称为标注问题。</p>
+<h2 id="符号表示">符号表示</h2>
+<p>在习惯上将输入变量记作X，输出变量记作Y，输入输出变量的取值用小写字母x/y表示。向量通常为列向量</p>
+<p>输入实例x的特征向量记作</p>
+<p><span class="math display">\[
+x=\left(x^{(1)}, x^{(2)}, \cdots, x^{(i)}, \cdots,
+x^{(n)}\right)^{\mathrm{T}}
+\]</span></p>
+<p>其中<span class="math inline">\(x^{(i)}\)</span>表示<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(i\)</span>个特征，如果是下标<span
+class="math inline">\(x_i\)</span>则表示这是第<span
+class="math inline">\(i\)</span>个变量。</p>
+<p>监督学习训练数据由输入(或特征向量)与输出对构成，通常表示为 <span
+class="math display">\[
+T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right),
+\cdots,\left(x_{N}, y_{N}\right)\right\}
+\]</span></p>
+<h2 id="统计学习三要素">统计学习三要素</h2>
+<p><strong>方法＝模型＋策略＋算法</strong></p>
+<h3 id="模型">模型</h3>
+<p>称由<strong>决策函数</strong>表示的模型为非概率模型，由<strong>条件概率</strong>表示的模型为概率模型。</p>
+<p>所有模型构成的空间称为假设空间(hypothesis space)</p>
+<h3 id="策略">策略</h3>
+<p><strong>损失函数</strong>，使用损失函数(代价函数)度量模型一次预测的好坏
+（loss function / cost function）</p>
+<p>常用的损失函数有以下几种： 1. 0-1损失函数</p>
+<p><span class="math display">\[
+L(Y, f(X))=\left\{\begin{array}{ll}
+1, &amp; Y \neq f(X) \\
+0, &amp; Y=f(X)
+\end{array}\right.
+\]</span></p>
+<ol start="2" type="1">
+<li>平方损失函数</li>
+</ol>
+<p><span class="math display">\[
+L(Y, f(X))=(Y-f(X))^{2}
+\]</span></p>
+<ol start="3" type="1">
+<li>绝对损失函数</li>
+</ol>
+<p><span class="math display">\[
+L(Y, f(X))=|Y-f(X)|
+\]</span></p>
+<ol start="4" type="1">
+<li>对数损失函数/对数似然损失函数</li>
+</ol>
+<p><span class="math display">\[
+L(Y, P(Y \mid X))=-\log P(Y \mid X)
+\]</span></p>
+<p>损失函数值越小，模型就越好。因此可以计算以下损失函数的数学期望</p>
+<p><span class="math display">\[
+R_{\exp }(f)=E_{P}[L(Y, f(X))]=\int_{xy} L(y, f(x)) P(x, y) \mathrm{d} x
+\mathrm{~d} y
+\]</span></p>
+<p>其中<span class="math inline">\(P(x,y)\)</span>服从<span
+class="math inline">\((X,Y)\)</span>的联合概率分布，<span
+class="math inline">\(R_{\exp }(f)\)</span> 被称为风险函数（risk
+function）或 期望损失（expected loss）或<strong>期望风险</strong>。</p>
+<p>但由于联合分布未知，这里需要使用训练集的平均损失<span
+class="math inline">\(R_{\text {emp
+}}\)</span>来近似估计期望风险，公式如下</p>
+<p><span class="math display">\[
+R_{\text {emp }}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
+f\left(x_{i}\right)\right)
+\]</span></p>
+<p>它被称为<strong>经验风险</strong></p>
+<h3 id="算法">算法</h3>
+<p>算法是指学习模型的<strong>具体计算方法</strong>，习可以利用已有的最优化算法，有时也需要开发独自的最优化算法。</p>
+<h2
+id="经验风险最小化empirical-risk-minimizationerm">经验风险最小化(empirical
+risk minimization，ERM)</h2>
+<p>当样本容量足够大时，经验风险最小化能保证有很好的学习效果，在现实中被广泛采用。公式为</p>
+<p><span class="math display">\[
+\min _{f \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
+f\left(x_{i}\right)\right)
+\]</span></p>
+<p>其中<span class="math inline">\(\mathcal{F}\)</span>为假设空间</p>
+<h2
+id="结构风险最小化structural-risk-minimizationsrm">结构风险最小化(structural
+risk minimization，SRM)</h2>
+<p>经验风险最小化的准确度取决于样本，为了防止过拟合，提出了结构风险最小化，结构风险最小化等价于正则化（regularization），定义为</p>
+<p><span class="math display">\[
+R_{\mathrm{sm}}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
+f\left(x_{i}\right)\right)+\lambda J(f)
+\]</span></p>
+<p>其中<span
+class="math inline">\(J(f)为模型的复杂度\)</span>$是系数通常大于0</p>
+<h2 id="模型的训练与评估">模型的训练与评估</h2>
+<h3 id="训练误差与测试误差">训练误差与测试误差</h3>
+<p>数据集通常分为训练集和测试集，在选定损失函数后，训练误差和测试误差成为学习方法评估的标准。</p>
+<p>训练误差的大小，对判断给定的问题是不是一个容易学习的问题是有意义的，但本质上不重要。测试误差反映了学习方法对未知的测试数据集的预测能力，是学习中的重要概念。显然，给定两种学习方法，测试误差小的方法具有更好的预测能力，是更有效的方法。通常将学习方法对未知数据的预测能力称为泛化能力（generalization
+ability）</p>
+<h3 id="过拟合">过拟合</h3>
+<p>如果一味追求提高对训练数据的预测能力，所选模型的复杂度则往往会比真模型更高。这种现象称为过拟合（over-fitting）。过拟合是指学习时选择的模型所包含的参数过多，以致于出现这一模型对已知数据预测得很好，但对未知数据预测得很差的现象。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192722.png"
+alt="训练误差与测试误差" />
+<figcaption aria-hidden="true">训练误差与测试误差</figcaption>
+</figure>
+<h3 id="正则化">正则化</h3>
+<p>为对抗过拟合的情况，一个典型的方法是引入正则化（regularization），正则化项一般是模型复杂度的单调递增函数，模型越复杂，正则化值就越大。一般形式如下</p>
+<p><span class="math display">\[
+\min _{f \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
+f\left(x_{i}\right)\right)+\lambda J(f)
+\]</span></p>
+<p>其中第一项是经验风险，第二项是正则化项，<span
+class="math inline">\(\lambda\)</span>是两者关系系数，其值大于0</p>
+<p>通常会使用2范数来作为正则项</p>
+<p><span class="math display">\[
+L(w)=\frac{1}{N} \sum_{i=1}^{N}\left(f\left(x_{i} ;
+w\right)-y_{i}\right)^{2}+\frac{\lambda}{2}\|w\|^{2}
+\]</span></p>
+<p>其中<span class="math inline">\(w\)</span>是特征向量，<span
+class="math inline">\(\|w\|^2\)</span>是向量<span
+class="math inline">\(w\)</span>的2范数</p>
+<h3 id="交叉验证">交叉验证</h3>
+<p>如果给定的样本数据充足，进行模型选择的一种简单方法是随机地将数据集切分成三部分，分别为训练集（training
+set）、验证集（validation set）和测试集（test set）。</p>
+<p>但是，在许多实际应用中数据是不充足的。为了选择好的模型，可以采用交叉验证方法。可以重复多少使用数据。</p>
+<ol type="1">
+<li><p>简单交叉验证
+随机将数据分为训练集(通常为70%)和测试集(通常为30%)。</p></li>
+<li><p>S折交叉验证（S-fold cross validation）
+首先随机地将已给数据切分为S个互不相交的大小相同的子集；然后利用S-1个子集的数据训练模型，利用余下的子集测试模型；将这一过程对可能的S种选择重复进行；最后选出S次评测中平均测试误差最小的模型。</p></li>
+<li><p>留一交叉验证（leave-one-out cross validation）
+将S折的S取为N，这里N是数据集的总容量。</p></li>
+</ol>
+<h2 id="生成模型与判别模型">生成模型与判别模型</h2>
+<ol type="1">
+<li>生成模型</li>
+</ol>
+<p>生成方法（generative
+approach）由数据学习联合概率分布P(X,Y)，然后求出条件概率分布P(Y|X)作为预测的模型，即生成模型：</p>
+<p><span class="math display">\[
+P(Y \mid X)=\frac{P(X, Y)}{P(X)}
+\]</span></p>
+<p>模型表示了给定输入X产生输出Y的生成关系。典型的生成模型有：朴素贝叶斯法和隐马尔可夫模型</p>
+<ol start="2" type="1">
+<li>判别模型</li>
+</ol>
+<p>判别方法（discriminative
+approach）直接学习决策函数f(X)或者条件概率分布P(Y|X)作为预测的模型，即判别模型。</p>
+<p>典型的判别模型包括：k近邻法、感知机、决策树、逻辑斯谛回归模型、最大熵模型、支持向量机。</p>
+<h2 id="问题分类">问题分类</h2>
+<h3 id="分类问题">分类问题</h3>
+<p>算法从数据中学习一个分类模型或分类决策函数，称为分类器（classifier）。分类器对新的输入进行输出的预测（prediction），称为分类（classification）。可能的输出称为类（class）。</p>
+<p>评价分类器性能的指标一般是分类准确率（accuracy）也就是损失函数为0-1损失函数时测试集上的准确率。</p>
+<p>分类最常见的是二分问题，当然其他分类其实也可以归为多个二分问题。对于二类分类问题常用的评价指标是精确率（precision）与召回率（recall）。将关注的类记为<strong>正类</strong>，其他类为<strong>负类</strong>，根据模型判别的对错可以分为四种情况，将他们出现的总是记为如下符号</p>
+<p>TP——将正类预测为正类数； FN——将正类预测为负类数；
+FP——将负类预测为正类数； TN——将负类预测为负类数。</p>
+<p><strong>精准率</strong>的定义为</p>
+<p><span class="math display">\[
+P=\frac{T P}{T P+F P}
+\]</span></p>
+<p><strong>召回率</strong>的定义为</p>
+<p><span class="math display">\[
+R=\frac{T P}{T P+F N}
+\]</span></p>
+<p><strong><span
+class="math inline">\(F_1\)</span>值</strong>是，精准率和召回率的调和均值</p>
+<p><span class="math display">\[
+\frac{2}{F_1}=\frac{1}{P}+\frac{1}{R}
+\]</span></p>
+<p><span class="math display">\[
+F_1=\frac{2 T P}{2 T P+F P+F N}
+\]</span></p>
+<p><strong>混淆矩阵</strong>（Confusion
+Matrix），又称为可能性矩阵或错误矩阵。是分类结果的一个可视化表现。形如</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192755.png"
+alt="混淆矩阵" />
+<figcaption aria-hidden="true">混淆矩阵</figcaption>
+</figure>
+<h3 id="标注问题">标注问题</h3>
+<p>标注（tagging）可以认为是分类问题的一个推广，输入是一组序列，输出也是一组序列。</p>
+<h3 id="回归问题">回归问题</h3>
+<p>回归（regression）用于预测输入变量（自变量）和输出变量（因变量）之间的关系，特别是当输入变量的值发生变化时，输出变量的值随之发生的变化。</p>
+<p>回归学习最常用的损失函数是平方损失函数，在此情况下，回归问题可以由著名的最小二乘法（least
+squares）求解。</p>
+<h2 id="梯度下降法">梯度下降法</h2>
+<p>梯度下降法（Gradient
+descent）是迭代法的一种，利用求偏导的方法更新参数，实现找到极值。公式如下</p>
+<p><span class="math display">\[
+w_{i+1}=w_{i}-\alpha * \frac{d L}{d w_{i}}
+\]</span></p>
+<p>其中<span
+class="math inline">\(\alpha\)</span>是学习率，其值影响迭代的速度，过大可能导致不收敛，过小收敛速度慢，且可能会陷入局部最优解。</p>
+<p>批量梯度下降（Batch Gradient
+Descent，BGD）每一次迭代会对所有样本进行计算，具有全局性，但计算量大</p>
+<p>随机梯度下降（Stochastic Gradient
+Descent，SGD）随机梯度下降是每次迭代使用一个样本来对参数进行更新，速度快但准确度可能会下降</p>
+<p>小批量梯度下降（Mini-Batch Gradient Descent,
+MBGD）中和上述两者特性</p>
+<h2 id="感知机">感知机</h2>
+<p>感知机（perceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，其通过一个超平面分离，输出取+1和–1二值。</p>
+<p>单个感知机不能处理异或问题，多个感知机可以构成神经网络。</p>
+<h2 id="支持向量机">支持向量机</h2>
+<p>支持向量机的学习的目标也是在特征空间中找到一个分离超平面，能将实例分到不同的类。不同与感知机的解有无穷多个，线性可分支持向量机利用间隔最大化求最优分离超平面，解是唯一的。</p>
+<p>支持向量机可以通过变换处理非线性分类问题。</p>
+<h2 id="k近邻算法">k近邻算法</h2>
+<p>k近邻法（k-nearest neighbor，k-NN）是一种基本分类与回归方法。</p>
+<p>k近邻法的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。</p>
+<p>具体对于新的实例x，在训练集中找到与之相邻的k个实例，这k个实例的多数属于哪一类，就把这个实例分到哪一类中。当k为1时，称为最近邻算法。</p>
+<h2 id="k-mean">k-mean</h2>
+<p>k-means是一种聚类算法，是无监督学习算法。它将训练数据分为k组，每一组是一个簇，随机选择k个实例作为初始的聚类中心点，对于每一个实例，计算它和这k个聚类中心的距离，然后把它分配到与它距离最近的聚类中心所在的簇中去；计算每个簇中所有实例的平均值，作为新的聚类中心点，以此往复，直至聚类中心点不再发生明显变化。</p>
+<h2 id="朴素贝叶斯">朴素贝叶斯</h2>
+<p>朴素贝叶斯对实际问题进行了简化假设，利用概率最大这一符合人脑对事物的判断的方法实现对输入实例的分类。</p>
+<h2 id="决策树">决策树</h2>
+<p>分类决策树从根节点开始对实例的某个特征进行测试判别，然后将实例分配到对应节点，反复递归最终实现实例的全部分类。</p>
+<p>决策树的特性决定了它会倾向于多分类，为此需要使用剪枝或修改判别依据来优化模型。</p>
+<h2 id="逻辑斯谛回归">逻辑斯谛回归</h2>
+<p>逻辑斯谛回归模型利用了逻辑斯谛方程的对数特性，将特征参数映射到[0，1]之间，将问题转换为概率预测，从而实现判别。</p>
+<h2 id="最大熵">最大熵</h2>
+<p>最大熵原理是概率模型学习的一个准则。其观点认为熵最大的模型就是最好的模型。</p>
+<!-- ## 提升
+
+
+## EM算法
+
+
+## 隐马尔可夫模型
+
+
+## 条件随机场 -->
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2022/11/18/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(1)--%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" title="统计学习(1)--定义速查">https://splendidwave.github.io/2022/11/18/2022-11/统计学习(1)--基础概念/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 统计学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/29/2022-10/opencv-python%E5%AD%A6%E4%B9%A0(6)--%E5%85%AD%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="prev" title="opencv-python学习(6)--六个图像处理小项目">
+                  <i class="fa fa-chevron-left"></i> opencv-python学习(6)--六个图像处理小项目
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/23/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(2)--%E6%84%9F%E7%9F%A5%E6%9C%BA/" rel="next" title="统计学习(2)--感知机">
+                  统计学习(2)--感知机 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">188k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:51</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"7c81239f48efc24b690146a4042c9b31"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
