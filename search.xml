@@ -46,56 +46,6 @@ alt="插入代码的位置" />
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/12/27/2021-12/hello-world/</url>
-    <content><![CDATA[<p><strong><em>此版用于测试！</em></strong></p>
-<span id="more"></span>
-<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p>This is baidu link: https://www.baidu.com/</p>
-<h2 id="中文字数测试">中文字数测试</h2>
-<h3 id="命令备忘录">命令备忘录</h3>
-<p>以管理员模式进入git bash</p>
-<p>cd 到当前目录</p>
-<p>1.更新网站 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<p>2.修改后进行本地查看 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
-<p>3.生成新文章 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;article title&quot;</span><br></pre></td></tr></table></figure></p>
-<p>4.上传新文章 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></p>
-<p>5.写blog时使用 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure> 来隐藏后文</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>文化娱乐</category>
-        <category>随笔与记录</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-        <tag>GitHub</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用hexo+markdown开启博客写作</title>
     <url>/2021/12/28/2021-12/%E4%BD%BF%E7%94%A8hexo-markdown%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/</url>
     <content><![CDATA[<h2 id="摘要">摘要</h2>
@@ -318,6 +268,56 @@ href="https://www.bilibili.com/video/BV1ab41157EP?from=search&amp;seid=132364990
       <tags>
         <tag>科普</tag>
         <tag>光学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/12/27/2021-12/hello-world/</url>
+    <content><![CDATA[<p><strong><em>此版用于测试！</em></strong></p>
+<span id="more"></span>
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>This is baidu link: https://www.baidu.com/</p>
+<h2 id="中文字数测试">中文字数测试</h2>
+<h3 id="命令备忘录">命令备忘录</h3>
+<p>以管理员模式进入git bash</p>
+<p>cd 到当前目录</p>
+<p>1.更新网站 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>2.修改后进行本地查看 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
+<p>3.生成新文章 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;article title&quot;</span><br></pre></td></tr></table></figure></p>
+<p>4.上传新文章 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></p>
+<p>5.写blog时使用 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure> 来隐藏后文</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>文化娱乐</category>
+        <category>随笔与记录</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+        <tag>markdown</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -2076,6 +2076,572 @@ alt="证件照" />
       </tags>
   </entry>
   <entry>
+    <title>统计学习(1)--定义速查</title>
+    <url>/2022/11/18/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(1)--%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h2 id="摘要">摘要</h2>
+<p>统计学习/机器学习基本名词解释</p>
+<span id="more"></span>
+<h2 id="人工智能artificial-intelligence-ai">人工智能(Artificial
+Intelligence, AI)</h2>
+<p>人工智能指拥有类似与人类的自主思考甚至学习的计算机程序或系统。可分为弱人工智能和强人工智能。</p>
+<h2 id="统计学习statistical-learning">统计学习(Statistical
+Learning)</h2>
+<p>统计学习是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。也被称为统计机器学习(statistical
+machine learning)。</p>
+<p>统计学习是机器学习的数学基础。</p>
+<h2 id="机器学习分类">机器学习分类</h2>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192601.png"
+alt="思维导图" />
+<figcaption aria-hidden="true">思维导图</figcaption>
+</figure>
+<h2 id="机器学习流程">机器学习流程</h2>
+<ol type="1">
+<li>获取数据</li>
+<li>数据洞见与可视化</li>
+<li>数据清洗与预处理</li>
+<li>模型选择与训练</li>
+<li>调整模型</li>
+<li>启动监控与维护系统</li>
+</ol>
+<h2 id="输入空间输出空间特征空间">输入空间、输出空间、特征空间</h2>
+<p>输入与输出所有可能取值的集合分别称为输入空间（input
+space）与输出空间（output space）。这里的空间通常属于欧式空间。</p>
+<p>输入空间的具体输入是一个实例(instance)，通常使用特征向量(feature
+vector)表示。特征向量所在的空间称为特征空间(feature space)。</p>
+<p>输入变量与输出变量均为连续变量的预测问题称为回归问题；输出变量为有限个离散变量的预测问题称为分类问题；输入变量与输出变量均为变量序列的预测问题称为标注问题。</p>
+<h2 id="符号表示">符号表示</h2>
+<p>在习惯上将输入变量记作X，输出变量记作Y，输入输出变量的取值用小写字母x/y表示。向量通常为列向量</p>
+<p>输入实例x的特征向量记作</p>
+<p><span class="math display">\[
+x=\left(x^{(1)}, x^{(2)}, \cdots, x^{(i)}, \cdots,
+x^{(n)}\right)^{\mathrm{T}}
+\]</span></p>
+<p>其中<span class="math inline">\(x^{(i)}\)</span>表示<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(i\)</span>个特征，如果是下标<span
+class="math inline">\(x_i\)</span>则表示这是第<span
+class="math inline">\(i\)</span>个变量。</p>
+<p>监督学习训练数据由输入(或特征向量)与输出对构成，通常表示为 <span
+class="math display">\[
+T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right),
+\cdots,\left(x_{N}, y_{N}\right)\right\}
+\]</span></p>
+<h2 id="统计学习三要素">统计学习三要素</h2>
+<p><strong>方法＝模型＋策略＋算法</strong></p>
+<h3 id="模型">模型</h3>
+<p>称由<strong>决策函数</strong>表示的模型为非概率模型，由<strong>条件概率</strong>表示的模型为概率模型。</p>
+<p>所有模型构成的空间称为假设空间(hypothesis space)</p>
+<h3 id="策略">策略</h3>
+<p><strong>损失函数</strong>，使用损失函数(代价函数)度量模型一次预测的好坏
+（loss function / cost function）</p>
+<p>常用的损失函数有以下几种： 1. 0-1损失函数</p>
+<p><span class="math display">\[
+L(Y, f(X))=\left\{\begin{array}{ll}
+1, &amp; Y \neq f(X) \\
+0, &amp; Y=f(X)
+\end{array}\right.
+\]</span></p>
+<ol start="2" type="1">
+<li>平方损失函数</li>
+</ol>
+<p><span class="math display">\[
+L(Y, f(X))=(Y-f(X))^{2}
+\]</span></p>
+<ol start="3" type="1">
+<li>绝对损失函数</li>
+</ol>
+<p><span class="math display">\[
+L(Y, f(X))=|Y-f(X)|
+\]</span></p>
+<ol start="4" type="1">
+<li>对数损失函数/对数似然损失函数</li>
+</ol>
+<p><span class="math display">\[
+L(Y, P(Y \mid X))=-\log P(Y \mid X)
+\]</span></p>
+<p>损失函数值越小，模型就越好。因此可以计算以下损失函数的数学期望</p>
+<p><span class="math display">\[
+R_{\exp }(f)=E_{P}[L(Y, f(X))]=\int_{xy} L(y, f(x)) P(x, y) \mathrm{d} x
+\mathrm{~d} y
+\]</span></p>
+<p>其中<span class="math inline">\(P(x,y)\)</span>服从<span
+class="math inline">\((X,Y)\)</span>的联合概率分布，<span
+class="math inline">\(R_{\exp }(f)\)</span> 被称为风险函数（risk
+function）或 期望损失（expected loss）或<strong>期望风险</strong>。</p>
+<p>但由于联合分布未知，这里需要使用训练集的平均损失<span
+class="math inline">\(R_{\text {emp
+}}\)</span>来近似估计期望风险，公式如下</p>
+<p><span class="math display">\[
+R_{\text {emp }}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
+f\left(x_{i}\right)\right)
+\]</span></p>
+<p>它被称为<strong>经验风险</strong></p>
+<h3 id="算法">算法</h3>
+<p>算法是指学习模型的<strong>具体计算方法</strong>，习可以利用已有的最优化算法，有时也需要开发独自的最优化算法。</p>
+<h2
+id="经验风险最小化empirical-risk-minimizationerm">经验风险最小化(empirical
+risk minimization，ERM)</h2>
+<p>当样本容量足够大时，经验风险最小化能保证有很好的学习效果，在现实中被广泛采用。公式为</p>
+<p><span class="math display">\[
+\min _{f \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
+f\left(x_{i}\right)\right)
+\]</span></p>
+<p>其中<span class="math inline">\(\mathcal{F}\)</span>为假设空间</p>
+<h2
+id="结构风险最小化structural-risk-minimizationsrm">结构风险最小化(structural
+risk minimization，SRM)</h2>
+<p>经验风险最小化的准确度取决于样本，为了防止过拟合，提出了结构风险最小化，结构风险最小化等价于正则化（regularization），定义为</p>
+<p><span class="math display">\[
+R_{\mathrm{sm}}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
+f\left(x_{i}\right)\right)+\lambda J(f)
+\]</span></p>
+<p>其中<span
+class="math inline">\(J(f)为模型的复杂度\)</span>$是系数通常大于0</p>
+<h2 id="模型的训练与评估">模型的训练与评估</h2>
+<h3 id="训练误差与测试误差">训练误差与测试误差</h3>
+<p>数据集通常分为训练集和测试集，在选定损失函数后，训练误差和测试误差成为学习方法评估的标准。</p>
+<p>训练误差的大小，对判断给定的问题是不是一个容易学习的问题是有意义的，但本质上不重要。测试误差反映了学习方法对未知的测试数据集的预测能力，是学习中的重要概念。显然，给定两种学习方法，测试误差小的方法具有更好的预测能力，是更有效的方法。通常将学习方法对未知数据的预测能力称为泛化能力（generalization
+ability）</p>
+<h3 id="过拟合">过拟合</h3>
+<p>如果一味追求提高对训练数据的预测能力，所选模型的复杂度则往往会比真模型更高。这种现象称为过拟合（over-fitting）。过拟合是指学习时选择的模型所包含的参数过多，以致于出现这一模型对已知数据预测得很好，但对未知数据预测得很差的现象。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192722.png"
+alt="训练误差与测试误差" />
+<figcaption aria-hidden="true">训练误差与测试误差</figcaption>
+</figure>
+<h3 id="正则化">正则化</h3>
+<p>为对抗过拟合的情况，一个典型的方法是引入正则化（regularization），正则化项一般是模型复杂度的单调递增函数，模型越复杂，正则化值就越大。一般形式如下</p>
+<p><span class="math display">\[
+\min _{f \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
+f\left(x_{i}\right)\right)+\lambda J(f)
+\]</span></p>
+<p>其中第一项是经验风险，第二项是正则化项，<span
+class="math inline">\(\lambda\)</span>是两者关系系数，其值大于0</p>
+<p>通常会使用2范数来作为正则项</p>
+<p><span class="math display">\[
+L(w)=\frac{1}{N} \sum_{i=1}^{N}\left(f\left(x_{i} ;
+w\right)-y_{i}\right)^{2}+\frac{\lambda}{2}\|w\|^{2}
+\]</span></p>
+<p>其中<span class="math inline">\(w\)</span>是特征向量，<span
+class="math inline">\(\|w\|^2\)</span>是向量<span
+class="math inline">\(w\)</span>的2范数</p>
+<h3 id="交叉验证">交叉验证</h3>
+<p>如果给定的样本数据充足，进行模型选择的一种简单方法是随机地将数据集切分成三部分，分别为训练集（training
+set）、验证集（validation set）和测试集（test set）。</p>
+<p>但是，在许多实际应用中数据是不充足的。为了选择好的模型，可以采用交叉验证方法。可以重复多少使用数据。</p>
+<ol type="1">
+<li><p>简单交叉验证
+随机将数据分为训练集(通常为70%)和测试集(通常为30%)。</p></li>
+<li><p>S折交叉验证（S-fold cross validation）
+首先随机地将已给数据切分为S个互不相交的大小相同的子集；然后利用S-1个子集的数据训练模型，利用余下的子集测试模型；将这一过程对可能的S种选择重复进行；最后选出S次评测中平均测试误差最小的模型。</p></li>
+<li><p>留一交叉验证（leave-one-out cross validation）
+将S折的S取为N，这里N是数据集的总容量。</p></li>
+</ol>
+<h2 id="生成模型与判别模型">生成模型与判别模型</h2>
+<ol type="1">
+<li>生成模型</li>
+</ol>
+<p>生成方法（generative
+approach）由数据学习联合概率分布P(X,Y)，然后求出条件概率分布P(Y|X)作为预测的模型，即生成模型：</p>
+<p><span class="math display">\[
+P(Y \mid X)=\frac{P(X, Y)}{P(X)}
+\]</span></p>
+<p>模型表示了给定输入X产生输出Y的生成关系。典型的生成模型有：朴素贝叶斯法和隐马尔可夫模型</p>
+<ol start="2" type="1">
+<li>判别模型</li>
+</ol>
+<p>判别方法（discriminative
+approach）直接学习决策函数f(X)或者条件概率分布P(Y|X)作为预测的模型，即判别模型。</p>
+<p>典型的判别模型包括：k近邻法、感知机、决策树、逻辑斯谛回归模型、最大熵模型、支持向量机。</p>
+<h2 id="问题分类">问题分类</h2>
+<h3 id="分类问题">分类问题</h3>
+<p>算法从数据中学习一个分类模型或分类决策函数，称为分类器（classifier）。分类器对新的输入进行输出的预测（prediction），称为分类（classification）。可能的输出称为类（class）。</p>
+<p>评价分类器性能的指标一般是分类准确率（accuracy）也就是损失函数为0-1损失函数时测试集上的准确率。</p>
+<p>分类最常见的是二分问题，当然其他分类其实也可以归为多个二分问题。对于二类分类问题常用的评价指标是精确率（precision）与召回率（recall）。将关注的类记为<strong>正类</strong>，其他类为<strong>负类</strong>，根据模型判别的对错可以分为四种情况，将他们出现的总是记为如下符号</p>
+<p>TP——将正类预测为正类数； FN——将正类预测为负类数；
+FP——将负类预测为正类数； TN——将负类预测为负类数。</p>
+<p><strong>精准率</strong>的定义为</p>
+<p><span class="math display">\[
+P=\frac{T P}{T P+F P}
+\]</span></p>
+<p><strong>召回率</strong>的定义为</p>
+<p><span class="math display">\[
+R=\frac{T P}{T P+F N}
+\]</span></p>
+<p><strong><span
+class="math inline">\(F_1\)</span>值</strong>是，精准率和召回率的调和均值</p>
+<p><span class="math display">\[
+\frac{2}{F_1}=\frac{1}{P}+\frac{1}{R}
+\]</span></p>
+<p><span class="math display">\[
+F_1=\frac{2 T P}{2 T P+F P+F N}
+\]</span></p>
+<p><strong>混淆矩阵</strong>（Confusion
+Matrix），又称为可能性矩阵或错误矩阵。是分类结果的一个可视化表现。形如</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192755.png"
+alt="混淆矩阵" />
+<figcaption aria-hidden="true">混淆矩阵</figcaption>
+</figure>
+<h3 id="标注问题">标注问题</h3>
+<p>标注（tagging）可以认为是分类问题的一个推广，输入是一组序列，输出也是一组序列。</p>
+<h3 id="回归问题">回归问题</h3>
+<p>回归（regression）用于预测输入变量（自变量）和输出变量（因变量）之间的关系，特别是当输入变量的值发生变化时，输出变量的值随之发生的变化。</p>
+<p>回归学习最常用的损失函数是平方损失函数，在此情况下，回归问题可以由著名的最小二乘法（least
+squares）求解。</p>
+<h2 id="梯度下降法">梯度下降法</h2>
+<p>梯度下降法（Gradient
+descent）是迭代法的一种，利用求偏导的方法更新参数，实现找到极值。公式如下</p>
+<p><span class="math display">\[
+w_{i+1}=w_{i}-\alpha * \frac{d L}{d w_{i}}
+\]</span></p>
+<p>其中<span
+class="math inline">\(\alpha\)</span>是学习率，其值影响迭代的速度，过大可能导致不收敛，过小收敛速度慢，且可能会陷入局部最优解。</p>
+<p>批量梯度下降（Batch Gradient
+Descent，BGD）每一次迭代会对所有样本进行计算，具有全局性，但计算量大</p>
+<p>随机梯度下降（Stochastic Gradient
+Descent，SGD）随机梯度下降是每次迭代使用一个样本来对参数进行更新，速度快但准确度可能会下降</p>
+<p>小批量梯度下降（Mini-Batch Gradient Descent,
+MBGD）中和上述两者特性</p>
+<h2 id="感知机">感知机</h2>
+<p>感知机（perceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，其通过一个超平面分离，输出取+1和–1二值。</p>
+<p>单个感知机不能处理异或问题，多个感知机可以构成神经网络。</p>
+<h2 id="支持向量机">支持向量机</h2>
+<p>支持向量机的学习的目标也是在特征空间中找到一个分离超平面，能将实例分到不同的类。不同与感知机的解有无穷多个，线性可分支持向量机利用间隔最大化求最优分离超平面，解是唯一的。</p>
+<p>支持向量机可以通过变换处理非线性分类问题。</p>
+<h2 id="k近邻算法">k近邻算法</h2>
+<p>k近邻法（k-nearest neighbor，k-NN）是一种基本分类与回归方法。</p>
+<p>k近邻法的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。</p>
+<p>具体对于新的实例x，在训练集中找到与之相邻的k个实例，这k个实例的多数属于哪一类，就把这个实例分到哪一类中。当k为1时，称为最近邻算法。</p>
+<h2 id="k-mean">k-mean</h2>
+<p>k-means是一种聚类算法，是无监督学习算法。它将训练数据分为k组，每一组是一个簇，随机选择k个实例作为初始的聚类中心点，对于每一个实例，计算它和这k个聚类中心的距离，然后把它分配到与它距离最近的聚类中心所在的簇中去；计算每个簇中所有实例的平均值，作为新的聚类中心点，以此往复，直至聚类中心点不再发生明显变化。</p>
+<h2 id="朴素贝叶斯">朴素贝叶斯</h2>
+<p>朴素贝叶斯对实际问题进行了简化假设，利用概率最大这一符合人脑对事物的判断的方法实现对输入实例的分类。</p>
+<h2 id="决策树">决策树</h2>
+<p>分类决策树从根节点开始对实例的某个特征进行测试判别，然后将实例分配到对应节点，反复递归最终实现实例的全部分类。</p>
+<p>决策树的特性决定了它会倾向于多分类，为此需要使用剪枝或修改判别依据来优化模型。</p>
+<h2 id="逻辑斯谛回归">逻辑斯谛回归</h2>
+<p>逻辑斯谛回归模型利用了逻辑斯谛方程的对数特性，将特征参数映射到[0，1]之间，将问题转换为概率预测，从而实现判别。</p>
+<h2 id="最大熵">最大熵</h2>
+<p>最大熵原理是概率模型学习的一个准则。其观点认为熵最大的模型就是最好的模型。</p>
+<!-- ## 提升
+
+
+## EM算法
+
+
+## 隐马尔可夫模型
+
+
+## 条件随机场 -->
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>统计学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>统计学习(2)--感知机</title>
+    <url>/2022/11/23/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(2)--%E6%84%9F%E7%9F%A5%E6%9C%BA/</url>
+    <content><![CDATA[<h2 id="摘要">摘要</h2>
+<p>感知机</p>
+<span id="more"></span>
+<h2 id="感知机的定义">1.感知机的定义</h2>
+<p>对于一个输入空间，如果存在一个超平面将实例分为正负两类，那么可以认为输入空间的输出空间可以通过如下函数实现。</p>
+<p><span class="math display">\[
+f(x)=\operatorname{sign}(w^T \cdot x+b)
+\]</span></p>
+<p>该模型被称为感知机模型，其中<span
+class="math inline">\(w^T\)</span>和<span
+class="math inline">\(b\)</span>是感知机模型参数，线性方程</p>
+<p><span class="math display">\[
+w^T \cdot x+b
+\]</span></p>
+<p>是在特征空间中的一个超平面，其中<span
+class="math inline">\(w\)</span>是超平面的法向量，b是超平面的截距。</p>
+<p><span
+class="math inline">\(\operatorname{sign}\)</span>是符号函数</p>
+<p><span class="math display">\[
+\operatorname{sign}(x)=\left\{\begin{array}{ll}
++1, &amp; x \geqslant 0 \\
+-1, &amp; x&lt;0
+\end{array}\right.
+\]</span></p>
+<h2 id="感知机学习策略">2.感知机学习策略</h2>
+<h3 id="损失函数">2.1 损失函数</h3>
+<p>感知机损失函数的一个自然选择是误分类点的总数，但这样损失函数不是参数<span
+class="math inline">\(w\)</span>、<span
+class="math inline">\(b\)</span>连续可导函数，不容易优化。</p>
+<p>另一个选择是点到超平面S的总距离。</p>
+<p>记空间中点为<span class="math inline">\(X^{(i)}\)</span>，超平面为
+<span class="math inline">\(w^T \cdot X+b\)</span>
+，空间中的任意一点到平面的距离 =
+该点到平面任意一点的向量在平面的法向量上的投影。</p>
+<p><span class="math display">\[
+\begin{array}{l}
+D=\left|\frac{w}{\|w\|_{2}} \cdot\left(X^{(i)}-X^{(0)}\right)\right| \\
+=\left|\frac{1}{\|w\|_{2}} \cdot\left(w^{T} \cdot X^{(i)}-w^{T} \cdot
+X^{(0)}\right)\right| \\
+=\left|\frac{1}{\|w\|_{2}} \cdot\left(w^{T} \cdot
+X^{(i)}+b\right)\right|
+\end{array}
+\]</span></p>
+<p>其中<span class="math inline">\(X^{(0)}\)</span>是超平面上的点。</p>
+<p>对于误分类数据<span class="math inline">\(\left(x_{i},
+y_{i}\right)\)</span>来说，</p>
+<p><span class="math display">\[
+-y_{i}\left(w^T \cdot x_{i}+b\right)&gt;0
+\]</span></p>
+<p>假设误分类点集合为<span
+class="math inline">\(M\)</span>,那么所有误分类点到超平面的总距离为</p>
+<p><span class="math display">\[
+-\frac{1}{\|w\|} \sum_{x_{i} \in M} y_{i}\left(w^T \cdot x_{i}+b\right)
+\]</span></p>
+<p>不考虑常数<span
+class="math inline">\(\frac{1}{\|w\|}\)</span>,即可得到感知机学习的损失函数。这里省略转置，下同。</p>
+<p><span class="math display">\[
+L(w, b)=-\sum_{x_{i} \in M} y_{i}\left(w \cdot x_{i}+b\right)
+\]</span></p>
+<p>该损失函数就是感知机的经验风险函数。</p>
+<h3 id="随机梯度下降">2.2 随机梯度下降</h3>
+<p>对于感知机模型来说最优化方法是随机梯度下降法，损失函数如下</p>
+<p><span class="math display">\[
+\min _{w, b} L(w, b)=-\sum_{x_{i} \in M} y_{i}\left(w \cdot
+x_{i}+b\right)
+\]</span></p>
+<p>梯度计算如下</p>
+<p><span class="math display">\[
+\nabla_{w} L(w, b)=-\sum_{x_{j} \in M} y_{i} x_{i} \\
+\]</span></p>
+<p><span class="math display">\[
+\nabla_{b} L(w, b)=-\sum_{x_{i} \in M} y_{i}
+\]</span></p>
+<p>为此选取更新策略为</p>
+<p><span class="math display">\[
+\begin{array}{c}
+w \leftarrow w+\eta y_{i} x_{i} \\
+b \leftarrow b+\eta y_{i}
+\end{array}
+\]</span></p>
+<h2 id="收敛性证明">3.收敛性证明</h2>
+<p>将超平面简记为<span
+class="math inline">\(\hat{w}\cdot\hat{x}\)</span></p>
+<p>设训练集线性可分，则存在一个超平面<span
+class="math inline">\(\hat{w}_{opt}\cdot\hat{x}\)</span>使得训练集完全正确分开，令<span
+class="math inline">\(\|\hat{w}_{opt}\|=1\)</span>, 那么对有限的<span
+class="math inline">\(i=1,2,...,N\)</span>均有</p>
+<p><span class="math display">\[
+y_{i}\left(\hat{w}_{\text {opt }} \cdot
+\hat{x}_{i}\right)=y_{i}\left(w_{\text {opt }} \cdot x_{i}+b_{\text {opt
+}}\right) \geqslant \gamma \tag{式1}
+\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[
+\gamma=\min _{i}\left\{y_{i}\left(w_{\mathrm{opt}} \cdot
+x_{i}+b_{\mathrm{opt}}\right)\right\}
+\]</span></p>
+<p>根据更新公式</p>
+<p><span class="math display">\[
+\begin{array}{l}
+w_{k} \leftarrow w_{k-1}+\eta y_{i} x_{i} \\
+b_{k} \leftarrow b_{k-1}+\eta y_{i}
+\end{array}
+\]</span></p>
+<p>可得</p>
+<p><span class="math display">\[
+\hat{w}_{k}=\hat{w}_{k-1}+\eta y_{i} \hat{x}_{i}
+\]</span></p>
+<p>假设初始值为<span class="math inline">\(\hat{w}_0 =
+0\)</span>时,需要k次迭代达到最优值，有</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{w}_k\cdot\hat{w}_{\text{opt}} &amp; = (\hat{w}_{k-1}+\eta y_{i}
+\hat{x}_{i})\cdot\hat{w}_{\text{opt}} \\
+&amp; = \hat{w}_{k-1} \cdot \hat{w}_{\mathrm{opt}}+\eta y_{i}
+\hat{w}_{\mathrm{opt}} \cdot \hat{x}_{i} \\
+&amp; \geqslant  \hat{w}_{k-1} \cdot \hat{w}_{\mathrm{opt}}+ \eta \gamma
+\\
+&amp; \geqslant \cdots \\
+&amp; \geqslant  \hat{w}_{0} \cdot \hat{w}_{\mathrm{opt}}+ k\eta \gamma
+\\
+&amp;  =  k\eta \gamma
+\end{aligned}
+\]</span></p>
+<p>另外有</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left\|\hat{w}_{k}\right\|^{2} &amp;=\left\|\hat{w}_{k-1}\right\|^{2}+2
+\eta y_{i} \hat{w}_{k-1} \cdot
+\hat{x}_{i}+\eta^{2}\left\|\hat{x}_{i}\right\|^{2} \\
+&amp;
+\leqslant\left\|\hat{w}_{k-1}\right\|^{2}+\eta^{2}\left\|\hat{x}_{i}\right\|^{2}
+\\
+&amp; \leqslant\left\|\hat{w}_{k-1}\right\|^{2}+\eta^{2} R^{2} \\
+&amp; \leqslant\left\|\hat{w}_{k-2}\right\|^{2}+2 \eta^{2} R^{2} \\
+&amp; \leqslant \cdots \\
+&amp; \leqslant k \eta^{2} R^{2}
+\end{aligned}
+\]</span></p>
+<p>结合上述两式可得不等式</p>
+<p><span class="math display">\[
+k \eta \gamma \leqslant \hat{w}_{k} \cdot \hat{w}_{\mathrm{opt}}
+\leqslant\left\|\hat{w}_{k}\right\|\left\|\hat{w}_{\mathrm{opt}}\right\|
+\leqslant \sqrt{k} \eta R
+\]</span></p>
+<p>即对于k有</p>
+<p><span class="math display">\[
+k \leqslant\left(\frac{R}{\gamma}\right)^{2}
+\]</span></p>
+<p>该不等式的意义指出如果空间线性可分，迭代次数是有上界的。</p>
+<h2 id="感知机学习算法的对偶形式">4.感知机学习算法的对偶形式</h2>
+<p>在初始值为0的时候，对于N次迭代后参数<span
+class="math inline">\(w\)</span>、<span
+class="math inline">\(b\)</span>分别为</p>
+<p><span class="math display">\[
+w=\sum_{i=1}^{N} \alpha_{i} y_{i} x_{i} \tag{式2}
+\]</span></p>
+<p><span class="math display">\[
+b=\sum_{i=1}^{N} \alpha_{i} y_{i}
+\]</span></p>
+<p>其中<span class="math inline">\(\alpha_{i} =\mathrm{n}_{\mathrm{i}}
+\eta\)</span>，<span
+class="math inline">\(\eta\)</span>为学习率，当<span
+class="math inline">\(\eta=1\)</span>时，<span
+class="math inline">\(\alpha_{i}\)</span>就代表了第<span
+class="math inline">\(i\)</span>个实例由于误分而进行更新的次数。通常这个点会越接近分离超平面，因为这些点比较难被分类，它们对学习结果的影响最大。</p>
+<p>使用(式2)代替损失函数的<span
+class="math inline">\(w\)</span>值，可得对偶形式的训练条件为</p>
+<p>当</p>
+<p><span class="math display">\[
+y_{i}\left(\sum_{j=1}^{N} \alpha_{j} y_{j} x_{j} \cdot x_{i}+b\right)
+\leqslant 0\tag{式3}
+\]</span></p>
+<p>则</p>
+<p><span class="math display">\[
+\alpha_{i} \leftarrow \alpha_{i}+\eta
+\]</span></p>
+<p><span class="math display">\[
+b \leftarrow b+\eta y_{i}
+\]</span></p>
+<p>由于(式3)中出现了大量内积形式的训练实例，可以预先将训练集的实例计算出来并储存为Gram矩阵</p>
+<p>Gram矩阵的定义是</p>
+<p><span class="math display">\[
+G=A^{T} A=\left[\begin{array}{c}
+\mathbf{a}_{1}^{T} \\
+\mathbf{a}_{2}^{T} \\
+\vdots \\
+\mathbf{a}_{n}^{T}
+\end{array}\right]\left[\begin{array}{llll}
+\mathbf{a}_{1} &amp; \mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{n}
+\end{array}\right]\\=\left[\begin{array}{cccc}
+\mathbf{a}_{1}^{T} \mathbf{a}_{1} &amp; \mathbf{a}_{1}^{T}
+\mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{1}^{T} \mathbf{a}_{n} \\
+\mathbf{a}_{2}^{T} \mathbf{a}_{1} &amp; \mathbf{a}_{2}^{T}
+\mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{2}^{T} \mathbf{a}_{n} \\
+\mathbf{a}_{n}^{T} \mathbf{a}_{1} &amp; \mathbf{a}_{n}^{T}
+\mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{n}^{T} \mathbf{a}_{n}
+\end{array}\right]
+\]</span></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>统计学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>统计学习(3)--k近邻和k均值</title>
+    <url>/2022/11/25/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(3)--k%E8%BF%91%E9%82%BB%E5%92%8Ck%E5%9D%87%E5%80%BC/</url>
+    <content><![CDATA[<h2 id="摘要">摘要</h2>
+<p>k-NN和k-mean介绍</p>
+<span id="more"></span>
+<h2 id="k近邻算法">1.k近邻算法</h2>
+<p>k近邻法（k-nearest neighbor，k-NN）是一种基本分类与回归方法。</p>
+<p>k近邻法的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。</p>
+<p>具体对于新的实例x，在训练集中找到与之相邻的k个实例，这k个实例的多数属于哪一类，就把这个实例分到哪一类中。当k为1时，称为最近邻算法。</p>
+<h3 id="k近邻模型">2.k近邻模型</h3>
+<p>k近邻的算法非常简单，主要在于距离度量、k值和分类决策三者的选取。</p>
+<ol type="1">
+<li>度量距离
+<ol type="1">
+<li>欧氏距离</li>
+<li>Lp距离（Lp distance）</li>
+<li>Minkowski距离（Minkowski distance）</li>
+</ol></li>
+<li>k值
+<ol type="1">
+<li>选小会比较敏感</li>
+<li>增大意味着整体模型变得简单</li>
+</ol></li>
+<li>分类决策
+<ol type="1">
+<li>多数表决等价于经验风险最小化</li>
+</ol></li>
+</ol>
+<h3 id="kd树">3.kd树</h3>
+<p>k近邻没有给出一个显式的表达式，而是每一次判定都是需要计算所有点到实例的距离，然后选取最近的k个点表决。所以当总量N越来越大时，算法会变得越来越慢。</p>
+<p>为实现快速k近邻搜索，可以采用特殊结构存储，称为kd树。kd树是二叉树，表示对k维空间的一个划分（partition）。构造kd树相当于不断地用垂直于坐标轴的超平面将k维空间切分，构成一系列的k维超矩形区域。kd树的每个结点对应于一个k维超矩形区域。</p>
+<h4 id="构造">3.1 构造</h4>
+<p>输入：实例</p>
+<p>输出：kd树</p>
+<p>具体构造方式如下：</p>
+<p>输入k维空间数据集：</p>
+<p><span class="math display">\[
+\mathrm{T}=\left\{\mathrm{x}_{1}, \mathrm{x}_{2}, \ldots,
+\mathrm{x}_{\mathrm{N}}\right\}
+\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[
+x_{i}=\left(x_{i}^{(1)}, x_{i}^{(2)}, \cdots,
+x_{i}^{(k)}\right)^{\mathrm{T}} , i  =1,2, \ldots, \mathrm{N}
+\]</span></p>
+<ol type="1">
+<li>构造根节点</li>
+</ol>
+<p>选取<span
+class="math inline">\(x^{(1)}\)</span>为坐标轴（这里也可以从方差最大的开始选），以所有数据的<span
+class="math inline">\(x^{(1)}\)</span>特征的中位数作为切分点，生出深度为1的左右子节点。左小右大。</p>
+<ol start="2" type="1">
+<li>重复分割</li>
+</ol>
+<p>对深度为j的节点，选取<span
+class="math inline">\(x^{(l)}\)</span>为切分坐标轴，<span
+class="math inline">\(l=j(mod\enspace k)+1\)</span></p>
+<p>生成j+1的左右子节点。</p>
+<ol start="3" type="1">
+<li>直到两个子区域没有实例</li>
+</ol>
+<h4 id="搜索">3.2 搜索</h4>
+<p>输入：kd树，目标x</p>
+<p>输出：x的最近邻点</p>
+<ol type="1">
+<li><p>从根节点出发递归地向下访问kd树。若目标点x当前维的坐标小于切分点的坐标，则移动到左子结点，否则移动到右子结点。直
+到子结点为叶结点为止。</p></li>
+<li><p>记当前叶节点为最近点</p></li>
+<li><p>检查另一子结点对应的区域是否与以目标点为球心、以目标点与“当前最近点”间的距离为半径的超球体相交。如果相交，移动到另一个子结点进行递归最近邻搜索；如果不相交，向上回退。如果存在更近点则更新最近点。</p></li>
+</ol>
+<p>(4)退回根节点后的最近点即为最近点。</p>
+<h2 id="k-mean">4.k-mean</h2>
+<p>k-means是一种聚类算法，是无监督学习算法。它将训练数据分为k组，每一组是一个簇，随机选择k个实例作为初始的聚类中心点，对于每一个实例，计算它和这k个聚类中心的距离，然后把它分配到与它距离最近的聚类中心所在的簇中去；计算每个簇中所有实例的平均值，作为新的聚类中心点，以此往复，直至聚类中心点不再发生明显变化。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>统计学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用python进行科研绘图入门--共用坐标、全局字体</title>
     <url>/2022/12/14/2022-12/%E4%BD%BF%E7%94%A8python%E8%BF%9B%E8%A1%8C%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%85%A5%E9%97%A8--%E5%85%B1%E7%94%A8%E5%9D%90%E6%A0%87%E3%80%81%E5%85%A8%E5%B1%80%E5%AD%97%E4%BD%93/</url>
     <content><![CDATA[<h2 id="摘要">摘要</h2>
@@ -3277,572 +3843,6 @@ argument maybe true.</p>
       <tags>
         <tag>python</tag>
         <tag>逻辑思维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>统计学习(1)--定义速查</title>
-    <url>/2022/11/18/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(1)--%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h2 id="摘要">摘要</h2>
-<p>统计学习/机器学习基本名词解释</p>
-<span id="more"></span>
-<h2 id="人工智能artificial-intelligence-ai">人工智能(Artificial
-Intelligence, AI)</h2>
-<p>人工智能指拥有类似与人类的自主思考甚至学习的计算机程序或系统。可分为弱人工智能和强人工智能。</p>
-<h2 id="统计学习statistical-learning">统计学习(Statistical
-Learning)</h2>
-<p>统计学习是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。也被称为统计机器学习(statistical
-machine learning)。</p>
-<p>统计学习是机器学习的数学基础。</p>
-<h2 id="机器学习分类">机器学习分类</h2>
-<figure>
-<img
-src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192601.png"
-alt="思维导图" />
-<figcaption aria-hidden="true">思维导图</figcaption>
-</figure>
-<h2 id="机器学习流程">机器学习流程</h2>
-<ol type="1">
-<li>获取数据</li>
-<li>数据洞见与可视化</li>
-<li>数据清洗与预处理</li>
-<li>模型选择与训练</li>
-<li>调整模型</li>
-<li>启动监控与维护系统</li>
-</ol>
-<h2 id="输入空间输出空间特征空间">输入空间、输出空间、特征空间</h2>
-<p>输入与输出所有可能取值的集合分别称为输入空间（input
-space）与输出空间（output space）。这里的空间通常属于欧式空间。</p>
-<p>输入空间的具体输入是一个实例(instance)，通常使用特征向量(feature
-vector)表示。特征向量所在的空间称为特征空间(feature space)。</p>
-<p>输入变量与输出变量均为连续变量的预测问题称为回归问题；输出变量为有限个离散变量的预测问题称为分类问题；输入变量与输出变量均为变量序列的预测问题称为标注问题。</p>
-<h2 id="符号表示">符号表示</h2>
-<p>在习惯上将输入变量记作X，输出变量记作Y，输入输出变量的取值用小写字母x/y表示。向量通常为列向量</p>
-<p>输入实例x的特征向量记作</p>
-<p><span class="math display">\[
-x=\left(x^{(1)}, x^{(2)}, \cdots, x^{(i)}, \cdots,
-x^{(n)}\right)^{\mathrm{T}}
-\]</span></p>
-<p>其中<span class="math inline">\(x^{(i)}\)</span>表示<span
-class="math inline">\(x\)</span>的<span
-class="math inline">\(i\)</span>个特征，如果是下标<span
-class="math inline">\(x_i\)</span>则表示这是第<span
-class="math inline">\(i\)</span>个变量。</p>
-<p>监督学习训练数据由输入(或特征向量)与输出对构成，通常表示为 <span
-class="math display">\[
-T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right),
-\cdots,\left(x_{N}, y_{N}\right)\right\}
-\]</span></p>
-<h2 id="统计学习三要素">统计学习三要素</h2>
-<p><strong>方法＝模型＋策略＋算法</strong></p>
-<h3 id="模型">模型</h3>
-<p>称由<strong>决策函数</strong>表示的模型为非概率模型，由<strong>条件概率</strong>表示的模型为概率模型。</p>
-<p>所有模型构成的空间称为假设空间(hypothesis space)</p>
-<h3 id="策略">策略</h3>
-<p><strong>损失函数</strong>，使用损失函数(代价函数)度量模型一次预测的好坏
-（loss function / cost function）</p>
-<p>常用的损失函数有以下几种： 1. 0-1损失函数</p>
-<p><span class="math display">\[
-L(Y, f(X))=\left\{\begin{array}{ll}
-1, &amp; Y \neq f(X) \\
-0, &amp; Y=f(X)
-\end{array}\right.
-\]</span></p>
-<ol start="2" type="1">
-<li>平方损失函数</li>
-</ol>
-<p><span class="math display">\[
-L(Y, f(X))=(Y-f(X))^{2}
-\]</span></p>
-<ol start="3" type="1">
-<li>绝对损失函数</li>
-</ol>
-<p><span class="math display">\[
-L(Y, f(X))=|Y-f(X)|
-\]</span></p>
-<ol start="4" type="1">
-<li>对数损失函数/对数似然损失函数</li>
-</ol>
-<p><span class="math display">\[
-L(Y, P(Y \mid X))=-\log P(Y \mid X)
-\]</span></p>
-<p>损失函数值越小，模型就越好。因此可以计算以下损失函数的数学期望</p>
-<p><span class="math display">\[
-R_{\exp }(f)=E_{P}[L(Y, f(X))]=\int_{xy} L(y, f(x)) P(x, y) \mathrm{d} x
-\mathrm{~d} y
-\]</span></p>
-<p>其中<span class="math inline">\(P(x,y)\)</span>服从<span
-class="math inline">\((X,Y)\)</span>的联合概率分布，<span
-class="math inline">\(R_{\exp }(f)\)</span> 被称为风险函数（risk
-function）或 期望损失（expected loss）或<strong>期望风险</strong>。</p>
-<p>但由于联合分布未知，这里需要使用训练集的平均损失<span
-class="math inline">\(R_{\text {emp
-}}\)</span>来近似估计期望风险，公式如下</p>
-<p><span class="math display">\[
-R_{\text {emp }}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
-f\left(x_{i}\right)\right)
-\]</span></p>
-<p>它被称为<strong>经验风险</strong></p>
-<h3 id="算法">算法</h3>
-<p>算法是指学习模型的<strong>具体计算方法</strong>，习可以利用已有的最优化算法，有时也需要开发独自的最优化算法。</p>
-<h2
-id="经验风险最小化empirical-risk-minimizationerm">经验风险最小化(empirical
-risk minimization，ERM)</h2>
-<p>当样本容量足够大时，经验风险最小化能保证有很好的学习效果，在现实中被广泛采用。公式为</p>
-<p><span class="math display">\[
-\min _{f \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
-f\left(x_{i}\right)\right)
-\]</span></p>
-<p>其中<span class="math inline">\(\mathcal{F}\)</span>为假设空间</p>
-<h2
-id="结构风险最小化structural-risk-minimizationsrm">结构风险最小化(structural
-risk minimization，SRM)</h2>
-<p>经验风险最小化的准确度取决于样本，为了防止过拟合，提出了结构风险最小化，结构风险最小化等价于正则化（regularization），定义为</p>
-<p><span class="math display">\[
-R_{\mathrm{sm}}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
-f\left(x_{i}\right)\right)+\lambda J(f)
-\]</span></p>
-<p>其中<span
-class="math inline">\(J(f)为模型的复杂度\)</span>$是系数通常大于0</p>
-<h2 id="模型的训练与评估">模型的训练与评估</h2>
-<h3 id="训练误差与测试误差">训练误差与测试误差</h3>
-<p>数据集通常分为训练集和测试集，在选定损失函数后，训练误差和测试误差成为学习方法评估的标准。</p>
-<p>训练误差的大小，对判断给定的问题是不是一个容易学习的问题是有意义的，但本质上不重要。测试误差反映了学习方法对未知的测试数据集的预测能力，是学习中的重要概念。显然，给定两种学习方法，测试误差小的方法具有更好的预测能力，是更有效的方法。通常将学习方法对未知数据的预测能力称为泛化能力（generalization
-ability）</p>
-<h3 id="过拟合">过拟合</h3>
-<p>如果一味追求提高对训练数据的预测能力，所选模型的复杂度则往往会比真模型更高。这种现象称为过拟合（over-fitting）。过拟合是指学习时选择的模型所包含的参数过多，以致于出现这一模型对已知数据预测得很好，但对未知数据预测得很差的现象。</p>
-<figure>
-<img
-src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192722.png"
-alt="训练误差与测试误差" />
-<figcaption aria-hidden="true">训练误差与测试误差</figcaption>
-</figure>
-<h3 id="正则化">正则化</h3>
-<p>为对抗过拟合的情况，一个典型的方法是引入正则化（regularization），正则化项一般是模型复杂度的单调递增函数，模型越复杂，正则化值就越大。一般形式如下</p>
-<p><span class="math display">\[
-\min _{f \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^{N} L\left(y_{i},
-f\left(x_{i}\right)\right)+\lambda J(f)
-\]</span></p>
-<p>其中第一项是经验风险，第二项是正则化项，<span
-class="math inline">\(\lambda\)</span>是两者关系系数，其值大于0</p>
-<p>通常会使用2范数来作为正则项</p>
-<p><span class="math display">\[
-L(w)=\frac{1}{N} \sum_{i=1}^{N}\left(f\left(x_{i} ;
-w\right)-y_{i}\right)^{2}+\frac{\lambda}{2}\|w\|^{2}
-\]</span></p>
-<p>其中<span class="math inline">\(w\)</span>是特征向量，<span
-class="math inline">\(\|w\|^2\)</span>是向量<span
-class="math inline">\(w\)</span>的2范数</p>
-<h3 id="交叉验证">交叉验证</h3>
-<p>如果给定的样本数据充足，进行模型选择的一种简单方法是随机地将数据集切分成三部分，分别为训练集（training
-set）、验证集（validation set）和测试集（test set）。</p>
-<p>但是，在许多实际应用中数据是不充足的。为了选择好的模型，可以采用交叉验证方法。可以重复多少使用数据。</p>
-<ol type="1">
-<li><p>简单交叉验证
-随机将数据分为训练集(通常为70%)和测试集(通常为30%)。</p></li>
-<li><p>S折交叉验证（S-fold cross validation）
-首先随机地将已给数据切分为S个互不相交的大小相同的子集；然后利用S-1个子集的数据训练模型，利用余下的子集测试模型；将这一过程对可能的S种选择重复进行；最后选出S次评测中平均测试误差最小的模型。</p></li>
-<li><p>留一交叉验证（leave-one-out cross validation）
-将S折的S取为N，这里N是数据集的总容量。</p></li>
-</ol>
-<h2 id="生成模型与判别模型">生成模型与判别模型</h2>
-<ol type="1">
-<li>生成模型</li>
-</ol>
-<p>生成方法（generative
-approach）由数据学习联合概率分布P(X,Y)，然后求出条件概率分布P(Y|X)作为预测的模型，即生成模型：</p>
-<p><span class="math display">\[
-P(Y \mid X)=\frac{P(X, Y)}{P(X)}
-\]</span></p>
-<p>模型表示了给定输入X产生输出Y的生成关系。典型的生成模型有：朴素贝叶斯法和隐马尔可夫模型</p>
-<ol start="2" type="1">
-<li>判别模型</li>
-</ol>
-<p>判别方法（discriminative
-approach）直接学习决策函数f(X)或者条件概率分布P(Y|X)作为预测的模型，即判别模型。</p>
-<p>典型的判别模型包括：k近邻法、感知机、决策树、逻辑斯谛回归模型、最大熵模型、支持向量机。</p>
-<h2 id="问题分类">问题分类</h2>
-<h3 id="分类问题">分类问题</h3>
-<p>算法从数据中学习一个分类模型或分类决策函数，称为分类器（classifier）。分类器对新的输入进行输出的预测（prediction），称为分类（classification）。可能的输出称为类（class）。</p>
-<p>评价分类器性能的指标一般是分类准确率（accuracy）也就是损失函数为0-1损失函数时测试集上的准确率。</p>
-<p>分类最常见的是二分问题，当然其他分类其实也可以归为多个二分问题。对于二类分类问题常用的评价指标是精确率（precision）与召回率（recall）。将关注的类记为<strong>正类</strong>，其他类为<strong>负类</strong>，根据模型判别的对错可以分为四种情况，将他们出现的总是记为如下符号</p>
-<p>TP——将正类预测为正类数； FN——将正类预测为负类数；
-FP——将负类预测为正类数； TN——将负类预测为负类数。</p>
-<p><strong>精准率</strong>的定义为</p>
-<p><span class="math display">\[
-P=\frac{T P}{T P+F P}
-\]</span></p>
-<p><strong>召回率</strong>的定义为</p>
-<p><span class="math display">\[
-R=\frac{T P}{T P+F N}
-\]</span></p>
-<p><strong><span
-class="math inline">\(F_1\)</span>值</strong>是，精准率和召回率的调和均值</p>
-<p><span class="math display">\[
-\frac{2}{F_1}=\frac{1}{P}+\frac{1}{R}
-\]</span></p>
-<p><span class="math display">\[
-F_1=\frac{2 T P}{2 T P+F P+F N}
-\]</span></p>
-<p><strong>混淆矩阵</strong>（Confusion
-Matrix），又称为可能性矩阵或错误矩阵。是分类结果的一个可视化表现。形如</p>
-<figure>
-<img
-src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210192755.png"
-alt="混淆矩阵" />
-<figcaption aria-hidden="true">混淆矩阵</figcaption>
-</figure>
-<h3 id="标注问题">标注问题</h3>
-<p>标注（tagging）可以认为是分类问题的一个推广，输入是一组序列，输出也是一组序列。</p>
-<h3 id="回归问题">回归问题</h3>
-<p>回归（regression）用于预测输入变量（自变量）和输出变量（因变量）之间的关系，特别是当输入变量的值发生变化时，输出变量的值随之发生的变化。</p>
-<p>回归学习最常用的损失函数是平方损失函数，在此情况下，回归问题可以由著名的最小二乘法（least
-squares）求解。</p>
-<h2 id="梯度下降法">梯度下降法</h2>
-<p>梯度下降法（Gradient
-descent）是迭代法的一种，利用求偏导的方法更新参数，实现找到极值。公式如下</p>
-<p><span class="math display">\[
-w_{i+1}=w_{i}-\alpha * \frac{d L}{d w_{i}}
-\]</span></p>
-<p>其中<span
-class="math inline">\(\alpha\)</span>是学习率，其值影响迭代的速度，过大可能导致不收敛，过小收敛速度慢，且可能会陷入局部最优解。</p>
-<p>批量梯度下降（Batch Gradient
-Descent，BGD）每一次迭代会对所有样本进行计算，具有全局性，但计算量大</p>
-<p>随机梯度下降（Stochastic Gradient
-Descent，SGD）随机梯度下降是每次迭代使用一个样本来对参数进行更新，速度快但准确度可能会下降</p>
-<p>小批量梯度下降（Mini-Batch Gradient Descent,
-MBGD）中和上述两者特性</p>
-<h2 id="感知机">感知机</h2>
-<p>感知机（perceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，其通过一个超平面分离，输出取+1和–1二值。</p>
-<p>单个感知机不能处理异或问题，多个感知机可以构成神经网络。</p>
-<h2 id="支持向量机">支持向量机</h2>
-<p>支持向量机的学习的目标也是在特征空间中找到一个分离超平面，能将实例分到不同的类。不同与感知机的解有无穷多个，线性可分支持向量机利用间隔最大化求最优分离超平面，解是唯一的。</p>
-<p>支持向量机可以通过变换处理非线性分类问题。</p>
-<h2 id="k近邻算法">k近邻算法</h2>
-<p>k近邻法（k-nearest neighbor，k-NN）是一种基本分类与回归方法。</p>
-<p>k近邻法的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。</p>
-<p>具体对于新的实例x，在训练集中找到与之相邻的k个实例，这k个实例的多数属于哪一类，就把这个实例分到哪一类中。当k为1时，称为最近邻算法。</p>
-<h2 id="k-mean">k-mean</h2>
-<p>k-means是一种聚类算法，是无监督学习算法。它将训练数据分为k组，每一组是一个簇，随机选择k个实例作为初始的聚类中心点，对于每一个实例，计算它和这k个聚类中心的距离，然后把它分配到与它距离最近的聚类中心所在的簇中去；计算每个簇中所有实例的平均值，作为新的聚类中心点，以此往复，直至聚类中心点不再发生明显变化。</p>
-<h2 id="朴素贝叶斯">朴素贝叶斯</h2>
-<p>朴素贝叶斯对实际问题进行了简化假设，利用概率最大这一符合人脑对事物的判断的方法实现对输入实例的分类。</p>
-<h2 id="决策树">决策树</h2>
-<p>分类决策树从根节点开始对实例的某个特征进行测试判别，然后将实例分配到对应节点，反复递归最终实现实例的全部分类。</p>
-<p>决策树的特性决定了它会倾向于多分类，为此需要使用剪枝或修改判别依据来优化模型。</p>
-<h2 id="逻辑斯谛回归">逻辑斯谛回归</h2>
-<p>逻辑斯谛回归模型利用了逻辑斯谛方程的对数特性，将特征参数映射到[0，1]之间，将问题转换为概率预测，从而实现判别。</p>
-<h2 id="最大熵">最大熵</h2>
-<p>最大熵原理是概率模型学习的一个准则。其观点认为熵最大的模型就是最好的模型。</p>
-<!-- ## 提升
-
-
-## EM算法
-
-
-## 隐马尔可夫模型
-
-
-## 条件随机场 -->
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>计算机</category>
-      </categories>
-      <tags>
-        <tag>统计学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>统计学习(2)--感知机</title>
-    <url>/2022/11/23/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(2)--%E6%84%9F%E7%9F%A5%E6%9C%BA/</url>
-    <content><![CDATA[<h2 id="摘要">摘要</h2>
-<p>感知机</p>
-<span id="more"></span>
-<h2 id="感知机的定义">1.感知机的定义</h2>
-<p>对于一个输入空间，如果存在一个超平面将实例分为正负两类，那么可以认为输入空间的输出空间可以通过如下函数实现。</p>
-<p><span class="math display">\[
-f(x)=\operatorname{sign}(w^T \cdot x+b)
-\]</span></p>
-<p>该模型被称为感知机模型，其中<span
-class="math inline">\(w^T\)</span>和<span
-class="math inline">\(b\)</span>是感知机模型参数，线性方程</p>
-<p><span class="math display">\[
-w^T \cdot x+b
-\]</span></p>
-<p>是在特征空间中的一个超平面，其中<span
-class="math inline">\(w\)</span>是超平面的法向量，b是超平面的截距。</p>
-<p><span
-class="math inline">\(\operatorname{sign}\)</span>是符号函数</p>
-<p><span class="math display">\[
-\operatorname{sign}(x)=\left\{\begin{array}{ll}
-+1, &amp; x \geqslant 0 \\
--1, &amp; x&lt;0
-\end{array}\right.
-\]</span></p>
-<h2 id="感知机学习策略">2.感知机学习策略</h2>
-<h3 id="损失函数">2.1 损失函数</h3>
-<p>感知机损失函数的一个自然选择是误分类点的总数，但这样损失函数不是参数<span
-class="math inline">\(w\)</span>、<span
-class="math inline">\(b\)</span>连续可导函数，不容易优化。</p>
-<p>另一个选择是点到超平面S的总距离。</p>
-<p>记空间中点为<span class="math inline">\(X^{(i)}\)</span>，超平面为
-<span class="math inline">\(w^T \cdot X+b\)</span>
-，空间中的任意一点到平面的距离 =
-该点到平面任意一点的向量在平面的法向量上的投影。</p>
-<p><span class="math display">\[
-\begin{array}{l}
-D=\left|\frac{w}{\|w\|_{2}} \cdot\left(X^{(i)}-X^{(0)}\right)\right| \\
-=\left|\frac{1}{\|w\|_{2}} \cdot\left(w^{T} \cdot X^{(i)}-w^{T} \cdot
-X^{(0)}\right)\right| \\
-=\left|\frac{1}{\|w\|_{2}} \cdot\left(w^{T} \cdot
-X^{(i)}+b\right)\right|
-\end{array}
-\]</span></p>
-<p>其中<span class="math inline">\(X^{(0)}\)</span>是超平面上的点。</p>
-<p>对于误分类数据<span class="math inline">\(\left(x_{i},
-y_{i}\right)\)</span>来说，</p>
-<p><span class="math display">\[
--y_{i}\left(w^T \cdot x_{i}+b\right)&gt;0
-\]</span></p>
-<p>假设误分类点集合为<span
-class="math inline">\(M\)</span>,那么所有误分类点到超平面的总距离为</p>
-<p><span class="math display">\[
--\frac{1}{\|w\|} \sum_{x_{i} \in M} y_{i}\left(w^T \cdot x_{i}+b\right)
-\]</span></p>
-<p>不考虑常数<span
-class="math inline">\(\frac{1}{\|w\|}\)</span>,即可得到感知机学习的损失函数。这里省略转置，下同。</p>
-<p><span class="math display">\[
-L(w, b)=-\sum_{x_{i} \in M} y_{i}\left(w \cdot x_{i}+b\right)
-\]</span></p>
-<p>该损失函数就是感知机的经验风险函数。</p>
-<h3 id="随机梯度下降">2.2 随机梯度下降</h3>
-<p>对于感知机模型来说最优化方法是随机梯度下降法，损失函数如下</p>
-<p><span class="math display">\[
-\min _{w, b} L(w, b)=-\sum_{x_{i} \in M} y_{i}\left(w \cdot
-x_{i}+b\right)
-\]</span></p>
-<p>梯度计算如下</p>
-<p><span class="math display">\[
-\nabla_{w} L(w, b)=-\sum_{x_{j} \in M} y_{i} x_{i} \\
-\]</span></p>
-<p><span class="math display">\[
-\nabla_{b} L(w, b)=-\sum_{x_{i} \in M} y_{i}
-\]</span></p>
-<p>为此选取更新策略为</p>
-<p><span class="math display">\[
-\begin{array}{c}
-w \leftarrow w+\eta y_{i} x_{i} \\
-b \leftarrow b+\eta y_{i}
-\end{array}
-\]</span></p>
-<h2 id="收敛性证明">3.收敛性证明</h2>
-<p>将超平面简记为<span
-class="math inline">\(\hat{w}\cdot\hat{x}\)</span></p>
-<p>设训练集线性可分，则存在一个超平面<span
-class="math inline">\(\hat{w}_{opt}\cdot\hat{x}\)</span>使得训练集完全正确分开，令<span
-class="math inline">\(\|\hat{w}_{opt}\|=1\)</span>, 那么对有限的<span
-class="math inline">\(i=1,2,...,N\)</span>均有</p>
-<p><span class="math display">\[
-y_{i}\left(\hat{w}_{\text {opt }} \cdot
-\hat{x}_{i}\right)=y_{i}\left(w_{\text {opt }} \cdot x_{i}+b_{\text {opt
-}}\right) \geqslant \gamma \tag{式1}
-\]</span></p>
-<p>其中</p>
-<p><span class="math display">\[
-\gamma=\min _{i}\left\{y_{i}\left(w_{\mathrm{opt}} \cdot
-x_{i}+b_{\mathrm{opt}}\right)\right\}
-\]</span></p>
-<p>根据更新公式</p>
-<p><span class="math display">\[
-\begin{array}{l}
-w_{k} \leftarrow w_{k-1}+\eta y_{i} x_{i} \\
-b_{k} \leftarrow b_{k-1}+\eta y_{i}
-\end{array}
-\]</span></p>
-<p>可得</p>
-<p><span class="math display">\[
-\hat{w}_{k}=\hat{w}_{k-1}+\eta y_{i} \hat{x}_{i}
-\]</span></p>
-<p>假设初始值为<span class="math inline">\(\hat{w}_0 =
-0\)</span>时,需要k次迭代达到最优值，有</p>
-<p><span class="math display">\[
-\begin{aligned}
-\hat{w}_k\cdot\hat{w}_{\text{opt}} &amp; = (\hat{w}_{k-1}+\eta y_{i}
-\hat{x}_{i})\cdot\hat{w}_{\text{opt}} \\
-&amp; = \hat{w}_{k-1} \cdot \hat{w}_{\mathrm{opt}}+\eta y_{i}
-\hat{w}_{\mathrm{opt}} \cdot \hat{x}_{i} \\
-&amp; \geqslant  \hat{w}_{k-1} \cdot \hat{w}_{\mathrm{opt}}+ \eta \gamma
-\\
-&amp; \geqslant \cdots \\
-&amp; \geqslant  \hat{w}_{0} \cdot \hat{w}_{\mathrm{opt}}+ k\eta \gamma
-\\
-&amp;  =  k\eta \gamma
-\end{aligned}
-\]</span></p>
-<p>另外有</p>
-<p><span class="math display">\[
-\begin{aligned}
-\left\|\hat{w}_{k}\right\|^{2} &amp;=\left\|\hat{w}_{k-1}\right\|^{2}+2
-\eta y_{i} \hat{w}_{k-1} \cdot
-\hat{x}_{i}+\eta^{2}\left\|\hat{x}_{i}\right\|^{2} \\
-&amp;
-\leqslant\left\|\hat{w}_{k-1}\right\|^{2}+\eta^{2}\left\|\hat{x}_{i}\right\|^{2}
-\\
-&amp; \leqslant\left\|\hat{w}_{k-1}\right\|^{2}+\eta^{2} R^{2} \\
-&amp; \leqslant\left\|\hat{w}_{k-2}\right\|^{2}+2 \eta^{2} R^{2} \\
-&amp; \leqslant \cdots \\
-&amp; \leqslant k \eta^{2} R^{2}
-\end{aligned}
-\]</span></p>
-<p>结合上述两式可得不等式</p>
-<p><span class="math display">\[
-k \eta \gamma \leqslant \hat{w}_{k} \cdot \hat{w}_{\mathrm{opt}}
-\leqslant\left\|\hat{w}_{k}\right\|\left\|\hat{w}_{\mathrm{opt}}\right\|
-\leqslant \sqrt{k} \eta R
-\]</span></p>
-<p>即对于k有</p>
-<p><span class="math display">\[
-k \leqslant\left(\frac{R}{\gamma}\right)^{2}
-\]</span></p>
-<p>该不等式的意义指出如果空间线性可分，迭代次数是有上界的。</p>
-<h2 id="感知机学习算法的对偶形式">4.感知机学习算法的对偶形式</h2>
-<p>在初始值为0的时候，对于N次迭代后参数<span
-class="math inline">\(w\)</span>、<span
-class="math inline">\(b\)</span>分别为</p>
-<p><span class="math display">\[
-w=\sum_{i=1}^{N} \alpha_{i} y_{i} x_{i} \tag{式2}
-\]</span></p>
-<p><span class="math display">\[
-b=\sum_{i=1}^{N} \alpha_{i} y_{i}
-\]</span></p>
-<p>其中<span class="math inline">\(\alpha_{i} =\mathrm{n}_{\mathrm{i}}
-\eta\)</span>，<span
-class="math inline">\(\eta\)</span>为学习率，当<span
-class="math inline">\(\eta=1\)</span>时，<span
-class="math inline">\(\alpha_{i}\)</span>就代表了第<span
-class="math inline">\(i\)</span>个实例由于误分而进行更新的次数。通常这个点会越接近分离超平面，因为这些点比较难被分类，它们对学习结果的影响最大。</p>
-<p>使用(式2)代替损失函数的<span
-class="math inline">\(w\)</span>值，可得对偶形式的训练条件为</p>
-<p>当</p>
-<p><span class="math display">\[
-y_{i}\left(\sum_{j=1}^{N} \alpha_{j} y_{j} x_{j} \cdot x_{i}+b\right)
-\leqslant 0\tag{式3}
-\]</span></p>
-<p>则</p>
-<p><span class="math display">\[
-\alpha_{i} \leftarrow \alpha_{i}+\eta
-\]</span></p>
-<p><span class="math display">\[
-b \leftarrow b+\eta y_{i}
-\]</span></p>
-<p>由于(式3)中出现了大量内积形式的训练实例，可以预先将训练集的实例计算出来并储存为Gram矩阵</p>
-<p>Gram矩阵的定义是</p>
-<p><span class="math display">\[
-G=A^{T} A=\left[\begin{array}{c}
-\mathbf{a}_{1}^{T} \\
-\mathbf{a}_{2}^{T} \\
-\vdots \\
-\mathbf{a}_{n}^{T}
-\end{array}\right]\left[\begin{array}{llll}
-\mathbf{a}_{1} &amp; \mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{n}
-\end{array}\right]\\=\left[\begin{array}{cccc}
-\mathbf{a}_{1}^{T} \mathbf{a}_{1} &amp; \mathbf{a}_{1}^{T}
-\mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{1}^{T} \mathbf{a}_{n} \\
-\mathbf{a}_{2}^{T} \mathbf{a}_{1} &amp; \mathbf{a}_{2}^{T}
-\mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{2}^{T} \mathbf{a}_{n} \\
-\mathbf{a}_{n}^{T} \mathbf{a}_{1} &amp; \mathbf{a}_{n}^{T}
-\mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{n}^{T} \mathbf{a}_{n}
-\end{array}\right]
-\]</span></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>计算机</category>
-      </categories>
-      <tags>
-        <tag>统计学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>统计学习(3)--k近邻和k均值</title>
-    <url>/2022/11/25/2022-11/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0(3)--k%E8%BF%91%E9%82%BB%E5%92%8Ck%E5%9D%87%E5%80%BC/</url>
-    <content><![CDATA[<h2 id="摘要">摘要</h2>
-<p>k-NN和k-mean介绍</p>
-<span id="more"></span>
-<h2 id="k近邻算法">1.k近邻算法</h2>
-<p>k近邻法（k-nearest neighbor，k-NN）是一种基本分类与回归方法。</p>
-<p>k近邻法的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。</p>
-<p>具体对于新的实例x，在训练集中找到与之相邻的k个实例，这k个实例的多数属于哪一类，就把这个实例分到哪一类中。当k为1时，称为最近邻算法。</p>
-<h3 id="k近邻模型">2.k近邻模型</h3>
-<p>k近邻的算法非常简单，主要在于距离度量、k值和分类决策三者的选取。</p>
-<ol type="1">
-<li>度量距离
-<ol type="1">
-<li>欧氏距离</li>
-<li>Lp距离（Lp distance）</li>
-<li>Minkowski距离（Minkowski distance）</li>
-</ol></li>
-<li>k值
-<ol type="1">
-<li>选小会比较敏感</li>
-<li>增大意味着整体模型变得简单</li>
-</ol></li>
-<li>分类决策
-<ol type="1">
-<li>多数表决等价于经验风险最小化</li>
-</ol></li>
-</ol>
-<h3 id="kd树">3.kd树</h3>
-<p>k近邻没有给出一个显式的表达式，而是每一次判定都是需要计算所有点到实例的距离，然后选取最近的k个点表决。所以当总量N越来越大时，算法会变得越来越慢。</p>
-<p>为实现快速k近邻搜索，可以采用特殊结构存储，称为kd树。kd树是二叉树，表示对k维空间的一个划分（partition）。构造kd树相当于不断地用垂直于坐标轴的超平面将k维空间切分，构成一系列的k维超矩形区域。kd树的每个结点对应于一个k维超矩形区域。</p>
-<h4 id="构造">3.1 构造</h4>
-<p>输入：实例</p>
-<p>输出：kd树</p>
-<p>具体构造方式如下：</p>
-<p>输入k维空间数据集：</p>
-<p><span class="math display">\[
-\mathrm{T}=\left\{\mathrm{x}_{1}, \mathrm{x}_{2}, \ldots,
-\mathrm{x}_{\mathrm{N}}\right\}
-\]</span></p>
-<p>其中</p>
-<p><span class="math display">\[
-x_{i}=\left(x_{i}^{(1)}, x_{i}^{(2)}, \cdots,
-x_{i}^{(k)}\right)^{\mathrm{T}} , i  =1,2, \ldots, \mathrm{N}
-\]</span></p>
-<ol type="1">
-<li>构造根节点</li>
-</ol>
-<p>选取<span
-class="math inline">\(x^{(1)}\)</span>为坐标轴（这里也可以从方差最大的开始选），以所有数据的<span
-class="math inline">\(x^{(1)}\)</span>特征的中位数作为切分点，生出深度为1的左右子节点。左小右大。</p>
-<ol start="2" type="1">
-<li>重复分割</li>
-</ol>
-<p>对深度为j的节点，选取<span
-class="math inline">\(x^{(l)}\)</span>为切分坐标轴，<span
-class="math inline">\(l=j(mod\enspace k)+1\)</span></p>
-<p>生成j+1的左右子节点。</p>
-<ol start="3" type="1">
-<li>直到两个子区域没有实例</li>
-</ol>
-<h4 id="搜索">3.2 搜索</h4>
-<p>输入：kd树，目标x</p>
-<p>输出：x的最近邻点</p>
-<ol type="1">
-<li><p>从根节点出发递归地向下访问kd树。若目标点x当前维的坐标小于切分点的坐标，则移动到左子结点，否则移动到右子结点。直
-到子结点为叶结点为止。</p></li>
-<li><p>记当前叶节点为最近点</p></li>
-<li><p>检查另一子结点对应的区域是否与以目标点为球心、以目标点与“当前最近点”间的距离为半径的超球体相交。如果相交，移动到另一个子结点进行递归最近邻搜索；如果不相交，向上回退。如果存在更近点则更新最近点。</p></li>
-</ol>
-<p>(4)退回根节点后的最近点即为最近点。</p>
-<h2 id="k-mean">4.k-mean</h2>
-<p>k-means是一种聚类算法，是无监督学习算法。它将训练数据分为k组，每一组是一个簇，随机选择k个实例作为初始的聚类中心点，对于每一个实例，计算它和这k个聚类中心的距离，然后把它分配到与它距离最近的聚类中心所在的簇中去；计算每个簇中所有实例的平均值，作为新的聚类中心点，以此往复，直至聚类中心点不再发生明显变化。</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>计算机</category>
-      </categories>
-      <tags>
-        <tag>统计学习</tag>
       </tags>
   </entry>
   <entry>
@@ -6487,6 +6487,183 @@ INCAR文件参数含义速查表</a></p>
       </tags>
   </entry>
   <entry>
+    <title>使用树莓派3b搭OpenWrt</title>
+    <url>/2022/08/11/2022-8/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE3b%E6%90%ADOpenwrt/</url>
+    <content><![CDATA[<h2 id="摘要">摘要</h2>
+<p>OpenWRT是一个嵌入式Linux系统，拥有强大的网络组件和扩展性，常用来作为主流路由器固件，使用OpenWrt作为软路由对用户来说意味着拥有个人定制化网络的权利<del>（并没有什么用）</del>。因此对于喜欢折腾的玩家来说，使用一个闲置的树莓派来刷openwrt系统是不错的选择。</p>
+<p>本文树莓派型号是3b，OpenWrt固件版本为immortalwrt</p>
+<span id="more"></span>
+<h2 id="硬件准备">硬件准备</h2>
+<ol type="1">
+<li>win10系统电脑一台</li>
+<li>树莓派3b</li>
+<li>网线</li>
+<li>sd卡（8G就够了，要玩nas或docker的可以挂载硬盘）</li>
+<li>读卡器</li>
+</ol>
+<h2 id="刷写固件">1.刷写固件</h2>
+<p>可以按照该网址给出步骤操作</p>
+<p>https://doc.openwrt.cc/1-General/1-Install-Upgrade/</p>
+<p>下面给出我的步骤：</p>
+<ol type="1">
+<li>下载<a
+href="https://www.balena.io/etcher/">Etcher</a>这是一个刷写工具</li>
+<li>下载储存还原固件</li>
+<li>在软件源站下载进入如下目录<code>/releases/targets/bcm27xx/bcm2710/</code>下载<code>immortalwrt-bcm27xx-bcm2710-rpi-3-ext4-factory.img.gz</code>这是树莓派3b对应的固件下载路径。</li>
+</ol>
+<blockquote>
+<p>树莓派3B和3B+都是Broadcom的cpu，3B是BCM2837A0，3B+是BCM2837B0;
+树莓派4B的cpu型号是Broadcom BCM2838. OpenWRT里对应型号是bcm27xx
+树莓派3B和3B+的Subtarget都是bcm2710 树莓派4B的Subtarget是bcm2711
+所以树莓派3b按步骤3的路径选，其他版本的openwrt同理。[1]</p>
+</blockquote>
+<p>下好后用Etcher洗掉sd卡的东西然后刷写进固件就可以了。</p>
+<h2 id="基础配置">2.基础配置</h2>
+<p>给树莓派插卡通电，可以看见一个名为openwrt的wifi，连接（也可以直接插网线）</p>
+<p>打开浏览器，输入 http://192.168.1.1 进入路由器后台</p>
+<p>输入默认用户名，root 和 password</p>
+<p>进入luci界面如下</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200829.png"
+alt="openwrt luci界面" />
+<figcaption aria-hidden="true">openwrt luci界面</figcaption>
+</figure>
+<h3 id="管理员密码修改">2.1 管理员密码修改</h3>
+<p><code>系统</code>-&gt;<code>管理权</code></p>
+<p>改完点一下保存</p>
+<h3 id="网络接口">2.2 网络接口</h3>
+<p>点击<code>网络</code> -&gt; <code>接口</code>
+这里可以配置lan口，点击<code>修改</code></p>
+<p>我是当作旁路由使用的，主路由的ip是<code>102.168.3.1</code>所以这里设置格式如下。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200809.png"
+alt="接口配置" />
+<figcaption aria-hidden="true">接口配置</figcaption>
+</figure>
+<p>改WiFi密码在<code>网络</code>-&gt;<code>无线</code>-&gt;<code>无线安全</code>的加密这改。</p>
+<h3 id="拓展">2.3 拓展</h3>
+<p>在<code>系统</code>-&gt;<code>软件包</code>中可以安装下载需要的插件。</p>
+<p>推荐在下载前扩容一下overlay，相关方法可以看B站BraveRu的视频<a
+href="https://www.bilibili.com/video/BV1w541157Uo?spm_id_from=333.337.search-card.all.click&amp;vd_source=3fd1e5e8ca82ebd09d9c888f49c210cf">极其详尽的OpenWRT软路由系统安装与设置教程（物理机安装）</a></p>
+<p>插件的名字和功能也可以在网上搜到。</p>
+<h2 id="结束">3.结束</h2>
+<p>折腾了半天，发现刷一个软路由不能说收获满满，只能说毫无用处。。。</p>
+<h2 id="参考资料">参考资料</h2>
+<p>[1]
+https://www.itgeeker.net/raspberry-3b-3buse-openwrt-pure-org-img-to-install-and-config-socks5-agent-1/</p>
+<p>[2] 知乎文章：<a
+href="https://zhuanlan.zhihu.com/p/463838793">将树莓派3B刷成OpenWrt软路由，成为魔法WiFi上网的强大路由器</a></p>
+]]></content>
+      <categories>
+        <category>文化娱乐</category>
+        <category>折腾与游戏</category>
+      </categories>
+      <tags>
+        <tag>openwrt</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>信息量和信息熵</title>
+    <url>/2022/08/20/2022-8/%E4%BF%A1%E6%81%AF%E9%87%8F%E5%92%8C%E4%BF%A1%E6%81%AF%E7%86%B5/</url>
+    <content><![CDATA[<h2 id="引言">引言</h2>
+<p>随着计算机和个人手机的普及，人们常说我们现在进入了信息时代。另一方面，在我们日常互联网使用过程中的产生大数据也和我们的生活息息相关。在每天接触的过程中不知道你有没有考虑过为什么信息是可以被度量的？它又是怎么被计算的？</p>
+<span id="more"></span>
+<h2 id="概率和信息">1.概率和信息</h2>
+<blockquote>
+<p>“你这句话信息量真大”</p>
+</blockquote>
+<p>我们日常就会对信息产生一个笼统的概念，能大致判量的大小。具体而言似乎并不和字数成正比，比如说来段营销号文案。</p>
+<blockquote>
+<p>信息量和文案字数没有关系是怎么一回事呢，信息相信大家都很熟悉，但是信息量和文案字数没有关系是怎么一回事呢？下面就让小编带大家一起了解吧。大家可能会惊讶信息量和文案字数怎么会没有关系呢？但事实就是这样，小编也很惊讶。这就是关于信息量和文案字数没有关系的全部内容了，大家有什么想法可以在评论区告诉小编一起讨论哦！</p>
+</blockquote>
+<p>香农提出<strong>信息量应该与事件发生的概率相关，事情发生的概率越小，所包含的信息量就越大</strong>，这也非常好理解，有人对你说“太阳明天从东边升起”和“明天太阳要爆炸了”肯定是后者的信息量较大。</p>
+<p>既然一个事件发生的概率(<span
+class="math inline">\(P\)</span>)越小，它所包含的信息量就越大。那我们是否能通过一个函数<span
+class="math inline">\(f(P)\)</span>来定量描述一下信息量呢。</p>
+<p>这可得好好考虑一下。首先信息量的函数<span
+class="math inline">\(f(P)\)</span>是一个</p>
+<ul>
+<li>单调递减函数</li>
+<li>定义域是[0,1]</li>
+<li><span class="math inline">\(f(1)=0\)</span><br />
+</li>
+<li><span class="math inline">\(f(0)=\infty\)</span></li>
+</ul>
+<p>还有一点，信息量应该可以相加表示两个独立的事件同时发生所包含的信息量，又根据概率论两个事件同时发生的概率为<span
+class="math inline">\(P_1*P_2\)</span>也就是说，<span
+class="math inline">\(f(p_1)+f(p_2)=f(P_1*P_2)\)</span></p>
+<p>相信看到这个公式，这个信息量的函数的身份就已经呼之欲出了。对数函数可以完美满足了以上所有的条件。其次为了方便2进制计算机的使用和度量，我们通常采用公式<span
+class="math inline">\(f(p) =
+-\log_{2}{P}\)</span>来计算信息量。单位就记作bit，负号是为了满足递减的性质。</p>
+<p>当然也可以使用10作为对数函数的基底，单位为哈莱特(Hartly);还有以e为基地，单位为奈特(nit)</p>
+<h2 id="信息熵">2. 信息熵</h2>
+<p>熵和量子这种新构名词听起来就很高大上，但解释起来倒是不难理解，信息量是单个事件的度量，而信息熵是用来表示事件集的平均信息量。</p>
+<p>先给出公式，对于一个离散的信号源有</p>
+<p><span class="math display">\[
+\left[\begin{array}{cccc}
+x_{1}, &amp; x_{2}, &amp; \cdots, &amp; x_{M} \\
+P\left(x_{1}\right), &amp; P\left(x_{2}\right), &amp; \cdots, &amp;
+P\left(x_{M}\right)
+\end{array}\right] \text {, 且 } \sum_{i=1}^{M} P\left(x_{i}\right)=1
+\]</span></p>
+<p>其中<span
+class="math inline">\(x_i\)</span>是离散消息，对应二进制计算机就是0和1，<span
+class="math inline">\(P(x_i)\)</span>是离散消息<span
+class="math inline">\(x_i\)</span>发生的概率。</p>
+<p>其信息熵<span class="math inline">\(H(x)\)</span>的计算公式如下：</p>
+<p><span class="math display">\[
+H(x)=-\sum_{i=1}^{M} P\left(x_{i}\right) \log _{2} P\left(x_{i}\right)
+\]</span></p>
+<p>这个公式就是将各自的信息量乘以发生的概率然后求和，这有什么用呢？首先作为平均信息量，它可以快速计算一段信息的总信息量，比如说该信号源发生了n位信息，那它的总信息量为<span
+class="math inline">\(I = n*H(x)\)</span></p>
+<p>其次这个值就代表了数据编码的最小值。中文的信息熵是要高于英语，西班牙语，俄语等主流语言，所以在计算机中中文的文件会比其他语言的要大一些。</p>
+<h2 id="存储单位和网速">3.存储单位和网速</h2>
+<p>比特(bit)前面也介绍过了，这是计算机中最小的存储单位，8个bit为一个字节(Byte)缩写为B</p>
+<p>以字节(Byte)为单元，计算机还有KB，MB，GB，TB换算如下</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">单位换算</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1 Byte = 8 bit</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1 KB = 1024 B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1 MB = 1024 KB</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1 GB = 1024 MB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1 TB = 1024 GB</td>
+</tr>
+</tbody>
+</table>
+<p>1024是2的10次方，这是计算机里常用的换算方法，对于硬盘厂商的换算还是以1000为单位换算</p>
+<p>另外网络线路的计量单位是bps，比特每秒(bits per
+second),所以对应我们常说的下载速度KB/MB要除以8.</p>
+<h2 id="参考资料">参考资料</h2>
+<p>[1] 《通信原理》第七版 曹丽娜 樊昌信</p>
+<p>[2] 知乎问题 <a
+href="https://www.zhihu.com/question/37998688/answer/489871504">世界上信息熵最大的语言是汉语吗？</a></p>
+]]></content>
+      <categories>
+        <category>文化娱乐</category>
+        <category>逻辑与科普</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS7搭建mc服务器</title>
     <url>/2022/09/01/2022-9/CentOS7%E6%90%AD%E5%BB%BAmc%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<h2 id="摘要">摘要</h2>
@@ -6805,7 +6982,9 @@ href="https://zhuanlan.zhihu.com/p/37908790">C语言中32个关键字详解</a><
     <title>C语言复习-进阶篇</title>
     <url>/2023/04/23/2023-4/C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0-%E8%BF%9B%E9%98%B6%E7%AF%87/</url>
     <content><![CDATA[<h2 id="摘要">摘要</h2>
-<p>复习一下C语言的进阶应用，有必要的可以先看基础篇。</p>
+<p>复习一下C语言的进阶应用。</p>
+<p>基础篇：<a
+href="https://splendidwave.github.io/2023/04/22/2023-4/C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0-%E5%9F%BA%E7%A1%80%E7%AF%87/">C语言复习-基础篇</a></p>
 <span id="more"></span>
 <h2 id="内存管理">1.内存管理</h2>
 <p>在C语言中，程序内存可以分为代码段、数据段、堆区(stack)和栈区(heap)。</p>
@@ -6896,85 +7075,6 @@ fptr。在主函数中，我们将 add 函数的地址存储到结构体的 fptr
       <tags>
         <tag>嵌入式开发</tag>
         <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用树莓派3b搭OpenWrt</title>
-    <url>/2022/08/11/2022-8/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE3b%E6%90%ADOpenwrt/</url>
-    <content><![CDATA[<h2 id="摘要">摘要</h2>
-<p>OpenWRT是一个嵌入式Linux系统，拥有强大的网络组件和扩展性，常用来作为主流路由器固件，使用OpenWrt作为软路由对用户来说意味着拥有个人定制化网络的权利<del>（并没有什么用）</del>。因此对于喜欢折腾的玩家来说，使用一个闲置的树莓派来刷openwrt系统是不错的选择。</p>
-<p>本文树莓派型号是3b，OpenWrt固件版本为immortalwrt</p>
-<span id="more"></span>
-<h2 id="硬件准备">硬件准备</h2>
-<ol type="1">
-<li>win10系统电脑一台</li>
-<li>树莓派3b</li>
-<li>网线</li>
-<li>sd卡（8G就够了，要玩nas或docker的可以挂载硬盘）</li>
-<li>读卡器</li>
-</ol>
-<h2 id="刷写固件">1.刷写固件</h2>
-<p>可以按照该网址给出步骤操作</p>
-<p>https://doc.openwrt.cc/1-General/1-Install-Upgrade/</p>
-<p>下面给出我的步骤：</p>
-<ol type="1">
-<li>下载<a
-href="https://www.balena.io/etcher/">Etcher</a>这是一个刷写工具</li>
-<li>下载储存还原固件</li>
-<li>在软件源站下载进入如下目录<code>/releases/targets/bcm27xx/bcm2710/</code>下载<code>immortalwrt-bcm27xx-bcm2710-rpi-3-ext4-factory.img.gz</code>这是树莓派3b对应的固件下载路径。</li>
-</ol>
-<blockquote>
-<p>树莓派3B和3B+都是Broadcom的cpu，3B是BCM2837A0，3B+是BCM2837B0;
-树莓派4B的cpu型号是Broadcom BCM2838. OpenWRT里对应型号是bcm27xx
-树莓派3B和3B+的Subtarget都是bcm2710 树莓派4B的Subtarget是bcm2711
-所以树莓派3b按步骤3的路径选，其他版本的openwrt同理。[1]</p>
-</blockquote>
-<p>下好后用Etcher洗掉sd卡的东西然后刷写进固件就可以了。</p>
-<h2 id="基础配置">2.基础配置</h2>
-<p>给树莓派插卡通电，可以看见一个名为openwrt的wifi，连接（也可以直接插网线）</p>
-<p>打开浏览器，输入 http://192.168.1.1 进入路由器后台</p>
-<p>输入默认用户名，root 和 password</p>
-<p>进入luci界面如下</p>
-<figure>
-<img
-src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200829.png"
-alt="openwrt luci界面" />
-<figcaption aria-hidden="true">openwrt luci界面</figcaption>
-</figure>
-<h3 id="管理员密码修改">2.1 管理员密码修改</h3>
-<p><code>系统</code>-&gt;<code>管理权</code></p>
-<p>改完点一下保存</p>
-<h3 id="网络接口">2.2 网络接口</h3>
-<p>点击<code>网络</code> -&gt; <code>接口</code>
-这里可以配置lan口，点击<code>修改</code></p>
-<p>我是当作旁路由使用的，主路由的ip是<code>102.168.3.1</code>所以这里设置格式如下。</p>
-<figure>
-<img
-src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210200809.png"
-alt="接口配置" />
-<figcaption aria-hidden="true">接口配置</figcaption>
-</figure>
-<p>改WiFi密码在<code>网络</code>-&gt;<code>无线</code>-&gt;<code>无线安全</code>的加密这改。</p>
-<h3 id="拓展">2.3 拓展</h3>
-<p>在<code>系统</code>-&gt;<code>软件包</code>中可以安装下载需要的插件。</p>
-<p>推荐在下载前扩容一下overlay，相关方法可以看B站BraveRu的视频<a
-href="https://www.bilibili.com/video/BV1w541157Uo?spm_id_from=333.337.search-card.all.click&amp;vd_source=3fd1e5e8ca82ebd09d9c888f49c210cf">极其详尽的OpenWRT软路由系统安装与设置教程（物理机安装）</a></p>
-<p>插件的名字和功能也可以在网上搜到。</p>
-<h2 id="结束">3.结束</h2>
-<p>折腾了半天，发现刷一个软路由不能说收获满满，只能说毫无用处。。。</p>
-<h2 id="参考资料">参考资料</h2>
-<p>[1]
-https://www.itgeeker.net/raspberry-3b-3buse-openwrt-pure-org-img-to-install-and-config-socks5-agent-1/</p>
-<p>[2] 知乎文章：<a
-href="https://zhuanlan.zhihu.com/p/463838793">将树莓派3B刷成OpenWrt软路由，成为魔法WiFi上网的强大路由器</a></p>
-]]></content>
-      <categories>
-        <category>文化娱乐</category>
-        <category>折腾与游戏</category>
-      </categories>
-      <tags>
-        <tag>openwrt</tag>
-        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -7181,105 +7281,7 @@ BSD）：是一种车辆驾驶辅助系统，可以帮助驾驶员检测车辆�
 谈价格（可以留意优惠和政府补贴） --&gt; 付定金 --&gt; 提车（!）</p>
 <p>价格方面油车可能更容易打一些，而且挑淡季去谈优惠幅度会很大。比亚迪的价格是全国统一的，没法谈，只能多要点4s店的优惠。如果选购的是新能源车，23年是免购置税的，可能还会接着延长。其次国家的新能源车补贴是没有了，但地方政府的补贴还会不定期发放。其次买车还需要上牌费和保险之类的，会比裸车价高出一些。基本上想拿到一个比较优惠的价格就多去几家4s店。</p>
 <p>提车这里需要注意的事项会比较多。特别是车子质量要仔细检查漆面是否有问题，轮胎和玻璃型号，发动机，排气口里程数之类的。如果发现小问题可以让4S店适当补偿。然后合同上价格明细和赠送要全部备注清楚。尽量在4S店买车在流程上会更有保障，其次要等保险生效后再把车开回家。</p>
-<p>最后祝各位都能喜提爱车。</p>
-]]></content>
-      <categories>
-        <category>文化娱乐</category>
-        <category>逻辑与科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>信息量和信息熵</title>
-    <url>/2022/08/20/2022-8/%E4%BF%A1%E6%81%AF%E9%87%8F%E5%92%8C%E4%BF%A1%E6%81%AF%E7%86%B5/</url>
-    <content><![CDATA[<h2 id="引言">引言</h2>
-<p>随着计算机和个人手机的普及，人们常说我们现在进入了信息时代。另一方面，在我们日常互联网使用过程中的产生大数据也和我们的生活息息相关。在每天接触的过程中不知道你有没有考虑过为什么信息是可以被度量的？它又是怎么被计算的？</p>
-<span id="more"></span>
-<h2 id="概率和信息">1.概率和信息</h2>
-<blockquote>
-<p>“你这句话信息量真大”</p>
-</blockquote>
-<p>我们日常就会对信息产生一个笼统的概念，能大致判量的大小。具体而言似乎并不和字数成正比，比如说来段营销号文案。</p>
-<blockquote>
-<p>信息量和文案字数没有关系是怎么一回事呢，信息相信大家都很熟悉，但是信息量和文案字数没有关系是怎么一回事呢？下面就让小编带大家一起了解吧。大家可能会惊讶信息量和文案字数怎么会没有关系呢？但事实就是这样，小编也很惊讶。这就是关于信息量和文案字数没有关系的全部内容了，大家有什么想法可以在评论区告诉小编一起讨论哦！</p>
-</blockquote>
-<p>香农提出<strong>信息量应该与事件发生的概率相关，事情发生的概率越小，所包含的信息量就越大</strong>，这也非常好理解，有人对你说“太阳明天从东边升起”和“明天太阳要爆炸了”肯定是后者的信息量较大。</p>
-<p>既然一个事件发生的概率(<span
-class="math inline">\(P\)</span>)越小，它所包含的信息量就越大。那我们是否能通过一个函数<span
-class="math inline">\(f(P)\)</span>来定量描述一下信息量呢。</p>
-<p>这可得好好考虑一下。首先信息量的函数<span
-class="math inline">\(f(P)\)</span>是一个</p>
-<ul>
-<li>单调递减函数</li>
-<li>定义域是[0,1]</li>
-<li><span class="math inline">\(f(1)=0\)</span><br />
-</li>
-<li><span class="math inline">\(f(0)=\infty\)</span></li>
-</ul>
-<p>还有一点，信息量应该可以相加表示两个独立的事件同时发生所包含的信息量，又根据概率论两个事件同时发生的概率为<span
-class="math inline">\(P_1*P_2\)</span>也就是说，<span
-class="math inline">\(f(p_1)+f(p_2)=f(P_1*P_2)\)</span></p>
-<p>相信看到这个公式，这个信息量的函数的身份就已经呼之欲出了。对数函数可以完美满足了以上所有的条件。其次为了方便2进制计算机的使用和度量，我们通常采用公式<span
-class="math inline">\(f(p) =
--\log_{2}{P}\)</span>来计算信息量。单位就记作bit，负号是为了满足递减的性质。</p>
-<p>当然也可以使用10作为对数函数的基底，单位为哈莱特(Hartly);还有以e为基地，单位为奈特(nit)</p>
-<h2 id="信息熵">2. 信息熵</h2>
-<p>熵和量子这种新构名词听起来就很高大上，但解释起来倒是不难理解，信息量是单个事件的度量，而信息熵是用来表示事件集的平均信息量。</p>
-<p>先给出公式，对于一个离散的信号源有</p>
-<p><span class="math display">\[
-\left[\begin{array}{cccc}
-x_{1}, &amp; x_{2}, &amp; \cdots, &amp; x_{M} \\
-P\left(x_{1}\right), &amp; P\left(x_{2}\right), &amp; \cdots, &amp;
-P\left(x_{M}\right)
-\end{array}\right] \text {, 且 } \sum_{i=1}^{M} P\left(x_{i}\right)=1
-\]</span></p>
-<p>其中<span
-class="math inline">\(x_i\)</span>是离散消息，对应二进制计算机就是0和1，<span
-class="math inline">\(P(x_i)\)</span>是离散消息<span
-class="math inline">\(x_i\)</span>发生的概率。</p>
-<p>其信息熵<span class="math inline">\(H(x)\)</span>的计算公式如下：</p>
-<p><span class="math display">\[
-H(x)=-\sum_{i=1}^{M} P\left(x_{i}\right) \log _{2} P\left(x_{i}\right)
-\]</span></p>
-<p>这个公式就是将各自的信息量乘以发生的概率然后求和，这有什么用呢？首先作为平均信息量，它可以快速计算一段信息的总信息量，比如说该信号源发生了n位信息，那它的总信息量为<span
-class="math inline">\(I = n*H(x)\)</span></p>
-<p>其次这个值就代表了数据编码的最小值。中文的信息熵是要高于英语，西班牙语，俄语等主流语言，所以在计算机中中文的文件会比其他语言的要大一些。</p>
-<h2 id="存储单位和网速">3.存储单位和网速</h2>
-<p>比特(bit)前面也介绍过了，这是计算机中最小的存储单位，8个bit为一个字节(Byte)缩写为B</p>
-<p>以字节(Byte)为单元，计算机还有KB，MB，GB，TB换算如下</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">单位换算</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1 Byte = 8 bit</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">1 KB = 1024 B</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">1 MB = 1024 KB</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">1 GB = 1024 MB</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">1 TB = 1024 GB</td>
-</tr>
-</tbody>
-</table>
-<p>1024是2的10次方，这是计算机里常用的换算方法，对于硬盘厂商的换算还是以1000为单位换算</p>
-<p>另外网络线路的计量单位是bps，比特每秒(bits per
-second),所以对应我们常说的下载速度KB/MB要除以8.</p>
-<h2 id="参考资料">参考资料</h2>
-<p>[1] 《通信原理》第七版 曹丽娜 樊昌信</p>
-<p>[2] 知乎问题 <a
-href="https://www.zhihu.com/question/37998688/answer/489871504">世界上信息熵最大的语言是汉语吗？</a></p>
+<p>最后祝各位都能顺利喜提爱车。</p>
 ]]></content>
       <categories>
         <category>文化娱乐</category>
