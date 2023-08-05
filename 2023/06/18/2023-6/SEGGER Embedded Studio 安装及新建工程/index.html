@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 SEGGER Embedded Studio(SES)是一个集成开发环境（IDE），是SEGGER Microcontroller公司开发出来专门用于嵌入式系统开发使用的。值得一提的是J-Link也是segger公司开发的。SES提供了一套全面的工具和功能，以便于嵌入式系统的开发过程，并且对目前来说使用SES学习和评估都是免费的。 过程参考网络资料以及官方手册Embedded Stu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEGGER Embedded Studio 安装及新建工程">
+<meta property="og:url" content="https://splendidwave.github.io/2023/06/18/2023-6/SEGGER%20Embedded%20Studio%20%E5%AE%89%E8%A3%85%E5%8F%8A%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 SEGGER Embedded Studio(SES)是一个集成开发环境（IDE），是SEGGER Microcontroller公司开发出来专门用于嵌入式系统开发使用的。值得一提的是J-Link也是segger公司开发的。SES提供了一套全面的工具和功能，以便于嵌入式系统的开发过程，并且对目前来说使用SES学习和评估都是免费的。 过程参考网络资料以及官方手册Embedded Stu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-18T05:54:11.000Z">
+<meta property="article:modified_time" content="2023-08-05T01:03:58.320Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="电子信息">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2023/06/18/2023-6/SEGGER%20Embedded%20Studio%20%E5%AE%89%E8%A3%85%E5%8F%8A%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2023/06/18/2023-6/SEGGER%20Embedded%20Studio%20%E5%AE%89%E8%A3%85%E5%8F%8A%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/","path":"2023/06/18/2023-6/SEGGER Embedded Studio 安装及新建工程/","title":"SEGGER Embedded Studio 安装及新建工程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SEGGER Embedded Studio 安装及新建工程 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">1.安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E7%AE%80%E4%BB%8B"><span class="nav-text">2.界面简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-text">3.新建工程</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2023/06/18/2023-6/SEGGER%20Embedded%20Studio%20%E5%AE%89%E8%A3%85%E5%8F%8A%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SEGGER Embedded Studio 安装及新建工程 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SEGGER Embedded Studio 安装及新建工程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-18 13:54:11" itemprop="dateCreated datePublished" datetime="2023-06-18T13:54:11+08:00">2023-06-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-05 09:03:58" itemprop="dateModified" datetime="2023-08-05T09:03:58+08:00">2023-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%B5%E5%AD%90/" itemprop="url" rel="index"><span itemprop="name">电子</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>829</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>SEGGER Embedded Studio(SES)是一个集成开发环境（IDE），是SEGGER
+Microcontroller公司开发出来专门用于嵌入式系统开发使用的。值得一提的是J-Link也是segger公司开发的。SES提供了一套全面的工具和功能，以便于嵌入式系统的开发过程，并且对目前来说使用SES学习和评估都是免费的。</p>
+<p>过程参考网络资料以及官方手册<a
+target="_blank" rel="noopener" href="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/non-image/EmbeddedStudio_ARM_v730_manual.pdf">Embedded
+Studio for ARM Reference Manual Version: 7.30</a></p>
+<span id="more"></span>
+<h2 id="安装">1.安装</h2>
+<p>下载地址：<a
+target="_blank" rel="noopener" href="https://www.segger.cn/downloads/embedded-studio/">Embedded Studio
+Downloads</a></p>
+<p>这里根据使用的芯片架构和电脑系统下载对应版本，这里使用的芯片是GD32F10x，是ARM架构的。系统是win10，因此选择Embedded
+Studio for ARM下的Windows。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230618144342.png"
+alt="下载" />
+<figcaption aria-hidden="true">下载</figcaption>
+</figure>
+<p>安装流程比较简单，双击安装包启动后只需要修改一下安装路径，一直点next就行。</p>
+<h2 id="界面简介">2.界面简介</h2>
+<p>进去之后选accept，可以看见如下图的画面，图中将几个分区用不同颜色的选框标记出来了。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230618200117.png"
+alt="SES界面" />
+<figcaption aria-hidden="true">SES界面</figcaption>
+</figure>
+<p>如果没有工具栏，可以在菜单栏中的veiw中开启。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230618201815.png"
+alt="开启工具栏" />
+<figcaption aria-hidden="true">开启工具栏</figcaption>
+</figure>
+<p>点击菜单栏的Target选择连接模拟器，再点击工具栏第一个按钮或者使用菜单栏的debug就会进入debug状态，会出现调试器窗口和输出窗口。调试例子就会出现如下现象。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230618202320.png"
+alt="模拟debug" />
+<figcaption aria-hidden="true">模拟debug</figcaption>
+</figure>
+<h2 id="新建工程">3.新建工程</h2>
+<p>点击菜单栏 file-&gt; new
+Project创建项目，在弹出的窗口中选择新建solution，一般一个solution可以挂多个project。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230618202559.png"
+alt="选择新建项目" />
+<figcaption aria-hidden="true">选择新建项目</figcaption>
+</figure>
+<p>这里需要先下载一下板子所需的支持包。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230618203040.png"
+alt="下载板子支持包" />
+<figcaption aria-hidden="true">下载板子支持包</figcaption>
+</figure>
+<p>这里以gd32f10x为例</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230618203438.png"
+alt="gd32f10x" />
+<figcaption aria-hidden="true">gd32f10x</figcaption>
+</figure>
+<p>如果下载失败也可以在菜单栏 Tools -&gt; package
+Manage中再次查找下载，在Show Installed
+Packages中可以查看下好的支持包。</p>
+<p>随后回到上一步，选择第一个</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230618204137.png"
+alt="创建" />
+<figcaption aria-hidden="true">创建</figcaption>
+</figure>
+<p>详细的配置先不用管，一路默认就行。创建完可以成功build和debug就算成功。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2023/06/18/2023-6/SEGGER%20Embedded%20Studio%20%E5%AE%89%E8%A3%85%E5%8F%8A%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" title="SEGGER Embedded Studio 安装及新建工程">https://splendidwave.github.io/2023/06/18/2023-6/SEGGER Embedded Studio 安装及新建工程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/" rel="tag"><i class="fa fa-tag"></i> 电子信息</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/05/26/2023-5/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F(1)--%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" rel="prev" title="信号与系统(1)--信号与系统">
+                  <i class="fa fa-chevron-left"></i> 信号与系统(1)--信号与系统
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/08/05/2023-8/I2C%E8%AF%A6%E8%A7%A3/" rel="next" title="I2C详解--以51单片机和MMA8451Q为例">
+                  I2C详解--以51单片机和MMA8451Q为例 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"3d481b86f13f8814230ed31d0bc2e803"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

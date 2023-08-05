@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 信号与系统是电子信息类的专业基础课程，本系列将奥本海姆的《信号与系统》一书，系统地复习该课程。本篇将介绍什么是信号，什么是系统。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信号与系统(1)--信号与系统">
+<meta property="og:url" content="https://splendidwave.github.io/2023/05/26/2023-5/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F(1)--%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 信号与系统是电子信息类的专业基础课程，本系列将奥本海姆的《信号与系统》一书，系统地复习该课程。本篇将介绍什么是信号，什么是系统。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-26T08:42:01.000Z">
+<meta property="article:modified_time" content="2023-08-05T01:18:17.858Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="电子信息">
+<meta property="article:tag" content="信号与系统">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2023/05/26/2023-5/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F(1)--%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2023/05/26/2023-5/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F(1)--%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/","path":"2023/05/26/2023-5/信号与系统(1)--信号与系统/","title":"信号与系统(1)--信号与系统"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>信号与系统(1)--信号与系统 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7"><span class="nav-text">1.信号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BF%A1%E5%8F%B7"><span class="nav-text">1.1 什么是信号？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%8F%98%E6%8D%A2"><span class="nav-text">1.2 信号的变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%87%E5%81%B6%E4%B8%8E%E5%91%A8%E6%9C%9F"><span class="nav-text">1.3 奇偶与周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E4%B8%8E%E6%8C%87%E6%95%B0"><span class="nav-text">1.4 三角函数与指数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%BD%E9%87%8F%E4%B8%8E%E5%8A%9F%E7%8E%87"><span class="nav-text">1.5 能量与功率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E9%98%B6%E8%B7%83%E4%B8%8E%E5%8D%95%E4%BD%8D%E8%84%89%E5%86%B2"><span class="nav-text">1.6 单位阶跃与单位脉冲</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F"><span class="nav-text">2.系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B3%BB%E7%BB%9F"><span class="nav-text">2.1 什么是系统？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BA%92%E8%81%94"><span class="nav-text">2.2 系统的互联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">2.3 系统的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%B0%E5%BF%86%E6%80%A7"><span class="nav-text">2.3.1 记忆性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E9%80%86%E6%80%A7"><span class="nav-text">2.3.2 可逆性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%A0%E6%9E%9C%E6%80%A7"><span class="nav-text">2.3.3 因果性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-text">2.3.4 稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7"><span class="nav-text">2.3.5 线性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E4%B8%8D%E5%8F%98%E6%80%A7"><span class="nav-text">2.3.6 时不变性</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2023/05/26/2023-5/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F(1)--%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="信号与系统(1)--信号与系统 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          信号与系统(1)--信号与系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-26 16:42:01" itemprop="dateCreated datePublished" datetime="2023-05-26T16:42:01+08:00">2023-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-05 09:18:17" itemprop="dateModified" datetime="2023-08-05T09:18:17+08:00">2023-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%B5%E5%AD%90/" itemprop="url" rel="index"><span itemprop="name">电子</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>信号与系统是电子信息类的专业基础课程，本系列将奥本海姆的《信号与系统》一书，系统地复习该课程。本篇将介绍什么是信号，什么是系统。</p>
+<span id="more"></span>
+<h2 id="信号">1.信号</h2>
+<h3 id="什么是信号">1.1 什么是信号？</h3>
+<p>我们的大脑无时无刻不在处理神经元传来的电信号，计算机每一秒都在处理数以亿记的01信号。其中的信号是什么？它们是如何被处理的？在数学上，信号可以表示为一个或多个变量的函数，比如我们接收到了一个语音信号波形如下。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/05/20230529190945.png"
+alt="语音信号波形" />
+<figcaption aria-hidden="true">语音信号波形</figcaption>
+</figure>
+<p>这是一句“亮灯”的语音信号波形。这类自变量和应变量都是连续的信号被称为<strong>连续信号</strong>，相反如果一个信号的自变量或应变量是离散值，我们记其为<strong>离散信号</strong>，二者差异可见下图。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230601143053.png"
+alt="连续信号和离散信号" />
+<figcaption aria-hidden="true">连续信号和离散信号</figcaption>
+</figure>
+<p>为了区分连续信号和离散信号，我们做出如下约定自变量如果是连续时间，我们记为t，信号函数记为<span
+class="math inline">\(x(t)\)</span>。如果是离散时间则记为n，信号函数记为<span
+class="math inline">\(x[n]\)</span>。</p>
+<h3 id="信号的变换">1.2 信号的变换</h3>
+<p>借助数学形式，我们可以将很多时间为自变量的信号都函数化，这样一些函数的性质也可以作用于信号上。一种非常简单但同时很重要的变化例子就是<strong>时移</strong>(time
+shift)。在不同位置的接收机收到发射机的信号会因距离不等而造成传播时间上的差别，这就可以使用时移变化来描述。</p>
+<p>第二种典型的自变量变化就是<strong>时间反转</strong>(time
+reversal)，常见的处理过程就是倒放，另一种处理方法是倍速，对应了<strong>时间尺度变化</strong>(time
+scaling)。</p>
+<p>综合上述几种变化，对应到数学函数上无非就是<span
+class="math inline">\(x(t)\)</span>--&gt;<span
+class="math inline">\(x(\alpha t +
+\beta)\)</span>。这里变化并不复杂，就不给出具体实例了，需要熟练掌握的可以翻看任意教材的信号变化部分习题。</p>
+<h3 id="奇偶与周期">1.3 奇偶与周期</h3>
+<p>函数具有奇偶性，如果一个信号以原点为轴反转后不变，就称其为<strong>偶</strong>(even)信号。
+<span class="math display">\[
+x(-t) = x(t)
+\]</span> 如果是 <span class="math display">\[
+x(-t)=-x(t)
+\]</span> 则称其为<strong>奇</strong>(odd)信号。</p>
+<p>一个重要的事实是，任何信号都可以看作是一个奇信号和一个偶信号的和。
+<span class="math display">\[
+\begin{align}
+Ev\left \{  x(t) \right \} = \frac{1}{2}[x(t)+x(-t)] \nonumber \\
+Od\left \{ x(t) \right \} = \frac{1}{2}[x(t)-x(-t)]\nonumber
+\end{align}
+\]</span></p>
+<p><strong>周期</strong>(periodic)信号也是一种非常常见的信号，对于一个周期连续时间信号有:</p>
+<p><span class="math display">\[
+x(t) = x(t+T)
+\]</span></p>
+<p>其周期为T。如果对于任意的t和任意的整数m都有<span
+class="math inline">\(x(t)=x(t+mT)\)</span>则使式成立的最小正值T称为<span
+class="math inline">\(x(t)\)</span>的<strong>基波周期</strong>(fundamental
+period)。</p>
+<h3 id="三角函数与指数">1.4 三角函数与指数</h3>
+<p><strong>正弦信号</strong>(sinusoidal
+signal)是一种非常典型的信号，其数学表达式为: <span
+class="math display">\[
+x(t)=A\cos{(\omega_0 t + \phi)}
+\]</span></p>
+<p>其中通常使用秒作为t的单位，则<span
+class="math inline">\(\phi\)</span>的单位为弧度(rad),<span
+class="math inline">\(\omega_0\)</span>的单位就是rad/s。</p>
+<p>根据欧拉公式，正弦信号可以用<strong>复指数信号</strong>(complex
+exponential signal)来表示</p>
+<p><span class="math display">\[
+A \cos{(\omega_0 t + \phi)}=\frac{A}{2}e^{j\phi}e^{j\omega_0t} +
+\frac{A}{2}e^{-j\phi}e^{-j\omega_0t}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+A\cos(\omega_0t+\phi) &amp; = ARe\{ e^{j(\omega_0t+\phi)}\} \\
+A\sin(\omega_0t+\phi) &amp; = AIm\{ e^{j(\omega_0t+\phi)}\}
+\end{aligned}
+\]</span> 其中<span class="math inline">\(Re\)</span>和<span
+class="math inline">\(Im\)</span>分别是取实部和取虚部。</p>
+<h3 id="能量与功率">1.5 能量与功率</h3>
+<p>数学函数可以表示信号，但信号只有结合物理才有实际意义，电信号是常见的信号，例如，设<span
+class="math inline">\(v(t)\)</span>和<span
+class="math inline">\(i(t)\)</span>分别是阻值为R的电阻上的电压和电流信号，那么其瞬时功率就是：</p>
+<p><span class="math display">\[
+p(t)=v(t)i(t)=\frac{1}{R}v^2(t)
+\]</span></p>
+<p>在时间<span
+class="math inline">\([t_1,t_2]\)</span>间消耗的总能量为<span
+class="math inline">\(\int_{t_1}^{t_2}p(t)dt\)</span>,其<strong>平均功率</strong>(average
+power)为:</p>
+<p><span class="math display">\[
+\frac{1}{t_2-t_1}\int_{t_1}^{t_2}p(t)dt
+=  \frac{1}{t_2-t_1}\int_{t_1}^{t_2}\frac{1}{R}v^2(t)dt
+\]</span></p>
+<p>根据平均功率，我们可以将信号分为三类：</p>
+<ol type="1">
+<li>有限能量信号(<span class="math inline">\(E_\infty &lt;
+\infty\)</span>),这类信号的平均功率必须为0，否则积分后能量就会变成无穷大</li>
+<li>有限功率信号(<span class="math inline">\(P_\infty &lt;
+\infty\)</span>)，这类信号能量是无穷大的，但平均功率不是。</li>
+<li>无限功率信号，一个典型的例子是<span class="math inline">\(x(t) =
+t\)</span></li>
+</ol>
+<h3 id="单位阶跃与单位脉冲">1.6 单位阶跃与单位脉冲</h3>
+<p>连续时间的单位阶跃函数<span
+class="math inline">\(u(t)\)</span>的定义是</p>
+$$ u(t) = {
+<span class="math display">\[\begin{matrix}
+  0, t &lt; 0\\
+1, t&gt;0
+\end{matrix}\]</span>
+<p>.</p>
+<p>$$</p>
+<p>单位阶跃再<span
+class="math inline">\(t=0\)</span>点处是不连续的，对其取一次微分就得到了冲激函数<span
+class="math inline">\(\delta(t)\)</span>,这个函数在数学中是不存在的，但是在物理学中它很好用于是就被拿来用了。在工学中这个函数也是极具理论价值，但为了能实际应用，冲激函数被近似认为是非常短的时间间隔<span
+class="math inline">\(\Delta\)</span>内完成的从0到1的阶跃函数的微分。</p>
+<p>离散时间的单位脉冲和单位阶跃序列也是同理，积分和微分分别对应求和和差分。</p>
+<h2 id="系统">2.系统</h2>
+<h3 id="什么是系统">2.1 什么是系统？</h3>
+<p>在实际过程中信号仅仅是作为输入或者输出的一部分内容，信号是如何被处理的还得通过系统。通常使用如下的方式来表示连续时间的输入输出关系：</p>
+<p><span class="math display">\[
+x(t) \to y(t)
+\]</span></p>
+<p>同理，离散的表示符号为：</p>
+<p><span class="math display">\[
+x[n] \to y[n]
+\]</span></p>
+<p>还是以电路作为例子，下面是一个简单的RC电路：</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230602173436.png"
+alt="RC电路" />
+<figcaption aria-hidden="true">RC电路</figcaption>
+</figure>
+<p>这可以看作是一个简单的系统，其中输入电压是<span
+class="math inline">\(u_i(t)\)</span>,输出信号是<span
+class="math inline">\(u_o(t)\)</span>，根据欧姆定律有，流经电阻的电流<span
+class="math inline">\(i(t)\)</span>应当正比于电阻上的电压。</p>
+<p><span class="math display">\[
+i(t) = \frac{u_i(t)-u_o(t)}{R}
+\]</span></p>
+<p>同时电流还可以通过电容器上的电压变化率计算得到：</p>
+<p><span class="math display">\[
+i(t) = C\frac{du_o(t)}{dt}
+\]</span></p>
+<p>联立两式即可得到输入输出的微分关系方程</p>
+<p><span class="math display">\[
+\frac{du_o(t)}{dt} +\frac{1}{RC}u_o(t) = \frac{1}{RC} v_i(t)
+\]</span></p>
+<p>这是一个非常常见的系统，同时也是一个简单的一阶线性微分方程，这样一来系统也数学化了，系统代表了一个方程或者等式。</p>
+<h3 id="系统的互联">2.2 系统的互联</h3>
+<p>很多实践中的系统其实都是非常简单的系统组合而成，常见的组合方法有<strong>串联</strong>(series
+interconnection)或<strong>级联</strong>(cascade
+interconnection)、<strong>并联</strong>(parallel
+interconnection)、<strong>反馈互联</strong>(feedback
+interconnection)。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/06/20230607145902.png"
+alt="互联" />
+<figcaption aria-hidden="true">互联</figcaption>
+</figure>
+<p>虽然图像表示得已经很清楚了，这里还是需要补充一些。</p>
+<p>级联通常发生在对信号连续处理的过程，比如收音机收到信号后进行解调后通过放大器放大信号。反馈也是一个重要的系统类型，比如在定速巡航中，汽车会通过监控车速来控制能量的传递，而车速快慢是由发动机提供的能量决定的。</p>
+<p>最后这三种互联方式也可以进行彼此间组合形成更复杂的系统。</p>
+<h3 id="系统的性质">2.3 系统的性质</h3>
+<h4 id="记忆性">2.3.1 记忆性</h4>
+<p>如果系统的输出仅仅取决于该时刻的输入，该系统就被称为<strong>无记忆(memoryless)系统</strong>，一个简单的例子就是<strong>恒等系统(identitiy
+system)</strong>,该系统的输出就等于输入。</p>
+<p>一个典型的有记忆系统就是积分器，或者对应离散信号的<strong>累加器(accumulator)</strong>。在实际中，使用储能元件，如电容，就可以实现这一系统。又记忆系统不仅包括存储过去信息，存储将来信息也算是有记忆系统。</p>
+<h4 id="可逆性">2.3.2 可逆性</h4>
+<p>一个系统如果在不同输入下会产生不同输出，该系统就是<strong>可逆的(invertible)</strong>,它就会有一个对应<strong>逆系统(inverse
+system)</strong>,当原系统和逆系统进行级联后，输入就会等于输出，系统就变成了一个恒等系统。</p>
+<p>不可逆系统的不同输入可能会对应同一种输出，比如说<span
+class="math inline">\(y(t)=x^2(t)\)</span>。</p>
+<h4 id="因果性">2.3.3 因果性</h4>
+<p>如果一个系统在任何时刻的输出只取决于现在的输入和过去的输入，该系统就被称为<strong>因果(causal)</strong>系统。因果系统是无法根据输出预测未来的输入值的，且对于一个因果系统两个输入直到某一时间都是相同的，那其输出必然相同。</p>
+<p>时间相关的现实系统几乎都是因果的，但对于一些数据处理系统，它并不局限于因果，比如图像处理中的窗口平滑系统。</p>
+<h4 id="稳定性">2.3.4 稳定性</h4>
+<p><strong>稳定性(stability)</strong>是指系统在很小的输入下响应不会发散。如单摆、RC电路中，能量会逐渐消耗并趋向于稳定。而对于不稳定系统，其输出会不断增加，想要判别系统是不稳定系统就学要找出一个特定的有界的输入使得输出无界。</p>
+<h4 id="线性">2.3.5 线性</h4>
+<p>线性系统的一个重要特征就是<strong>叠加性质(superposition
+property)</strong>，叠加性说的是：如果系统的输入是几个信号的加权和组成，那么输出信号也是每一个输入信号通过系统后的输出加权和。</p>
+<p>用公式表示，简记小写字母为输入，大写字母为系统的对应输出,系统为函数f，输入为a时输出为<span
+class="math inline">\(A=f(a)\)</span>。</p>
+<p>对于系统有，当<span class="math inline">\(a=b+c+d\)</span>时，<span
+class="math inline">\(A=f(b)+f(c)+f(d)=B+C+D\)</span>。这被称为<strong>可加性(additivity)</strong>。还是这个系统，<span
+class="math inline">\(k_1\)</span>是一个常数，当输入<span
+class="math inline">\(k_1a\)</span>时，输出<span
+class="math inline">\(A=k_1f(a)\)</span>。这被称为<strong>齐次性(homogeneity)</strong></p>
+<h4 id="时不变性">2.3.6 时不变性</h4>
+<p>通俗来说，只要系统的特性和行为不随时间改变，这个系统就是时不变的。今天研发出的系统到了明天性质就变了，那我们就失去了研发的意义，因此时不变性也是非常重要的一个性质。在实际生活中线性时不变系统是最为常用的一种系统。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2023/05/26/2023-5/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F(1)--%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" title="信号与系统(1)--信号与系统">https://splendidwave.github.io/2023/05/26/2023-5/信号与系统(1)--信号与系统/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/" rel="tag"><i class="fa fa-tag"></i> 电子信息</a>
+              <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 信号与系统</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/04/28/2023-4/%E7%94%B5%E5%8A%A8%E6%B1%BD%E8%BD%A6%E9%80%89%E9%85%8D%E6%8C%87%E5%8D%97--%E4%BB%A5%E6%AF%94%E4%BA%9A%E8%BF%AA%E4%B8%BA%E4%BE%8B/" rel="prev" title="电动汽车选配指南--以比亚迪为例">
+                  <i class="fa fa-chevron-left"></i> 电动汽车选配指南--以比亚迪为例
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/18/2023-6/SEGGER%20Embedded%20Studio%20%E5%AE%89%E8%A3%85%E5%8F%8A%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" rel="next" title="SEGGER Embedded Studio 安装及新建工程">
+                  SEGGER Embedded Studio 安装及新建工程 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"61bc2b04f9acc83dd671d4bb76789810"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
