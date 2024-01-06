@@ -32,7 +32,7 @@
 <meta property="og:description" content="摘要 像差（Aberration）是光学系统中常见的一个概念，用于描述由于光线在透镜或镜面上折射或反射时引起的偏差或失真。像差理论涉及到光线聚焦时产生的偏离理想图像的情况，本文将针对不同类型的像差做出形成原因的介绍，并提供简单的消除的方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-24T11:07:01.000Z">
-<meta property="article:modified_time" content="2023-11-24T11:07:07.320Z">
+<meta property="article:modified_time" content="2024-01-06T07:46:40.485Z">
 <meta property="article:author" content="splendidwave">
 <meta property="article:tag" content="光学设计">
 <meta name="twitter:card" content="summary">
@@ -257,9 +257,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-11-24 19:07:01 / 修改时间：19:07:07" itemprop="dateCreated datePublished" datetime="2023-11-24T19:07:01+08:00">2023-11-24</time>
+      <time title="创建时间：2023-11-24 19:07:01" itemprop="dateCreated datePublished" datetime="2023-11-24T19:07:01+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-06 15:46:40" itemprop="dateModified" datetime="2024-01-06T15:46:40+08:00">2024-01-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -338,6 +344,12 @@ alt="球差" />
 class="math inline">\(\beta = -1\)</span>成像。</p>
 <figure>
 <img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2024/01/20240106154449.png"
+alt="慧差" />
+<figcaption aria-hidden="true">慧差</figcaption>
+</figure>
+<figure>
+<img
 src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/11/20231124165233.png"
 alt="对称系统" />
 <figcaption aria-hidden="true">对称系统</figcaption>
@@ -345,16 +357,34 @@ alt="对称系统" />
 <p>但这种严格对称系统，不具备放大像的作用，在一些其他场景通常会做相对的取舍。</p>
 <h2 id="像散">4.像散</h2>
 <p>子午像点和弧矢像点不重合。通常在实际中会被慧差遮盖无法直观看出。主要受到视场影响，处理方法一是控制视场，二是使用柱状镜。像散在眼科中被称为散光，像散对成像质量的影响会比慧差小一些，更像是窄光束下的慧差。</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2024/01/20240106154520.png"
+alt="像散" />
+<figcaption aria-hidden="true">像散</figcaption>
+</figure>
 <h2 id="场曲">5.场曲</h2>
 <p>场曲又被称为像面弯曲。轴外物点对各光线的交点偏离高斯像面的距离被称为场曲，发生场曲后的成像最佳像面是曲面。像散的产生必然导致场曲，但存在场曲不一定有色散。</p>
 <p>校准方法：正负光焦度组合（正负透镜组，弯月型厚透镜）</p>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2024/01/20240106154558.png"
+alt="场曲" />
+<figcaption aria-hidden="true">场曲</figcaption>
+</figure>
 <h2 id="畸变">5.畸变</h2>
 <p>畸变又被称为失真，不同视场的主光线通过光学系统后与高斯像面的交点高度不等于理想高度，其中的差异就是畸变。场曲是成像是曲面，畸变是指像面上的成像出现弯曲。根据凸出的方向可以分为桶型畸变和枕型畸变。畸变只会影响像形状不会影响清晰度。</p>
 <figure>
 <img
 src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2023/11/20231124181015.png"
-alt="畸变" />
-<figcaption aria-hidden="true">畸变</figcaption>
+alt="畸变1" />
+<figcaption aria-hidden="true">畸变1</figcaption>
+</figure>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2024/01/20240106154632.png"
+alt="畸变2" />
+<figcaption aria-hidden="true">畸变2</figcaption>
 </figure>
 <p>校准方法：一是利用对称光学系统，以<span class="math inline">\(\beta =
 -1\)</span>成像。二是设置孔径光阑位置</p>
@@ -457,7 +487,7 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1J84y1v7Jy
 
 <div class="copyright">
   &copy; 2021 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
