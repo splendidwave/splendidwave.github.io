@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hl_32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hl_16_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-Nqb8bqvKc3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"splendidwave.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要 光在界面的传播是薄膜理论的基础，本文从麦克斯韦方程组出发推导菲涅尔公式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="光学薄膜特性理论计算1-菲涅尔公式">
+<meta property="og:url" content="https://splendidwave.github.io/2024/06/05/2024-6/%E5%85%89%E5%AD%A6%E8%96%84%E8%86%9C%E7%89%B9%E6%80%A7%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%971-%E8%8F%B2%E6%B6%85%E5%B0%94%E5%85%AC%E5%BC%8F/index.html">
+<meta property="og:site_name" content="SplendidWave&#39;Blog">
+<meta property="og:description" content="摘要 光在界面的传播是薄膜理论的基础，本文从麦克斯韦方程组出发推导菲涅尔公式。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-05T13:20:11.000Z">
+<meta property="article:modified_time" content="2024-06-05T13:53:33.774Z">
+<meta property="article:author" content="splendidwave">
+<meta property="article:tag" content="光学">
+<meta property="article:tag" content="薄膜">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://splendidwave.github.io/2024/06/05/2024-6/%E5%85%89%E5%AD%A6%E8%96%84%E8%86%9C%E7%89%B9%E6%80%A7%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%971-%E8%8F%B2%E6%B6%85%E5%B0%94%E5%85%AC%E5%BC%8F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://splendidwave.github.io/2024/06/05/2024-6/%E5%85%89%E5%AD%A6%E8%96%84%E8%86%9C%E7%89%B9%E6%80%A7%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%971-%E8%8F%B2%E6%B6%85%E5%B0%94%E5%85%AC%E5%BC%8F/","path":"2024/06/05/2024-6/光学薄膜特性理论计算1-菲涅尔公式/","title":"光学薄膜特性理论计算1-菲涅尔公式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>光学薄膜特性理论计算1-菲涅尔公式 | SplendidWave'Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SplendidWave'Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SplendidWave'Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">灿 烂 的 波</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-resources"><a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a></li><li class="menu-item menu-item-messagebook"><a href="/messagebook/" rel="section"><i class="fa fa-comment fa-fw"></i>留言</a></li><li class="menu-item menu-item-announcement"><a href="/announcement/" rel="section"><i class="fa fa-bullhorn fa-fw"></i>公告</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%98%E5%B0%84%E7%8E%87%E4%B8%8E%E5%85%89%E5%AD%A6%E5%AF%BC%E7%BA%B31"><span class="nav-text">1.折射率与光学导纳[1]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%98%E5%B0%84%E5%8F%8D%E5%B0%84%E5%AE%9A%E5%BE%8B"><span class="nav-text">2.折射反射定律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8F%B2%E6%B6%85%E5%B0%94%E5%85%AC%E5%BC%8F"><span class="nav-text">3.菲涅尔公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%82%E7%9B%B4%E5%85%A5%E5%B0%84%E6%83%85%E5%86%B5"><span class="nav-text">3.1 垂直入射情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%80%BE%E6%96%9C%E5%85%A5%E5%B0%84%E6%83%85%E5%86%B5"><span class="nav-text">3.2 倾斜入射情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%8F%8D%E5%B0%84%E6%83%85%E5%86%B5"><span class="nav-text">3.3 全反射情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="splendidwave"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">splendidwave</p>
+  <div class="site-description" itemprop="description">知者不言 言者不知</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/splendidwave" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1578399592@qq.com" title="E-Mail → mailto:1578399592@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/splendidwave" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;splendidwave" rel="noopener" target="_blank"><i class="fa fa-link fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/44120911" title="哔哩哔哩 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;44120911" rel="noopener" target="_blank"><i class="fa fa-play-circle fa-fw"></i>哔哩哔哩</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://splendidwave.github.io/2024/06/05/2024-6/%E5%85%89%E5%AD%A6%E8%96%84%E8%86%9C%E7%89%B9%E6%80%A7%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%971-%E8%8F%B2%E6%B6%85%E5%B0%94%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="splendidwave">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SplendidWave'Blog">
+      <meta itemprop="description" content="知者不言 言者不知">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="光学薄膜特性理论计算1-菲涅尔公式 | SplendidWave'Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          光学薄膜特性理论计算1-菲涅尔公式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-06-05 21:20:11 / 修改时间：21:53:33" itemprop="dateCreated datePublished" datetime="2024-06-05T21:20:11+08:00">2024-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%A9%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">物理</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="摘要">摘要</h2>
+<p>光在界面的传播是薄膜理论的基础，本文从麦克斯韦方程组出发推导菲涅尔公式。</p>
+<span id="more"></span>
+<h2 id="折射率与光学导纳1">1.折射率与光学导纳<sup>[1]</sup></h2>
+<p>麦克斯韦方程组如下</p>
+<p><span class="math display">\[
+\begin{align}
+    % Gauss&#39;s law for electricity
+    \nabla \cdot \mathbf{D} &amp;= \rho \nonumber \\
+    % Gauss&#39;s law for magnetism
+    \nabla \cdot \mathbf{B} &amp;= 0 \nonumber\\
+    % Faraday&#39;s law of electromagnetic induction
+    \nabla \times \mathbf{E} &amp;= -\frac{\partial \mathbf{B}}{\partial
+t} \nonumber\\
+    % Ampère&#39;s circuital law with Maxwell&#39;s addition
+    \nabla \times \mathbf{H} &amp;=  \mathbf{J} +  \frac{\partial
+\mathbf{D}}{\partial t} \nonumber
+\end{align}
+\]</span></p>
+<p>将<span class="math inline">\(D = \varepsilon E\)</span> , <span
+class="math inline">\(J = \sigma
+E\)</span>代入麦克斯韦方程组的安培环路定律可得</p>
+<p><span class="math display">\[
+\nabla \times H = \varepsilon \frac{\partial E}{\partial t} + \sigma E
+\tag{1-1}
+\]</span></p>
+<p>对法拉第电感定律两边取旋度并代入(1-1)有</p>
+<p><span class="math display">\[
+\nabla \times \nabla \times E = - \mu  \frac{\partial (\nabla \times
+H)}{\partial t} = - \mu \frac{\partial }{\partial t}(\varepsilon
+\frac{\partial E}{\partial t} + \sigma E \tag{1-2})
+\]</span></p>
+<p>运用矢量恒等式<span class="math inline">\(\nabla \times \nabla \times
+E =  \nabla (\nabla\cdot
+E)-\nabla^2E\)</span>在无电荷的均匀空间（根据高斯定理<span
+class="math inline">\(\nabla \cdot \mathbf{D} =
+0\)</span>），上式可以化简为</p>
+<p><span class="math display">\[
+\nabla^2E = \mu \varepsilon \frac{\partial^2 E}{\partial^2 t} + \mu
+\sigma \frac{\partial E}{\partial t} \tag{1-3}
+\]</span></p>
+<p>如果介质不导电，即<span
+class="math inline">\(\sigma=0\)</span>，式(1-3)变为</p>
+<p><span class="math display">\[
+\nabla^2E = \mu \varepsilon \frac{\partial^2 E}{\partial^2
+t}   \tag{1-4}
+\]</span></p>
+<p>通过求解微分方程，在不导电的均匀介质中，沿x正方向行进的电磁波的表达式可以写成</p>
+<p><span class="math display">\[
+E = E_0 \exp[i\omega (t-\frac{x}{v})]\tag{1-5}
+\]</span></p>
+<p>其中<span class="math inline">\(v=1/\sqrt{\mu
+\varepsilon}\)</span>是在介质中的传播速度，<span
+class="math inline">\(\omega\)</span>是角频率。电池波在真空中传播的速度和在不导电均匀介质中的速度比值，被称为介质的折射率，公式如下：</p>
+<p><span class="math display">\[
+n = \frac{c}{v}=\frac{\sqrt{\varepsilon \mu}}{\sqrt{\varepsilon_0
+\mu_0}} = \sqrt{\varepsilon_r \mu_r}\tag{1-6}
+\]</span></p>
+<p>在光频率下，光学材料的磁导率可以近似认为是1，所以有<span
+class="math inline">\(n=\sqrt{\varepsilon_r}\)</span></p>
+<p>式(1-5)可以被认为是式(1-3)的一个特解，对于金属介质（<span
+class="math inline">\(\sigma \ne 0\)</span>）,将(1-5)回代，得到</p>
+<p><span class="math display">\[
+\frac{1}{v^2} = \varepsilon \mu - i\frac{\sigma \mu }{\omega} \tag{1-7}
+\]</span></p>
+<p>则对于金属介质的折射率有</p>
+<p><span class="math display">\[
+N^2 = \frac{c^2}{v^2} = (\varepsilon \mu - i\frac{\sigma \mu
+}{\omega})/\varepsilon_0 \mu_0 \tag{1-8}
+\]</span></p>
+<p>可知金属的折射率为复数，记作<span class="math inline">\(N = n -
+ik\)</span>，回代入式(1-5)得</p>
+<p><span class="math display">\[
+E = E_0 \exp{(-\frac{2\pi k x}{\lambda })}\exp{ \left [ i(\omega t -
+\frac{2\pi n x}{\lambda})  \right ] }
+\]</span></p>
+<p>说明对于金属折射率的虚部会让电磁波发生指数级衰减，所以k又被称为吸收系数。</p>
+<p>同理，磁场也可以写做波函数的形式，<strong>磁场和电场的表达式如下</strong>：</p>
+<p><span class="math display">\[
+\mathbf{H} = H_0 \exp{ \left [ i(\omega t - \frac{2\pi N }{\lambda})
+\mathbf{S_0} \cdot \mathbf{r}  \right ] }
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{E} = E_0 \exp{ \left [ i(\omega t - \frac{2\pi N }{\lambda})
+\mathbf{S_0} \cdot \mathbf{r}  \right ] }
+\]</span></p>
+<p>其中<span
+class="math inline">\(\mathbf{S_0}\)</span>是平面波传播方向的单位矢量，<span
+class="math inline">\(\mathbf{r}\)</span>是坐标矢径。</p>
+<p>对于<span class="math inline">\(\nabla \times H = -i\frac{2\pi
+N}{\lambda}(\mathbf{S_0} \times
+\mathbf{H})\)</span>带入麦克斯韦方程组得</p>
+<p><span class="math display">\[
+\mathbf{S_0} \times \mathbf{H} = -\frac{N\sqrt{\varepsilon _0/\mu_0}
+}{\mu_r} \mathbf{E}
+\]</span></p>
+<p><span class="math display">\[
+\frac{N\sqrt{\varepsilon _0/\mu_0} }{\mu_r} \mathbf{S_0} \times
+\mathbf{E} = \mathbf{H}
+\]</span></p>
+<p>上两式说明，电场和磁场是相互垂直的，而且都与传播方向垂直，且符合右手螺旋法则。对于传播过程中，E和H不但相互垂直，且数值间也存在一定比值。</p>
+<p><span class="math display">\[
+Y = \frac{\left | \mathbf{H} \right | }{\left | \mathbf{S_0 \times E}
+\right | } = \frac{N\sqrt{\varepsilon _0 / \mu_0}}{\mu_r}
+\]</span></p>
+<p>Y被称为介质的光学导纳，其中磁导率<span
+class="math inline">\(\mu_r\)</span>通常接近于1，若以自由空间导纳<span
+class="math inline">\(\sqrt{\varepsilon _0 /
+\mu_0}\)</span>为单位，则光学导纳与折射率相等。</p>
+<h2 id="折射反射定律">2.折射反射定律</h2>
+<p>根据电磁场的边界条件在界面处E和H的切向分量是连续的，有</p>
+<p><span class="math display">\[
+E_t^i + E_t^r = E_t^t
+\]</span></p>
+<p><span class="math display">\[
+H_t^i + H_t^r = H_t^t
+\]</span></p>
+<p><img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/image/202406052131554.png" /></p>
+<p>按图中所示，光线在xz平面传播，以<span
+class="math inline">\(\theta_0\)</span>的角度入射到界面，界面为<span
+class="math inline">\(z=0\)</span>平面。其入射光相位因子为</p>
+<p><span class="math display">\[
+\exp{\left \{ i\left [ \omega _i t - \frac{2\pi N_0}{\lambda} \left
+(  \sin\theta_0 x + \cos \theta_0 z\right ) \right ]  \right \} }
+\]</span></p>
+<p>设反射光和透射光的相位分别为</p>
+<p><span class="math display">\[
+\exp{\left \{ i\left [ \omega _i t - \frac{2\pi N_0}{\lambda} \left
+(  \alpha_r x +\beta_r y+ \gamma_r z\right ) \right ]  \right \} }
+\]</span></p>
+<p><span class="math display">\[
+\exp{\left \{ i\left [ \omega _i t - \frac{2\pi N_1}{\lambda} \left
+(  \alpha_t x +\beta_t y+ \gamma_t z\right ) \right ]  \right \} }
+\]</span></p>
+<p>要满足边界条件，界面上的相位因子必须相等。所以有<span
+class="math inline">\(\beta_r = \beta_t = 0\)</span>、<span
+class="math inline">\(N_0 \alpha_i = N_0 \alpha_r = N_1
+\alpha_t\)</span></p>
+<p>可以得出反射和折射定律</p>
+<p><span class="math display">\[
+\theta_0 = \theta_r
+\]</span></p>
+<p><span class="math display">\[
+N_0 \sin \theta_0 = N_1 \sin \theta_t
+\]</span></p>
+<h2 id="菲涅尔公式">3.菲涅尔公式</h2>
+<h3 id="垂直入射情况">3.1 垂直入射情况</h3>
+<p>为进一步研究反射光和入射光振幅和相位的变化关系，我们先假设光是垂直入射界面的。</p>
+<p>对于垂直入射界面的光，显然有E和H都是平行于界面，有 <span
+class="math display">\[
+H_1 = H_t , E_1 = E_t
+\]</span></p>
+<p>又根据边界条件有</p>
+<p><span class="math display">\[
+E_1 = E_0^+ + E_0^-
+\]</span></p>
+<p><span class="math display">\[
+H_1 = H_0^+ + H_0^-
+\]</span></p>
+<p>其中下标0和1代表界面的两边，上标+代表正向传播，-代表反向传播。结合上式有</p>
+<p><span class="math display">\[
+H_1 = N_1(S_0 \times E_1) = N_0(S_0 \times E_0^+ - S_0 \times E^-_0)
+\]</span></p>
+<p>即</p>
+<p><span class="math display">\[
+N_1 E_1 = N_0 (E_0^+ - E_0^-)
+\]</span></p>
+<p>化简可得反射系数和透射系数</p>
+<p><span class="math display">\[
+r = \frac{E_0^-}{E_0^+} = \frac{N_0-N_1}{N_0+N_1}
+\]</span></p>
+<p><span class="math display">\[
+t = \frac{E_1}{E_0^+} = \frac{2N_0}{N_0 + N_1}
+\]</span></p>
+<h3 id="倾斜入射情况">3.2 倾斜入射情况</h3>
+<p>下面考虑倾斜入射的情况。我们将入射的电磁波分解为，电场垂直反射面（s光）和平行反射面（p光）振动的两种状态。</p>
+<p><img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/image/202406052138385.png" /></p>
+<p>为方便定义切向分量，现引入有效导纳的概念</p>
+<p><span class="math display">\[
+\eta = H_t^+ / (S_0 \times E_t^+)
+\]</span></p>
+<p>对于p光（TM波），磁场H垂直于入射面，与界面平行，因此<span
+class="math inline">\(H = H_t\)</span>，而电场<span
+class="math inline">\(E=Ecos \theta\)</span></p>
+<p><span class="math display">\[
+H_t = H = N(S_0 \times E) = N(r_0 \times E_t/cos\theta) =
+\frac{N}{cos\theta}(r_0 \times E_t)
+\]</span></p>
+<p>所以对于p光有<span class="math inline">\(\eta_p = N/cos
+\theta\)</span>,同理对于s光有<span class="math inline">\(\eta_s = Ncos
+\theta\)</span></p>
+<p>对菲涅尔反射系数可以写作</p>
+<p><span class="math display">\[
+r_p = \frac{\eta_{0p}-\eta_{1p}}{\eta_{0p}+\eta_{1p}} =
+\frac{N_0cos\theta_1 - N_1 cos\theta_0}{N_0cos\theta_1 + N_1
+cos\theta_0}
+\]</span></p>
+<p><span class="math display">\[
+r_s = \frac{\eta_{0s}-\eta_{1s}}{\eta_{0s}+\eta_{1s}} =
+\frac{N_0cos\theta_0 - N_1 cos\theta_1}{N_0cos\theta_0 + N_1
+cos\theta_1}
+\]</span></p>
+<p>对于透射系数可以写作</p>
+<p><span class="math display">\[
+t_p = \frac{2N_0cos\theta_0}{N_0cos\theta_1+N_1cos\theta_0}
+\]</span></p>
+<p><span class="math display">\[
+t_s = \frac{2N_0cos\theta_0}{N_0cos\theta_0 + N_1cos\theta_1}
+\]</span></p>
+<p>反射率为</p>
+<p><span class="math display">\[
+R = r^2
+\]</span></p>
+<p>透射率为</p>
+<p><span class="math display">\[
+T = \frac{N_1cos\theta_1}{N_0cos\theta_0}|t^2|
+\]</span></p>
+<p>该公式对复折射率介质也同样成立。</p>
+<p>给出计算代码如下，其中函数公式中符号相反只影响相位，并不影响透射和反射率。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Fresnel</span>(<span class="params">n1, n2, theta1</span>):</span><br><span class="line">    <span class="comment"># 角度转弧度</span></span><br><span class="line">    theta1 = theta1 /<span class="number">180</span> * np.pi</span><br><span class="line">    costheta1 = np.cos(theta1)</span><br><span class="line">    n1_r = n1.real</span><br><span class="line">    n2_r = n2.real</span><br><span class="line">    costheta2_2 = <span class="number">1</span>-(n1_r/n2_r*np.sin(theta1))**<span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> costheta2_2 &gt;= <span class="number">0</span>:</span><br><span class="line">        costheta2 = np.sqrt(costheta2_2)</span><br><span class="line">        rp = (n2*costheta1 - n1*costheta2)/(n2*costheta1 + n1*costheta2)</span><br><span class="line">        rs = (n1*costheta1 - n2*costheta2)/(n1*costheta1 + n2*costheta2)</span><br><span class="line">        tp = (<span class="number">2</span>*n1*costheta1)/(n1*costheta2+n2*costheta1)</span><br><span class="line">        ts = (<span class="number">2</span>*n1*costheta1)/(n1*costheta1+n2*costheta2)    </span><br><span class="line">        temp = n2*costheta2/(n1*costheta1)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment">#发生了全反射</span></span><br><span class="line">        rp = <span class="number">1.0</span></span><br><span class="line">        rs = <span class="number">1.0</span></span><br><span class="line">        tp = <span class="number">0.0</span></span><br><span class="line">        ts = <span class="number">0.0</span></span><br><span class="line">        temp = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rp**<span class="number">2</span>, rs**<span class="number">2</span>, temp*(tp**<span class="number">2</span>),temp*(ts**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">theta_ls = np.linspace(<span class="number">0</span>, <span class="number">90</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">N_Bk7 = <span class="number">1.5214145</span></span><br><span class="line">N_air = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># p光数据</span></span><br><span class="line">Rp_ls = []</span><br><span class="line">Tp_ls = []</span><br><span class="line"><span class="comment"># s光数据</span></span><br><span class="line">Rs_ls = []</span><br><span class="line">Ts_ls = []</span><br><span class="line"><span class="comment"># 平均数据</span></span><br><span class="line">Avg_r_ls = []</span><br><span class="line">Avg_t_ls = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吸收计算，暂时为 0</span></span><br><span class="line">absorb = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> theta <span class="keyword">in</span> theta_ls:</span><br><span class="line">    Rp,Rs,Tp,Ts = Fresnel(N_air,N_Bk7,theta)</span><br><span class="line">    Rp_ls.append(Rp)</span><br><span class="line">    Rs_ls.append(Rs)</span><br><span class="line">    Tp_ls.append(Tp)</span><br><span class="line">    Ts_ls.append(Ts)</span><br><span class="line">    Avg_r_ls.append((Rp+Rs)/<span class="number">2</span>)</span><br><span class="line">    Avg_t_ls.append((Tp+Ts)/<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.figure(<span class="number">1</span>)</span><br><span class="line">plt.plot(theta_ls,Rp_ls,color=<span class="string">&quot;green&quot;</span>,label = <span class="string">&#x27;p&#x27;</span>)</span><br><span class="line">plt.plot(theta_ls,Rs_ls,color=<span class="string">&quot;blue&quot;</span>,label = <span class="string">&#x27;s&#x27;</span>)</span><br><span class="line">plt.plot(theta_ls,Avg_r_ls,color=<span class="string">&quot;red&quot;</span>,label = <span class="string">&#x27;avg&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&quot;upper left&quot;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;R&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.figure(<span class="number">2</span>)</span><br><span class="line">plt.plot(theta_ls,Tp_ls,color=<span class="string">&quot;green&quot;</span>,label = <span class="string">&#x27;p&#x27;</span>)</span><br><span class="line">plt.plot(theta_ls,Ts_ls,color=<span class="string">&quot;blue&quot;</span>,label = <span class="string">&#x27;s&#x27;</span>)</span><br><span class="line">plt.plot(theta_ls,Avg_t_ls,color=<span class="string">&quot;red&quot;</span>,label = <span class="string">&#x27;avg&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&quot;upper left&quot;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;T&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h3 id="全反射情况">3.3 全反射情况</h3>
+<p>这里只给出相位公式，公式来着参考资料[1]</p>
+<p><span class="math display">\[
+\tan \frac{1}{2}\varphi _s = \frac{(\sin^2\theta_0 -
+n_1^2/n_0^2)^{1/2}}{\cos \theta_0}
+\]</span></p>
+<p><span class="math display">\[
+\tan \frac{1}{2}\varphi _p = \frac{n_1^2/n_0^2 \cdot
+\cos\theta_0}{(\sin^2\theta_0 - n_1^2/n_0^2)^{1/2}}
+\]</span></p>
+<p>但在使用zemax仿真时，发现相位不需要乘2数值才是匹配的，源码和仿真结果如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Phase</span>(<span class="params">n1, n2, theta1</span>):</span><br><span class="line">    <span class="comment"># 角度转弧度</span></span><br><span class="line">    theta1 = theta1 /<span class="number">180</span> * np.pi</span><br><span class="line">    costheta1 = np.cos(theta1)</span><br><span class="line">    n1_r = n1.real</span><br><span class="line">    n2_r = n2.real</span><br><span class="line">    costheta2_2 = <span class="number">1</span>-(n1_r/n2_r*np.sin(theta1))**<span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> costheta2_2 &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> n1 &gt; n2:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment">#全反射</span></span><br><span class="line">        tande_s = np.sqrt(np.sin(theta1)**<span class="number">2</span>-n2**<span class="number">2</span>/n1**<span class="number">2</span>)/costheta1</span><br><span class="line">        a = (n2**<span class="number">2</span>)/(n1**<span class="number">2</span>) * (costheta1)</span><br><span class="line">        b = np.sqrt(np.sin(theta1)**<span class="number">2</span> - n2**<span class="number">2</span>/n1**<span class="number">2</span>)</span><br><span class="line">        tande_p = -(a)/(b)</span><br><span class="line">        <span class="keyword">return</span> np.arctan(tande_p)/np.pi*<span class="number">180</span>,np.arctan(tande_s)/np.pi*<span class="number">180</span></span><br><span class="line"></span><br><span class="line">theta_ls = np.linspace(<span class="number">0</span>, <span class="number">90</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">N_Bk7 = <span class="number">1.5214145</span></span><br><span class="line">N_air = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># p光数据</span></span><br><span class="line">Rp_ls = []</span><br><span class="line">Tp_ls = []</span><br><span class="line"><span class="comment"># s光数据</span></span><br><span class="line">Rs_ls = []</span><br><span class="line">Ts_ls = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> theta <span class="keyword">in</span> theta_ls:</span><br><span class="line">    dep,des = Phase(N_Bk7, N_air, theta)</span><br><span class="line">    Rp_ls.append(dep)</span><br><span class="line">    Rs_ls.append(des)</span><br><span class="line"></span><br><span class="line">plt.figure(<span class="number">1</span>)</span><br><span class="line">plt.plot(theta_ls,Rp_ls,color=<span class="string">&quot;green&quot;</span>,label = <span class="string">&#x27;p&#x27;</span>)</span><br><span class="line">plt.plot(theta_ls,Rs_ls,color=<span class="string">&quot;blue&quot;</span>,label = <span class="string">&#x27;s&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/image/202406052139055.png"
+alt="全反射" />
+<figcaption aria-hidden="true">全反射</figcaption>
+</figure>
+<h2 id="参考资料">参考资料</h2>
+<p>[1] 唐晋发.现代光学薄膜技术.浙江大学出版社.2006年</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>哼！我才不会为五斗米折腰</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="splendidwave 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="splendidwave 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>splendidwave
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://splendidwave.github.io/2024/06/05/2024-6/%E5%85%89%E5%AD%A6%E8%96%84%E8%86%9C%E7%89%B9%E6%80%A7%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%971-%E8%8F%B2%E6%B6%85%E5%B0%94%E5%85%AC%E5%BC%8F/" title="光学薄膜特性理论计算1-菲涅尔公式">https://splendidwave.github.io/2024/06/05/2024-6/光学薄膜特性理论计算1-菲涅尔公式/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%85%89%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 光学</a>
+              <a href="/tags/%E8%96%84%E8%86%9C/" rel="tag"><i class="fa fa-tag"></i> 薄膜</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/24/2023-11/%E5%83%8F%E5%B7%AE%E7%90%86%E8%AE%BA/" rel="prev" title="像差理论">
+                  <i class="fa fa-chevron-left"></i> 像差理论
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/06/05/2024-6/%E5%85%89%E5%AD%A6%E8%96%84%E8%86%9C%E7%89%B9%E6%80%A7%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%972-%E4%BC%A0%E8%BE%93%E7%9F%A9%E9%98%B5%E6%B3%95/" rel="next" title="光学薄膜特性理论计算2-传输矩阵法">
+                  光学薄膜特性理论计算2-传输矩阵法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">splendidwave</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">231k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:30</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"splendidwave","repo":"splendidwave.github.io","client_id":"6e4c8bd3e05d90967417","client_secret":"7d19de0b0132f61e084fb554d31409f83210ab7a","admin_user":"splendidwave","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"0adfff2eafc101abdf5a65bcdf1232ce"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
